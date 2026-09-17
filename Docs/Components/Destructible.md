@@ -4116,40 +4116,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_hitEffectBigThreshold|System.Single|0|
 |m_hitEffectBuildUpThreshold|System.Single|0|
 
-## placeable_bigrock_01: placeable_bigrock_01
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_health|System.Single|1|
-|m_minDamageTreshold|System.Single|0|
-|m_minToolTier|System.Int32|0|
-|m_hitNoise|System.Single|0|
-|m_destroyNoise|System.Single|0|
-|m_triggerPrivateArea|System.Boolean|False|
-|m_ttl|System.Single|0|
-|m_spawnWhenDamaged|UnityEngine.GameObject|*null*|
-|m_spawnWhenDestroyed|UnityEngine.GameObject|Rock_3_frac|
-|m_autoCreateFragments|System.Boolean|False|
-|m_hitEffectBigThreshold|System.Single|0|
-|m_hitEffectBuildUpThreshold|System.Single|0|
-
-## placeable_bigrock_02: placeable_bigrock_02
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_health|System.Single|30|
-|m_minDamageTreshold|System.Single|0|
-|m_minToolTier|System.Int32|0|
-|m_hitNoise|System.Single|0|
-|m_destroyNoise|System.Single|0|
-|m_triggerPrivateArea|System.Boolean|False|
-|m_ttl|System.Single|0|
-|m_spawnWhenDamaged|UnityEngine.GameObject|*null*|
-|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
-|m_autoCreateFragments|System.Boolean|False|
-|m_hitEffectBigThreshold|System.Single|0|
-|m_hitEffectBuildUpThreshold|System.Single|0|
-
 ## prop_ashwood_bed: prop_ashwood_bed
 
 |Field|Type|Default Value|

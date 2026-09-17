@@ -1521,13 +1521,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
-## placeable_bigrock_02: placeable_bigrock_02
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_spawnYOffset|System.Single|0.5|
-|m_spawnYStep|System.Single|0.3|
-
 ## prop_ashwood_bed: prop_ashwood_bed
 
 |Field|Type|Default Value|

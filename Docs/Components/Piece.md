@@ -23169,7 +23169,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
-|m_groundOnly|System.Boolean|False|
+|m_groundOnly|System.Boolean|True|
 |m_cultivatedGroundOnly|System.Boolean|False|
 |m_waterPiece|System.Boolean|False|
 |m_clipGround|System.Boolean|False|
@@ -23189,7 +23189,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_removePiece|System.Boolean|False|
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
-|m_canBeRemoved|System.Boolean|False|
+|m_canBeRemoved|System.Boolean|True|
 |m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
@@ -23220,7 +23220,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
-|m_groundOnly|System.Boolean|False|
+|m_groundOnly|System.Boolean|True|
 |m_cultivatedGroundOnly|System.Boolean|False|
 |m_waterPiece|System.Boolean|False|
 |m_clipGround|System.Boolean|False|
@@ -23240,7 +23240,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_removePiece|System.Boolean|False|
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
-|m_canBeRemoved|System.Boolean|False|
+|m_canBeRemoved|System.Boolean|True|
 |m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|

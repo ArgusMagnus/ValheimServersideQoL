@@ -338,6 +338,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
+## piece_groundtorch: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
 ## piece_groundtorch_blue: FireWarmth
 
 |Field|Type|Default Value|

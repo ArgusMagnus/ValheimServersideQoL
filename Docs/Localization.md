@@ -5370,6 +5370,7 @@
 |settings_3dresolution|3D resolution limit|
 |settings_accessibility|Accessibility|
 |settings_account|Account|
+|settings_altdodge|Alternative dodge|
 |settings_altkeys|(Alt buttons)|
 |settings_altplace|Alternative placement|
 |settings_animateradial|Animate Radial|
@@ -5405,6 +5406,7 @@
 |settings_camzoomin|Zoom in view|
 |settings_camzoomout|Zoom out view|
 |settings_chat|Chat|
+|settings_clearkeyinfo|Press delete to clear|
 |settings_close_radial|Close Radial Menu / Emote Wheel|
 |settings_clothquality|Cloth Quality|
 |settings_cloud_storage_warning|Setting the backups to a high value involves the risk of running out of storage.|
@@ -5466,6 +5468,14 @@
 |settings_guiscale|Scale GUI|
 |settings_hide|Hide/show weapon|
 |settings_high|High|
+|settings_hotbar1|Hotbar 1|
+|settings_hotbar2|Hotbar 2|
+|settings_hotbar3|Hotbar 3|
+|settings_hotbar4|Hotbar 4|
+|settings_hotbar5|Hotbar 5|
+|settings_hotbar6|Hotbar 6|
+|settings_hotbar7|Hotbar 7|
+|settings_hotbar8|Hotbar 8|
 |settings_hotbarright|Cycle hotbar|
 |settings_hotbaruse|Use hotbar item|
 |settings_hoverselectspd|Hover Select Speed|
@@ -5506,6 +5516,7 @@
 |settings_nextsnap|Next snap point|
 |settings_open_emote_wheel|Open Emote Wheel|
 |settings_open_radial|Open Radial Menu|
+|settings_open_radial_wheel|Open Radial Wheel|
 |settings_persistentbackbtn|Persistent Back Button|
 |settings_persistentbackbtn_descr|When scrolling through a radial menu with multiple pages, the top-most element will always be a back button.|
 |settings_place|Place|
@@ -5566,6 +5577,7 @@
 |settings_simulationdistance_square|square $1 m|
 |settings_simulationdistance_warning|Increasing the draw distance may severly degrade performance!|
 |settings_sit|Sit|
+|settings_skip_intro_cinematic|Skip intro cinematic|
 |settings_softpart|Soft particles|
 |settings_spiral_normal|Normal|
 |settings_spiral_off|Off|
@@ -5579,6 +5591,7 @@
 |settings_test|Test|
 |settings_toggle_attack_towards_look_direction|Attack towards look direction|
 |settings_toggle_attack_towards_look_direction_tooltip|If off, attacks will instead be made in the direction the camera is facing.|
+|settings_toggleblock|Toggle block|
 |settings_togglehud|Toggle HUD|
 |settings_togglerun|Toggle sprint|
 |settings_tutorialsenabled|Enable raven hints|

@@ -1410,14 +1410,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject|visual|
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|MushroomJotunPuffs|
 |m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
 |m_dontScale|System.Boolean|False|
 |m_overrideName|System.String||
-|m_respawnTimeMinutes|System.Single|240|
+|m_respawnTimeMinutes|System.Single|0|
 |m_respawnTimeInitMin|System.Single|0|
 |m_respawnTimeInitMax|System.Single|0|
 |m_hoverOffset|System.Single|0|
@@ -1437,14 +1437,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject|visual|
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|MushroomMagecap|
 |m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
 |m_dontScale|System.Boolean|False|
 |m_overrideName|System.String||
-|m_respawnTimeMinutes|System.Single|240|
+|m_respawnTimeMinutes|System.Single|0|
 |m_respawnTimeInitMin|System.Single|0|
 |m_respawnTimeInitMax|System.Single|0|
 |m_hoverOffset|System.Single|0|

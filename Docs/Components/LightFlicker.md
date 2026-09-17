@@ -2431,7 +2431,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
-|m_flickerSpeed|System.Single|10|
+|m_flickerSpeed|System.Single|1|
 |m_movement|System.Single|0.1|
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0.2|
@@ -2443,7 +2443,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
-|m_flickerSpeed|System.Single|1|
+|m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0.2|

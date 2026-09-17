@@ -18850,6 +18850,70 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|False|
 
+## placeable_bigrock_01: placeable_bigrock_01
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|True|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|1500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## placeable_bigrock_02: placeable_bigrock_02
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|True|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|1500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
 ## Placeable_HardRock: Placeable_HardRock
 
 |Field|Type|Default Value|
