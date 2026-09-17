@@ -1,5 +1,5 @@
 ### v2.0.14
-- Required for [AutoStore](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_AutoStore) v2.0.14
+- All configs are now auto-reloaded by default [#215](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/215)/[#250](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/250)
 
 ### v2.0.13
 - Fixed StackOverflowException (infinite recursion) [#248](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/248)
