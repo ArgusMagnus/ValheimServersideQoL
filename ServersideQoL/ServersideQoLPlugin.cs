@@ -32,6 +32,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
   Func<PrefabInfo> _prefabInfoFactory = default!;
   readonly ConcurrentDictionary<int, PrefabInfo> _prefabInfos = [];
+  readonly ConcurrentDictionary<IConfig, object?> _changedConfigs = [];
 
   uint _unfinishedProcessingInRow;
 
@@ -409,9 +410,23 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
             prefabInfo.EnabledProcessors.Remove(processor);
         }
       }
+    }
 
-      if (cfg.Enabled.Value)
+    if (cfg.Enabled.Value)
+      _changedConfigs.TryAdd(cfg, null);
+  }
+
+  void Execute(PeersEnumerable peers, double timeBudgetSeconds)
+  {
+    var timeStartSeconds = Time.realtimeSinceStartupAsDouble;
+
+    if (_changedConfigs.Count > 0)
+    {
+      foreach (var cfg in _changedConfigs.Keys)
       {
+        if (!_changedConfigs.TryRemove(cfg, out _) || !cfg.Enabled.Value)
+          continue;
+
         foreach (var processor in cfg.Plugin.Processors)
           processor.Initialize();
 
@@ -422,11 +437,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         }
       }
     }
-  }
-
-  void Execute(PeersEnumerable peers, double timeBudgetSeconds)
-  {
-    var timeStartSeconds = Time.realtimeSinceStartupAsDouble;
 
     peers.Update();
     if (peers.Count is 0)

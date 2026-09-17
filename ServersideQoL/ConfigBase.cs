@@ -1,6 +1,5 @@
 ﻿using BepInEx.Configuration;
 using ServersideQoL.Utilities;
-using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using YamlDotNet.Serialization;
@@ -55,24 +54,17 @@ public abstract class ConfigBase
     public T Value { get; private set { IsDefault = value.Equals(field); field = value; } } = value;
     public bool IsDefault { get; private set; } = true;
     public event Action<YamlConfigEntry<T>>? ValueChanged;
-    readonly FileSystemWatcher _fileWatcher = GetFileWatcher(filePath);
+    readonly DebouncedFileWatcher _fileWatcher = new(filePath);
 
     string IYamlConfigEntry.FilePath => _filePath;
     object IYamlConfigEntry.Value => Value;
-
-    static FileSystemWatcher GetFileWatcher(string filePath)
-    {
-      var dir = Path.GetDirectoryName(filePath);
-      Directory.CreateDirectory(dir);
-      return new(dir, Path.GetFileName(filePath));
-    }
 
     void Deserialize()
     {
       if (!File.Exists(_filePath))
         return;
 
-      _fileWatcher.EnableRaisingEvents = false;
+      _fileWatcher.Enabled = false;
       try
       {
         var deserializer = new DeserializerBuilder()
@@ -92,18 +84,17 @@ public abstract class ConfigBase
       {
         ServersideQoLPlugin.Logger.LogWarning($"{Path.GetFileName(_filePath)}: {ex}");
       }
-      _fileWatcher.EnableRaisingEvents = true;
+      _fileWatcher.Enabled = true;
     }
 
     void IYamlConfigEntry.Deserialize()
     {
       Deserialize();
-      _fileWatcher.Created += OnFileCreatedOrChanged;
-      _fileWatcher.Changed += OnFileCreatedOrChanged;
-      _fileWatcher.EnableRaisingEvents = true;
+      _fileWatcher.FileCreatedOrChanged += OnFileCreatedOrChanged;
+      _fileWatcher.Enabled = true;
     }
 
-    void OnFileCreatedOrChanged(object sender, FileSystemEventArgs e) => Deserialize();
+    async void OnFileCreatedOrChanged(object sender, FileSystemEventArgs e) => Deserialize();
   }
 
   private protected sealed class MyTypeInspector(ITypeInspector inner) : TypeInspectorSkeleton
