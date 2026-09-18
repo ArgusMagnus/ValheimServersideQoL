@@ -124,8 +124,13 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public sealed class AdvancedConfig
   {
-    public BloodMagicConfig BloodMagic { get; init; } = new();
+    public PickaxeConfig Pickaxe { get; init; } = new();
+    public sealed class PickaxeConfig
+    {
+      public int MaxDestroyedRockPartsAtOnce { get; init; } = 4;
+    }
 
+    public BloodMagicConfig BloodMagic { get; init; } = new();
     public sealed class BloodMagicConfig
     {
       public sealed record FollowSummonerConfig(float MoveInterval, float MaxDistance) { FollowSummonerConfig() : this(default, default) { } }

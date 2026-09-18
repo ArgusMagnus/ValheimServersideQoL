@@ -72,13 +72,11 @@ public sealed class MineRockProcessor : Processor<MineRockProcessor.PrefabInfo>
 
     if (destroy)
     {
-      var hit = new HitData();
-      foreach (var (idx, health) in _notDestroyedIndices)
+      var hit = new HitData() { m_toolTier = short.MaxValue, m_hitType = HitData.HitType.Structural };
+      foreach (var (idx, health) in _notDestroyedIndices.Take(Config.Instance.Advanced.Value.Pickaxe.MaxDestroyedRockPartsAtOnce))
       {
         /// <see cref="MineRock5.CheckSupport"/>
         hit.m_damage.m_damage = health;
-        hit.m_toolTier = short.MaxValue;
-        hit.m_hitType = HitData.HitType.Structural;
         zdo.RPC.MineRock5.Damage(hit, idx);
       }
     }

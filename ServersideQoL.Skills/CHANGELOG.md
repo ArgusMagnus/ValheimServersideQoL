@@ -1,3 +1,6 @@
+### v2.0.14
+- Pickaxe skill: destroy rocks/ore deposists step by step to throttle the amount of drops spawned at once to reduce lag/stutter
+
 ### v2.0.11
 - Support for the new core options `UnifiedConfig` and `ConfigPerWorld`
 
