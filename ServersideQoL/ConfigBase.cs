@@ -53,7 +53,7 @@ public abstract class ConfigBase
 
   private protected void InitializeFileWatcher()
   {
-    if (__configWatcherInstalled || __fileWatcher.ContainsKey(ConfigFile))
+    if (__configWatcherInstalled || !Config.Instance.AutoReload.Value || __fileWatcher.ContainsKey(ConfigFile))
       return;
 
     var fileWatcher = new DebouncedFileWatcher(ConfigFile.ConfigFilePath);
@@ -309,6 +309,7 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
   IServersideQoLPlugin _plugin = default!;
   IServersideQoLPlugin IConfig.Plugin => _plugin;
 
+  internal static bool IsInitialized { get; private set; }
   public static TSelf Instance { get => field ?? throw new InvalidOperationException("Config has not been initialized yet"); private set; }
   protected static string Section => field ??= ((typeof(TSelf) == typeof(Config) || !Config.Instance.UnifiedConfig.Value) ? __section : $"M.{__section}");
   static readonly string __section = typeof(TSelf).Namespace.Split('.') is { Length: > 1 } parts ? parts[^1] : "General";
@@ -359,6 +360,7 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
       BindYaml(entry);
     __yaml = null;
 
+    IsInitialized = true;
     Initialized?.Invoke(ConfigFile, (TSelf)this);
 
     InitializeFileWatcher();

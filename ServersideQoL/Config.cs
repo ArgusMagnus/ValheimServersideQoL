@@ -8,11 +8,18 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Enables/disables the entire mod");
   public ConfigEntry<bool> DiagnosticLogs { get; } = BindEx(cfg, false,
     "Enables/disables diagnostic logs");
+  public ConfigEntry<bool> AutoReload { get; } = BindEx(cfg, true, """
+    True to automatically reload config files when they are changed.
+    This value is only respected during initial startup and changing it later while the server is running has no effect.
+    """);
+  public ConfigEntry<float> AutoReloadPollingIntervalSeconds { get; } = BindEx(cfg, 0f, """
+    If > 0, config files will be polled every x seconds in addition to listening for file system events.
+    This should help on file systems for which file system events don't work reliably (e.g. NFS).
+    """);    
   public ConfigEntry<bool> UnifiedConfig { get; } = BindEx(cfg, false, """
     True to use a single config file for all SQoL mods.
     DO NOT turn this on unless you've updated all SQoL mods to v2.0.11 minimum.
-    """);
-    
+    """);    
   public ConfigEntry<bool> ConfigPerWorld { get; } = BindEx(cfg, false,
     "True to save the config files for each world separately in the world save directory");
   //public ConfigEntry<bool> IgnoreGameVersionCheck { get; } = BindEx(cfg, Section, true,
