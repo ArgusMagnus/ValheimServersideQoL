@@ -1,5 +1,6 @@
 ### v2.0.14
 - All configs are now auto-reloaded by default [#215](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/215)/[#250](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/250)
+- Fix: remove remaining pieces in the world placed by pre-v2.0 versions of the mod [#255](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/255)/[#257](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/257)
 
 ### v2.0.13
 - Fixed StackOverflowException (infinite recursion) [#248](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/248)
@@ -16,8 +17,8 @@
 - Required for PrefabConfigurator
 
 ### v2.0.9
-- Fix: hard crash that stopped all SQoL mods [#214](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/214)
-- Fix: Some TameAssist features not working properly [#212](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/212)
+- Fixed hard crash that stopped all SQoL mods [#214](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/214)
+- Fixed Some TameAssist features not working properly [#212](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/212)
 
 ### v2.0.8
 - Fix: prevent exceptions in one SQoL mod from killing all other SQoL mods [#206](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/206)

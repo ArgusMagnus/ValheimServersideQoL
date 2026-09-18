@@ -120,18 +120,21 @@ public abstract class Processor
       where T : Processor, new()
       => InstanceCache<T>.Instance;
 
+  static readonly int __oldPluginGuidHash = "argusmagnus.ServersideQoL".GetStableHashCode();
+
   internal static void StaticInitialize()
   {
     __enableProcessingTimeMonitoring = Config.Instance.DiagnosticLogs.Value;
-    //__teleportableItems = null;
-    //ZoneSystemSendGlobalKeys.GlobalKeysChanged -= UpdateTeleportableItems;
-
     __dataZDO = null;
 
     foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
     {
       if (!zdo.IsModCreator(out var marker))
+      {
+        if ((int)zdo.Vars.GetCreator().Value == __oldPluginGuidHash)
+          zdo.Destroy();
         continue;
+      }
 
       if (marker is 0)
       {
