@@ -282,6 +282,9 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
       _dataRevision = _zdo.ZDO.DataRevision;
       _data = data;
+
+      if (Player.m_localPlayer is not null && ZNetScene.instance.FindInstance(_zdo.ZDO)?.GetComponentInChildren<Container>() is { } container)
+        container.CheckForChanges();
     }
   }
 }

@@ -157,6 +157,21 @@ public static class PrivateAccessor
 
   public static void SendGlobalKeys(this ZoneSystem instance, long peerID) => SendGlobalKeysAction(instance, peerID);
 
+  static Action<Container> CheckForChangesAction
+#if DEBUG
+  { get; } =
+#else
+    => field ??=
+#endif
+      Expression.Lambda<Action<Container>>(
+      Expression.Call(
+          Expression.Parameter(typeof(Container)) is var par1 ? par1 : throw new Exception(),
+          typeof(Container).GetMethod("CheckForChanges", AccessFlags | BindingFlags.Instance)),
+      par1).Compile();
+
+  public static void CheckForChanges(this Container container) => CheckForChangesAction(container);
+
+
   public static int ZSyncAnimationZDOSalt { get; } = (int)typeof(ZSyncAnimation).GetField("c_ZDOSalt", AccessFlags | BindingFlags.Static).GetRawConstantValue();
   public static int CharacterAnimationHashEncumbered { get; } = (int)typeof(Character).GetField("s_encumbered", AccessFlags | BindingFlags.Static).GetValue(null);
   public static int CharacterAnimationHashInWater { get; } = (int)typeof(Character).GetField("s_inWater", AccessFlags | BindingFlags.Static).GetValue(null);
