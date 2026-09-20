@@ -53,6 +53,8 @@ public sealed class TameableRegistryProcessor : Processor<TameableRegistryProces
       /// <see cref="Tameable.GetRemainingTime()"/>
       var tameTime = zdo.Fields<Tameable>().GetFloat(static () => x => x.m_tamingTime);
       var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);
+      if (tameTimeLeft > tameTime)
+        zdo.Vars.SetTameTimeLeft(tameTimeLeft = tameTime);
       state.Update(tameTime, tameTimeLeft);
     }
 

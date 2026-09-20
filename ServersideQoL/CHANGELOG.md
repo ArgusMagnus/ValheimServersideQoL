@@ -2,6 +2,7 @@
 - All configs are now auto-reloaded by default [#215](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/215)/[#250](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/250)
 - Fix: remove remaining pieces in the world placed by pre-v2.0 versions of the mod [#255](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/255)/[#257](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/257)
 - Potential fix for losing items on occassion when SQoL mods modify containers on a non-dedicated (in-game) server [#259](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/259)
+- Fixed [TameAssist](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_TameAssist)'s taming messages not showing correctly when taming time was modified [#264](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/264)
 
 ### v2.0.13
 - Fixed StackOverflowException (infinite recursion) [#248](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/248)

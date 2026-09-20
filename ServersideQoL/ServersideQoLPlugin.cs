@@ -747,7 +747,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       Logger.LogError($"The following processors are not used due to cyclic dependencies: {string.Join(", ", notAdded)}");
     }
 
-    Logger.DevLog(string.Join($"{Environment.NewLine}  - ", processors.Select(static x => $"{x.Attribute.Id} ({x.GetType().FullName})").Prepend("Processor order:")));
+    if (Config.Instance.DiagnosticLogs.Value)
+      Logger.LogInfo(string.Join($"{Environment.NewLine}  - ", processors.Select(static x => $"{x.Attribute.Id} ({x.GetType().FullName})").Prepend("Processor order:")));
   }
 
   internal void ScheduleReprocessing(ServersideQoLZDO zdo, float delayInSeconds)
