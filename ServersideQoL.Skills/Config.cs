@@ -127,7 +127,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public PickaxeConfig Pickaxe { get; init; } = new();
     public sealed class PickaxeConfig
     {
-      public int MaxDestroyedRockPartsAtOnce { get; init; } = 4;
+      public int MaxDestroyedRockPartsAtOnce { get; init; } = 5;
     }
 
     public BloodMagicConfig BloodMagic { get; init; } = new();

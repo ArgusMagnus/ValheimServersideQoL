@@ -81,8 +81,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
     public sealed class ProcessingDelaysConfig
     {
-      public float AfterItemDropOwnershipRequest { get; init; } = 0.1f;
-      public float StackContainerWhenMovingItems { get; init; } = 0.1f;
+      public float AfterItemDropOwnershipRequest { get; init; } = 0.2f;
+      public float StackContainerWhenMovingItems { get; init; } = 0.2f;
     }
   }
 }
