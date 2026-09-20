@@ -31,6 +31,7 @@
   <Project Path="ServersideQoL.SmartDefense/ServersideQoL.SmartDefense.csproj" Id="063f429e-801f-49af-bf6b-9c8d373120fa" />
   <Project Path="ServersideQoL.SuperWishbone/ServersideQoL.SuperWishbone.csproj" Id="70fc10dd-f5f5-487d-8d59-d36414cef9ec" />
   <Project Path="ServersideQoL.TameAssist/ServersideQoL.TameAssist.csproj" Id="9b221c72-775e-4765-a65a-c8e202c3774c" />
+  <Project Path="ServersideQoL.Treesurrection/ServersideQoL.Treesurrection.csproj" Id="86818786-f4b0-4d09-a88e-8c0e05ac313a" />
   <Project Path="ServersideQoL.WorldOptions/ServersideQoL.WorldOptions.csproj" Id="c3169757-7601-4940-a069-be179c8a66af" />
   <Project Path="ServersideQoL/ServersideQoL.csproj" />
 </Solution>
