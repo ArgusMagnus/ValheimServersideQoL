@@ -34728,40 +34728,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.7|
-|m_maxVol|System.Single|0.4|
-|m_minVol|System.Single|0.4|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_useVibration|System.Boolean|True|
-|m_vibrateAllAudible|System.Boolean|False|
-|m_vibrationModifier|System.Single|1|
-|m_playThroughController|System.Boolean|False|
-|m_playThroughAllControllers|System.Boolean|False|
-|m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|280375988|
-
-## sfx_StaffLightning_fire: sfx_StaffLightning_fire
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.7|
 |m_maxVol|System.Single|0.2|
 |m_minVol|System.Single|0.3|
 |m_fadeInDuration|System.Single|0|
@@ -34783,6 +34749,40 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2142695449|
+
+## sfx_StaffLightning_fire: sfx_StaffLightning_fire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.7|
+|m_maxVol|System.Single|0.4|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|280375988|
 
 ## sfx_stafforbofahri_cast: sfx_stafforbofahri_cast
 

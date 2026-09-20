@@ -235,6 +235,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   {
     Processors = PrefabInfo?.EnabledProcessors ?? [];
     HasProcessors = Processors.Count is not 0;
+    ExclusivityCheckDone = false;
   }
 
   public ComponentFieldAccessor<TComponent> Fields<TComponent>() where TComponent : MonoBehaviour

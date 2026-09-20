@@ -322,7 +322,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -331,7 +331,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -421,7 +421,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -430,7 +430,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -619,7 +619,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -628,16 +628,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## BowAshlandsStorm: Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -647,6 +638,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## BowAshlandsStorm: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -682,7 +682,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -691,7 +691,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -916,7 +916,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -925,7 +925,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -1492,7 +1492,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -1501,7 +1501,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -1645,7 +1645,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -1654,7 +1654,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -1672,7 +1672,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -1681,7 +1681,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2284,7 +2284,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2293,7 +2293,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2401,8 +2401,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
+|m_lightDistance|System.Single|15|
+|m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
 ## SP_StaffFireball: Point light
@@ -2410,8 +2410,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
-|m_shadowLod|System.Boolean|False|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|True|
 |m_shadowDistance|System.Single|20|
 
 ## SP_StaffLightning: Point light
@@ -2536,7 +2536,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2545,7 +2545,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2572,7 +2572,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2581,15 +2581,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## SpearSplitner_Nature: Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
@@ -2600,6 +2591,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|15|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## SpearSplitner_Nature: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2680,8 +2680,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
-|m_shadowLod|System.Boolean|False|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|True|
 |m_shadowDistance|System.Single|20|
 
 ## StaffIceShards: Point light
@@ -2689,8 +2689,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
+|m_lightDistance|System.Single|15|
+|m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
 ## StaffLightning: Point light
@@ -2842,7 +2842,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2851,7 +2851,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2932,7 +2932,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2941,7 +2941,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2977,7 +2977,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -2986,7 +2986,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -3040,7 +3040,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -3049,15 +3049,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## THSwordSlayerNature: Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
@@ -3068,6 +3059,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## THSwordSlayerNature: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 

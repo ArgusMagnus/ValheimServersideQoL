@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <StoreDependencies Include="denikson-BepInExPack_Valheim-5.4.2333" />
+    <StoreDependencies Include="denikson-BepInExPack_Valheim-5.4.2350" />
     <StoreDependencies Include="ValheimModding-YamlDotNet-16.3.1" />
   </ItemGroup>
 

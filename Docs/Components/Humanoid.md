@@ -927,7 +927,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockStaminaDrain|System.Single|25|
 |m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
-|m_name|System.String|Root|
+|m_name|System.String|$enemy_root|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
 |m_bossOrder|System.Int32|0|
@@ -14085,7 +14085,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockStaminaDrain|System.Single|25|
 |m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
-|m_name|System.String|Root|
+|m_name|System.String|$enemy_root|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
 |m_bossOrder|System.Int32|0|
@@ -14187,7 +14187,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockStaminaDrain|System.Single|25|
 |m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
-|m_name|System.String|Root|
+|m_name|System.String|$enemy_root|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
 |m_bossOrder|System.Int32|0|
@@ -15717,7 +15717,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockStaminaDrain|System.Single|25|
 |m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
-|m_name|System.String|Writhan|
+|m_name|System.String|$enemy_writhan|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
 |m_bossOrder|System.Int32|0|

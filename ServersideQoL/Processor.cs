@@ -158,6 +158,8 @@ public abstract class Processor
         {
           processor.PlacedObjects.Add(zdo);
           zdo.Destroyed += processor.OnPlacedObjectDestroyed;
+          if (processor.ClaimExclusive(zdo) && !zdo.Processors.Contains(processor))
+            zdo.UnregisterAll();
         }
       }
     }

@@ -180,25 +180,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |reverseDirection|System.Boolean|False|
 |radiusSeparation|System.Boolean|False|
 |alignedOnCenter|System.Boolean|True|
+|center|UnityEngine.Vector3|(0.00, 0.01, 0.00)|
+
+## Hildir: ClothCollider
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|reverseDirection|System.Boolean|False|
+|radiusSeparation|System.Boolean|False|
+|alignedOnCenter|System.Boolean|True|
+|center|UnityEngine.Vector3|(0.00, 0.01, 0.00)|
+
+## Hildir: ClothCollider
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|reverseDirection|System.Boolean|False|
+|radiusSeparation|System.Boolean|False|
+|alignedOnCenter|System.Boolean|True|
 |center|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
-
-## Hildir: ClothCollider
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|reverseDirection|System.Boolean|False|
-|radiusSeparation|System.Boolean|False|
-|alignedOnCenter|System.Boolean|True|
-|center|UnityEngine.Vector3|(0.00, 0.01, 0.00)|
-
-## Hildir: ClothCollider
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|reverseDirection|System.Boolean|False|
-|radiusSeparation|System.Boolean|False|
-|alignedOnCenter|System.Boolean|True|
-|center|UnityEngine.Vector3|(0.00, 0.01, 0.00)|
 
 ## Hildir: ClothCollider
 

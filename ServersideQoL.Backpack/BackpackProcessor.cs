@@ -243,16 +243,8 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
     Logger.LogInfo($"Backpack items of player '{playerState.PlayerName}' dropped at death location.");
   }
 
-  void DropBackback(long peerID)
+  void CreateBackpackTombstone(PlayerState playerState, long peerID, ContainerState.IInventory backpackInventory)
   {
-    if (Instance<PlayerRegistryProcessor>().GetStateForPeerID(peerID) is not { } playerState
-      || GetState(playerState) is not { BackpackContainer: { } backpack, Container: { } container })
-      return;
-
-    var backpackInventory = Instance<ContainerRegistryProcessor>().GetState(backpack, container).GetInventory();
-    if (backpackInventory.Items.Count is 0)
-      return;
-
     var pos = playerState.ZDO.ZDO.GetPosition();
     pos.y += Config.Instance.Advanced.Value.BackpackOnDeathDropTombStone.VerticalOffset;
     var zdo = Spawn(BackpackTombstonePrefab, pos, playerState.ZDO.ZDO.GetRotation(), owner: peerID);
@@ -269,6 +261,19 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
     foreach (var item in backpackInventory.Items)
       inventory.Items.Add(item);
     inventory.Save();
+  }
+
+  void DropBackback(long peerID)
+  {
+    if (Instance<PlayerRegistryProcessor>().GetStateForPeerID(peerID) is not { } playerState
+      || GetState(playerState) is not { BackpackContainer: { } backpack, Container: { } container })
+      return;
+
+    var backpackInventory = Instance<ContainerRegistryProcessor>().GetState(backpack, container).GetInventory();
+    if (backpackInventory.Items.Count is 0)
+      return;
+
+    CreateBackpackTombstone(playerState, peerID, backpackInventory);
 
     DestroyObject(backpack);
     Logger.LogInfo($"Backpack of player '{playerState.PlayerName}' dropped at death location.");
@@ -368,7 +373,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
 
       if (BackpackContainer is null)
       {
-        BackpackContainer = _processor.PlacedObjects.FirstOrDefault(x => GetProcessorPrefabInfo(x) is { Container: not null } && x.IsModCreator(out var marker) && marker is CreatorMarkers.ProcessorOwned && x.Vars.GetPlayerID() == PlayerState.PlayerID);
+        BackpackContainer = GetExistingBackpack();
         BackpackContainer?.Fields<Container>().Set(static () => x => x.m_name, Config.Instance.Localization.Value.BackpackName);
       }
 #if DEBUG
@@ -401,6 +406,45 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
       }
       Container = GetPrefabInfo(BackpackContainer).GetRequiredComponent<Container>();
       return false;
+    }
+
+    ServersideQoLZDO? GetExistingBackpack()
+    {
+      ServersideQoLZDO? backpack = null;
+      Container? backpackContainer = null;
+      foreach (var zdo in _processor.PlacedObjects)
+      {
+        if (GetProcessorPrefabInfo(zdo) is not { Container: { } container })
+          continue;
+        if (!zdo.IsModCreator(out var marker) || marker is not CreatorMarkers.ProcessorOwned || zdo.Vars.GetPlayerID() != PlayerState.PlayerID)
+          continue;
+
+        if (backpack is null)
+        {
+          (backpack, backpackContainer) = (zdo, container);
+          continue;
+        }
+
+        var backpackInventory = Instance<ContainerRegistryProcessor>().GetState(backpack, backpackContainer!).GetInventory();
+        if (backpackInventory.Items.Count is 0)
+        {
+          backpack.Destroy();
+          (backpack, backpackContainer) = (zdo, container);
+          continue;
+        }
+
+        var inventory = Instance<ContainerRegistryProcessor>().GetState(zdo, container).GetInventory();
+        if (inventory.Items.Count is 0)
+        {
+          zdo.Destroy();
+          continue;
+        }
+
+        _processor.Logger.LogWarning($"Additional backpack found for player {PlayerState.PlayerName}, dropping backpack tombstone at player location");
+        _processor.CreateBackpackTombstone(PlayerState, PlayerState.Owner, inventory);
+        zdo.Destroy();
+      }
+      return backpack;
     }
 
     public Timestamp? OpenBackpackAfter { get; set; }
