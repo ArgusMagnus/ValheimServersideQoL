@@ -190,6 +190,8 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     }
 
     var maxLevel = creatureSpawner.m_maxLevel + increase;
+    if (Config.Instance.MaxLevelCap.Value > 0)
+      maxLevel = Math.Min(maxLevel, Config.Instance.MaxLevelCap.Value);
     if (fields.UpdateValue(static () => x => x.m_maxLevel, maxLevel))
       result |= ProcessResult.RecreateZDO;
 
@@ -312,6 +314,8 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
       return result;
 
     var maxLevel = spawnData.MaxLevel + increase;
+    if (Config.Instance.MaxLevelCap.Value > 0)
+      maxLevel = Math.Min(maxLevel, Config.Instance.MaxLevelCap.Value);
     var chance = SpawnSystem.GetLevelUpChance(zdo.ZDO.GetPosition(), spawnData.LevelUpChance);
     var steps = maxLevel - spawnData.MinLevel;
     if (steps is not 0)

@@ -23,6 +23,12 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     Example: If this value is set to 1 and Eikthyr and the Elder is defeated, the max creature level in the Black Forest will be raised by 1 and in the Meadows by 2.
     """);
 
+  public ConfigEntry<int> MaxLevelCap { get; } = BindEx(cfg, 0, $"""
+    If > 0, caps max level of creatures at this value.
+    Example: If this value is set to 5 (4 stars), creatures in lower biomes won't get a higher level than 5
+    even when {nameof(MaxLevelIncreasePerDefeatedBoss)} is > 0 and more than 4 bosses have been defeated.
+    """);
+
   public ConfigEntry<Heightmap.Biome> TreatOceanAs { get; } = BindEx(cfg, Heightmap.Biome.BlackForest,
     "Biome to treat the ocean as for the purpose of leveling up creatures",
     new AcceptableEnum<Heightmap.Biome>(AcceptableEnum<Heightmap.Biome>.Default.AcceptableValues.Where(static x => x is not Heightmap.Biome.Ocean)));

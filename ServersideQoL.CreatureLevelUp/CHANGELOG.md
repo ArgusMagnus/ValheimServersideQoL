@@ -1,3 +1,6 @@
+### v2.0.14
+- Added config option `MaxLevelCap` [#260](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/260)
+
 ### v2.0.11
 - Support for the new core options `UnifiedConfig` and `ConfigPerWorld`
 
