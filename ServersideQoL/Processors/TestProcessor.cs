@@ -1,4 +1,6 @@
 ﻿#if DEBUG
+using ServersideQoL.Utilities;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 namespace ServersideQoL.Processors;
@@ -6,57 +8,102 @@ namespace ServersideQoL.Processors;
 [Processor("66bef8b3-dabf-48f6-a756-955fd999c4e9")]
 public sealed class TestProcessor : Processor<TestProcessor.PrefabInfo>
 {
-  public sealed record PrefabInfo(BaseAI BaseAI, ZSyncTransform ZSyncTransform) : ProcessorPrefabInfo
+  public sealed record PrefabInfo(Destructible Destructible, DropOnDestroyed DropOnDestroyed, HoverText HoverText, StaticPhysics StaticPhysics) : ProcessorPrefabInfo
   {
-    public override bool IsValid => false;
+    static Dictionary<GameObject, HashSet<TreeBase>>? __treesByStump;
+    static Dictionary<TreeBase, Plant>? __saplingByTree;
+
+    public IReadOnlyDictionary<TreeBase, Plant> SaplingsByTree { get; private set; } = default!;
+
+    [MemberNotNullWhen(true, nameof(SaplingsByTree))]
+    public override bool IsValid
+    {
+      get
+      {
+        if (PrefabInfo.Prefab is null)
+          return false;
+
+        if (__treesByStump is null || __saplingByTree is null)
+          Initialize();
+
+        if (!__treesByStump.TryGetValue(PrefabInfo.Prefab, out var trees))
+          return false;
+
+        Dictionary<TreeBase, Plant> saplingsByTree = new(trees.Count);
+        foreach (var tree in trees)
+        {
+          if (__saplingByTree.TryGetValue(tree, out var sapling))
+            saplingsByTree.Add(tree, sapling);
+        }
+        if (saplingsByTree.Count is 0)
+          return false;
+        SaplingsByTree = saplingsByTree;
+        return true;
+
+        [MemberNotNull(nameof(__treesByStump), nameof(__saplingByTree))]
+        static void Initialize()
+        {
+          __treesByStump = [];
+          __saplingByTree = [];
+          foreach (var go in ZNetScene.instance.m_prefabs)
+          {
+            if (go.GetComponentInChildren<TreeBase>() is { m_stubPrefab: not null } treeBase)
+            {
+              if (!__treesByStump.TryGetValue(treeBase.m_stubPrefab, out var set))
+                __treesByStump.Add(treeBase.m_stubPrefab, set = []);
+              set.Add(treeBase);
+            }
+            else if (go.GetComponentInChildren<Plant>() is { m_grownPrefabs.Length: > 0 } plant)
+            {
+              foreach (var go2 in plant.m_grownPrefabs)
+              {
+                if (go2.GetComponentInChildren<TreeBase>() is { m_stubPrefab: not null } treeBase2)
+                  __saplingByTree.Add(treeBase2, plant);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
-  //HashSet<ServersideQoLZDO> _zdos = [];
-  //HashSet<ServersideQoLZDO> _zdosPrev = [];
-  //DateTimeOffset _nextCheck;
-
-  //protected override void PreProcess(PeersEnumerable peers)
-  //{
-  //  (_zdos, _zdosPrev) = (_zdosPrev, _zdos);
-  //  _zdos.Clear();
-  //}
+  static readonly ServerVar<ZDOID> __saplingId = ServersideQoLPlugin.RegisterServerVar<ZDOID>("SaplingID");
+  readonly List<ZDO> _sectorObjects = [];
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
+    if (__saplingId.Get(zdo) != default)
+      return ProcessResult.UnregisterProcessor;
+
+    var sapling = prefabInfo.SaplingsByTree.Values.First()!;
+    if (prefabInfo.SaplingsByTree.Count > 1)
+    {
+      ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZNet.instance.GetSyncedSimulationDistance(), _sectorObjects);
+      foreach (var tmpZdo in _sectorObjects)
+      {
+        if (GetPrefabInfo(tmpZdo.GetPrefab()).GetComponent<TreeBase>() is { } tmpTree && prefabInfo.SaplingsByTree.TryGetValue(tmpTree, out sapling))
+          break;
+      }
+      _sectorObjects.Clear();
+    }
+
+    var pos = zdo.ZDO.GetPosition();
+    //pos.y += 1;
+    var saplingZdo = PlaceObject(pos, sapling.name.GetStableHashCode(), zdo.ZDO.GetRotation(), CreatorMarkers.ProcessorOwned);
+    saplingZdo.Fields<Plant>()
+      .Set(static () => x => x.m_growRadius, 0)
+      .Set(static () => x => x.m_destroyIfCantGrow, false);
+    __saplingId.Set(zdo, saplingZdo.ZDO.m_uid);
+    zdo.Destroyed += OnStumpDestroyed;
+
     return ProcessResult.UnregisterProcessor;
-    //if (zdo.PrefabInfo is not { PrefabName: "Lox" })
-    //  return ProcessResult.UnregisterProcessor;
+  }
 
-    //if (zdo.PrefabInfo?.Prefab.GetComponent<ZNetView>() is { m_syncInitialScale: true })
-    //  return ProcessResult.UnregisterProcessor;
-    //if (zdo.Fields<ZSyncTransform>().UpdateValue(static () => x => x.m_syncScale, true))
-    //  return ProcessResult.RecreateZDO;
-
-    //// Not too happy with this implementation, but the only thing that worked so far (after logout/login or leaving/entering zones through portal)
-    //const float Scale = 0.5f;
-
-    //_zdos.Add(zdo);
-
-    //if (!_zdosPrev.Contains(zdo))
-    //{
-    //  // not present in previous run
-    //  zdo.ZDO.RemoveVec3(ZDOVars.s_scaleHash);
-    //  _nextCheck = DateTimeOffset.UtcNow.AddSeconds(1);
-    //    Logger.DevLog($"Releasing ownership");
-    //  zdo.ZDO.Set(ZDOVars.s_scaleScalarHash, Scale);
-    //  zdo.ReleaseOwnership();
-    //}
-
-    //if (!zdo.ZDO.HasOwner())
-    //  return ProcessResult.ScheduleReprocessing;
-
-    //if (DateTimeOffset.UtcNow < _nextCheck)
-    //  return ProcessResult.ScheduleReprocessing;
-
-    //if (!zdo.ZDO.GetVec3(ZDOVars.s_scaleHash, out var scaleVec) || scaleVec.x != Scale)
-    //  _zdos.Remove(zdo); // trigger in next run
-
-    //return ProcessResult.ScheduleReprocessing;
+  void OnStumpDestroyed(ServersideQoLZDO zdo)
+  {
+    var saplingId = __saplingId.Get(zdo);
+    if (saplingId != default && ZDOMan.instance.GetZDO(saplingId) is { } saplingZdo)
+      saplingZdo.ServersideQoLZDO.Destroy();
   }
 }
 #endif
