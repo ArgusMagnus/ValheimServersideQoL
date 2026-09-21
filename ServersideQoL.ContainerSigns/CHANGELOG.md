@@ -1,3 +1,6 @@
+### v2.0.15
+- Fixed issue with range config emoji ↔️ on some platforms [#273](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/273) (contributed by [Lempac](https://github.com/Lempac))
+
 ### v2.0.11
 - Moved `FeedFromContainersMaxRange` config option from ContainerSigns to AutoProcess
 - Moved `AutoPickupMaxRange` config option from ContainerSigns to AutoStore
