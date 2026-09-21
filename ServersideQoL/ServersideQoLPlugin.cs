@@ -959,7 +959,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       if (__instance != __findOutdatedStuffLogger || data is not string str)
         return true;
 
-      return !str.EndsWith("-> ServersideQoL.Peer ZNetPeer::get_ServersideQoLPeer()") && !str.EndsWith("-> ServersideQoL.ServersideQoLZDO ZDO::get_ServersideQoLZDO()");
+      return !str.EndsWith($"-> {nameof(ServersideQoL)}.{nameof(Peer)} {nameof(ZNetPeer)}::get_{nameof(ZNetPeer.ServersideQoLPeer)}()")
+          && !str.EndsWith($"-> {nameof(ServersideQoL)}.{nameof(ServersideQoLZDO)} {nameof(ZDO)}::get_{nameof(ZDO.ServersideQoLZDO)}()");
     }
   }
 
