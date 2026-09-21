@@ -1,4 +1,4 @@
-﻿extern alias ContainerSigns;
+extern alias ContainerSigns;
 using BepInEx.Configuration;
 using ContainerAndSignProcessor = ContainerSigns::ServersideQoL.ContainerSigns.ContainerAndSignProcessor;
 using ContainerSignsPlugin = ContainerSigns::ServersideQoL.ContainerSigns.ContainerSignsPlugin;
@@ -9,7 +9,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 {
   public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
-  public ConfigEntry<bool> FeedFromContainers { get; } = BindEx(cfg, true,
+  public ConfigEntry<bool> FeedFromContainers { get; } = Shared.FeedFromContainers = BindEx(cfg, true,
     "True to automatically feed smelters from nearby containers");
   public ConfigEntry<float> FeedFromContainersRange { get; } = BindEx(cfg, 4f, $"""
     Required proximity of a container to a smelter to be used as feeding source.

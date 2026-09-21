@@ -23,7 +23,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
   readonly Regex _chestPickupRangeRegex = new($@"{Regex.Escape(PickupRangeEmoji)}\s*(?<R>\d+)");
 
   public const string FeedRangeEmoji = "↔️";
-  readonly Regex _chestFeedRangeRegex = new($@"{Regex.Escape(FeedRangeEmoji)}\s*(?<R>\d+)");
+  readonly Regex _chestFeedRangeRegex = new($@"(?:{Regex.Escape(FeedRangeEmoji)}|\u2194)\s*(?<R>\d+)");
 
   //internal const string LinkEmoji = "🔗";
   //readonly Regex _incineratorTagRegex = new($@"{Regex.Escape(LinkEmoji)}\s*(?<T>\w*)");
