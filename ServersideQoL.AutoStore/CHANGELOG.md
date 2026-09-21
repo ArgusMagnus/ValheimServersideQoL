@@ -1,3 +1,6 @@
+### v2.0.15
+- Added option `SuppressContainerModifiedEffectSound`
+
 ### v2.0.14
 - Added option `AutoPickupExcludeItemTypes` to exclude certain item types from auto pickup [#232](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/232)
 - Added option `StackInventoryIntoContainersExcludeItemTypes` to exclude certain item types from stacking into nearby containers [#232](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/232)

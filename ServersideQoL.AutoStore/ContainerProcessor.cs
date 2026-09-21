@@ -15,7 +15,17 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
   SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>? _containersByItemName;
   SectorDictionary<HashSet<ServersideQoLZDO>>? _containers;
   readonly HashSet<ItemDrop.ItemData.ItemType> _excludedTypes = [];
-  internal int EffectPrefab { get; private set; }
+  int _effectPrefab;
+
+  internal void SpawnModifiedEffect(ServersideQoLZDO container)
+  {
+    container.AssertIs<Container>();
+    if (_effectPrefab is 0)
+      return;
+    var zdo = Spawn(_effectPrefab, container.ZDO.GetPosition(), container.ZDO.GetRotation());
+    if (Config.Instance.SuppressContainerModifiedEffectSound.Value && GetPrefabInfo(zdo).HasComponent<ZSFX>())
+      zdo.Fields<ZSFX>().Set(static () => x => x.m_playOnAwake, false);
+  }
 
   protected override void Initialize()
   {
@@ -49,7 +59,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
     void UpdateEffectPrefab(ConfigBase.YamlConfigEntry<Config.AdvancedConfig> sender)
     {
-      EffectPrefab = 0;
+      _effectPrefab = 0;
       var prefabName = sender.Value.ContainerModifiedEffectPrefabName.Trim();
       if (string.IsNullOrEmpty(prefabName))
         return;
@@ -57,7 +67,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       if (ZNetScene.instance.GetPrefab(hash)?.GetComponent<TimedDestruction>() is null)
         Logger.LogWarning($"Prefab '{prefabName}' does not have the {nameof(TimedDestruction)} component and is not suitable as effect");
       else
-      EffectPrefab = hash;
+      _effectPrefab = hash;
     }
   }
 
@@ -459,10 +469,10 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     if (modified is not null)
     {
       inventory.Save();
-      if (EffectPrefab is not 0)
+      if (_effectPrefab is not 0)
       {
         foreach (var container in modified)
-          Spawn(EffectPrefab, container.ZDO.GetPosition(), container.ZDO.GetRotation());
+          SpawnModifiedEffect(container);
       }
       return true;
     }

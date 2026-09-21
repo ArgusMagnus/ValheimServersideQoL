@@ -232,9 +232,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
           ShowMessage(peers, containerZdo,
               Config.Instance.Localization.Value.FormatAutoPickup(containerState.Container.m_name, item.m_shared.m_name, stack),
               Config.Instance.PickedUpMessageType.Value);
-          var effectPrefab = Instance<ContainerProcessor>().EffectPrefab;
-          if (effectPrefab is not 0)
-            Spawn(effectPrefab, containerZdo.ZDO.GetPosition(), containerZdo.ZDO.GetRotation());
+          Instance<ContainerProcessor>().SpawnModifiedEffect(containerZdo);
         }
 
         if (item.m_stack is 0)

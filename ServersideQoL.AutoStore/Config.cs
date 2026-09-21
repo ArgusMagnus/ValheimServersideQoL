@@ -38,6 +38,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default);
   public ConfigEntry<bool> ShowContainerModifiedEffect { get; } = BindEx(cfg, true,
     "True to show an effect when a container is modified due to auto pickup or player inventory stacking");
+  public ConfigEntry<bool> SuppressContainerModifiedEffectSound { get; } = BindEx(cfg, false,
+    $"True to suppress the sound of the container modified effect when {nameof(ShowContainerModifiedEffect)} = true");
 
   public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = BindEx(cfg, Emotes.Sit, $"""
     Emote to stack inventory into containers.
