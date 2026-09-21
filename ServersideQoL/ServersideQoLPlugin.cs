@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using BepInEx.Bootstrap;
 using BepInEx.Configuration;
+using BepInEx.Logging;
 using HarmonyLib;
 using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
@@ -14,8 +15,10 @@ using UnityEngine;
 
 namespace ServersideQoL;
 
+[BepInDependency(FindOutdatedStuffGuid, BepInDependency.DependencyFlags.SoftDependency)]
 partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlugin, Config>
 {
+  const string FindOutdatedStuffGuid = "kg.FindOutdatedStuff";
   static readonly HashSet<IServersideQoLPlugin> __plugins = [];
   readonly Dictionary<Guid, Processor> _processorsById = [];
   readonly List<Processor> _enabledProcessors = [];
@@ -23,6 +26,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
   bool _patcherSucceeded;
 
   internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
+  static Harmony? __harmonyFindOutdatedStuffCompatInstance;
+  static ManualLogSource? __findOutdatedStuffLogger;
   internal IReadOnlyDictionary<Guid, Processor> Processors => _processorsById;
   public event Action? GlobalKeysChanged;
   public event Action? GlobalKeyValuesChanged;
@@ -64,6 +69,14 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       HarmonyInstance.PatchAll(typeof(ServersideQoLPlugin).Assembly);
     else
       Logger.LogError($"{Patchers.PatchersPlugin.PluginName}.dll was not installed correctly. Put it in {Paths.PatcherPluginPath}");
+
+    if (Chainloader.PluginInfos.TryGetValue(FindOutdatedStuffGuid, out var pluginInfo))
+    {
+      //Logger.DevLog(pluginInfo.Instance.GetType().AssemblyQualifiedName);
+      __findOutdatedStuffLogger = (ManualLogSource)AccessTools.Property(typeof(BaseUnityPlugin), "Logger").GetValue(pluginInfo.Instance);
+      __harmonyFindOutdatedStuffCompatInstance = new($"{PluginGuid}.{FindOutdatedStuffGuid}.Compat");
+      __harmonyFindOutdatedStuffCompatInstance.PatchAll(typeof(FindOutdatedStuffStartPatches));
+    }
 
     [MethodImpl(MethodImplOptions.NoInlining)]
     static void AssertPatcher()
@@ -928,6 +941,25 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
     }
   }
 
+  static class FindOutdatedStuffStartPatches
+  {
+    [HarmonyPatch("FindOutdatedStuff.FindOutdatedStuff, kg.FindOutdatedStuff", "Start"), HarmonyPostfix]
+    static void StartPostfix()
+    {
+      __harmonyFindOutdatedStuffCompatInstance?.UnpatchSelf();
+      __harmonyFindOutdatedStuffCompatInstance = null;
+      __findOutdatedStuffLogger = null;
+    }
+
+    [HarmonyPatch(typeof(ManualLogSource), nameof(ManualLogSource.LogWarning)), HarmonyPrefix]
+    static bool LogWarningPrefix(ManualLogSource __instance, ref object data)
+    {
+      if (__instance != __findOutdatedStuffLogger || data is not string str)
+        return true;
+
+      return !str.EndsWith("-> ServersideQoL.Peer ZNetPeer::get_ServersideQoLPeer()") && !str.EndsWith("-> ServersideQoL.ServersideQoLZDO ZDO::get_ServersideQoLZDO()");
+    }
+  }
 
   [Conditional("DEBUG")]
   static void GenerateDocs()
