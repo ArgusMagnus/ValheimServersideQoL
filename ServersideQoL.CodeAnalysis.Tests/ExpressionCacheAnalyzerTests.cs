@@ -12,48 +12,48 @@ public sealed class ExpressionCacheAnalyzerTests
   [TestMethod]
   public async Task TestOk()
   {
-    var testCode = $$"""
-            class Class
-            {
-                [{{nameof(MustBeOnUniqueLineAttribute)}}]
-                Class Unique() { return this; }
-                void NotUnique() { }
+    const string TestCode = $$"""
+      class Class
+      {
+        [{{nameof(MustBeOnUniqueLineAttribute)}}]
+        Class Unique() { return this; }
+        void NotUnique() { }
 
-                void Test()
-                {
-                    Unique();
-                    Unique();
-                    NotUnique(); NotUnique();
-                    Unique()
-                        .Unique();
-                }
-            }
-            sealed class {{nameof(MustBeOnUniqueLineAttribute)}} : System.Attribute;
-            """;
+        void Test()
+        {
+          Unique();
+          Unique();
+          NotUnique(); NotUnique();
+          Unique()
+              .Unique();
+        }
+      }
+      sealed class {{nameof(MustBeOnUniqueLineAttribute)}} : System.Attribute;
+      """;
 
-    await Verifier.VerifyAnalyzerAsync(testCode);
+    await Verifier.VerifyAnalyzerAsync(TestCode);
   }
 
   [TestMethod]
   public async Task TestError()
   {
-    var testCode = $$"""
-            class Class
-            {
-                [{{nameof(MustBeOnUniqueLineAttribute)}}]
-                Class Unique() { return this; }
+    const string TestCode = $$"""
+      class Class
+      {
+        [{{nameof(MustBeOnUniqueLineAttribute)}}]
+        Class Unique() { return this; }
 
-                void Test()
-                {
-                    Unique(); Unique();
-                    Unique().Unique();
-                }
-            }
-            sealed class {{nameof(MustBeOnUniqueLineAttribute)}} : System.Attribute;
-            """;
+        void Test()
+        {
+          Unique(); Unique();
+          Unique().Unique();
+        }
+      }
+      sealed class {{nameof(MustBeOnUniqueLineAttribute)}} : System.Attribute;
+      """;
 
-    await Verifier.VerifyAnalyzerAsync(testCode,
-        new DiagnosticResult("ARG0001", DiagnosticSeverity.Error).WithSpan(8, 19, 8, 27),
-        new DiagnosticResult("ARG0001", DiagnosticSeverity.Error).WithSpan(9, 9, 9, 17));
+    await Verifier.VerifyAnalyzerAsync(TestCode,
+      new DiagnosticResult(ExpressionCacheAnalyzer.DiagnosticId, DiagnosticSeverity.Error).WithSpan(8, 15, 8, 23),
+      new DiagnosticResult(ExpressionCacheAnalyzer.DiagnosticId, DiagnosticSeverity.Error).WithSpan(9, 5, 9, 13));
   }
 }

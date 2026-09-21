@@ -12,22 +12,21 @@ public sealed class ExpressionFactoryAnalyzerTests
   [TestMethod]
   public async Task Test()
   {
-    var testCode = $$"""
-            using System;
-            using System.Linq.Expressions;
+    const string TestCode = $$"""
+      using System;
+      using System.Linq.Expressions;
 
-            class Class
-            {
-                public int m_int;
-                void Test()
-                {
-                    Func<Expression<Func<Class, int>>> f1 = static () => x => x.m_int;
-                    Func<Expression<Func<Class, int>>> f2 = () => x => x.m_int;
-                }
-            }
-            """;
+      class Class
+      {
+        public int m_int;
+        void Test()
+        {
+          Func<Expression<Func<Class, int>>> f1 = static () => x => x.m_int;
+          Func<Expression<Func<Class, int>>> f2 = () => x => x.m_int;
+        }
+      }
+      """;
 
-    await Verifier.VerifyAnalyzerAsync(testCode, new DiagnosticResult("ARG0002", DiagnosticSeverity.Error)
-        .WithSpan(10, 49, 10, 67));
+    await Verifier.VerifyAnalyzerAsync(TestCode, new DiagnosticResult(ExpressionFactoryAnalyzer.DiagnosticId, DiagnosticSeverity.Error).WithSpan(10, 45, 10, 63));
   }
 }

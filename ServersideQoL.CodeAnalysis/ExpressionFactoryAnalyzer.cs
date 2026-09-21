@@ -13,12 +13,12 @@ public sealed class ExpressionFactoryAnalyzer : DiagnosticAnalyzer
   public const string DiagnosticId = "ARG0002";
 
   static readonly DiagnosticDescriptor Rule = new(
-      DiagnosticId,
-      "Expression factories must be static",
-      "Expression factories must be static",
-      "Usage",
-      DiagnosticSeverity.Error,
-      isEnabledByDefault: true);
+    DiagnosticId,
+    "Expression factories must be static",
+    "Expression factories must be static",
+    "Usage",
+    DiagnosticSeverity.Error,
+    isEnabledByDefault: true);
 
   public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } = [Rule];
   static readonly string __expressionTypeStartsWith = $"{typeof(Expression).FullName}<";

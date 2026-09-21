@@ -12,12 +12,12 @@ public sealed class ExpressionCacheAnalyzer : DiagnosticAnalyzer
   public const string DiagnosticId = "ARG0001";
 
   static readonly DiagnosticDescriptor Rule = new(
-      DiagnosticId,
-      "Caller line not unique",
-      "Each call to this method must be on its own line",
-      "Usage",
-      DiagnosticSeverity.Error,
-      isEnabledByDefault: true);
+    DiagnosticId,
+    "Caller line not unique",
+    "Each call to this method must be on its own line",
+    "Usage",
+    DiagnosticSeverity.Error,
+    isEnabledByDefault: true);
 
   public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } = [Rule];
 
