@@ -1,8 +1,7 @@
-/.vs
+﻿/.vs
 **/bin
 **/obj
 /.idea
 *.DotSettings.user
 /plugins
 /Dependencies/**
-/valheim/**
