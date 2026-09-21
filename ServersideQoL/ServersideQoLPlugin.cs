@@ -18,7 +18,6 @@ namespace ServersideQoL;
 [BepInDependency(FindOutdatedStuffGuid, BepInDependency.DependencyFlags.SoftDependency)]
 partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlugin, Config>
 {
-  const string FindOutdatedStuffGuid = "kg.FindOutdatedStuff";
   static readonly HashSet<IServersideQoLPlugin> __plugins = [];
   readonly Dictionary<Guid, Processor> _processorsById = [];
   readonly List<Processor> _enabledProcessors = [];
@@ -26,8 +25,11 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
   bool _patcherSucceeded;
 
   internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
+
+  const string FindOutdatedStuffGuid = "kg.FindOutdatedStuff";
   static Harmony? __harmonyFindOutdatedStuffCompatInstance;
   static ManualLogSource? __findOutdatedStuffLogger;
+
   internal IReadOnlyDictionary<Guid, Processor> Processors => _processorsById;
   public event Action? GlobalKeysChanged;
   public event Action? GlobalKeyValuesChanged;
