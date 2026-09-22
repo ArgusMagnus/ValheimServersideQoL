@@ -26,12 +26,15 @@ public abstract class ConfigBase
 
   protected static class Shared
   {
-    public static ConfigEntry<bool>? AutoPickup { get; set => Set(ref field, value); }
-    public static ConfigEntry<int>? AutoPickupMaxRange { get; set => Set(ref field, value); }
-    public static ConfigEntry<string>? AutoPickupRangeSignPrefix { get; set => Set(ref field, value); }
-    public static ConfigEntry<bool>? FeedFromContainers { get; set => Set(ref field, value); }
-    public static ConfigEntry<int>? FeedFromContainersMaxRange { get; set => Set(ref field, value); }
-    public static ConfigEntry<string>? FeedFromContainersRangeSignPrefix { get; set => Set(ref field, value); }
+    public static ConfigEntry<bool>? AutoStorePickup { get; set => Set(ref field, value); }
+    public static ConfigEntry<int>? AutoStorePickupMaxRange { get; set => Set(ref field, value); }
+    public static ConfigEntry<string>? AutoStorePickupRangeSignPrefix { get; set => Set(ref field, value); }
+    public static ConfigEntry<bool>? AutoProcessFeedFromContainers { get; set => Set(ref field, value); }
+    public static ConfigEntry<int>? AutoProcessFeedFromContainersMaxRange { get; set => Set(ref field, value); }
+    public static ConfigEntry<string>? AutoProcessFeedFromContainersRangeSignPrefix { get; set => Set(ref field, value); }
+    public static ConfigEntry<bool>? TameAssistFeedFromContainers { get; set => Set(ref field, value); }
+    public static ConfigEntry<int>? TameAssistFeedFromContainersMaxRange { get; set => Set(ref field, value); }
+    public static ConfigEntry<string>? TameAssistFeedFromContainersRangeSignPrefix { get; set => Set(ref field, value); }
 
     static void Set<T>(ref T? field, T? value, [CallerMemberName] string configName = default!) where T : class
     {

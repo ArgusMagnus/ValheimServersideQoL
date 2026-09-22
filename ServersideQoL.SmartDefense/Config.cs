@@ -21,7 +21,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       "True to automatically load ballistas from containers");
     public ConfigEntry<float> LoadFromContainersRange { get; } = BindEx(cfg, section, 4f,
       "Required proximity of a container to a ballista to be used as ammo source");
-    public int? FeedFromContainersMaxRange => Shared.FeedFromContainersMaxRange?.Value;
+    public int? FeedFromContainersMaxRange => Shared.AutoProcessFeedFromContainersMaxRange?.Value;
     public ConfigEntry<float> LoadFromContainersMinPlayerDistance { get; } = BindEx(cfg, section, 4f,
       "Min distance all players must have to a ballista");
     public ConfigEntry<MessageTypes> AmmoAddedMessageType { get; } = BindEx(cfg, section, MessageTypes.None,

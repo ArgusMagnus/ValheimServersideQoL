@@ -17,7 +17,6 @@ public sealed class TurretProcessor : Processor<TurretProcessor.PrefabInfo>
 
   protected override void Initialize()
   {
-
     Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
     if (Config.Instance.Turrets.LoadFromContainers.Value)
     {
@@ -96,7 +95,7 @@ public sealed class TurretProcessor : Processor<TurretProcessor.PrefabInfo>
             continue;
           }
 
-          var feedRangeSqr = containerState.FeedRange ?? Config.Instance.Turrets.LoadFromContainersRange.Value;
+          var feedRangeSqr = containerState.AutoProcessFeedRange ?? Config.Instance.Turrets.LoadFromContainersRange.Value;
           feedRangeSqr *= feedRangeSqr;
           if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > feedRangeSqr)
             continue;
@@ -197,7 +196,7 @@ public sealed class TurretProcessor : Processor<TurretProcessor.PrefabInfo>
     if (_turrets is null)
       throw new Exception("bug");
 
-    var feedRangeSqr = state.FeedRange ?? Config.Instance.Turrets.LoadFromContainersRange.Value;
+    var feedRangeSqr = state.AutoProcessFeedRange ?? Config.Instance.Turrets.LoadFromContainersRange.Value;
     feedRangeSqr *= feedRangeSqr;
     if (feedRangeSqr is 0f)
       return;
