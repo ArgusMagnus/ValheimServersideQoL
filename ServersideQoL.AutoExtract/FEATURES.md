@@ -1,0 +1,1 @@
+- Automatically extracts honey, feathers and sap from beehives, bird nests and sap collectors into nearby containers

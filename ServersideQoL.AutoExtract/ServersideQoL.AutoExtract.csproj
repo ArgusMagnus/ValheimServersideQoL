@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Automatically extracts honey, feathers and sap from beehives, bird nests and sap collectors into nearby containers</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" Private="False" />
+    <ProjectReference Include="..\ServersideQoL.ContainerSigns\ServersideQoL.ContainerSigns.csproj" Aliases="ContainerSigns" Private="False" PrivateAssets="all" OutputItemType="Analyzer" />
+  </ItemGroup>
+
+</Project>
