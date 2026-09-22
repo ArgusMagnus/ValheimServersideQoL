@@ -108,7 +108,7 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
               if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
                 continue; // in use or player to close
 
-              var feedRangeSqr = containerState.FeedRange ?? Config.Instance.FeedFromContainersRange.Value;
+              var feedRangeSqr = containerState.AutoProcessFeedRange ?? Config.Instance.FeedFromContainersRange.Value;
               feedRangeSqr *= feedRangeSqr;
               if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > feedRangeSqr)
                 continue;
@@ -122,10 +122,9 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
               foreach (var slot in inventory.Items.Where(x => new ItemDataKey(x) == fuelItem).OrderBy(static x => x.m_stack))
               {
                 found = found || slot is { m_stack: > 0 };
-                var take = Math.Min(maxFuelAdd, slot.m_stack);
-                var leaveDiff = Math.Min(take, leave);
+                var leaveDiff = Math.Min(slot.m_stack, leave);
+                var take = Math.Min(maxFuelAdd, slot.m_stack - leaveDiff);
                 leave -= leaveDiff;
-                take -= leaveDiff;
                 if (take is 0)
                   continue;
                 else if (!containerZdo.IsOwnerOrUnassigned())
@@ -226,7 +225,7 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
               if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
                 continue; // in use or player to close
 
-              var feedRangeSqr = containerState.FeedRange ?? Config.Instance.FeedFromContainersRange.Value;
+              var feedRangeSqr = containerState.AutoProcessFeedRange ?? Config.Instance.FeedFromContainersRange.Value;
               feedRangeSqr *= feedRangeSqr;
               if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > feedRangeSqr)
                 continue;
@@ -240,10 +239,9 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
               foreach (var slot in inventory.Items.Where(x => new ItemDataKey(x) == oreItem).OrderBy(static x => x.m_stack))
               {
                 found = found || slot is { m_stack: > 0 };
-                var take = Math.Min(maxOreAdd, slot.m_stack);
-                var leaveDiff = Math.Min(take, leave);
+                var leaveDiff = Math.Min(slot.m_stack, leave);
+                var take = Math.Min(maxOreAdd, slot.m_stack - leaveDiff);
                 leave -= leaveDiff;
-                take -= leaveDiff;
                 if (take is 0)
                   continue;
                 else if (!containerZdo.IsOwnerOrUnassigned())
@@ -330,7 +328,7 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
     if (_smelters is null)
       throw new Exception("bug");
 
-    var feedRangeSqr = state.FeedRange ?? Config.Instance.FeedFromContainersRange.Value;
+    var feedRangeSqr = state.AutoProcessFeedRange ?? Config.Instance.FeedFromContainersRange.Value;
     feedRangeSqr *= feedRangeSqr;
     if (feedRangeSqr is 0f)
       return;

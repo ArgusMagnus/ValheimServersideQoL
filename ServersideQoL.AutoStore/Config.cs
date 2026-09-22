@@ -13,7 +13,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public ConfigEntry<MessageTypes> SortedMessageType { get; } = BindEx(cfg, MessageTypes.None,
     "Type of message to show when a container was sorted", AcceptableEnum<MessageTypes>.Default);
 
-  public ConfigEntry<bool> AutoPickup { get; } = Shared.AutoPickup = BindEx(cfg, true,
+  public ConfigEntry<bool> AutoPickup { get; } = Shared.AutoStorePickup = BindEx(cfg, true,
     "True to automatically put dropped items into containers if they already contain said item");
 
   const string DefaultPickupRangeEmoji = "🧲";
@@ -23,12 +23,12 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       For example, '{DefaultPickupRangeEmoji}0' will disable auto pickup/stacking from player inventory into that chest.
       Only works with automatic chest signs added by the {ContainerSignsPlugin.PluginName} mod.
     """);
-  public ConfigEntry<string> AutoPickupRangeSignPrefix { get; } = Shared.AutoPickupRangeSignPrefix = BindEx(cfg, DefaultPickupRangeEmoji, $"""
+  public ConfigEntry<string> AutoPickupRangeSignPrefix { get; } = Shared.AutoStorePickupRangeSignPrefix = BindEx(cfg, DefaultPickupRangeEmoji, $"""
     Requires the {ContainerSignsPlugin.PluginName} mod.
     The prefix used to identify the container specifc auto pickup range value in chest sign text.
     """);
     
-  public ConfigEntry<int> AutoPickupMaxRange { get; } = Shared.AutoPickupMaxRange = BindEx(cfg, (int)ZoneSystem.c_ZoneSize, $"""
+  public ConfigEntry<int> AutoPickupMaxRange { get; } = Shared.AutoStorePickupMaxRange = BindEx(cfg, (int)ZoneSystem.c_ZoneSize, $"""
     Requires the {ContainerSignsPlugin.PluginName} mod. 
     Max auto pickup range players can set per chest (by putting '<{nameof(AutoPickupRangeSignPrefix)}><Range>' on a chest sign).
     """);

@@ -8,7 +8,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 {
   public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
-  public ConfigEntry<bool> FeedFromContainers { get; } = Shared.FeedFromContainers = BindEx(cfg, true,
+  public ConfigEntry<bool> FeedFromContainers { get; } = Shared.AutoProcessFeedFromContainers = BindEx(cfg, true,
     "True to automatically feed smelters from nearby containers");
 
   const string DefaultRangeEmoji = "↔️";
@@ -18,11 +18,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       For example, '{DefaultRangeEmoji}64' increase the range of that chest to 64m.
       Only works with automatic chest signs added by the {ContainerSignsPlugin.PluginName} mod.
     """);
-  public ConfigEntry<string> FeedFromContainersRangeSignPrefix { get; } = Shared.FeedFromContainersRangeSignPrefix = BindEx(cfg, DefaultRangeEmoji, $"""
+  public ConfigEntry<string> FeedFromContainersRangeSignPrefix { get; } = Shared.AutoProcessFeedFromContainersRangeSignPrefix = BindEx(cfg, DefaultRangeEmoji, $"""
     Requires the {ContainerSignsPlugin.PluginName} mod.
     The prefix used to identify the container specifc feed range value in chest sign text.
     """);
-  public ConfigEntry<int> FeedFromContainersMaxRange { get; } = Shared.FeedFromContainersMaxRange = BindEx(cfg, (int)ZoneSystem.c_ZoneSize, $"""
+  public ConfigEntry<int> FeedFromContainersMaxRange { get; } = Shared.AutoProcessFeedFromContainersMaxRange = BindEx(cfg, (int)ZoneSystem.c_ZoneSize, $"""
     Requires the {ContainerSignsPlugin.PluginName} mod.
     Max feeding range players can set per chest (by putting '<{nameof(FeedFromContainersRangeSignPrefix)}><Range>' on a chest sign)
     """);

@@ -8,8 +8,9 @@ public abstract class ContainerState
   public abstract ServersideQoLZDO ZDO { get; }
   public abstract IInventory GetInventory();
 
-  public float? PickupRange { get; set; }
-  public float? FeedRange { get; set; }
+  public float? AutoStorePickupRange { get; set; }
+  public float? TameAssistFeedRange { get; set; }
+  public float? AutoProcessFeedRange { get; set; }
 
   public interface IInventory
   {

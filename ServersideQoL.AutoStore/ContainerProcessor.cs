@@ -235,7 +235,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
           continue;
         }
 
-        var pickupRangeSqr = containerState.PickupRange ?? Config.Instance.AutoPickupRange.Value;
+        var pickupRangeSqr = containerState.AutoStorePickupRange ?? Config.Instance.AutoPickupRange.Value;
         pickupRangeSqr *= pickupRangeSqr;
 
         if (pickupRangeSqr is 0f || Utils.DistanceSqr(state.ZDO.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > pickupRangeSqr)
@@ -359,7 +359,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
           if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
             continue; // in use or player to close
 
-          var pickupRangeSqr = containerState.PickupRange ?? Config.Instance.AutoPickupRange.Value;
+          var pickupRangeSqr = containerState.AutoStorePickupRange ?? Config.Instance.AutoPickupRange.Value;
           pickupRangeSqr *= pickupRangeSqr;
 
           if (pickupRangeSqr is 0f || Utils.DistanceSqr(stackContainerState.PlayerZDO.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > pickupRangeSqr)

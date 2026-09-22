@@ -23,12 +23,15 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     $"Format string for entries in the content list, the first argument is the name of the item, the second is the total number of per item.",
   new AcceptableFormatString(["Test", 0]));
 
-  public bool AutoPickup => Shared.AutoPickup?.Value ?? false;
-  public int? AutoPickupMaxRange => Shared.AutoPickupMaxRange?.Value;
-  public string? AutoPickupRangeSignPrefix => Shared.AutoPickupRangeSignPrefix?.Value;
-  public bool FeedFromContainers => Shared.FeedFromContainers?.Value ?? false;
-  public int? FeedFromContainersMaxRange => Shared.FeedFromContainersMaxRange?.Value;
-  public string? FeedFromContainersRangeSignPrefix => Shared.FeedFromContainersRangeSignPrefix?.Value;
+  public bool AutoStorePickup => Shared.AutoStorePickup?.Value ?? false;
+  public int? AutoStorePickupMaxRange => Shared.AutoStorePickupMaxRange?.Value;
+  public string? AutoStorePickupRangeSignPrefix => Shared.AutoStorePickupRangeSignPrefix?.Value;
+  public bool AutoProcessFeedFromContainers => Shared.AutoProcessFeedFromContainers?.Value ?? false;
+  public int? AutoProcessFeedFromContainersMaxRange => Shared.AutoProcessFeedFromContainersMaxRange?.Value;
+  public string? AutoProcessFeedFromContainersRangeSignPrefix => Shared.AutoProcessFeedFromContainersRangeSignPrefix?.Value;
+  public bool TameAssistFeedFromContainers => Shared.TameAssistFeedFromContainers?.Value ?? false;
+  public int? TameAssistFeedFromContainersMaxRange => Shared.TameAssistFeedFromContainersMaxRange?.Value;
+  public string? TameAssistFeedFromContainersRangeSignPrefix => Shared.TameAssistFeedFromContainersRangeSignPrefix?.Value;
 
   public ConfigEntry<SignOptions> WoodChestSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default);
