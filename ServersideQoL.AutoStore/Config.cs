@@ -1,6 +1,5 @@
 ﻿extern alias ContainerSigns;
 using BepInEx.Configuration;
-using ContainerAndSignProcessor = ContainerSigns::ServersideQoL.ContainerSigns.ContainerAndSignProcessor;
 using ContainerSignsPlugin = ContainerSigns::ServersideQoL.ContainerSigns.ContainerSignsPlugin;
 
 namespace ServersideQoL.AutoStore;
@@ -16,15 +15,22 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public ConfigEntry<bool> AutoPickup { get; } = Shared.AutoPickup = BindEx(cfg, true,
     "True to automatically put dropped items into containers if they already contain said item");
+
+  const string DefaultPickupRangeEmoji = "🧲";
   public ConfigEntry<float> AutoPickupRange { get; } = BindEx(cfg, ZoneSystem.c_ZoneSize, $"""
     Required proximity of a container to a dropped item to be considered as auto pickup target.
-    Can be overridden per chest by putting '{ContainerAndSignProcessor.PickupRangeEmoji}<Range>' on a chest sign, e.g. '{ContainerAndSignProcessor.PickupRangeEmoji}16'.
-      For example, '{ContainerAndSignProcessor.PickupRangeEmoji}0' will disable auto pickup/stacking from player inventory into that chest.
+    Can be overridden per chest by putting '<{nameof(AutoPickupRangeSignPrefix)}><Range>' on a chest sign, e.g. '{DefaultPickupRangeEmoji}16'.
+      For example, '{DefaultPickupRangeEmoji}0' will disable auto pickup/stacking from player inventory into that chest.
       Only works with automatic chest signs added by the {ContainerSignsPlugin.PluginName} mod.
-    """);    
+    """);
+  public ConfigEntry<string> AutoPickupRangeSignPrefix { get; } = Shared.AutoPickupRangeSignPrefix = BindEx(cfg, DefaultPickupRangeEmoji, $"""
+    Requires the {ContainerSignsPlugin.PluginName} mod.
+    The prefix used to identify the container specifc auto pickup range value in chest sign text.
+    """);
+    
   public ConfigEntry<int> AutoPickupMaxRange { get; } = Shared.AutoPickupMaxRange = BindEx(cfg, (int)ZoneSystem.c_ZoneSize, $"""
     Requires the {ContainerSignsPlugin.PluginName} mod. 
-    Max auto pickup range players can set per chest (by putting '{ContainerAndSignProcessor.PickupRangeEmoji}<Range>' on a chest sign).
+    Max auto pickup range players can set per chest (by putting '<{nameof(AutoPickupRangeSignPrefix)}><Range>' on a chest sign).
     """);
   public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = BindEx(cfg, 4f,
     "Min distance all players must have to a dropped item for it to be picked up");

@@ -24,9 +24,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   new AcceptableFormatString(["Test", 0]));
 
   public bool AutoPickup => Shared.AutoPickup?.Value ?? false;
-  public int? AutoPickupMaxRange => Shared.AutoPickupMaxRange?.Value;   
+  public int? AutoPickupMaxRange => Shared.AutoPickupMaxRange?.Value;
+  public string? AutoPickupRangeSignPrefix => Shared.AutoPickupRangeSignPrefix?.Value;
   public bool FeedFromContainers => Shared.FeedFromContainers?.Value ?? false;
   public int? FeedFromContainersMaxRange => Shared.FeedFromContainersMaxRange?.Value;
+  public string? FeedFromContainersRangeSignPrefix => Shared.FeedFromContainersRangeSignPrefix?.Value;
 
   public ConfigEntry<SignOptions> WoodChestSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default);

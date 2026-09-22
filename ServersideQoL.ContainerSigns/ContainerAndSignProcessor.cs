@@ -1,5 +1,6 @@
 ﻿using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using static ServersideQoL.ContainerSigns.Config;
@@ -19,11 +20,8 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
   readonly Dictionary<ServersideQoLZDO, List<ServersideQoLZDO>> _signsByChests = [];
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _chestsBySigns = [];
 
-  public const string PickupRangeEmoji = "🧲";
-  readonly Regex _chestPickupRangeRegex = new($@"{Regex.Escape(PickupRangeEmoji)}\s*(?<R>\d+)");
-
-  public const string FeedRangeEmoji = "↔️";
-  readonly Regex _chestFeedRangeRegex = new($@"(?:{Regex.Escape(FeedRangeEmoji)}|\u2194)\s*(?<R>\d+)");
+  Regex _chestPickupRangeRegex = default!;
+  Regex _chestFeedRangeRegex = default!;
 
   //internal const string LinkEmoji = "🔗";
   //readonly Regex _incineratorTagRegex = new($@"{Regex.Escape(LinkEmoji)}\s*(?<T>\w*)");
@@ -35,12 +33,25 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
 
   readonly Dictionary<ServersideQoLZDO, uint> _chestDataRevisions = [];
 
+  [MemberNotNull(nameof(_chestPickupRangeRegex), nameof(_chestFeedRangeRegex))]
   protected override void Initialize()
   {
     foreach (var zdo in _chestsBySigns.Keys)
       zdo.Destroy();
     _signsByChests.Clear();
     _chestsBySigns.Clear();
+
+    var str = Config.Instance.AutoPickupRangeSignPrefix ?? "";
+    var str2 = str.Replace("\uFE0F", ""); // strip variation selector;
+    _chestPickupRangeRegex = str == str2 ?
+      new($@"{Regex.Escape(str)}(?<R>\d+)") :
+      new($@"(?:{Regex.Escape(str)}|{Regex.Escape(str2)})(?<R>\d+)");
+
+    str = Config.Instance.FeedFromContainersRangeSignPrefix ?? "";
+    str2 = str.Replace("\uFE0F", ""); // strip variation selector;
+    _chestFeedRangeRegex = str == str2 ?
+      new($@"{Regex.Escape(str)}(?<R>\d+)") :
+      new($@"(?:{Regex.Escape(str)}|{Regex.Escape(str2)})(?<R>\d+)");
 
     _contentListRegex2 = new(Regex.Escape(Config.Instance.ChestSignsContentListPlaceholder.Value));
     _chestDataRevisions.Clear();
@@ -119,7 +130,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           if (range > autoPickupMaxRange)
           {
             range = autoPickupMaxRange;
-            result = Invariant($"{PickupRangeEmoji}{range}");
+            result = Invariant($"{Config.Instance.AutoPickupRangeSignPrefix}{range}");
           }
           containerState.PickupRange = range;
           return result;
@@ -136,7 +147,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           if (range > feedMaxRange)
           {
             range = feedMaxRange;
-            result = Invariant($"{FeedRangeEmoji}{range}");
+            result = Invariant($"{Config.Instance.FeedFromContainersRangeSignPrefix}{range}");
           }
           containerState.FeedRange = range;
           return result;

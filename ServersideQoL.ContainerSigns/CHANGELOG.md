@@ -1,4 +1,5 @@
 ### v2.0.15
+- Added support for option `AutoPickupRangeSignPrefix` in AutoStore and `FeedFromContainersRangeSignPrefix` in AutoProcess [#270](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/270) 
 - Fixed issue with range config emoji ↔️ on some platforms [#273](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/273) (contributed by [Lempac](https://github.com/Lempac))
 
 ### v2.0.11
