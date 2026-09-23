@@ -20,7 +20,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       For example, '{DefaultPickupRangeEmoji}0' will exclude that chest.
       Only works with automatic chest signs added by the {ContainerSignsPlugin.PluginName} mod (requires the AutoStore mod, which owns the AutoPickupRangeSignPrefix option).
     """);
-  public int? AutoPickupMaxRange => Shared.AutoPickupMaxRange?.Value;
+  public int? AutoPickupMaxRange => Shared.AutoStorePickupMaxRange?.Value;
   public ConfigEntry<float> ExtractMinPlayerDistance { get; } = BindEx(cfg, 4f,
     "Min distance all players must have to a beehive, bird nest or sap collector");
   public ConfigEntry<MessageTypes> ExtractedMessageType { get; } = BindEx(cfg, MessageTypes.None,

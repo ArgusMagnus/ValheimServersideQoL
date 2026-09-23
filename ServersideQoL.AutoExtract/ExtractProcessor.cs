@@ -72,7 +72,7 @@ public sealed class ExtractProcessor : Processor<ExtractProcessor.PrefabInfo>
           if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
             continue; // in use or player to close
 
-          var rangeSqr = containerState.PickupRange ?? Config.Instance.ExtractRange.Value;
+          var rangeSqr = containerState.AutoStorePickupRange ?? Config.Instance.ExtractRange.Value;
           rangeSqr *= rangeSqr;
           if (rangeSqr is 0f || Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > rangeSqr)
             continue;
@@ -174,7 +174,7 @@ public sealed class ExtractProcessor : Processor<ExtractProcessor.PrefabInfo>
     if (_stations is null)
       throw new Exception("bug");
 
-    var rangeSqr = state.PickupRange ?? Config.Instance.ExtractRange.Value;
+    var rangeSqr = state.AutoStorePickupRange ?? Config.Instance.ExtractRange.Value;
     rangeSqr *= rangeSqr;
     if (rangeSqr is 0f)
       return;
