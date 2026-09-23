@@ -8,65 +8,69 @@ namespace ServersideQoL.Treesurrection;
 public sealed class StumpProcessor : Processor<StumpProcessor.PrefabInfo>
 {
   public const string Id = "a17d6420-25d7-48bd-98ae-ca291083cfaa";
-  static readonly ServerVar<ZDOID> __saplingId = ServersideQoLPlugin.RegisterServerVar<ZDOID>("SaplingID");
-  static readonly ServerVar<ZDOID> __stumpId = ServersideQoLPlugin.RegisterServerVar<ZDOID>("StumpID");
   readonly List<ZDO> _sectorObjects = [];
+  static readonly ServerVar<long> __invulnerableUntilTicks = TreesurrectionPlugin.RegisterServerVar<long>("InvulnerableUntilTicks");
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
+    ProcessResult result;
     if (prefabInfo.IsStump)
     {
       zdo.Destroyed += OnStumpDestroyed;
-
-      if (__saplingId.Get(zdo) != default)
-        return ProcessResult.UnregisterProcessor;
-
-      var sapling = prefabInfo.SaplingsByTree.Values.First()!;
-      if (prefabInfo.SaplingsByTree.Count > 1)
+      result = ProcessResult.UnregisterProcessor;
+    }
+    else if (PlacedObjects.Contains(zdo))
+    {
+      var invulnerableUntil = new DateTimeOffset(__invulnerableUntilTicks.Get(zdo), default);
+      var delay = (float)(invulnerableUntil - DateTimeOffset.UtcNow).TotalSeconds;
+      if (delay > 0)
+        result = ScheduleReprocessing(delay);
+      else
       {
-        ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZNet.instance.GetSyncedSimulationDistance(), _sectorObjects);
-        foreach (var tmpZdo in _sectorObjects)
-        {
-          if (GetPrefabInfo(tmpZdo.GetPrefab()).GetComponent<TreeBase>() is { } tmpTree && prefabInfo.SaplingsByTree.TryGetValue(tmpTree, out sapling))
-            break;
-        }
-        _sectorObjects.Clear();
+        if (zdo.Vars.GetHealth() < 0)
+          zdo.Vars.SetHealth(prefabInfo.Destructible.m_health);
+        result = ProcessResult.UnregisterProcessor;
       }
-
-      var pos = zdo.ZDO.GetPosition();
-      var saplingZdo = PlaceObject(pos, sapling.name.GetStableHashCode(), zdo.ZDO.GetRotation(), CreatorMarkers.ProcessorOwned);
-      saplingZdo.Fields<Plant>()
-        .Set(static () => x => x.m_growRadius, 0)
-        .Set(static () => x => x.m_destroyIfCantGrow, false)
-        .Set(static () => x => x.m_growTime, sapling.m_growTime * Config.Instance.GrowingTimeMultiplier.Value)
-        .Set(static () => x => x.m_growTimeMax, sapling.m_growTimeMax * Config.Instance.GrowingTimeMultiplier.Value);
-      __saplingId.Set(zdo, saplingZdo.ZDO.m_uid);
-      __stumpId.Set(saplingZdo, zdo.ZDO.m_uid);
     }
     else
     {
-      if (__stumpId.Get(zdo) != default)
-        zdo.Destroyed += OnSaplingDestroyed;
+      Logger.DevLog($"Unexpected prefab: {prefabInfo.PrefabInfo.PrefabName}");
+      result = ProcessResult.UnregisterProcessor;
     }
 
-    return ProcessResult.UnregisterProcessor;
+    return result;
   }
 
   void OnStumpDestroyed(ServersideQoLZDO zdo)
   {
-    var saplingId = __saplingId.Get(zdo);
-    if (saplingId != default && ZDOMan.instance.GetZDO(saplingId) is { } saplingZdo)
-      saplingZdo.ServersideQoLZDO.Destroy();
+    if (GetProcessorPrefabInfo(zdo) is not { IsStump: true } prefabInfo)
+      return;
+    if (UnityEngine.Random.Range(0, 100) >= Config.Instance.SaplingDropChance.Value)
+      return;
+
+    var sapling = prefabInfo.SaplingsByTree.Values.First()!;
+    if (prefabInfo.SaplingsByTree.Count > 1)
+    {
+      ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZNet.instance.GetSyncedSimulationDistance(), _sectorObjects);
+      foreach (var tmpZdo in _sectorObjects)
+      {
+        if (GetPrefabInfo(tmpZdo.GetPrefab()).GetComponent<TreeBase>() is { } tmpTree && prefabInfo.SaplingsByTree.TryGetValue(tmpTree, out sapling))
+          break;
+      }
+      _sectorObjects.Clear();
+    }
+
+    var saplingZdo = PlaceObject(zdo.ZDO.GetPosition(), sapling.name.GetStableHashCode(), zdo.ZDO.GetRotation(), CreatorMarkers.ProcessorOwned);
+    saplingZdo.Fields<Plant>()
+      .Set(static () => x => x.m_growRadius, 0)
+      .Set(static () => x => x.m_destroyIfCantGrow, false)
+      .Set(static () => x => x.m_needCultivatedGround, false)
+      .Set(static () => x => x.m_growTime, sapling.m_growTime * Config.Instance.GrowingTimeMultiplier.Value)
+      .Set(static () => x => x.m_growTimeMax, sapling.m_growTimeMax * Config.Instance.GrowingTimeMultiplier.Value);
+    __invulnerableUntilTicks.Set(saplingZdo, DateTimeOffset.UtcNow.AddSeconds(Config.Instance.SaplingInvulnerabilitySeconds.Value).Ticks);
   }
 
-  void OnSaplingDestroyed(ServersideQoLZDO zdo)
-  {
-    var stumpId = __stumpId.Get(zdo);
-    if (stumpId != default && ZDOMan.instance.GetZDO(stumpId) is { } stumpZdo)
-      stumpZdo.ServersideQoLZDO.Destroy();
-  }
-
-  public sealed record PrefabInfo : ProcessorPrefabInfo
+  public sealed record PrefabInfo(Destructible Destructible) : ProcessorPrefabInfo
   {
     static Dictionary<GameObject, HashSet<TreeBase>>? __treesByStump;
     static Dictionary<TreeBase, Plant>? __saplingByTree;
