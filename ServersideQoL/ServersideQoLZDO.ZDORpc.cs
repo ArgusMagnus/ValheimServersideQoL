@@ -78,7 +78,13 @@ partial class ServersideQoLZDO
       public void RequestOpenFor(ServersideQoLZDO player)
       {
         player.AssertIs<Player>();
-        InvokeRoutedRPCAsSender(player.ZDO.GetOwner(), _zdo.GetOwner(), _zdo.m_uid, RpcName.Container.RequestOpen, parameters: [player.Vars.GetPlayerID()]);
+        InvokeRoutedRPCAsSender(player.ZDO.GetOwner(), _zdo.GetOwner(), _zdo.m_uid, RpcName.Container.RequestOpen, parameters: [player.Vars.GetPlayerID().Value]);
+      }
+
+      internal void RequestOwnershipRelease(PlayerID playerID = default)
+      {
+        var sender = PlayerID.GetModPlayerID().Value; // guaranteed to not be a valid peerID
+        InvokeRoutedRPCAsSender(sender, _zdo.GetOwner(), _zdo.m_uid, RpcName.Container.RequestOpen, parameters: [playerID.Value]);
       }
 
       /// <see cref="Container.RPC_OpenRespons"/>

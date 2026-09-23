@@ -29,7 +29,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Minimum distance from the player at which followers will be teleported to the player's location");
   public ConfigEntry<bool> TakeIntoDungeons { get; } = BindEx(cfg, true,
     $"True to take followers into (and out of) dungeons with the player");
-  public ConfigEntry<bool> FeedFromContainers { get; } = Shared.TameAssistFeedFromContainers = BindEx(cfg, true,
+  public ConfigEntry<bool> FeedFromContainers { get; } = Shared.TameAssistFeedFromContainers = BindEx(cfg, false,
     "True to automatically feed tames from nearby containers");
   const string DefaultRangeEmoji = "🐗";
   public ConfigEntry<float> FeedFromContainersRange { get; } = BindEx(cfg, 0f, $"""

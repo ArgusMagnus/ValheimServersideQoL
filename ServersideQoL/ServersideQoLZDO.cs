@@ -306,7 +306,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   public void ReleaseOwnership() => ZDO.SetOwner(0);
   public void ReleaseOwnershipInternal() => ZDO.SetOwnerInternal(0);
 
-  public bool IsOwnerOrUnassigned() => !ZDO.HasOwner() || ZDO.IsOwner();
+  public bool IsOwnerOrUnassigned() => !ZDO.HasOwner() || ZDO.IsOwner() || ZDO.GetOwner() == PlayerID.GetModPlayerID().Value;
 
   public void SetModAsCreator() => SetModAsCreator(Processor.CreatorMarkers.None);
   public void SetModAsCreator(Processor.CreatorMarkers marker) => Vars.SetCreator(PlayerID.GetModPlayerID((uint)marker));

@@ -1,3 +1,7 @@
+### v2.1.0
+- Added support for TameAssist's new feeding from containers feature
+- Fixed issue that would open the host's inventory occasionally
+
 ### v2.0.14
 - All configs are now auto-reloaded by default [#215](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/215)/[#250](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/250)
 - Fix: remove remaining pieces in the world placed by pre-v2.0 versions of the mod [#255](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/255)/[#257](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/257)
