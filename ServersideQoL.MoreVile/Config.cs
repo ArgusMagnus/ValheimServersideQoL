@@ -7,21 +7,14 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
 
-  public ConfigEntry<float> SpawnMultiplier { get; } = BindEx(cfg, 2f, """
-    Multiplier for the spawn rate of Viles.
-    Every time a Vile spawns naturally, (SpawnMultiplier - 1) additional Viles are spawned next to it on average.
-    Example: 2.5 spawns one additional Vile and a second one with a 50% chance.
+  public ConfigEntry<float> SpawnChanceMultiplier { get; } = BindEx(cfg, 2f, """
+    Multiplier for the chance of Viles to spawn naturally.
+    Example: 2 doubles the chance, 1 leaves it unchanged.
+    Spawn conditions (biome, time of day, required boss progress, etc.) are the same as in vanilla.
+    """, new AcceptableValueRange<float>(1f, 20f));
+
+  public ConfigEntry<float> MaxSpawnedMultiplier { get; } = BindEx(cfg, 1f, """
+    Multiplier for the maximum number of Viles which can be around a player before no more spawn naturally.
+    With a higher spawn chance, this limit is reached sooner, so you might want to increase it as well.
     """, new AcceptableValueRange<float>(1f, 10f));
-
-  public ConfigEntry<int> MaxNearby { get; } = BindEx(cfg, 8, """
-    No additional Viles are spawned if at least this many Viles are already in the surrounding (simulated) area.
-    0 means no limit.
-    """, new AcceptableValueRange<int>(0, 100));
-
-  public ConfigEntry<float> SpawnRadius { get; } = BindEx(cfg, 3f,
-    "Maximum distance from the original Vile additional Viles are spawned at",
-    new AcceptableValueRange<float>(0f, 20f));
-
-  public ConfigEntry<bool> CopyLevel { get; } = BindEx(cfg, true,
-    "True to spawn additional Viles with the same level (stars) as the original Vile, false to spawn them with level 1");
 }
