@@ -1,4 +1,4 @@
-### v2.0.15
+### v2.1.0
 - Added options to feed tames from containers (`FeedFromContainers`) [#15](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/15)
 
 ### v2.0.11
