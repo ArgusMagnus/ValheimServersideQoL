@@ -72,6 +72,7 @@ partial class ServersideQoLZDO
     public void SetGrowStart(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_growStart, value); }
     public DateTime GetSpawnTime(DateTime defaultValue = default) => new(_zdo.GetLong(global::ZDOVars.s_spawnTime, defaultValue.Ticks));
     public void SetSpawnTime(DateTime value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_spawnTime, value.Ticks); }
+    public DateTime GetPlantTime(DateTime defaultValue = default) => new(_zdo.GetLong(global::ZDOVars.s_plantTime, defaultValue.Ticks));
     public float GetHealth(float defaultValue = default) => _zdo.GetFloat(global::ZDOVars.s_health, defaultValue);
     public void SetHealth(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_health, value); }
     public string GetHealthString(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_health, defaultValue);
