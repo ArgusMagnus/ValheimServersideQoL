@@ -14,7 +14,6 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
   readonly Dictionary<ServersideQoLZDO, ContainerStateImpl> _states = [];
   readonly Dictionary<float, WeakReference<SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>>> _containersByItemName = [];
   readonly Dictionary<float, WeakReference<SectorDictionary<HashSet<ServersideQoLZDO>>>> _containers = [];
-  bool _openResponseRegistered;
 
   public SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>> GetContainersByItemName(float sectorWidth)
   {
@@ -81,27 +80,19 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     if (state.ZDO.IsOwnerOrUnassigned() || state is not ContainerStateImpl s || Timestamp.Now < s.NextOwnershipRequest)
       return Config.Instance.Advanced.Value.ProcessingDelays.AfterContainerOwnershipRequest;
 
-    if (!_openResponseRegistered && Player.m_localPlayer is not null)
-    {
-      /// <see cref="Container.RPC_OpenResponse"/>
-      RPC.Intercept.UpdateInterception(RPC.RpcName.Container.OpenResponse, RPC_OpenResponse, _openResponseRegistered = true);
-    }
-
     //Logger.DevLog($"Container {zdo.m_uid}: RequestOwnership");
     s.NextOwnershipRequest = Timestamp.Now.AddSeconds(Config.Instance.Advanced.Value.Containers.MinOwnershipRequestInterval);
-    s.WaitingForResponse = true;
     s.PreviousOwner = state.ZDO.ZDO.GetOwner();
 
 
     //DevShowMessage(zdo, "Requesting ownership", DamageText.TextType.Normal, caller, callerLineNo);
-    state.ZDO.RPC.Container.RequestOpen(playerID);
+    state.ZDO.RPC.Container.RequestOwnershipRelease(playerID);
     return Config.Instance.Advanced.Value.ProcessingDelays.AfterContainerOwnershipRequest;
   }
 
   protected internal override void Initialize()
   {
     _states.Clear();
-    RPC.Intercept.UpdateInterception(RPC.RpcName.Container.OpenResponse, RPC_OpenResponse, _openResponseRegistered = false);
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
@@ -184,20 +175,9 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     return default;
   }
 
-  bool RPC_OpenResponse(ServersideQoLZDO? zdo, bool granted)
-  {
-    if (zdo is null || !_states.TryGetValue(zdo, out var state) || !state.WaitingForResponse)
-      return true;
-
-    //Logger.DevLog($"Container {data.m_targetZDO}: OpenResponse: {granted}");
-    state.WaitingForResponse = false;
-    return false;
-  }
-
   sealed class ContainerStateImpl(ServersideQoLZDO zdo, Container container) : ContainerState, ContainerState.IInventory
   {
     public Timestamp NextOwnershipRequest { get; set; }
-    public bool WaitingForResponse { get; set; }
     public long PreviousOwner { get; set; }
     public bool AddedToContainers { get; set; }
 

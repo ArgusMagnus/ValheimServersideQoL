@@ -173,7 +173,6 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
             range = tamefeedMaxRange;
             result = Invariant($"{Config.Instance.TameAssistFeedFromContainersRangeSignPrefix}{range}");
           }
-          Logger.DevLog($"Tame feeding range set: {range}");
           containerState.TameAssistFeedRange = range;
           return result;
         });
