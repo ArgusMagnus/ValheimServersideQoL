@@ -14,7 +14,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     """, new AcceptableValueRange<float>(1f, 10f));
 
   public ConfigEntry<int> MaxNearby { get; } = BindEx(cfg, 8, """
-    No additional Viles are spawned if at least this many Viles are already in the surrounding area.
+    No additional Viles are spawned if at least this many Viles are already in the surrounding (simulated) area.
     0 means no limit.
     """, new AcceptableValueRange<int>(0, 100));
 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ServersideQoL.Utilities;
+using UnityEngine;
 
 namespace ServersideQoL.MoreVile;
 
@@ -45,7 +46,7 @@ public sealed class VileProcessor : Processor<VileProcessor.PrefabInfo>
 
     if (Config.Instance.MaxNearby.Value > 0)
     {
-      ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), 1, _sectorObjects);
+      ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZNet.instance.GetSyncedSimulationDistance(), _sectorObjects);
       var nearby = _sectorObjects.Count(static x => x.GetPrefab() == __vilePrefab);
       _sectorObjects.Clear();
       count = Math.Min(count, Config.Instance.MaxNearby.Value - nearby);
