@@ -1,3 +1,6 @@
+### v2.1.0
+- Compatibility patch
+
 ### v2.0.14
 - Added config option `MaxLevelCap` [#260](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/260)
 

@@ -53,7 +53,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
     _playerStates.Clear();
     _wards.Clear();
 
-    foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
+    foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
     {
       switch (GetProcessorPrefabInfo(zdo))
       {
@@ -99,7 +99,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
               if (Config.Instance.DungeonsPinType.Value is not Minimap.PinType.None)
               {
                 var hash = zdo.Vars.GetLocation();
-                if (hash is not 0 && ZoneSystem.instance.GetLocationsByHash().TryGetValue(hash, out var location) &&
+                if (hash is not 0 && ZoneSystem.instance.m_locationsByHash.TryGetValue(hash, out var location) &&
                     location.m_prefab is { IsValid: true, IsLoaded: false, IsLoading: false })
                 {
                   location.m_prefab.LoadAsync();

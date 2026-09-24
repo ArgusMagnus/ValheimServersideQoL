@@ -1,3 +1,6 @@
+### v2.1.0
+- Compatibility patch
+
 ### v2.0.11
 - Support for the new core options `UnifiedConfig` and `ConfigPerWorld`
 - Breaking change: Renamed config section from `AdminBuildOptions` to `AdminOptions`

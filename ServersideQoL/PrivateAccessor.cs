@@ -1,7 +1,6 @@
 ﻿using System.Linq.Expressions;
 using System.Reflection;
 using UnityEngine;
-using static Terminal;
 using static ZoneSystem;
 
 namespace ServersideQoL;
@@ -14,66 +13,8 @@ public static class PrivateAccessor
 #endif
       ;
 
-  static Func<ConsoleCommand, ConsoleEvent?> GetCommandAction
-#if DEBUG
-  { get; } =
-#else
-    => field ??=
-#endif
-      Expression.Lambda<Func<ConsoleCommand, ConsoleEvent?>>(
-      Expression.Field(
-          Expression.Parameter(typeof(ConsoleCommand)) is var par1 ? par1 : throw new Exception(),
-          typeof(ConsoleCommand).GetField("action", BindingFlags.Instance | AccessFlags)),
-      par1).Compile();
-
-  public static ConsoleEvent? GetAction(this ConsoleCommand command) => GetCommandAction(command);
-
-  static Func<ConsoleCommand, ConsoleEventFailable?> GetCommandActionFailable
-#if DEBUG
-  { get; } =
-#else
-    => field ??=
-#endif
-      Expression.Lambda<Func<ConsoleCommand, ConsoleEventFailable?>>(
-      Expression.Field(
-          Expression.Parameter(typeof(ConsoleCommand)) is var par1 ? par1 : throw new Exception(),
-          typeof(ConsoleCommand).GetField("actionFailable", BindingFlags.Instance | AccessFlags)),
-      par1).Compile();
-
-  public static ConsoleEventFailable? GetActionFailable(this ConsoleCommand command) => GetCommandActionFailable(command);
-
-  public static Func<IReadOnlyList<KeyButton>> GetServerOptionsGUIPresets
-#if DEBUG
-  { get; } =
-#else
-    => field ??=
-#endif
-      Expression.Lambda<Func<IReadOnlyList<KeyButton>>>(
-      Expression.Field(null, typeof(ServerOptionsGUI).GetField("m_presets", BindingFlags.Static | AccessFlags))).Compile();
-
-  public static Func<IReadOnlyList<KeyUI>> GetServerOptionsGUIModifiers
-#if DEBUG
-  { get; } =
-#else
-    => field ??=
-#endif
-      Expression.Lambda<Func<IReadOnlyList<KeyUI>>>(
-      Expression.Field(null, typeof(ServerOptionsGUI).GetField("m_modifiers", BindingFlags.Static | AccessFlags))).Compile();
-
-  static Func<ZDOMan, Dictionary<ZDOID, ZDO>> GetZDOManObjectsByID
-#if DEBUG
-  { get; } =
-#else
-    => field ??=
-#endif
-      Expression.Lambda<Func<ZDOMan, Dictionary<ZDOID, ZDO>>>(
-      Expression.Field(
-          Expression.Parameter(typeof(ZDOMan)) is var par1 ? par1 : throw new Exception(),
-          typeof(ZDOMan).GetField("m_objectsByID", AccessFlags | BindingFlags.Instance)),
-      par1).Compile();
-
-  static Dictionary<ZDOID, ZDO> GetObjectsByIDCore(this ZDOMan instance) => GetZDOManObjectsByID(instance);
-  public static Dictionary<ZDOID, ZDO>.ValueCollection GetObjects(this ZDOMan instance) => GetObjectsByIDCore(instance).Values;
+  [Obsolete(null, true)]
+  public static Dictionary<ZDOID, ZDO>.ValueCollection GetObjects(ZDOMan instance) => instance.m_objectsByID.Values;
 
   static Func<Localization, IReadOnlyDictionary<string, string>> GetLocalizationStrings
 #if DEBUG
@@ -101,7 +42,8 @@ public static class PrivateAccessor
           typeof(RandEventSystem).GetField("m_randomEvent", AccessFlags | BindingFlags.Instance)),
       par1).Compile();
 
-  public static RandomEvent? GetCurrentEvent(this RandEventSystem instance) => GetCurrentEventFunc(instance);
+  [Obsolete(null, true)]
+  public static RandomEvent? GetCurrentEvent(RandEventSystem instance) => GetCurrentEventFunc(instance);
 
   static Func<ZoneSystem, IReadOnlyDictionary<int, ZoneLocation>> GetLocationsByHashFunc
 #if DEBUG
@@ -115,10 +57,11 @@ public static class PrivateAccessor
           typeof(ZoneSystem).GetField("m_locationsByHash", AccessFlags | BindingFlags.Instance)),
       par1).Compile();
 
-  public static IReadOnlyDictionary<int, ZoneLocation> GetLocationsByHash(this ZoneSystem instance) => GetLocationsByHashFunc(instance);
+  [Obsolete(null, true)]
+  public static IReadOnlyDictionary<int, ZoneLocation> GetLocationsByHash(ZoneSystem instance) => GetLocationsByHashFunc(instance);
 
   public static Utilities.Location GetAndLoadLocationByHash(this ZoneSystem instance, int hash)
-    => instance.GetLocationsByHash().TryGetValue(hash, out var loc) ? new(loc) : default;
+    => instance.m_locationsByHash.TryGetValue(hash, out var loc) ? new(loc) : default;
 
   static Func<ZoneSystem, ZoneLocation, int, Vector3, Quaternion, SpawnMode, List<GameObject>, bool, GameObject> SpawnLocationFunc
 #if DEBUG
@@ -139,41 +82,23 @@ public static class PrivateAccessor
           Expression.Parameter(typeof(bool)) is var par8 ? par8 : throw new Exception()),
       par1, par2, par3, par4, par5, par6, par7, par8).Compile();
 
-  public static GameObject SpawnLocation(this ZoneSystem instance, ZoneLocation location, int seed, Vector3 pos, Quaternion rot, SpawnMode mode, List<GameObject>? spawnedGhostObjects = null, bool cheated = false)
+  [Obsolete(null, true)]
+  public static GameObject SpawnLocation(ZoneSystem instance, ZoneLocation location, int seed, Vector3 pos, Quaternion rot, SpawnMode mode, List<GameObject>? spawnedGhostObjects = null, bool cheated = false)
       => SpawnLocationFunc(instance, location, seed, pos, rot, mode, spawnedGhostObjects ?? [], cheated);
 
-  static Action<ZoneSystem, long> SendGlobalKeysAction
-#if DEBUG
-  { get; } =
-#else
-    => field ??=
-#endif
-      Expression.Lambda<Action<ZoneSystem, long>>(
-      Expression.Call(
-          Expression.Parameter(typeof(ZoneSystem)) is var par1 ? par1 : throw new Exception(),
-          typeof(ZoneSystem).GetMethod("SendGlobalKeys", AccessFlags | BindingFlags.Instance),
-          Expression.Parameter(typeof(long)) is var par2 ? par2 : throw new Exception()),
-      par1, par2).Compile();
-
-  public static void SendGlobalKeys(this ZoneSystem instance, long peerID) => SendGlobalKeysAction(instance, peerID);
-
-  static Action<Container> CheckForChangesAction
-#if DEBUG
-  { get; } =
-#else
-    => field ??=
-#endif
-      Expression.Lambda<Action<Container>>(
-      Expression.Call(
-          Expression.Parameter(typeof(Container)) is var par1 ? par1 : throw new Exception(),
-          typeof(Container).GetMethod("CheckForChanges", AccessFlags | BindingFlags.Instance)),
-      par1).Compile();
-
-  public static void CheckForChanges(this Container container) => CheckForChangesAction(container);
+  [Obsolete(null, true)]
+  public static void SendGlobalKeys(ZoneSystem instance, long peerID) => instance.SendGlobalKeys(peerID);
 
 
-  public static int ZSyncAnimationZDOSalt { get; } = (int)typeof(ZSyncAnimation).GetField("c_ZDOSalt", AccessFlags | BindingFlags.Static).GetRawConstantValue();
-  public static int CharacterAnimationHashEncumbered { get; } = (int)typeof(Character).GetField("s_encumbered", AccessFlags | BindingFlags.Static).GetValue(null);
-  public static int CharacterAnimationHashInWater { get; } = (int)typeof(Character).GetField("s_inWater", AccessFlags | BindingFlags.Static).GetValue(null);
-  public static int PlayerAnimationHashCrouching { get; } = (int)typeof(Player).GetField("s_crouching", AccessFlags | BindingFlags.Static).GetValue(null);
+  [Obsolete(null, true)]
+  public static int ZSyncAnimationZDOSalt => ZSyncAnimation.c_ZDOSalt;
+
+  [Obsolete(null, true)]
+  public static int CharacterAnimationHashEncumbered => Character.s_encumbered;
+
+  [Obsolete(null, true)]
+  public static int CharacterAnimationHashInWater => Character.s_inWater;
+
+  [Obsolete(null, true)]
+  public static int PlayerAnimationHashCrouching => Player.s_crouching;
 }

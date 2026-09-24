@@ -442,7 +442,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         foreach (var processor in cfg.Plugin.Processors)
           processor.Initialize();
 
-        foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
+        foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
         {
           zdo.ReregisterAll();
           OnDataOrOwnerRevisionChanged(zdo);

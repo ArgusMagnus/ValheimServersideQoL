@@ -68,7 +68,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
         if (biome is 0)
         {
           biome = GetBiome(zdo.ZDO.GetPosition());
-          if (RandEventSystem.instance.GetCurrentEvent() is { } currentEvent &&
+          if (RandEventSystem.instance.m_randomEvent is { } currentEvent &&
               GetEventInfo(currentEvent, out var eventInfo) &&
               eventInfo.SpawnAreas.Contains(zdo.ZDO.GetPrefab()))
           {
@@ -264,7 +264,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     }
     else if (zdo.Vars.GetEventCreature())
     {
-      if (RandEventSystem.instance.GetCurrentEvent() is not { } currentEvent)
+      if (RandEventSystem.instance.m_randomEvent is not { } currentEvent)
       {
         Logger.LogWarning($"{GetPrefabInfo(zdo).PrefabName} is an event creature, but no active event was found");
         return result;

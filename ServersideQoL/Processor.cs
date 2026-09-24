@@ -127,7 +127,7 @@ public abstract class Processor
     __enableProcessingTimeMonitoring = Config.Instance.DiagnosticLogs.Value;
     __dataZDO = null;
 
-    foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
+    foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
     {
       if (!zdo.IsModCreator(out var marker))
       {

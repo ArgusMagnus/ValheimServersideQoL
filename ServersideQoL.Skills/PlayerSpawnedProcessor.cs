@@ -71,7 +71,7 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
           }
         }
 
-        foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
+        foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
         {
           if (!_spawnedByPrefab.TryGetValue(zdo.ZDO.GetPrefab(), out var list) || list.Contains(zdo))
             continue;

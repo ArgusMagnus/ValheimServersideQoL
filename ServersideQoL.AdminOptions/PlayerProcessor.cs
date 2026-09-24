@@ -23,7 +23,7 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
   ZoneSystem.ZoneLocation DevGround2 => field ??= GetZoneLocation();
 
   static ZoneSystem.ZoneLocation GetZoneLocation([CallerMemberName] string name = default!)
-      => ZoneSystem.instance.GetLocationsByHash()[name.GetStableHashCode()];
+      => ZoneSystem.instance.m_locationsByHash[name.GetStableHashCode()];
 
   public BuildModifiers GetBuildModifiers(PlayerID playerId)
     => Instance<PlayerRegistryProcessor>().GetStateForPlayerID(playerId) is { } playerState && _states.TryGetValue(playerState.ZDO, out var state) ? state.BuildModifiers : BuildModifiers.None;
@@ -105,7 +105,7 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
       } is { } location)
       {
         /// <see cref="ZoneSystem.instance.TestSpawnLocation"/>
-        ZoneSystem.instance.SpawnLocation(location, 0, zdo.ZDO.GetPosition(), zdo.ZDO.GetRotation(), ZoneSystem.SpawnMode.Full);
+        ZoneSystem.instance.SpawnLocation(location, 0, zdo.ZDO.GetPosition(), zdo.ZDO.GetRotation(), ZoneSystem.SpawnMode.Full, []);
         var zdos = new List<ZDO>();
         ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZNet.instance.GetSyncedSimulationDistance(), zdos);
         foreach (var zdo2 in zdos.Select(static x => x.ServersideQoLZDO))

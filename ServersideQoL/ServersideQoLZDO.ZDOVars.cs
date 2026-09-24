@@ -90,11 +90,11 @@ partial class ServersideQoLZDO
     public void SetSpawnPoint(Vector3 value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_spawnPoint, value); }
     public int GetEmoteID(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_emoteID, defaultValue);
     public Emotes GetEmote(Emotes defaultValue = ConfigBase.DisabledEmote) => Enum.TryParse<Emotes>(_zdo.GetString(global::ZDOVars.s_emote), true, out var e) ? e : defaultValue;
-    public bool GetAnimationIsEncumbered(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashEncumbered, defaultValue);
-    public bool GetAnimationInWater(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashInWater, defaultValue);
-    public bool GetAnimationIsCrouching(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.PlayerAnimationHashCrouching, defaultValue);
+    public bool GetAnimationIsEncumbered(bool defaultValue = default) => _zdo.GetBool(ZSyncAnimation.c_ZDOSalt + Character.s_encumbered, defaultValue);
+    public bool GetAnimationInWater(bool defaultValue = default) => _zdo.GetBool(ZSyncAnimation.c_ZDOSalt + Character.s_inWater, defaultValue);
+    public bool GetAnimationIsCrouching(bool defaultValue = default) => _zdo.GetBool(ZSyncAnimation.c_ZDOSalt + Player.s_crouching, defaultValue);
     static readonly int _animationCraftingHash = ZSyncAnimation.GetHash("crafting");
-    public int GetAnimationCrafting(int defaultValue = default) => _zdo.GetInt(PrivateAccessor.ZSyncAnimationZDOSalt + _animationCraftingHash, defaultValue);
+    public int GetAnimationCrafting(int defaultValue = default) => _zdo.GetInt(ZSyncAnimation.c_ZDOSalt + _animationCraftingHash, defaultValue);
     public DateTime GetTameLastFeeding(DateTime defaultValue = default) => new(_zdo.GetLong(global::ZDOVars.s_tameLastFeeding, defaultValue.Ticks));
     public void SetTameLastFeeding(DateTime value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_tameLastFeeding, value.Ticks); }
     public bool GetEventCreature(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_eventCreature, defaultValue);
