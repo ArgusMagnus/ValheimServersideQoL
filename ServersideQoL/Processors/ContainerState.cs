@@ -12,6 +12,11 @@ public abstract class ContainerState
   public float? TameAssistFeedRange { get; set; }
   public float? AutoProcessFeedRange { get; set; }
 
+  [Obsolete($"Use {nameof(AutoStorePickupRange)} instead", true)]
+  public float? PickupRange { get => AutoStorePickupRange; set => AutoStorePickupRange = value; }
+  [Obsolete($"Use {nameof(AutoStorePickupRange)} instead", true)]
+  public float? FeedRange { get => AutoProcessFeedRange; set => AutoProcessFeedRange = value; }
+
   public interface IInventory
   {
     Inventory Inventory { get; }
