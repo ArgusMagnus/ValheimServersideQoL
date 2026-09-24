@@ -590,19 +590,18 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       var allProcessors = zdo.Processors;
       if (allProcessors.Count > 1)
       {
-        Processor? claimedExclusiveBy = null;
         foreach (var processor in allProcessors.Enumerate())
         {
           if (!processor.ClaimExclusive(zdo))
             continue;
-          if (claimedExclusiveBy is null)
-            claimedExclusiveBy = processor;
+          if (zdo.ExclusivelyClaimedBy is null)
+            zdo.ExclusivelyClaimedBy = processor;
           else if (Config.DiagnosticLogs.Value)
-            Logger.LogError(Invariant($"ZDO {zdo.PrefabInfo?.PrefabName} claimed exclusively by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}"));
+            Logger.LogError(Invariant($"ZDO {zdo.PrefabInfo?.PrefabName} claimed exclusively by {processor.GetType().Name} while already claimed by {zdo.ExclusivelyClaimedBy.GetType().Name}"));
         }
 
-        if (claimedExclusiveBy is not null)
-          zdo.UnregisterAllExcept(claimedExclusiveBy);
+        if (zdo.ExclusivelyClaimedBy is not null)
+          zdo.UnregisterAllExcept(zdo.ExclusivelyClaimedBy);
       }
     }
 
