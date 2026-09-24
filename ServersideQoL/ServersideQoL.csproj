@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <Description>Serverside-only QoL mod, compatible with vanilla/console (e.g. XBox, PS, Switch) clients. Stack player inventories into chests, generated portal hub, auto-sort chests, refuel smelters from containers, infinite building/farming stamina and much more</Description>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>

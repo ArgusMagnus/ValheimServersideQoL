@@ -21,7 +21,8 @@ public sealed partial class $(ClassName)Plugin
   public const string Author = "$(Authors)"%3B
 	public const string PluginName = "$(MSBuildProjectName)"%3B
 	public const string PluginGuid = $"{Author}.{PluginName}"%3B
-	public const string PluginVersion = "$(Version)"%3B
+	public const string PluginVersion = "$(VersionNumber)"%3B
+	public const string PluginInformationalVersion = "$(Version)"%3B
 	DateTimeOffset BuildTimestamp { get%3B } = new($([System.DateTimeOffset]::UtcNow.UtcTicks), default)%3B
   
 #if DEBUG
@@ -31,8 +32,8 @@ public sealed partial class $(ClassName)Plugin
 #if !PATCHER
 	void Awake()
 	{
-    if (PluginVersion.Contains('-'))
-      Logger.LogWarning($"You are running a pre-release version: {PluginVersion} ({BuildTimestamp.LocalDateTime})")%3B
+    if (PluginVersion != PluginInformationalVersion)
+      Logger.LogWarning($"You are running a pre-release version: {PluginInformationalVersion} ({BuildTimestamp.LocalDateTime})")%3B
 		OnAwake()%3B
 	}
 	
