@@ -20,20 +20,23 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     True to assign ownership of ships to the player controlling the ship.
     This should help reduce issues with ship control due to networking issues.
     """);
+  public ConfigEntry<float> MinOwnershipDurationSeconds { get; } = BindEx(cfg, 2f,
+    "The minimum time (seconds) after ownership was reassigned on an object before it can be reassigned again",
+    new AcceptableValueRange<float>(2, 60));
+  public ConfigEntry<float> MaxTimeSinceLastPingSeconds { get; } = BindEx(cfg, 1.5f, """
+    The maximum time (seconds) since the last ping from a player was received for that player to be considered as potential new owner.
+    This is not the max ping. Even on a perfect connection this value can be up to one second, because vanilla clients only send pings once every second.
+    """, new AcceptableValueRange<float>(1, 5));
 
   //public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
 
-  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
+  //public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
 
   //public sealed class LocalizationConfig
   //{
-  //  string Prompt { get; init; } = "{0} of {1} players want to sleep.<br>Sit down if you want to sleep as well";
-  //  public string FormatPrompt(int sleepingPlayers, int totalPlayers) => string.Format(Prompt, sleepingPlayers, totalPlayers);
   //}
 
-  public sealed class AdvancedConfig
-  {
-    public float MaxTimeSinceLastPingSeconds { get; init; } = 1.5f;
-    public float MinOwnershipDurationSeconds { get; init; } = 2;
-  }
+  //public sealed class AdvancedConfig
+  //{
+  //}
 }

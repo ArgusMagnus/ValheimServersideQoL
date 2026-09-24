@@ -25,7 +25,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
 
   protected override void PreProcess(PeersEnumerable peers)
   {
-    _maxOwnerTimestamp = Timestamp.Now.AddSeconds(-Config.Instance.Advanced.Value.MinOwnershipDurationSeconds);
+    _maxOwnerTimestamp = Timestamp.Now.AddSeconds(-Config.Instance.MinOwnershipDurationSeconds.Value);
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
@@ -61,9 +61,9 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
           }
         }
 
-        if (closest?.ZNetPeer.m_rpc.GetTimeSinceLastPing() < Config.Instance.Advanced.Value.MaxTimeSinceLastPingSeconds)
+        if (closest?.ZNetPeer.m_rpc.GetTimeSinceLastPing() < Config.Instance.MaxTimeSinceLastPingSeconds.Value)
         {
-          delay = Config.Instance.Advanced.Value.MinOwnershipDurationSeconds;
+          delay = Config.Instance.MinOwnershipDurationSeconds.Value;
           zdo.ZDO.SetOwner(closest.ZNetPeer.m_uid);
         }
       }
