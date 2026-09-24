@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
+using UnityEngine;
 
 namespace ServersideQoL.MultiplayerTweaks;
 
@@ -24,7 +25,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
 
   protected override void PreProcess(PeersEnumerable peers)
   {
-    _maxOwnerTimestamp = Timestamp.Now.AddSeconds(2);
+    _maxOwnerTimestamp = Timestamp.Now.AddSeconds(-Config.Instance.Advanced.Value.MinOwnershipDurationSeconds);
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
@@ -43,7 +44,8 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
     if (ShouldAssignToClosestPlayer(zdo, prefabInfo))
     {
       var peerCount = peers.Count;
-      if (peerCount > 1 && zdo.OwnerTimestamp < _maxOwnerTimestamp)
+      var delay = Mathf.Max(0, zdo.OwnerTimestamp.Seconds - _maxOwnerTimestamp.Seconds);
+      if (peerCount > 1 && delay <= 0)
       {
         Peer? closest = null;
         var minDistSqr = float.MaxValue;
@@ -60,10 +62,13 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
         }
 
         if (closest?.ZNetPeer.m_rpc.GetTimeSinceLastPing() < Config.Instance.Advanced.Value.MaxTimeSinceLastPingSeconds)
+        {
+          delay = Config.Instance.Advanced.Value.MinOwnershipDurationSeconds;
           zdo.ZDO.SetOwner(closest.ZNetPeer.m_uid);
+        }
       }
 
-      return ScheduleReprocessing();
+      return ScheduleReprocessing(delay);
     }
 
     return ProcessResult.UnregisterProcessor;

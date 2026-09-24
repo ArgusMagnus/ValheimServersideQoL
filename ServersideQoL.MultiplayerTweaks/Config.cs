@@ -34,5 +34,6 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public sealed class AdvancedConfig
   {
     public float MaxTimeSinceLastPingSeconds { get; init; } = 1.5f;
+    public float MinOwnershipDurationSeconds { get; init; } = 2;
   }
 }
