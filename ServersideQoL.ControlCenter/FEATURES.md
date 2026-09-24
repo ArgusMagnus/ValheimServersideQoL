@@ -1,0 +1,1 @@
+- Configure all available vanilla global keys such as skill loss/gain rate, carry weight multiplier, food constumption rate, etc.
