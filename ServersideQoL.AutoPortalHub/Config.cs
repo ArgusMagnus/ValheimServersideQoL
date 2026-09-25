@@ -19,4 +19,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public ConfigEntry<string> AutoNameNewPortalsFormat { get; } = BindEx(cfg, "{0} {1:D2}",
     "Format string for auto-naming portals, the first argument is the biome name, the second is an automatically incremented integer",
     new AcceptableFormatString(["Test", 0]));
+
+  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
+
+  public sealed class AdvancedConfig
+  {
+    public float SignVerticalOffset { get; init; } = 2;
+  }
 }
