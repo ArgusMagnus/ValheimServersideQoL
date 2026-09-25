@@ -18858,7 +18858,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|*null*|
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
 |m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
 |m_snowDamageImmune|System.Boolean|False|
@@ -18890,7 +18890,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|*null*|
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
 |m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
 |m_snowDamageImmune|System.Boolean|False|
