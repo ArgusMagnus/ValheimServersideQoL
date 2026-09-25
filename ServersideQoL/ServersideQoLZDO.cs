@@ -305,6 +305,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     return zdo;
   }
 
+  [Obsolete(null, true)]
   public TimeSpan GetTimeSinceSpawned() => ZNet.instance.GetTime() - Vars.GetSpawnTime();
 
   public void ClaimOwnership() => ZDO.SetOwner(ZDOMan.GetSessionID());
@@ -312,7 +313,22 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   public void ReleaseOwnership() => ZDO.SetOwner(0);
   public void ReleaseOwnershipInternal() => ZDO.SetOwnerInternal(0);
 
-  public bool IsOwnerOrUnassigned() => !ZDO.HasOwner() || ZDO.IsOwner() || ZDO.GetOwner() == PlayerID.GetModPlayerID().Value;
+  public bool IsOwnerOrUnassigned()
+  {
+    if (!ZDO.HasOwner() || ZDO.IsOwner())
+      return true;
+    var owner = ZDO.GetOwner();
+    if (owner == PlayerID.GetModPlayerID().Value)
+      return true;
+    
+    if (ZNet.instance.GetPeer(owner)?.ServersideQoLPeer is not { } peer || !ZNetScene.InActiveArea(ZDO.GetPosition(), peer.RefPos))
+    {
+      ReleaseOwnershipInternal();
+      return true;
+    }
+
+    return false;
+  }
 
   public void SetModAsCreator() => SetModAsCreator(Processor.CreatorMarkers.None);
   public void SetModAsCreator(Processor.CreatorMarkers marker) => Vars.SetCreator(PlayerID.GetModPlayerID((uint)marker));

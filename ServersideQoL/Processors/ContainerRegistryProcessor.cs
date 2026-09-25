@@ -68,27 +68,32 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     return state;
   }
 
-  public float RequestOwnership(ServersideQoLZDO zdo, PlayerID playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
-      => RequestOwnership(GetState(zdo, zdo.PrefabInfo!.GetRequiredComponent<Container>()), playerID, caller, callerLineNo);
+  public float RequestOwnership(ServersideQoLZDO zdo, PlayerID playerID)
+      => RequestOwnership(GetState(zdo, GetPrefabInfo(zdo).GetRequiredComponent<Container>()), playerID);
 
-  [Obsolete("Use one of the other overloads", true)]
-  public float RequestOwnership(ServersideQoLZDO zdo, PlayerID playerID, ContainerState state, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
-    => RequestOwnership(state, playerID, caller, callerLineNo);
-
-  public float RequestOwnership(ContainerState state, PlayerID playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
+  public float RequestOwnership(ContainerState state, PlayerID playerID)
   {
     if (state.ZDO.IsOwnerOrUnassigned() || state is not ContainerStateImpl s || Timestamp.Now < s.NextOwnershipRequest)
       return Config.Instance.Advanced.Value.ProcessingDelays.AfterContainerOwnershipRequest;
 
-    //Logger.DevLog($"Container {zdo.m_uid}: RequestOwnership");
     s.NextOwnershipRequest = Timestamp.Now.AddSeconds(Config.Instance.Advanced.Value.Containers.MinOwnershipRequestInterval);
     s.PreviousOwner = state.ZDO.ZDO.GetOwner();
 
-
-    //DevShowMessage(zdo, "Requesting ownership", DamageText.TextType.Normal, caller, callerLineNo);
     state.ZDO.RPC.Container.RequestOwnershipRelease(playerID);
     return Config.Instance.Advanced.Value.ProcessingDelays.AfterContainerOwnershipRequest;
   }
+
+  [Obsolete("Use one of the other overloads", true)]
+  public float RequestOwnership(ServersideQoLZDO zdo, PlayerID playerID, string caller, int callerLineNo)
+    => RequestOwnership(zdo, playerID);
+
+  [Obsolete("Use one of the other overloads", true)]
+  public float RequestOwnership(ContainerState state, PlayerID playerID, string caller, int callerLineNo)
+    => RequestOwnership(state, playerID);
+
+  [Obsolete("Use one of the other overloads", true)]
+  public float RequestOwnership(ServersideQoLZDO zdo, PlayerID playerID, ContainerState state, string caller, int callerLineNo)
+    => RequestOwnership(state, playerID);
 
   protected internal override void Initialize()
   {

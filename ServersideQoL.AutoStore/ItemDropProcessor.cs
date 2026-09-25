@@ -105,7 +105,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
             {
               if (prefabInfo.ZSyncTransform is not null)
               {
-                var delay = (float)(10 - zdo.GetTimeSinceSpawned().TotalSeconds);
+                var delay = (float)(10 - GetTimeSinceSpawned(zdo).TotalSeconds);
                 if (delay > 0)
                   return ScheduleReprocessing(delay);
               }
@@ -284,4 +284,6 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
       }
     }
   }
+
+  static TimeSpan GetTimeSinceSpawned(ServersideQoLZDO zdo) => ZNet.instance.GetTime() - zdo.Vars.GetSpawnTime();
 }
