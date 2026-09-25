@@ -114,13 +114,13 @@
 |ach_soloboss|Lone Wolf|
 |ach_soloboss_desc|Kill a boss all by yourself.|
 |achievement_details|Achievement details|
-|achievements_cheated_item_inventory|This item was summoned through dev commands.|
+|achievements_cheated_item_inventory|This item was summoned through cheating means.|
 |achievements_confirm_cheat|That command is a cheat, please enter 'confirmcheats' in the console to use cheats. <color=red>Using cheats will permanently disable the ability to unlock achievements for this character and this world.</color>|
-|achievements_dropped_cheated_item|No more dev command items in inventory. Achievement progress is re-enabled.|
+|achievements_dropped_cheated_item|No more cheated items in inventory. Achievement progress is re-enabled.|
 |achievements_permanently_cheated_bypass|Achievement progress is enabled for this character even though dev commands have been used.|
 |achievements_permanently_cheated_character|Achievement progress is permanently disabled for this character due to dev command usage.|
 |achievements_permanently_cheated_world|Achievement progress is permanently disabled for this world due to using dev command world modifiers.|
-|achievements_picked_up_cheated_item|Picked up an item affected by dev commands. Achievement progress is temporarily disabled.|
+|achievements_picked_up_cheated_item|Picked up cheated item. Achievement progress is temporarily disabled.|
 |achievements_temporarily_cheated|Achievement progress is temporarily disabled for this character due to possession of cheated items.|
 |alternate_key_label|Alternate function: +|
 |ammo_arrows|arrows|
@@ -452,30 +452,30 @@
 |dream_deepnorth08|You sink through layers of sleep to a vast chamber where a dark shape hunches beneath a snarl of heavy chains. As it shifts to face you, the blue orbs of its eyes pierce the dream and you wake, drenched in sweat.|
 |dream_deepnorth09|You remember nothing of this night's dream but its rainbow mood lifts you into the day with a smile on your lips.|
 |dream_deepnorth10|Odin visits you in your dream and offers you a horn filled to the brim with a frothing draught. You drink deep and greet the new day feeling refreshed and alive.|
-|dream_eikthyr01|You dream of running through a meadow, the sky alight with pale fire. There is a thunder of hoofbeats behind you but when you turn, nothing is there.<br><br>You awaken with your heart pounding in your chest.|
+|dream_eikthyr01|You dream of running through a meadow, the sky alight with pale fire. There is a thunder of hoofbeats behind you but when you turn, nothing is there.<br><br>You awaken with your heart pounding in your chest.|
 |dream_elder01|In your dream, the forest rises before you, dragging the trees upward like a cloak, its dark mass hiding the stars. At the mountain's peak, vast antlers frame the moon...|
-|dream_mistlands01|In your dream, you walk through a hall of smiling warriors and gracious maidens. You join with their mirth until you realise that you are naked and the small bronze shield you are carrying is not enough to cover your shame.<br><br>You greet the morning with gratitude.|
-|dream_mistlands02|Dark-eyed Loki approaches you in your dream and gifts you a ring for each hand. He tells you that as long as they stay on your fingers, you will never hear an insulting word again.<br><br>You wake with your fingers in your ears.|
-|dream_mistlands03|You climb a winding staircase, curled tightly within a tall tower, until you arrive at the top and look out over an endless forest.<br><br>The wind blows green waves across the tree-tops and beneath the surface, dark shapes stir...|
-|dream_moder01|You dream that you are flying over mountaintops, all of Valheim spread out below you.<br><br>As you wheel and dive in the cold air, a great shape soars up past you to block the sun. In the darkness, it speaks. "Seek me."|
+|dream_mistlands01|In your dream, you walk through a hall of smiling warriors and gracious maidens. You join with their mirth until you realise that you are naked and the small bronze shield you are carrying is not enough to cover your shame.<br><br>You greet the morning with gratitude.|
+|dream_mistlands02|Dark-eyed Loki approaches you in your dream and gifts you a ring for each hand. He tells you that as long as they stay on your fingers, you will never hear an insulting word again.<br><br>You wake with your fingers in your ears.|
+|dream_mistlands03|You climb a winding staircase, curled tightly within a tall tower, until you arrive at the top and look out over an endless forest.<br><br>The wind blows green waves across the tree-tops and beneath the surface, dark shapes stir...|
+|dream_moder01|You dream that you are flying over mountaintops, all of Valheim spread out below you.<br><br>As you wheel and dive in the cold air, a great shape soars up past you to block the sun. In the darkness, it speaks. "Seek me."|
 |dream_random01|You dream of a river running uphill, of green shoots turning downward into the earth…|
-|dream_random02|Once again, you run at the head of your warriors, the weight of your father's axe in your hand.<br><br>You wake with the war-cry on your lips…|
-|dream_random03|In your dream, you sit beside a fire in a great hall, surrounded by the chatter of familiar voices.<br><br>Their faces blur like smoke and their names slip your mind, but the warmth of their memory lingers…|
-|dream_random04|You stand at the prow of a leaping ship, the salt spray before you and the joyful shriek of gulls above.<br><br>Folded within a dream, you remember what it was like to be alive in the land of your birth.|
+|dream_random02|Once again, you run at the head of your warriors, the weight of your father's axe in your hand.<br><br>You wake with the war-cry on your lips…|
+|dream_random03|In your dream, you sit beside a fire in a great hall, surrounded by the chatter of familiar voices.<br><br>Their faces blur like smoke and their names slip your mind, but the warmth of their memory lingers…|
+|dream_random04|You stand at the prow of a leaping ship, the salt spray before you and the joyful shriek of gulls above.<br><br>Folded within a dream, you remember what it was like to be alive in the land of your birth.|
 |dream_random05|You dream of a great tree reaching out through the night. One half of its branches crackle with flames, the others are green with leaves.|
-|dream_random06|Amidst the crash of arms, on the dark and glimmering plain of sleep, a face swells snarling before you. Your shield arm hangs limp, your spear is broken. You welcome the cold blade when it comes.<br><br>From a dream of death, you awaken to death itself.|
-|dream_random07|You dream you are lying on your back in a meadow, gazing upward at the clouds. Your name is nothing, your mind is free of thought. But there is a warm hand in yours.<br><br>In the dream, you are laughing. But when you awaken, you find your face damp with tears.|
+|dream_random06|Amidst the crash of arms, on the dark and glimmering plain of sleep, a face swells snarling before you. Your shield arm hangs limp, your spear is broken. You welcome the cold blade when it comes.<br><br>From a dream of death, you awaken to death itself.|
+|dream_random07|You dream you are lying on your back in a meadow, gazing upward at the clouds. Your name is nothing, your mind is free of thought. But there is a warm hand in yours.<br><br>In the dream, you are laughing. But when you awaken, you find your face damp with tears.|
 |dream_random08|On a boat carved from dark wood, beneath ragged sails, you lie with your arms folded across your chest. Blurred faces, like thumbprints on the darkness, croon familiar songs as they push you out to float on a sea as black and flat as glass.|
 |dream_random09|You lie on the battlefield, dreaming eyes turned upward to a sky veiled by smoke. The calls of your warriors grow fainter and your eyes close for a second time. Great talons slide beneath you and you feel yourself rising, lifted from your body like a babe from its crib…|
 |dream_random10|You fall into the deep well of sleep and dream only of darkness.|
-|dream_random11|You dream of a bright hall filled with gracious warriors and fair maidens. The air hums with song, the boards groan under the weight of steaming dishes, the mead flows like water.<br><br>You awake slowly with the laughter still ringing in your ears…|
+|dream_random11|You dream of a bright hall filled with gracious warriors and fair maidens. The air hums with song, the boards groan under the weight of steaming dishes, the mead flows like water.<br><br>You awake slowly with the laughter still ringing in your ears…|
 |dream_random12|You sleep in fits and fretful dreams, the weight of the nightmare heavy on your chest. When morning comes, you greet it with relief.|
 |dream_random13|Sleep is a river and dreams are live fish. You wake in the morning with your net empty.|
-|dream_random14|You dream you are hunting with your companions, running high over green hills and down through mist-haunted valleys. Ahead of you, your prey stumbles and you leap forward, sinking your teeth into warm flesh.<br><br>When you wake, the taste of metal lingers in your mouth.|
+|dream_random14|You dream you are hunting with your companions, running high over green hills and down through mist-haunted valleys. Ahead of you, your prey stumbles and you leap forward, sinking your teeth into warm flesh.<br><br>When you wake, the taste of metal lingers in your mouth.|
 |dream_random15|You dream you are walking in a snowy wood when you come upon a naked child, sitting against a tree with his eyes closed but his chest moving to breathe. As you kneel beside him, you know he has been sleeping here for many centuries, waiting for you. When you touch his shoulder, you both awaken.|
 |dream_random16|You dream of a mighty bear, sleeping deep below the earth in the winter of the world. It turns in its sleep, folds upon folds of flesh and fur. It has no head, no limbs. A vast mass of bear flesh, mercifully quiet.|
 |dream_random17|You fall asleep planning your next day's labor and in your dreams you complete it, hewing wood, foraging for food and hunting after swift deer. You return home exhausted but happy, only to awaken and find the day is still ahead of you...|
-|dream_yagluth01|In a chamber hung with golden drapes, you kneel before the throne of a veiled king. "Sleep is but a mask", he tells you, lifting the veil slowly.<br><br>You wake screaming.|
+|dream_yagluth01|In a chamber hung with golden drapes, you kneel before the throne of a veiled king. "Sleep is but a mask", he tells you, lifting the veil slowly.<br><br>You wake screaming.|
 |dvergr_buff|Dvergr power|
 |dvergr_buff_description|You are infused with a strange Dvergr power which increases your strength.|
 |elaking_trashpile|Pile of Rubble|
@@ -994,21 +994,21 @@
 |fish7_description|Best served with lots of carbs!|
 |fish8_description|It has seen some things... Some very haunting things...|
 |fish9_description|The dangling light makes it easier to see that pretty little face!|
-|guardianstone_bonemass_desc|Wanderer, look to your feet<br>That tread upon our tomb<br>One thousand bones without their meat<br>Will drag you to your doom|
-|guardianstone_eikthyr_desc|His antlers are branches of iron<br>They crack the rocks and bring down mountains<br>His hooves are the sound of thunder<br>His voice a howling gale|
-|guardianstone_fader_desc|A father noble and proud<br>He soared through skies of fire<br>Then madness lowered its shroud<br>And warped his heart's desire|
+|guardianstone_bonemass_desc|Wanderer, look to your feet<br>That tread upon our tomb<br>One thousand bones without their meat<br>Will drag you to your doom|
+|guardianstone_eikthyr_desc|His antlers are branches of iron<br>They crack the rocks and bring down mountains<br>His hooves are the sound of thunder<br>His voice a howling gale|
+|guardianstone_fader_desc|A father noble and proud<br>He soared through skies of fire<br>Then madness lowered its shroud<br>And warped his heart's desire|
 |guardianstone_hook_activate|Activate power|
 |guardianstone_hook_alreadyactive|Current power|
 |guardianstone_hook_deactivate|Release power|
 |guardianstone_hook_name|Trophy Hook|
 |guardianstone_hook_power_activate|Activated|
 |guardianstone_hook_power_deactivate|Released|
-|guardianstone_moder_desc|Black wings across the moon and sun<br>Down from the mountain our mother comes<br>Her weeping tears will fall like rain<br>Her voice will call us home again|
+|guardianstone_moder_desc|Black wings across the moon and sun<br>Down from the mountain our mother comes<br>Her weeping tears will fall like rain<br>Her voice will call us home again|
 |guardianstone_name|Sacrificial Stone|
-|guardianstone_theelder_desc|First of the Forest, King-in-the-Wood<br>Lord over those who dwell at his feet<br>His roots will grow where cities once stood<br>Their blood his wine, their flesh his meat|
-|guardianstone_thequeen_desc|Born in armour<br>Mother of many<br>Queen without crown<br>Ruler beneath|
+|guardianstone_theelder_desc|First of the Forest, King-in-the-Wood<br>Lord over those who dwell at his feet<br>His roots will grow where cities once stood<br>Their blood his wine, their flesh his meat|
+|guardianstone_thequeen_desc|Born in armour<br>Mother of many<br>Queen without crown<br>Ruler beneath|
 |guardianstone_trophyplaced|Forsaken sacrificed|
-|guardianstone_yagluth_desc|Long ages past, he wore a crown<br>Beneath a blood-red sky<br>Now naught is left of all he was<br>But his spirit cannot die|
+|guardianstone_yagluth_desc|Long ages past, he wore a crown<br>Beneath a blood-red sky<br>Now naught is left of all he was<br>But his spirit cannot die|
 |heightmap_issue_message|To fix a critical issue with the world map not being in sync, small parts of worlds for some players will be changed. Any structures built close to those areas may potentially break. We try our best to ensure that these issues do not happen, but sometimes it’s unavoidable and we are truly sorry for any inconvenience.|
 |hover_memorialstone|Ancestral Memorial|
 |hud_addfavorite|Add Favorite|
@@ -1300,7 +1300,7 @@
 |item_axe_berzerkr_nature|Primal Berserkir Axes|
 |item_axe_berzerkr_nature_description|Your most primal instincts take over, and the nature around you reaches out to aid you.|
 |item_axe_blackmetal|Black Metal Axe|
-|item_axe_blackmetal_description|A perfectly-balanced axe forged from dark metal with an emerald sheen.|
+|item_axe_blackmetal_description|A perfectly balanced axe forged from dark metal with an emerald sheen.|
 |item_axe_bronze|Bronze Axe|
 |item_axe_bronze_description|A bright and burnished blade, curved like a smile.|
 |item_axe_early|Early Axes|
@@ -1793,7 +1793,7 @@
 |item_feastdeepnorth|Northern Morning Fare|
 |item_feastdeepnorth_description|Warming and filling, this meal will sustain you even during the coldest of days. Porridge and pancakes pair well with jams and sausages, making it hard not to come back for a second helping!|
 |item_feaster|Serving Tray|
-|item_feaster_description|Set the table with whatever food and drink you fancy, and impress your guests with a delicious feast.<br><br><color=yellow>Once a feast has been eaten of, it won't return any resources if dismantled.</color>|
+|item_feaster_description|Set the table with whatever food and drink you fancy, and impress your guests with a delicious feast.<br><br><color=yellow>Once a feast has been eaten of, it won't return any resources if dismantled.</color>|
 |item_feaster_remove_description|<color=yellow>Once a feast has been eaten of, it won't return any resources if dismantled.</color>|
 |item_feastmeadows|Whole Roasted Meadow Boar|
 |item_feastmeadows_description|A boar that has been roasted to perfection, glazed and served atop a bed of greens, with additional cuts of meat on the side. A feast like this is sure to fill your stomach and brighten your day!|
@@ -2902,7 +2902,7 @@
 |item_trophy_boar_description|This boar head would make for a nice decoration in any house.|
 |item_trophy_boar_lore|Any viking worth their axe should know how to slay a boar.|
 |item_trophy_bonemass|Bonemass Trophy|
-|item_trophy_bonemass_description|Bones and viscous goo, held together by some unseen force.<br><br>Offer it to the Sacrificial Stones.|
+|item_trophy_bonemass_description|Bones and viscous goo, held together by some unseen force.<br><br>Offer it to the Sacrificial Stones.|
 |item_trophy_bonemass_lore|A mess of black soil and old bone, thankfully quiet now.|
 |item_trophy_bonemaw|Bonemaw Trophy|
 |item_trophy_bonemaw_description|A skull made up of dense bone, as dangerous as it is protective.|
@@ -2932,7 +2932,7 @@
 |item_trophy_deer_description|A fine specimen, but you'll need to kill more than deer to enter Valhalla.|
 |item_trophy_deer_lore|Seemingly identical to the ones found in Midgard.|
 |item_trophy_dragonqueen|Moder Trophy|
-|item_trophy_dragonqueen_description|The head of a dragon, majestic even in the rigor of death.<br><br>Offer it to the Sacrificial Stones.|
+|item_trophy_dragonqueen_description|The head of a dragon, majestic even in the rigor of death.<br><br>Offer it to the Sacrificial Stones.|
 |item_trophy_dragonqueen_lore|Scored with ancient scars, this head was the last sight of countless warriors.|
 |item_trophy_draugr|Draugr Trophy|
 |item_trophy_draugr_description|Bind up the mouth if it starts to whisper in the night...|
@@ -2944,16 +2944,16 @@
 |item_trophy_dvergr_description|It's frankly a little troubling that you would consider hanging these on your wall...|
 |item_trophy_dvergr_lore|Such fine braids!|
 |item_trophy_eikthyr|Eikthyr Trophy|
-|item_trophy_eikthyr_description|This severed head oozes power.<br><br>Offer it to the Sacrificial Stones.|
+|item_trophy_eikthyr_description|This severed head oozes power.<br><br>Offer it to the Sacrificial Stones.|
 |item_trophy_eikthyr_lore|Once the king of the forest, the size of the antlers is truly impressive.|
 |item_trophy_elaking|Elaking Trophy|
 |item_trophy_elaking_description|Mean little eyes stare back at you.|
 |item_trophy_elaking_lore|Was it driven by cruelty or mischief? We may never know.|
 |item_trophy_elder|The Elder Trophy|
-|item_trophy_elder_description|This severed head oozes power.<br><br>Offer it to the Sacrificial Stones.|
+|item_trophy_elder_description|This severed head oozes power.<br><br>Offer it to the Sacrificial Stones.|
 |item_trophy_elder_lore|Even in death, it seems to grin with secret knowledge.|
 |item_trophy_fader|Fader Trophy|
-|item_trophy_fader_description|The green dragon, corrupted beyond redemption.<br><br>Offer him to the sacrificial stones.|
+|item_trophy_fader_description|The green dragon, corrupted beyond redemption.<br><br>Offer him to the sacrificial stones.|
 |item_trophy_fader_lore|Only tatters remained of his sane mind. Perhaps it was a mercy to kill him.|
 |item_trophy_fallenvalkyrie|Fallen Valkyrie Trophy|
 |item_trophy_fallenvalkyrie_description|Though she is dead, she yearns for the blood to flow.|
@@ -2980,7 +2980,7 @@
 |item_trophy_goblinbrute_description|The huge grizzled head is as heavy as a boulder.|
 |item_trophy_goblinbrute_lore|Praised for its strength, it lived only to defend its village.|
 |item_trophy_goblinking|Yagluth Trophy|
-|item_trophy_goblinking_description|The crownless head of a dead king.<br><br>Offer it to the Sacrificial Stones.|
+|item_trophy_goblinking_description|The crownless head of a dead king.<br><br>Offer it to the Sacrificial Stones.|
 |item_trophy_goblinking_lore|Sometimes, the eyes still move and the lips mutter silently...|
 |item_trophy_goblinshaman|Fuling Shaman Trophy|
 |item_trophy_goblinshaman_description|It shall cast no more spells against you.|
@@ -3037,7 +3037,7 @@
 |item_trophy_seeker_description|Less delicate than they look. The leather of the wings catches the firelight as if remembering flight.|
 |item_trophy_seeker_lore|Relying on sound rather than sight, this creature was a most dangerous foe in the fog.|
 |item_trophy_seekerqueen|The Queen Trophy|
-|item_trophy_seekerqueen_description|She has seen enough.<br><br>Offer it to the Sacrificial Stones.|
+|item_trophy_seekerqueen_description|She has seen enough.<br><br>Offer it to the Sacrificial Stones.|
 |item_trophy_seekerqueen_lore|She has seen enough.|
 |item_trophy_serpent|Serpent Trophy|
 |item_trophy_serpent_description|The scales have dulled but the eyes are still bright.|
@@ -3249,17 +3249,17 @@
 |location_mountaincave|Frost Caves|
 |location_sunkencrypt|Sunken Crypts|
 |location_thehole|Winding tunnels|
-|lore_ashlands_random01|Know, child unborn, that this was once the greatest kingdom in all Valheim. Here lived the Sons and Daughters of the King of the Emerald Flame. Beneath his wing, we knew strength and security. In his sight, we grew like green shoots.<br><br>Now we set this stone among rubble and turn our backs on the land of our birth. May future ages take warning from us.|
-|lore_ashlands_random02|In the forests of the far North, our scouts came across a sleeping boy, sitting naked in the deep snow with his back to a tree. They wrapped him in furs and brought him back to the king, asleep all the while with only his eyelids moving.<br><br>We named him the Winter Child and we took him to be a good omen. May the gods have mercy on fools.|
-|lore_ashlands_random03|It was known throughout the land that the two would often sit together as if in talk, the king coiled about the sleeping child with his face close, straining to catch any murmured words.<br><br>Nobody knew what passed between them but all saw the change in the king. Justice flared into wrath and caution deepened into fear. Laws were passed that must be broken and each time the lawbreakers were punished more harshly.<br><br>Tyranny came in a spiral, like a great storm.|
-|lore_ashlands_random04|When the King of the Emerald Flame flew away to visit the wizard king of the Fulings, his own thegns rose against him and torched the palace with the Winter Child inside. All of us who were alive at that time heard the shriek that sounded for the nine days of the fire and echoed in the city's streets for many weeks longer.<br><br>Those were the last good days any of us knew, before the return of our king.|
-|lore_ashlands_random05|When the king saw the charred remains of his great hall, he swore to show his foes a fire far greater than the little spark they had kindled. With his breath, he razed our city to the ground and then brought war to all the land. Some of the people stayed faithful to the king but many sought to quench his fury.<br><br>Brothers fought against brothers, sisters against sisters. The Kingdom of the Emerald Flame tore itself apart. Now only these charred ruins remain, within which not even the dead can find rest.|
+|lore_ashlands_random01|Know, child unborn, that this was once the greatest kingdom in all Valheim. Here lived the Sons and Daughters of the King of the Emerald Flame. Beneath his wing, we knew strength and security. In his sight, we grew like green shoots.<br><br>Now we set this stone among rubble and turn our backs on the land of our birth. May future ages take warning from us.|
+|lore_ashlands_random02|In the forests of the far North, our scouts came across a sleeping boy, sitting naked in the deep snow with his back to a tree. They wrapped him in furs and brought him back to the king, asleep all the while with only his eyelids moving.<br><br>We named him the Winter Child and we took him to be a good omen. May the gods have mercy on fools.|
+|lore_ashlands_random03|It was known throughout the land that the two would often sit together as if in talk, the king coiled about the sleeping child with his face close, straining to catch any murmured words.<br><br>Nobody knew what passed between them but all saw the change in the king. Justice flared into wrath and caution deepened into fear. Laws were passed that must be broken and each time the lawbreakers were punished more harshly.<br><br>Tyranny came in a spiral, like a great storm.|
+|lore_ashlands_random04|When the King of the Emerald Flame flew away to visit the wizard king of the Fulings, his own thegns rose against him and torched the palace with the Winter Child inside. All of us who were alive at that time heard the shriek that sounded for the nine days of the fire and echoed in the city's streets for many weeks longer.<br><br>Those were the last good days any of us knew, before the return of our king.|
+|lore_ashlands_random05|When the king saw the charred remains of his great hall, he swore to show his foes a fire far greater than the little spark they had kindled. With his breath, he razed our city to the ground and then brought war to all the land. Some of the people stayed faithful to the king but many sought to quench his fury.<br><br>Brothers fought against brothers, sisters against sisters. The Kingdom of the Emerald Flame tore itself apart. Now only these charred ruins remain, within which not even the dead can find rest.|
 |lore_ashlands_random06|The stones tell of a great tragedy in this land, many centuries ago. It is hard to believe the creature who stalks this ruined city was once a noble beast and a wise king. Yet we will not stay our hands on this account. When we kill him, we will count it a mercy.|
 |lore_ashlands_random07|I have not been happy for more than a day in any place since I came here but this place is the worst of all. Most things are on fire and the fishing is not good. These are the words of Ulf.|
-|lore_ashlands_random08|The pure fire of a grand drake has the power to give life and quicken the dead earth. Once, they blessed the land and seas with their cleansing flame, bringing new life wherever they passed.<br><br>But for those who are burned by a drake's fire, the blessing is a curse. They are killed and quickened at the same time, caught forever between death and life. Such are the unfortunate souls who wander this ruined land, with flames for flesh and agony in every moment. They cannot be destroyed, only pitied.|
-|lore_ashlands_random09|If the tales are true, the gods long ago abandoned this world. The King of the Emerald Flame was the closest to a god we knew but our prayers to him have turned to ashes in our mouths.<br><br>This is the last of our strongholds and in the morning we will die defending it. We offer no more prayers and wish only for clean, free deaths, unburned by the flame.|
-|lore_ashlands_random10|It is folly for the free folk to say they need no gods. Nobody needs gods and the gods need no one. They owe nothing to men.<br><br>But still the wise will seek the powerful as vines will seek a mighty tree to climb. We give our swords to the King of the Emerald Flame because without him there is only death.|
-|lore_ashlands_random11|War is a fire<br>And men are fuel.<br><br>When the heart-blaze kindles<br>Their bodies are dry wood.|
+|lore_ashlands_random08|The pure fire of a grand drake has the power to give life and quicken the dead earth. Once, they blessed the land and seas with their cleansing flame, bringing new life wherever they passed.<br><br>But for those who are burned by a drake's fire, the blessing is a curse. They are killed and quickened at the same time, caught forever between death and life. Such are the unfortunate souls who wander this ruined land, with flames for flesh and agony in every moment. They cannot be destroyed, only pitied.|
+|lore_ashlands_random09|If the tales are true, the gods long ago abandoned this world. The King of the Emerald Flame was the closest to a god we knew but our prayers to him have turned to ashes in our mouths.<br><br>This is the last of our strongholds and in the morning we will die defending it. We offer no more prayers and wish only for clean, free deaths, unburned by the flame.|
+|lore_ashlands_random10|It is folly for the free folk to say they need no gods. Nobody needs gods and the gods need no one. They owe nothing to men.<br><br>But still the wise will seek the powerful as vines will seek a mighty tree to climb. We give our swords to the King of the Emerald Flame because without him there is only death.|
+|lore_ashlands_random11|War is a fire<br>And men are fuel.<br><br>When the heart-blaze kindles<br>Their bodies are dry wood.|
 |lore_ashlands_random12|I am Astrid of the Long Arm. I came here after much hardship to fight the beast and break the curse that keeps me here. The raven has returned a memory to me and it will not let me rest. I will die as many times as I need to die to see my son again.|
 |lore_ashlands_random13|I have watched many warriors throw themselves against the beast again and again, losing a little of their will each time until their beds lie empty. If this is my fate, so be it. These are the words of Björn, who was once a farmer.|
 |lore_blackforest_random01|Beware the deep trees, beware the true dark. When the night comes, keep close to your fire.|
@@ -3269,15 +3269,15 @@
 |lore_blackforest_random05|Beware the Old One. The ravens say that in ages past he was a shoot of great Yggdrasil itself and a force of wisdom in the days when men and trees were friends. Now he scorns the axe and sets himself against the works of the Gods themselves. Oden banished him here for his pride but his roots are deep.|
 |lore_blackforest_random06|We who were carried here by the Valkyrie are not the first men in this land. I have seen with my own eyes the halls they made beneath the ground and the ruins of their towers. Will the same fate await us?|
 |lore_blackforest_random07|Eight were the creatures banished to this world by mighty Oden in the first days of his kingship. Eight Gods and monsters too proud to bear his yoke. I have heard the tread of the Old Ones in the forest and have crouched in the shadow of the Mountain Mother when she flies. Of the others I know little. I will add to this stone when I have seen more.|
-|lore_blackforest_random08|The trolls of Midgard may be fading from your memory, as indeed they are from all the race of man. Few and forlorn, they crouch in damp caves and gnaw on the bones of the weak and foolhardy. The will of Oden has pushed them back into the dark places.<br><br>But in Valheim they have flourished. It has been centuries since any in Midgard saw the great trolls stamp flat the land and bring down the trees for joy. Look upon this great and noble sight, wanderers in a strange land! Then take to your heels and run...|
+|lore_blackforest_random08|The trolls of Midgard may be fading from your memory, as indeed they are from all the race of man. Few and forlorn, they crouch in damp caves and gnaw on the bones of the weak and foolhardy. The will of Oden has pushed them back into the dark places.<br><br>But in Valheim they have flourished. It has been centuries since any in Midgard saw the great trolls stamp flat the land and bring down the trees for joy. Look upon this great and noble sight, wanderers in a strange land! Then take to your heels and run...|
 |lore_blackforest_random09|Raised by the Old Man of the Forest from seeds of sin, the greydwarfs clothe themselves in the human forms they once knew, but there is no longer any warmth in their hearts. They live now only to serve the Elder and to protect the wood. Do not let pity for them stay your hand.|
-|lore_blackforest_random10|Which among you was a murderer, a kin-slayer, a renegade? Who turned a blade in their brother's back? Who tore babes from their mothers' arms, set fire to the houses of the plundered? Consider it a blessing that you remember nothing. Each among you is a great warrior, and warriors' souls are never clean.<br><br>But Oden has gifted you a second chance... Praise the Allfather!|
+|lore_blackforest_random10|Which among you was a murderer, a kin-slayer, a renegade? Who turned a blade in their brother's back? Who tore babes from their mothers' arms, set fire to the houses of the plundered? Consider it a blessing that you remember nothing. Each among you is a great warrior, and warriors' souls are never clean.<br><br>But Oden has gifted you a second chance... Praise the Allfather!|
 |lore_blackforest_random11|Look to the sky where mighty Yggdrasil reaches out, called by the Forsaken Ones to join itself once more with this wayward world. It is a glorious sight but a dreadful one. For as the great tree bends out across the void, its branches strain and crack, felt in the remaining nine worlds as quakings of the earth, great storms and holy fires. The Forsaken must be slain and balance restored.|
 |lore_blackforest_random12|Astrid will not look at me twice. I leave this stone to honour great Freya. O goddess, grant me a beard like Bjorn's that I might win her heart!|
-|lore_blackforest_random13|I have been reborn many times in this world. I have died again and again only to awaken in my own house. Yet still I wonder how many more times I will return like this. Frida was taken by a serpent and her bed lies empty still. Bjarni was bitten in half by a troll and neither half has been seen since...<br><br>All around are the ruins of those who came before us but where are the hands that built them?<br><br>Perhaps, when a warrior loses the will to remain here, they can no longer return...|
+|lore_blackforest_random13|I have been reborn many times in this world. I have died again and again only to awaken in my own house. Yet still I wonder how many more times I will return like this. Frida was taken by a serpent and her bed lies empty still. Bjarni was bitten in half by a troll and neither half has been seen since...<br><br>All around are the ruins of those who came before us but where are the hands that built them?<br><br>Perhaps, when a warrior loses the will to remain here, they can no longer return...|
 |lore_bonemass|COOK THEIR REMAINS|
-|lore_caveman01|The depths of the cave promised me riches.<br>Down turns out, is easier than up.<br>The lake helped best it could, but it could only do so much.<br>It took me strength to not empty it completely, to leave you weary traveler a chance just as I had.<br>I hope you came here more prepared than I.<br>If not, there is room here next to me, to just lay down and.. rest.|
-|lore_caveman02|This cliff I climbed in in hopes of reaching the top.<br>Regretfully the cave was too deep.<br>...<br>Back here again considering the jump.<br>Alas, the coward I am is climbing back down.|
+|lore_caveman01|The depths of the cave promised me riches.<br>Down turns out, is easier than up.<br>The lake helped best it could, but it could only do so much.<br>It took me strength to not empty it completely, to leave you weary traveler a chance just as I had.<br>I hope you came here more prepared than I.<br>If not, there is room here next to me, to just lay down and.. rest.|
+|lore_caveman02|This cliff I climbed in in hopes of reaching the top.<br>Regretfully the cave was too deep.<br>...<br>Back here again considering the jump.<br>Alas, the coward I am is climbing back down.|
 |lore_cavepainting_label|Ancient Cave Markings|
 |lore_deepnorth_hervor01|The Deep North. The final obstacle before I can prove myself worthy.<br><br>The trials have been many, and so have the deaths. I have lost friends dear to me.<br><br>But at last I am here.|
 |lore_deepnorth_hervor02|It seems peaceful enough. So far, the wildlife doesn’t appear to care much for my presence here.<br><br>I should be able to gather some valuable resources from them if I need to. It’s my survival or theirs, after all.|
@@ -3303,14 +3303,14 @@
 |lore_deepnorth_random08|Signe raised this stone in memory of Eigil, who fell in battle. He had yet to learn that not everything here is as frozen as it first seems.|
 |lore_deepnorth_random09|Buried beneath the snow, deep within the north,<br>bonds harden like frozen earth<br>as truth begins to thaw.|
 |lore_dragonqueen|SACRIFICE HER SPAWN|
-|lore_drake|Let you who read me be aware of the Frost wyrms, one of the most ancient kins sprung from Ymir's body.<br><br>The most common form of the wyrm are the Drakes, the small males who care for the offspring. Most often they can be seen poised by rocky nests guarding the eggs. In contrast, the females are much larger and a rare sight to behold, but once angered they provide a vicious foe.|
+|lore_drake|Let you who read me be aware of the Frost wyrms, one of the most ancient kins sprung from Ymir's body.<br><br>The most common form of the wyrm are the Drakes, the small males who care for the offspring. Most often they can be seen poised by rocky nests guarding the eggs. In contrast, the females are much larger and a rare sight to behold, but once angered they provide a vicious foe.|
 |lore_drake_label|Lore: Drake|
-|lore_draugr|Long ages ago, the world of Valheim was home to a race of proud and noble people. They built great towers which touched the clouds and delved deep into the earth for precious metals. But their pride was their undoing. They challenged the very Gods and went to war against the Aesir and the Vanir, destroying themselves completely. Great Oden levelled their cities and Loki consumed their mines in fire. Mighty Thor broke down their towers and Freya sowed their fields with salt tears.<br><br>Now they are sunk many hundreds of years deep. No songs sing of their stories, and the earth has claimed their cities. But pride cannot be killed entirely and the warriors who fought in that final battle will not surrender until their bodies are dust and the dust long gone. They return as Draugr, unholy walkers in ancient armour, creatures of rust and despair.<br><br>Break them, bury them, let them know they are dead.|
+|lore_draugr|Long ages ago, the world of Valheim was home to a race of proud and noble people. They built great towers which touched the clouds and delved deep into the earth for precious metals. But their pride was their undoing. They challenged the very Gods and went to war against the Aesir and the Vanir, destroying themselves completely. Great Oden levelled their cities and Loki consumed their mines in fire. Mighty Thor broke down their towers and Freya sowed their fields with salt tears.<br><br>Now they are sunk many hundreds of years deep. No songs sing of their stories, and the earth has claimed their cities. But pride cannot be killed entirely and the warriors who fought in that final battle will not surrender until their bodies are dust and the dust long gone. They return as Draugr, unholy walkers in ancient armour, creatures of rust and despair.<br><br>Break them, bury them, let them know they are dead.|
 |lore_draugr_label|Lore: Draugr|
 |lore_dvergr_label|Munin: Dvergr|
 |lore_dvergr_text|Take care, warrior. You've happened upon an outpost of the forlorn Dvergr clans, long since separated from their kin in Nidavellir. Trapped here they still toil, expecting reprieve that will never come. It is a sad fate...|
 |lore_dvergrhalls_label|Munin: Dvergr homes|
-|lore_dvergrhalls_text|These are the Dvergrhomes, built long ago in a gilded age... Their splendour rivalled the Golden Hall itself!<br><br>Regrettably, nothing can last forever. The halls below and the treasures left within are now guarded by more sinister lodgers.|
+|lore_dvergrhalls_text|These are the Dvergrhomes, built long ago in a gilded age... Their splendour rivalled the Golden Hall itself!<br><br>Regrettably, nothing can last forever. The halls below and the treasures left within are now guarded by more sinister lodgers.|
 |lore_eikthyr|HUNT HIS KIN|
 |lore_fader|RING HIS PRAISE|
 |lore_frozenking|HALT THE INVASION|
@@ -3318,63 +3318,63 @@
 |lore_giants_label|Munin: Giant remains|
 |lore_giants_text|Shadows of an ancient age. The Jotunn once ruled the tenth world, until their time ran out and they were ousted by some other power.|
 |lore_goblinking|AND HIS DYING SOUL WAS SPLIT AND SHARED AMONG ALL HIS KIN|
-|lore_greydwarfs|Let all who read me beware of the Greydwarfs, the skulkers in darkness, the soulless ones. They are born from rot and rainfall, they spring like mushrooms from the smoking soil. There is nothing on their tongues or behind their eyes, those who fear nothing should still fear them.<br><br>When the soul of a murderer or a great sinner rots under the ground, it makes a hollow cyst which draws rock and wood and moss to it. It gathers up the peat into flesh, braids reeds into bone and takes rags for skin.<br><br>It should not walk but when the night comes it walks. Should you who read this see one with a sword to your hand, lance it and let it out. Or put it to the torch, for it fears the flame.|
+|lore_greydwarfs|Let all who read me beware of the Greydwarfs, the skulkers in darkness, the soulless ones. They are born from rot and rainfall, they spring like mushrooms from the smoking soil. There is nothing on their tongues or behind their eyes, those who fear nothing should still fear them.<br><br>When the soul of a murderer or a great sinner rots under the ground, it makes a hollow cyst which draws rock and wood and moss to it. It gathers up the peat into flesh, braids reeds into bone and takes rags for skin.<br><br>It should not walk but when the night comes it walks. Should you who read this see one with a sword to your hand, lance it and let it out. Or put it to the torch, for it fears the flame.|
 |lore_greydwarfs_label|Lore: Greydwarfs|
-|lore_intro|Long ago, the Allfather Oden united the worlds. He threw down his foes and cast them into the tenth world, then split the boughs which held their prison to the World-Tree, and left it to drift unanchored, a place of exile…<br><br><br><br>For centuries, this world slumbered uneasily. But it did not die... As glacial ages passed, kingdoms rose and fell out of sight of the Gods.<br><br><br><br>When Oden heard his enemies were growing once again in strength, he looked to Midgard and sent his Valkyries to scour the battlefields for the greatest of their warriors. Dead to the world, they would be born again…<br><br><br><br>…in VALHEIM!|
+|lore_intro|Long ago, the Allfather Oden united the worlds. He threw down his foes and cast them into the tenth world, then split the boughs which held their prison to the World-Tree, and left it to drift unanchored, a place of exile…<br><br><br><br>For centuries, this world slumbered uneasily. But it did not die... As glacial ages passed, kingdoms rose and fell out of sight of the Gods.<br><br><br><br>When Oden heard his enemies were growing once again in strength, he looked to Midgard and sent his Valkyries to scour the battlefields for the greatest of their warriors. Dead to the world, they would be born again…<br><br><br><br>…in VALHEIM!|
 |lore_intro_OLD|To prove you are worthy of entering Valhalla you have been sent to Valheim, the tenth Norse world. Only by defeating the mighty beasts of these lands will you win the favor of the Gods.|
-|lore_meadows_boartaming|This land is hard and wild but we who are brought here are harder still. Take comfort, traveller, in the gifts before you, the good wood and stone, the fruits and flowers of the forest.<br><br>Look also to the wild boar who roam these lands. They fear fire and the hand of man but they can be taught to obey it. Go quietly to them and let them eat of your stock. Roots of the ground are their pleasure.|
+|lore_meadows_boartaming|This land is hard and wild but we who are brought here are harder still. Take comfort, traveller, in the gifts before you, the good wood and stone, the fruits and flowers of the forest.<br><br>Look also to the wild boar who roam these lands. They fear fire and the hand of man but they can be taught to obey it. Go quietly to them and let them eat of your stock. Roots of the ground are their pleasure.|
 |lore_meadows_boartaming_label|Lore: Boars|
-|lore_meadows_random01|Where the grass grows underfoot<br><br>And the sky is blue overhead<br><br>There will always be a hearth and a home|
-|lore_meadows_random02|Long ages past, when the Allfather Oden united the worlds, he threw down the Vanir, the giants and those creatures older than any others. The greatest of them could not be killed but were instead Forsaken, exiled here to Valheim for eternity.<br><br>When they tread the earth, the lesser creatures jump like crumbs on a drumskin. You will know them when you see them.|
-|lore_meadows_random03|Give thanks to Frey for the rain and sun<br><br>For the shoots that break the earth's skin<br><br>And the fruits of the vine<br><br>Give thanks to Oden for the flesh and bone<br><br>The smoke from the cooking fire, the warm pelt<br><br>And the strength of your arm|
+|lore_meadows_random01|Where the grass grows underfoot<br><br>And the sky is blue overhead<br><br>There will always be a hearth and a home|
+|lore_meadows_random02|Long ages past, when the Allfather Oden united the worlds, he threw down the Vanir, the giants and those creatures older than any others. The greatest of them could not be killed but were instead Forsaken, exiled here to Valheim for eternity.<br><br>When they tread the earth, the lesser creatures jump like crumbs on a drumskin. You will know them when you see them.|
+|lore_meadows_random03|Give thanks to Frey for the rain and sun<br><br>For the shoots that break the earth's skin<br><br>And the fruits of the vine<br><br>Give thanks to Oden for the flesh and bone<br><br>The smoke from the cooking fire, the warm pelt<br><br>And the strength of your arm|
 |lore_meadows_random04|Hold, traveller, and bear witness to my warning. We are many who have come before you, carried here by Oden's will to do his work. The path ahead is hard and the dangers great. If you hold your life dear, keep to these meadows and make your dwelling away from the trees. Fear the Horned One and the creatures he will send against you.|
-|lore_meadows_random05|Heed these words of Ulf, a poor settler in a strange land. You will find here good stone and wood, all you need to build a house. You will need to craft a roof to keep out the rain. Then you will need walls to stop the roof from falling down. Finally, you must have a door or it will be much harder to go in and out.<br><br>These things Ulf has learned for himself. Now he writes them on this stone to help others. Pray to Oden for his soul.|
+|lore_meadows_random05|Heed these words of Ulf, a poor settler in a strange land. You will find here good stone and wood, all you need to build a house. You will need to craft a roof to keep out the rain. Then you will need walls to stop the roof from falling down. Finally, you must have a door or it will be much harder to go in and out.<br><br>These things Ulf has learned for himself. Now he writes them on this stone to help others. Pray to Oden for his soul.|
 |lore_meadows_random06|I was Astrid, a shieldmaiden of the forest. I know nothing of my life before I came here but my arm remembers the sword and my eyes see the course of the arrow. Now the raven guides me and I fight the great beasts in Oden's name.|
-|lore_meadows_random07|Blue-eyed shufflers in muck, the neck are small lizards native to Valheim. Surly and mean-spirited, they will attack on sight and must be destroyed like vermin. They stay near water because the creatures of the land loathe and abhor them.<br><br>Yet no creature is all bad. Their tails are delicious.|
+|lore_meadows_random07|Blue-eyed shufflers in muck, the neck are small lizards native to Valheim. Surly and mean-spirited, they will attack on sight and must be destroyed like vermin. They stay near water because the creatures of the land loathe and abhor them.<br><br>Yet no creature is all bad. Their tails are delicious.|
 |lore_meadows_random08|Sisters and brothers of the shield-wall, lift up your hearts! You are the greatest warriors, chosen by the Allfather himself for your courage and valor. Now death has brought you to a land where you can remake yourselves in battle and toil, winning favor and honor from the Gods! Leave your memories to rot in Midgard along with your sins, the finest part of you is here!|
 |lore_meadows_random09|On this spot a tree fell on my head and I cursed the Gods. So I leave this stone in praise of them, that they might forgive my reckless words.|
 |lore_meadows_random10|Pause, traveler. You are well come to the last and most lawless of the Ten Worlds. In Valheim, the air is pure, the water deep and clear and the forests overflowing with bounty. Here is adventure, joy and glory for the taking!|
-|lore_meadows_random11|A full belly<br><br>A full sail<br><br>The weight of a spear to your hand<br><br>And a song on your lips<br><br>Let all the mountains crumble<br><br>And the seas boil to salt<br><br>One day in the sun is a life well-lived.|
-|lore_mistlands_random01|Here lie the Jotunn, most ancient of all Oden's kin and fiercest of all his adversaries. In life they were bringers of ruin but now, in death, they nurture new growth.<br><br>What is living must die, and what is dead must be born again.|
-|lore_mistlands_random02|Where the air is thick with magic<br>And the earth is quick with life,<br>The mist breeds wonders.|
+|lore_meadows_random11|A full belly<br><br>A full sail<br><br>The weight of a spear to your hand<br><br>And a song on your lips<br><br>Let all the mountains crumble<br><br>And the seas boil to salt<br><br>One day in the sun is a life well-lived.|
+|lore_mistlands_random01|Here lie the Jotunn, most ancient of all Oden's kin and fiercest of all his adversaries. In life they were bringers of ruin but now, in death, they nurture new growth.<br><br>What is living must die, and what is dead must be born again.|
+|lore_mistlands_random02|Where the air is thick with magic<br>And the earth is quick with life,<br>The mist breeds wonders.|
 |lore_mistlands_random03|Trust nothing in the mist. I passed through here in a group of seven people but every time we stopped to count, we counted eight. We do not know who the eighth was, but by morning they were gone.|
-|lore_mistlands_random04|The Dvergr are the descendants of the great smiths of old, delvers in the deep earth, seekers of hidden treasure.<br><br>Here in Valheim they mine the bones of the Jotunn and distill eitr, the stuff of magic. If left alone, they are happy with their own plans and care little for the lives of others, but when raised they will defend themselves.|
-|lore_mistlands_random05|The raven showed me how to make a staff that set my beard on fire. I will meddle no more with such things.<br><br>Weary of mist and magic, Ulf carved this stone. Now I go to find a less troublesome place.|
+|lore_mistlands_random04|The Dvergr are the descendants of the great smiths of old, delvers in the deep earth, seekers of hidden treasure.<br><br>Here in Valheim they mine the bones of the Jotunn and distill eitr, the stuff of magic. If left alone, they are happy with their own plans and care little for the lives of others, but when raised they will defend themselves.|
+|lore_mistlands_random05|The raven showed me how to make a staff that set my beard on fire. I will meddle no more with such things.<br><br>Weary of mist and magic, Ulf carved this stone. Now I go to find a less troublesome place.|
 |lore_mistlands_random06|Heed the words of Ulf and do not take the hats of the short ones from their heads. They have no sense of a jest and the only cure for insulting them is to kill them. Also, their hats do not fit common heads.|
-|lore_mistlands_random07|Wanderers in fog,<br>Where do you go?<br>Not knowing what you were,<br>Nor seeing where you go.|
-|lore_mountains_fenring|Watch for him in moonlight<br><br>Haunter of the night.<br><br>Soft of foot<br><br>Sharp of tooth<br><br>Slow to stalk<br><br>Quick to bite.|
+|lore_mistlands_random07|Wanderers in fog,<br>Where do you go?<br>Not knowing what you were,<br>Nor seeing where you go.|
+|lore_mountains_fenring|Watch for him in moonlight<br><br>Haunter of the night.<br><br>Soft of foot<br><br>Sharp of tooth<br><br>Slow to stalk<br><br>Quick to bite.|
 |lore_mountains_fenring_label|Lore: Fenring|
 |lore_mountains_random01|Few of us found our way to these mountains. We were twenty and now we are two. Agda is dying, a Draugr arrow lies near her heart. I will bid her farewell beside this stone and give her ashes to the wind. Then I will turn my face to the highest peak and seek out the Winged One. May Oden give me death or glory.|
 |lore_mountains_random02|This marks the spot where the great drake was first seen by me, Ulf, in the third summer of my life in Valheim. She stopped here to leave a pile of dung holding the bones of deer, boar and the skull of a greydwarf. I will never come near this place again.|
 |lore_mountains_random03|Halt and listen, traveller. On the highest peaks of Valheim, the air is thin and fragile. From here you can sometimes catch sounds from other places, the ring of battle on Midgard, the roar of a feast in Valhalla or the shriek of a Valkyrie as she crosses the space between the worlds.|
 |lore_mountains_random04|Where this stands I once saw the great drake flying above me and I hid in a bush until she passed. Ulf the Brave carved this stone.|
 |lore_mountains_random05|Let those who read me know not to tarry on these slopes, far from their hearth and the safety of the greenwood. The beasts of the mountains are fell and fierce, hungry for meat, and the worst of these beasts is the cold wind itself. Wear thick furs, build strong fires and keep your bow close at hand.|
-|lore_mountains_random06|Great cities do not rise of themselves<br><br>Harden your heart, settler in a strange land<br><br>Build from the ground upwards|
-|lore_mountains_random07|This stone was placed by me, Astrid, in my seventh year in Valheim. At this spot, the Allfather spoke to me. I awoke from a deep sleep to find his words scattered around me on the ground, frozen to pebbles by the deep cold. When I warmed them in my hands they thawed and spoke his message to me, one word after another.<br><br>Slay the Forsaken. Chain their heads. I will come.|
-|lore_mountains_random08|When first I awoke in Valheim, I pleaded with Oden to show himself to me. Where was he? Why had he abandoned me?<br><br>For many moons I braved storms and fierce beasts in search of answers. Where were the Gods? Was this to be my reward? Where was Oden?<br><br>But now I know. When I pulled up the greydwarfs like weeds from a field or stamped out the surtlings like embers, I did Oden's work. And when I matched my strength against a great wyrm and smote off its head with one blow, I felt Oden's joy within me, deep and proud.<br><br>We are Oden's hands, each one of us, and our worth in life is to work his will.|
+|lore_mountains_random06|Great cities do not rise of themselves<br><br>Harden your heart, settler in a strange land<br><br>Build from the ground upwards|
+|lore_mountains_random07|This stone was placed by me, Astrid, in my seventh year in Valheim. At this spot, the Allfather spoke to me. I awoke from a deep sleep to find his words scattered around me on the ground, frozen to pebbles by the deep cold. When I warmed them in my hands they thawed and spoke his message to me, one word after another.<br><br>Slay the Forsaken. Chain their heads. I will come.|
+|lore_mountains_random08|When first I awoke in Valheim, I pleaded with Oden to show himself to me. Where was he? Why had he abandoned me?<br><br>For many moons I braved storms and fierce beasts in search of answers. Where were the Gods? Was this to be my reward? Where was Oden?<br><br>But now I know. When I pulled up the greydwarfs like weeds from a field or stamped out the surtlings like embers, I did Oden's work. And when I matched my strength against a great wyrm and smote off its head with one blow, I felt Oden's joy within me, deep and proud.<br><br>We are Oden's hands, each one of us, and our worth in life is to work his will.|
 |lore_mountains_random09|Upon this spot, Otho and Bjorn fought a mighty duel to decide who has the finest beard. Now I, Bjorn, must carve this stone to say that the beard of Otho is as bright and beautiful as a corn-field in summer. May almighty Thor tear my own beard from my face if I lie.|
-|lore_mountains_random10|In Midgard of old, the armies of man pushed back the drakes from the mountains just as the Vanir threw down their mother and cast her into Valheim. But here they have recovered their strength and their numbers. The beat of their mighty wings echoes among the peaks. <br><br>They are fierce and noble creatures, true foes worthy of battle. If they scorn to meet your blade, send your arrows to greet them.|
+|lore_mountains_random10|In Midgard of old, the armies of man pushed back the drakes from the mountains just as the Vanir threw down their mother and cast her into Valheim. But here they have recovered their strength and their numbers. The beat of their mighty wings echoes among the peaks. <br><br>They are fierce and noble creatures, true foes worthy of battle. If they scorn to meet your blade, send your arrows to greet them.|
 |lore_mountains_random11|In these mountains I cannot throw a spear without hitting something that wants to kill me. But from the heights I have seen sunny plains where life will be easier. I go now to make my home there. These are the words of Ulf.|
 |lore_mountains_random12|There are friends in Valheim but you must seek them amongst your enemies. Old friends, fire-kin, moon-singers. For centuries they have hunted alongside you, now you must remind them of the old covenant between your people and theirs. Flesh is their delight and must be your offering.|
 |lore_munin_ashlands_label|Ashlands awaits...|
 |lore_munin_ashlands_text|Well fought warrior! My brother and I will feast well on this offering! Yet still there is work for your arm… In the Ashlands dark clouds blister the sky and the King stirs on his bed of embers. Until today you have only quarreled. Now you must prepare yourself for war…|
 |lore_munin_label|Munin: Introduction|
 |lore_munin_text|Kraa! Well met, wanderer… I am Munin, brother to Hugin. I bring greetings from the Allfather. His eye sees through mine, I carry his words beneath my tongue. Keep his ways and I will come to you again…|
-|lore_plains_random01|Where no rain falls<br><br>And no crops will grow<br><br>Still the ground can give up treasures.|
+|lore_plains_random01|Where no rain falls<br><br>And no crops will grow<br><br>Still the ground can give up treasures.|
 |lore_plains_random02|This place was too hot for Ulf, a man used to brushing snow from his beard. He carved this stone and moved on.|
 |lore_plains_random03|Still your mind, traveller. Oden speaks to those who listen. Here in this barren land, one of the Forsaken Ones dwells. He is an ancient sorcerer twisted by bitterness, dragging what remains of his broken body across the sands. Surely Oden will smile upon the warrior who can vanquish this abhorrence.|
 |lore_plains_random04|In a land far from here I once saw a star come unfastened from the great curtain of night and fall into the sand. It glowed red when I approached but by morning was cool. Blessed sword-flesh, furnace-food, a gift of strong metal from the Gods!|
-|lore_plains_random05|Good friend, lay your hand on this stone and remember Harald, who carved it. In Midgard I lost my life on the battlefield but in Valheim it was restored to me. Yet still my battles continued.<br><br>In the green meadows I fought Eikthyr the Great Stag and lost an eye to his horns.<br><br>In the deep woods I gave my shield hand to the Old Man of the Forest, and took a draugr arrow below my ribs that my fingers can still feel.<br><br>On the mountainside I fought the Mother Drake and she bit off my leg at the knee so that I must walk always with a staff.<br><br>Now my last battle must be at hand. When I sleep this time, where will I wake?|
+|lore_plains_random05|Good friend, lay your hand on this stone and remember Harald, who carved it. In Midgard I lost my life on the battlefield but in Valheim it was restored to me. Yet still my battles continued.<br><br>In the green meadows I fought Eikthyr the Great Stag and lost an eye to his horns.<br><br>In the deep woods I gave my shield hand to the Old Man of the Forest, and took a draugr arrow below my ribs that my fingers can still feel.<br><br>On the mountainside I fought the Mother Drake and she bit off my leg at the knee so that I must walk always with a staff.<br><br>Now my last battle must be at hand. When I sleep this time, where will I wake?|
 |lore_plains_random06|In my dream, Oden came to me as an old man leaning on a stick, a wide-brimmed traveller’s hat on his head. He told me to trust the ravens who carry his words under their tongues and to carve this stone that others might know his will. We must kill the Forsaken to find our places in his hall at Valhalla.|
 |lore_plains_random07|Beneath the ground are the halls of men and women long since gone, ancient tribes who lived in Valheim even before the Allfather turned his eye upon this place. Delve deep to find their treasures but beware, some amongst them do not yet know they are dead.|
 |lore_plains_random08|From the mountaintop, this plains looked peaceful and pleasant. But I have found it worse than anywhere else. I always hear the buzzing of those thrice-damned insects. My beard has turned as white as snow. I will build a boat.|
-|lore_plains_random09|What joy it is to roam abroad<br><br>With the wind in your hair<br><br>And a blue sky before you.<br><br><br>And what joy it is<br><br>To stand tall against your foes<br><br>And speak plainly to the world.<br><br><br>And then, what joy it is<br><br>To come home from your travels<br><br>And find the fire still bright in the hearth.|
-|lore_plains_random10|On these plains, only the greatest survive to read my words and heed my advice. So heed me now.<br><br>Great Oden is not a loving father, kind and gentle, speaking honeyed words. Nor is he a stern liege-lord, arms banded with gold, commanding his thralls on pain of death.<br><br>He did not send you here to fight his foes for love or fear of him, but because his foes are your foes. His joy and honour are yours also. You will fight and win just as he once did.<br><br>Sons and daughters of Oden, rejoice!|
-|lore_plains_random11|Here on the plains you will find the dwellings of the Fuling, that ancient race who once built towers and cities to rival those of men until Oden punished them for their pride. He trampled the Fuling armies, their armour cracking like snail shells beneath his feet, and tore down their cities.<br><br>Only Yagluth, the great sorcerer, would not bend or break before his fury. So Oden tore his body in half and cast the remains into Valheim, where he bled into the earth and crumbled to dust, wept over by the last of his people.<br><br>Now the Fuling rule over the plains of Valheim, savage and wild with only hatred and fear in their hearts. But Yagluth is with them still, an unseen force that the Fuling shamans draw upon for their crooked magic, growing again in strength as his people spread across the world...|
+|lore_plains_random09|What joy it is to roam abroad<br><br>With the wind in your hair<br><br>And a blue sky before you.<br><br><br>And what joy it is<br><br>To stand tall against your foes<br><br>And speak plainly to the world.<br><br><br>And then, what joy it is<br><br>To come home from your travels<br><br>And find the fire still bright in the hearth.|
+|lore_plains_random10|On these plains, only the greatest survive to read my words and heed my advice. So heed me now.<br><br>Great Oden is not a loving father, kind and gentle, speaking honeyed words. Nor is he a stern liege-lord, arms banded with gold, commanding his thralls on pain of death.<br><br>He did not send you here to fight his foes for love or fear of him, but because his foes are your foes. His joy and honour are yours also. You will fight and win just as he once did.<br><br>Sons and daughters of Oden, rejoice!|
+|lore_plains_random11|Here on the plains you will find the dwellings of the Fuling, that ancient race who once built towers and cities to rival those of men until Oden punished them for their pride. He trampled the Fuling armies, their armour cracking like snail shells beneath his feet, and tore down their cities.<br><br>Only Yagluth, the great sorcerer, would not bend or break before his fury. So Oden tore his body in half and cast the remains into Valheim, where he bled into the earth and crumbled to dust, wept over by the last of his people.<br><br>Now the Fuling rule over the plains of Valheim, savage and wild with only hatred and fear in their hearts. But Yagluth is with them still, an unseen force that the Fuling shamans draw upon for their crooked magic, growing again in strength as his people spread across the world...|
 |lore_plains_random12|The lox are mighty creatures, great earth-shakers who roamed the plains of Valheim long before the Forsaken were banished to this realm. They are quick to anger and will crush any who are foolish enough to approach them unguarded, but they have known the hand of man and can be taught to love it again.|
 |lore_plains_random13|Know, traveler, that while you cannot die in the world of Valheim, yet you can cease to be reborn. Many are those who have come before you to work the will of Oden, only to find their own will failing...|
 |lore_queen|We sealed the door and scattered the key. Leave her be.|
-|lore_surtlings|Let you who read me know of the Surtlings, that you might not fall prey to their wickedness.<br><br>Long ago the great demon Surtr was brought down and destroyed by the First Men, giant warriors of whom you are but a dwindling echo. They smote long upon the body of this Surtr with swords and hammers so that his fiery substance was shattered into many small pieces.<br><br>He who was made of the fire was fire in every part of him. You could not say ‘Here is the brain of Surtr’ or ‘Here is Surtr’s liver’ because every part was Surtr. So all the fragments of him were Surtr still, only much weaker in power and in thought and in memory, with no way to become whole once again.<br><br>Now we call these fragments Surtlings and when they are found they should be stamped out like the last embers of a fire or doused with water to choke off their flames at the root. They will throw fire from afar and joy in causing terror and destruction. Even in his scattered dotage, the demon seeks revenge on the children of the First Men.|
+|lore_surtlings|Let you who read me know of the Surtlings, that you might not fall prey to their wickedness.<br><br>Long ago the great demon Surtr was brought down and destroyed by the First Men, giant warriors of whom you are but a dwindling echo. They smote long upon the body of this Surtr with swords and hammers so that his fiery substance was shattered into many small pieces.<br><br>He who was made of the fire was fire in every part of him. You could not say ‘Here is the brain of Surtr’ or ‘Here is Surtr’s liver’ because every part was Surtr. So all the fragments of him were Surtr still, only much weaker in power and in thought and in memory, with no way to become whole once again.<br><br>Now we call these fragments Surtlings and when they are found they should be stamped out like the last embers of a fire or doused with water to choke off their flames at the root. They will throw fire from afar and joy in causing terror and destruction. Even in his scattered dotage, the demon seeks revenge on the children of the First Men.|
 |lore_surtlings_label|Lore: Surtlings|
 |lore_swamp_random01|Heed the words of poor Ulf and do not build your house beside the murky waters. Bad dreams and a soggy bed are all you will find. I leave this stone as a warning and go now to make my dwelling on higher ground.|
 |lore_swamp_random02|Linger not, traveller. The air is pestilent and the water poison. The Draugr walk here and the thing I will not name stirs below the surface, a bitter mass of bone and sin. Tread carefully and quickly until you feel the sun on your face once more.|
@@ -3382,16 +3382,16 @@
 |lore_swamp_random04|You who pass, remember me. I am a man whose home was once in the mountains of Midgard, carried here when I thought to earn my rest, to find a life after life in Valheim. There were seven of us before the Greydwarfs came. Now Oden will not hear me and the seas refuse me. Soon this stone will be all that remains.|
 |lore_swamp_random05|Beware the surtlings, embers of a great fire long ago stamped to ashes. They are drawn to the swamp in numbers but their lights can be seen from afar. Keep to the high ground.|
 |lore_swamp_random06|In centuries past, the Draugr walked these lands just as you do now. Pity them, caught between the living and the dead in a shadow of the world they once knew. To destroy them is a mercy.|
-|lore_swamp_random07|Below the mist and murk<br><br>Bone speaks to bone<br><br>Remembering flesh.|
-|lore_swamp_random08|For long ages, Oden's eye was turned from Valheim. Yet while the Gods ignored it, other creatures crept or fell through cracks into the forgotten world. Trolls, goblins and men found their way along these secret paths. Kingdoms rose and fell, and are buried deep beneath the ground.<br><br>Walker among the dead, you tread a grave with every step.|
+|lore_swamp_random07|Below the mist and murk<br><br>Bone speaks to bone<br><br>Remembering flesh.|
+|lore_swamp_random08|For long ages, Oden's eye was turned from Valheim. Yet while the Gods ignored it, other creatures crept or fell through cracks into the forgotten world. Trolls, goblins and men found their way along these secret paths. Kingdoms rose and fell, and are buried deep beneath the ground.<br><br>Walker among the dead, you tread a grave with every step.|
 |lore_swamp_random09|At this place I killed seven of the draugr and ended their long years of fighting and misery. Now who will end mine?|
 |lore_swamp_random10|I am Gudrun, no man's wife, no father's daughter. Only my name remains to me. But sometimes when I wake I feel the weight of a babe at my breast and I cry. Great Freya take pity on me.|
 |lore_swamp_random11|Fear not that the Gods have abandoned you. Valheim drifts from the world tree and the Vanir cannot come in arms to this world but still they watch from afar. Keep them ever in your mind. If your faith is strong, they may send you a sign.|
-|lore_swamp_random12|There is no death that does not bring new life. As worms feed on the battlefield, so did the great corpses of Oden's enemies bring new life to Valheim. Lesser creatures fed on their flesh, fattening themselves on the ancient magic that still clung to them. Their spirits trickled into the earth to renew the soil, or sought out new bodies for themselves.<br><br>Do not scorn the dead, you who are dead yourself.|
+|lore_swamp_random12|There is no death that does not bring new life. As worms feed on the battlefield, so did the great corpses of Oden's enemies bring new life to Valheim. Lesser creatures fed on their flesh, fattening themselves on the ancient magic that still clung to them. Their spirits trickled into the earth to renew the soil, or sought out new bodies for themselves.<br><br>Do not scorn the dead, you who are dead yourself.|
 |lore_upgradestation_description|Ingrid and Torgunn decided to honour the gods in this place. They smiled upon Ingrid, granting her a great boon. Torgunn on the other hand, was made all too aware of the risk she was taking, as her blade shattered into pieces upon the altar. She raised this stone to warn others of the risk attempting refinement at this forge!|
 |lore_upgradestation_label|Lore: Forge of Potential|
 |lore_windingtunnels|The glowing creatures are an excellent source of light in the dark.<br>Perhaps a wooden cage might serve to keep them in place.|
-|lore_wraith|Rest, wanderer, and consider the wraiths.<br><br>We know that when a warrior dies, their soul cracks open and seeps into the earth around them, thereby to nourish new life and strengthen those who follow after.<br><br>Yet if a warrior should die with no great deeds to their name, their soul will be too thin and airy. It will flow upwards instead, like smoke from a hearth. These wisps of souls sometimes catch in the branches of trees long enough to form wraiths, wretched shadows with nothing but bitterness and jealousy to drive them. Blown about the land in despair, they remain only to prey on those who are still living.<br><br>Should you see one, kill it and count it a mercy.|
+|lore_wraith|Rest, wanderer, and consider the wraiths.<br><br>We know that when a warrior dies, their soul cracks open and seeps into the earth around them, thereby to nourish new life and strengthen those who follow after.<br><br>Yet if a warrior should die with no great deeds to their name, their soul will be too thin and airy. It will flow upwards instead, like smoke from a hearth. These wisps of souls sometimes catch in the branches of trees long enough to form wraiths, wretched shadows with nothing but bitterness and jealousy to drive them. Blown about the land in despair, they remain only to prey on those who are still living.<br><br>Should you see one, kill it and count it a mercy.|
 |lore_wraith_label|Lore: Wraiths|
 |mac_gamecenter_required_online_header|Sign in to Game Center for online features|
 |mac_gamecenter_required_online_text|Valheim uses Game Center for authentication - sign in to Game Center and restart Valheim in order to use online features.|
@@ -3427,7 +3427,7 @@
 |menu_cloudstoragefullworldprompt|Would you like to save this world to local storage instead?|
 |menu_cloudstoragelow|Cloud storage low|
 |menu_cloudstoragelownextsave|We can't guarantee future saves of your world or your character as you run low on cloud storage. Please free up some space. This can be done from 'Manage saves' in the main menu.|
-|menu_cloudstorageused|Cloud storage used: $1/$2|
+|menu_cloudstorageused|Cloud storage used: $1|
 |menu_codeofconduct_button|Code of Conduct|
 |menu_collapse|Collapse|
 |menu_combat|Combat|
@@ -3521,7 +3521,7 @@
 |menu_manualsave|Save|
 |menu_manualsavetime|Last save: $1m ago|
 |menu_missingmetarestore|This world save is missing its meta file. Would you like to restore it from the most recent backup?|
-|menu_mod_notice|You are playing a modded version of Valheim.<br>Please note that this may change the original game experience. If you are experiencing any issues, please first uninstall all mods before reporting it. If there has been a patch recently, some mods that previously worked may be broken until they are updated.|
+|menu_mod_notice|You are playing a modded version of Valheim.<br>Please note that this may change the original game experience. If you are experiencing any issues, please first uninstall all mods before reporting it. If there has been a patch recently, some mods that previously worked may be broken until they are updated.|
 |menu_modifier_casual|Casual|
 |menu_modifier_casual_tooltip|In casual mode combat is a lot easier, enemies will not attack you until provoked, and there are no raids on your base. Resources are more plentiful, and you will not drop items or lose skills on death.|
 |menu_modifier_custom|Custom Modifiers|
@@ -5079,6 +5079,7 @@
 |ps_report_user_banned_account|Your account has been banned from playing online, due to breaking the terms of service as listed in the EULA and Code of Conduct. This action has been taken by Coffee Stain Publishing. See the EULA in the bottom left corner for more information.|
 |ps_settings_3d_audio|3D audio|
 |ps_settings_controller|Controller|
+|ps_settings_controller_enable_motion_sensor|Enable motion sensor|
 |ps_settings_controller_layout|Controller layout|
 |ps_settings_controller_motion_sensor|Motion sensor|
 |ps_settings_controller_motion_sensor_settings_off|Motion sensor is OFF! Check settings.|
@@ -5408,7 +5409,7 @@
 |settings_camzoomin|Zoom in view|
 |settings_camzoomout|Zoom out view|
 |settings_chat|Chat|
-|settings_clearkeyinfo|Press delete to clear|
+|settings_clearkeyinfo|Press Delete to clear|
 |settings_close_radial|Close Radial Menu / Emote Wheel|
 |settings_clothquality|Cloth Quality|
 |settings_cloud_storage_warning|Setting the backups to a high value involves the risk of running out of storage.|
@@ -5798,6 +5799,7 @@
 |switch_online_kickedfromsession_suspendresume_text|You were kicked from the online session due to the console going into Sleep mode, which suspends network activity.|
 |switch_settings_controller|Controller|
 |switch_settings_controller_default|Console|
+|switch_settings_controller_enable_motion_sensor|Enable motion controls|
 |switch_settings_controller_layout|Controller layout|
 |switch_settings_controller_motion_sensor|Motion controls|
 |switch_settings_controller_motion_sensor_settings_off|Motion controls are OFF! Check settings.|
@@ -5858,23 +5860,23 @@
 |tool_catapult|Catapult|
 |tool_catapult_description|If you can't go through it, perhaps you can go over it...|
 |tutorial_altar_label|Hugin: Forsaken altars|
-|tutorial_altar_text|You have found the summoning place of one of the Forsaken. Make the correct offering at their altar and they will come.<br><br>Be wary though, the Forsaken are not easy prey, so craft a wicked weapon, don your finest armour, and eat a hearty meal before engaging them in combat.|
+|tutorial_altar_text|You have found the summoning place of one of the Forsaken. Make the correct offering at their altar and they will come.<br><br>Be wary though, the Forsaken are not easy prey, so craft a wicked weapon, don your finest armour, and eat a hearty meal before engaging them in combat.|
 |tutorial_altar_topic|Calling forth the beast|
 |tutorial_artisan_extension_label|Hugin: Artisan press|
-|tutorial_artisan_extension_text|Now you'll be able to craft ceramic tiles, which have excellent heat insulation.<br>You'll need them if you're to travel southwards!|
+|tutorial_artisan_extension_text|Now you'll be able to craft ceramic tiles, which have excellent heat insulation.<br>You'll need them if you're to travel southwards!|
 |tutorial_artisan_extension_topic|A new tool|
 |tutorial_ashlandocean_label|Hugin: Boiling waters|
-|tutorial_ashlandocean_text|It seems you have ventured to the boiling waters of the south. As you surely noted, this can be a deadly pursuit.<br>To traverse these waters you will need to build something sturdier if you dont want to sleep with the fishes.|
+|tutorial_ashlandocean_text|It seems you have ventured to the boiling waters of the south. As you surely noted, this can be a deadly pursuit.<br>To traverse these waters you will need to build something sturdier if you dont want to sleep with the fishes.|
 |tutorial_ashlandocean_topic|Ahoy!|
 |tutorial_ashlands_label|Hugin: Ashlands|
-|tutorial_ashlands_text|You have discovered the Ashlands, the very hottest parts of the tenth world.<br>Here, water boils without a cauldron, and anything flammable can be set alight with just a spark. Be careful!|
+|tutorial_ashlands_text|You have discovered the Ashlands, the very hottest parts of the tenth world.<br>Here, water boils without a cauldron, and anything flammable can be set alight with just a spark. Be careful!|
 |tutorial_ashlands_topic|Keep a cool head!|
 |tutorial_bathtub_text|Jump in, the water's nice and warm!|
 |tutorial_batteringram_label|Hugin: Battering ram|
 |tutorial_batteringram_text|The enemy fortresses are built from sturdy stuff. You'll need machines like this one if you're to break through their walls.|
 |tutorial_batteringram_topic|A powerful siege engine|
 |tutorial_bed_label|Hugin: Settling in|
-|tutorial_bed_text|Sleep the night away in your bed and awaken feeling refreshed and full of energy.<br><br>Another improvement to your home would be some chests where you can store items. <color=yellow>It is good practice to always have some spare equipment</color>, if something unfortunate should happen to you while exploring...|
+|tutorial_bed_text|Sleep the night away in your bed and awaken feeling refreshed and full of energy.<br><br>Another improvement to your home would be some chests where you can store items. <color=yellow>It is good practice to always have some spare equipment</color>, if something unfortunate should happen to you while exploring...|
 |tutorial_bed_topic|A headrest for the weary!|
 |tutorial_bellfragment_label|Munin: Bell fragment|
 |tutorial_bellfragment_topic|A fragment of the past|
@@ -5885,21 +5887,21 @@
 |tutorial_bosstrophy_text|Return to the Sacrificial Stones with your Forsaken trophy and offer it as a sacrifice to make the Gods smile upon you.|
 |tutorial_bosstrophy_topic|Congratulations, warrior!|
 |tutorial_cold_label|Hugin: Cold|
-|tutorial_cold_text|When the temperature drops at night, or if you are wet, you will suffer from being cold. This reduces your stamina regeneration.<br><br>Seeking shelter by an open flame is your best option when this happens.|
+|tutorial_cold_text|When the temperature drops at night, or if you are wet, you will suffer from being cold. This reduces your stamina regeneration.<br><br>Seeking shelter by an open flame is your best option when this happens.|
 |tutorial_cold_topic|Be wary of the weather|
 |tutorial_crypt_label|Hugin: Dungeons|
-|tutorial_crypt_text|Delves and dungeons can be found across the tenth world. They are monuments of the past, and most often filled with the riches of civilizations long lost.<br><br>Remember to bring a light source!|
+|tutorial_crypt_text|Delves and dungeons can be found across the tenth world. They are monuments of the past, and most often filled with the riches of civilizations long lost.<br><br>Remember to bring a light source!|
 |tutorial_crypt_topic|Treasures lie below|
 |tutorial_death_label|Hugin: Death|
-|tutorial_death_text|Each time you are struck down, you will <color=yellow">forget a small part of your abilities and drop your belongings</color> at the site of the accident.<br><br>If you wish you were home by now I'd recommend <color=yellow">building a bed</color>, wherever home may be.|
+|tutorial_death_text|Each time you are struck down, you will <color=yellow">forget a small part of your abilities and drop your belongings</color> at the site of the accident.<br><br>If you wish you were home by now I'd recommend <color=yellow">building a bed</color>, wherever home may be.|
 |tutorial_death_topic|You suffered a mortal blow!|
 |tutorial_dvergr_label|Hugin: Dvergr|
 |tutorial_dvergr_text|Kra-kraaa! Stubborn fools! The Dvergr will tolerate strangers and vagrants but they are quick to anger should you upset them... Which I am sure you will manage to do sooner or later.|
 |tutorial_dvergrhalls_label|Hugin: Dvergr homes|
-|tutorial_dvergrhalls_text|As I am sure my lesser brother tells you, the halls beyond are very impressive...<br><br>Just try not to get lost in the winding tunnels and secret passageways will you?|
-|tutorial_eitr|It seems you have had a sip from an Yggdrasil branch, and I bet you found it to your liking.<br>Those fun colored lights you may see spinning around you might not all be in your head anymore.<br>Just don't make it a habit. There may be some long term effects that are anything but magical.|
+|tutorial_dvergrhalls_text|As I am sure my lesser brother tells you, the halls beyond are very impressive...<br><br>Just try not to get lost in the winding tunnels and secret passageways will you?|
+|tutorial_eitr|It seems you have had a sip from an Yggdrasil branch, and I bet you found it to your liking.<br>Those fun colored lights you may see spinning around you might not all be in your head anymore.<br>Just don't make it a habit. There may be some long term effects that are anything but magical.|
 |tutorial_eitr_label|Hugin: Eitr|
-|tutorial_eitr_text|The mists permeate all that live and grow in these lands, and now it is a part of you as well.<br><br>With eitr you will be able to cast all sorts of powerful spells. Try to find more eitr-infused ingredients to increase your ability.|
+|tutorial_eitr_text|The mists permeate all that live and grow in these lands, and now it is a part of you as well.<br><br>With eitr you will be able to cast all sorts of powerful spells. Try to find more eitr-infused ingredients to increase your ability.|
 |tutorial_end_hugin_label|Hugin: To Valhalla|
 |tutorial_end_hugin_text|Well done, warrior!<br>At long last, you have slain all Forsaken and proven yourself worthy. The gates of Valhalla are now open to you – all you need to do is to let the valkyrie carry you there.<br>But worry not, you will always be welcome here in the tenth world, should you wish to return.|
 |tutorial_end_hugin_topic|Journey to Valhalla|
@@ -5909,41 +5911,41 @@
 |tutorial_faderember_label|Hugin: Eternal Pyre|
 |tutorial_faderember_text|It is not just a dragon's breath that burns bright, but its very essence as well. One can harness it, with enough skill and patience...|
 |tutorial_food_label|Hugin: Food|
-|tutorial_food_text|You have found a snack. Consume it to improve your health and stamina.<br><br>Be aware that before long you will grow hungry again, so try to always have at least a couple of different meals ready.|
+|tutorial_food_text|You have found a snack. Consume it to improve your health and stamina.<br><br>Be aware that before long you will grow hungry again, so try to always have at least a couple of different meals ready.|
 |tutorial_food_topic|A tasty morsel!|
-|tutorial_food2_text|You have found a snack, consume it to stave off hunger. Some food types are better for your health and indirectly affect how much damage you can block before becoming staggered, and others will fortify your stamina. Then there are also some that is all-around beneficial!<br><br>Be aware that before long you will grow hungry again, so try to always have at least a couple of different meals ready.|
+|tutorial_food2_text|You have found a snack, consume it to stave off hunger. Some food types are better for your health and indirectly affect how much damage you can block before becoming staggered, and others will fortify your stamina. Then there are also some that is all-around beneficial!<br><br>Be aware that before long you will grow hungry again, so try to always have at least a couple of different meals ready.|
 |tutorial_giants_label|Hugin: Giant remains|
 |tutorial_giants_text|Kraa! Pick their bones and break their domes!|
 |tutorial_guardstone_label|Hugin: Ward|
 |tutorial_guardstone_text|The ward emits a strong aura which prevents other vikings from building things. It also locks all doors within its influence.|
 |tutorial_guardstone_topic|You have built a ward|
-|tutorial_haldor|Rumour has it that some traders have found themselves into the tenth world. If you find yourself in need of special commodities you might want to seek them out.<br><br>One of them should be somewhere in a forest such as this. I'm terribly sorry I can't be of more help... you'll have to keep an eye out.|
+|tutorial_haldor|Rumour has it that some traders have found themselves into the tenth world. If you find yourself in need of special commodities you might want to seek them out.<br><br>One of them should be somewhere in a forest such as this. I'm terribly sorry I can't be of more help... you'll have to keep an eye out.|
 |tutorial_haldor_label|Hugin: Trader Haldor|
 |tutorial_haldor_topic|Well met, adventurer…|
 |tutorial_hammer_label|Hugin: Hammer|
-|tutorial_hammer_text|With this tool you will raise mighty halls and towering fortifications.<br><br>Start by building a <color=yellow>workbench</color>. This in turn will enable you to construct other things.|
+|tutorial_hammer_text|With this tool you will raise mighty halls and towering fortifications.<br><br>Start by building a <color=yellow>workbench</color>. This in turn will enable you to construct other things.|
 |tutorial_hammer_topic|You have crafted a hammer|
-|tutorial_hildir|I've heard that a trader was seen in an area not unlike this one. She is an odd character indeed, but may have very special goods for sale.<br><br>However, rumour has it that her stocks have been raided. She might need a helping hand, and you are starting to look fairly capable by now.|
+|tutorial_hildir|I've heard that a trader was seen in an area not unlike this one. She is an odd character indeed, but may have very special goods for sale.<br><br>However, rumour has it that her stocks have been raided. She might need a helping hand, and you are starting to look fairly capable by now.|
 |tutorial_hildir_label|Hugin: Trader Hildir|
 |tutorial_hildir_topic|Why, hello there.|
 |tutorial_hildirdungeon|I have a feeling that this place could be more challenging than one might expect.|
 |tutorial_hildirdungeon_label|Mysterious Location|
 |tutorial_hildirdungeon_topic|Watch your step, warrior.|
 |tutorial_hoe_label|Hugin: Hoe|
-|tutorial_hoe_text|This tool is used for landscaping. You could say it is the perfect complement to the hammer.<br><br>Use it to clear the ground and manipulate the terrain. It is easier to create buildings on level ground!|
+|tutorial_hoe_text|This tool is used for landscaping. You could say it is the perfect complement to the hammer.<br><br>Use it to clear the ground and manipulate the terrain. It is easier to create buildings on level ground!|
 |tutorial_hoe_topic|You have crafted a hoe|
 |tutorial_hunger_label|Hugin: Hunger|
-|tutorial_hunger_text|Consuming food is of <color=yellow>utmost importance</color> to a viking warrior, even in the afterlife. Having a full belly both fortifies your health and improves your stamina.<br><br>Food can be found everywhere in the world, and a great deal of it can be prepared at a <color=yellow>cooking station</color>.|
+|tutorial_hunger_text|Consuming food is of <color=yellow>utmost importance</color> to a viking warrior, even in the afterlife. Having a full belly both fortifies your health and improves your stamina.<br><br>Food can be found everywhere in the world, and a great deal of it can be prepared at a <color=yellow>cooking station</color>.|
 |tutorial_hunger_topic|You need sustenance|
-|tutorial_hunger2_text|Consuming food is of <color=yellow>utmost importance</color> to a viking warrior, even in the afterlife.<br><br>Food can be found everywhere in the world, and a great deal of it can be prepared at a <color=yellow>Cooking station</color>.<br><br>There are three types of food; One increases health, one fortifies stamina, and then there's also a combination of both. Choose your diet based on your needs!|
+|tutorial_hunger2_text|Consuming food is of <color=yellow>utmost importance</color> to a viking warrior, even in the afterlife.<br><br>Food can be found everywhere in the world, and a great deal of it can be prepared at a <color=yellow>Cooking station</color>.<br><br>There are three types of food; One increases health, one fortifies stamina, and then there's also a combination of both. Choose your diet based on your needs!|
 |tutorial_inventory_label|Hugin: Inventory|
-|tutorial_inventory_text|Most items must be crafted. However, due to your recent departure from Midgard, you will have to recall the true shape of objects. Just pick things up and it will all come back to you, I'm sure.<br><br>My lesser brother, Munin, tells me one can fashion a stone axe out of <color=yellow>wood and stone</color>.|
+|tutorial_inventory_text|Most items must be crafted. However, due to your recent departure from Midgard, you will have to recall the true shape of objects. Just pick things up and it will all come back to you, I'm sure.<br><br>My lesser brother, Munin, tells me one can fashion a stone axe out of <color=yellow>wood and stone</color>.|
 |tutorial_inventory_topic|Take stock of your inventory|
 |tutorial_jotuninvasion_hugin_label|Hugin: Jotun Invasions|
 |tutorial_jotuninvasion_hugin_text|"Beware the approach of the Jotun army. You must meet them at their point of invasion and halt their advances, if you are to ever set the tenth world right..."|
 |tutorial_jotuninvasion_hugin_topic|Strange forces are invading!|
 |tutorial_magetable_label|Hugin: Galdr table|
-|tutorial_magetable_text|Trying your hand at scrying the runes are you? I'm impressed, sorcerer!<br><br>Charms and conjurations will take their toll. If you wish to master the arts you must find appropriate sustenance. As it happens, the parts around here are looking ripe with all sorts of delicious new ingredients to gather. Lucky you!|
+|tutorial_magetable_text|Trying your hand at scrying the runes are you? I'm impressed, sorcerer!<br><br>Charms and conjurations will take their toll. If you wish to master the arts you must find appropriate sustenance. As it happens, the parts around here are looking ripe with all sorts of delicious new ingredients to gather. Lucky you!|
 |tutorial_maptable_label|Hugin: Cartography table|
 |tutorial_maptable_text|With this table you can record and share your explorations of the tenth world. Use the toolbox to record your progress and take a look at this large map to copy what others have explored.|
 |tutorial_maptable_topic|Record your exploration|
@@ -5951,13 +5953,13 @@
 |tutorial_mould_hugin_text|Moulds can yield fascinating results! But it is not enough to merely fill them with materials – they also need to be hardened with the help of extreme temperatures...|
 |tutorial_mould_hugin_topic|You have found a mould!|
 |tutorial_ore_label|Hugin: Ore|
-|tutorial_ore_text|Raw ore needs to be refined in the <color=yellow>smelter</color> before you can work it at the <color=yellow>forge</color>.<br><br>To build a smelter you will need <color=yellow>surtling cores</color>. Search for them in the dark places beneath the earth.|
+|tutorial_ore_text|Raw ore needs to be refined in the <color=yellow>smelter</color> before you can work it at the <color=yellow>forge</color>.<br><br>To build a smelter you will need <color=yellow>surtling cores</color>. Search for them in the dark places beneath the earth.|
 |tutorial_ore_topic|You have found some ore|
 |tutorial_pickaxe_label|Hugin: Pickaxe|
-|tutorial_pickaxe_text|The black forest is rich in minerals. There you can find copper in the ground and tin lining the ocean shore.<br><br>Now go forth and strike the earth!|
+|tutorial_pickaxe_text|The black forest is rich in minerals. There you can find copper in the ground and tin lining the ocean shore.<br><br>Now go forth and strike the earth!|
 |tutorial_pickaxe_topic|You have crafted a pickaxe|
 |tutorial_portal_label|Hugin: Portals|
-|tutorial_portal_text|Portals are great for fast travel between different parts of the world.<br><br>Of course, you need to build one on the other end as well, then give the pair the same name and they will be automatically connected!|
+|tutorial_portal_text|Portals are great for fast travel between different parts of the world.<br><br>Of course, you need to build one on the other end as well, then give the pair the same name and they will be automatically connected!|
 |tutorial_portal_topic|You have built a portal|
 |tutorial_prison_label|Hugin: The Prison|
 |tutorial_prison_text|Be wary! The being imprisoned beyond this gate is mighty, more so than any other to be found in all of Valheim. You would do well to prepare accordingly before you venture forth to this final foe.|
@@ -5981,28 +5983,28 @@
 |tutorial_sacrificialblood_text|Well done, warrior! You have found the sacrificial blood, the final key to restoring this realm. Now the All-Father has one last task for you – prove yourself worthy by journeying back to where it all began!|
 |tutorial_sacrificialblood_topic|It is time...|
 |tutorial_shield_label|Hugin: Shield|
-|tutorial_shield_text|A shield allows you to block incoming damage. <br>If your timing is perfect, the enemy may also be <color=yellow>parried</color>. <br>Be careful though, if you block too many hits you will become <color=yellow>staggered</color>. The amount of damage you can block before becoming staggered depends on your maximum health, so if you plan on tanking a lot of damage you should eat food that increases your health.<br>Heavier shields will block more damage but will also slow you down.|
+|tutorial_shield_text|A shield allows you to block incoming damage. <br>If your timing is perfect, the enemy may also be <color=yellow>parried</color>. <br>Be careful though, if you block too many hits you will become <color=yellow>staggered</color>. The amount of damage you can block before becoming staggered depends on your maximum health, so if you plan on tanking a lot of damage you should eat food that increases your health.<br>Heavier shields will block more damage but will also slow you down.|
 |tutorial_shield_topic|You have crafted a shield|
 |tutorial_shieldgenerator_label|Hugin: Shield generator|
 |tutorial_shieldgenerator_text|Kraa! This should keep away whatever the sky might throw at you.|
 |tutorial_shieldgenerator_topic|Means of protection|
 |tutorial_smelter_label|Hugin: Smelter|
-|tutorial_smelter_text|Deposit your raw ore in this furnace and it will melt away all impurities, leaving you with a bar of refined metal to work at the forge.<br><br>You will need <color=yellow>coal</color> to fuel the smelter. Coal can be produced by building a <color=yellow>kiln</color> and loading it with wood.|
+|tutorial_smelter_text|Deposit your raw ore in this furnace and it will melt away all impurities, leaving you with a bar of refined metal to work at the forge.<br><br>You will need <color=yellow>coal</color> to fuel the smelter. Coal can be produced by building a <color=yellow>kiln</color> and loading it with wood.|
 |tutorial_smelter_topic|You have built a smelter|
 |tutorial_start_label|Hugin: Tip|
-|tutorial_start_text|Start tips: try to interact with things in the environment. Some items like stones, branches and pieces of flint can be collected and used for crafting. <br><br>To open your inventory and crafting screen press $KEY_Inventory.|
+|tutorial_start_text|Start tips: try to interact with things in the environment. Some items like stones, branches and pieces of flint can be collected and used for crafting. <br><br>To open your inventory and crafting screen press $KEY_Inventory.|
 |tutorial_start_topic|Welcome to Valheim|
 |tutorial_stemple1_label|Hugin: Welcome|
-|tutorial_stemple1_text|I am Hugin, sent here to guide you in your travels.<br><br>The megaliths surrounding you are the Sacrificial Stones. They represent the Forsaken, which you must slay in order to ascend to Valhalla.|
+|tutorial_stemple1_text|I am Hugin, sent here to guide you in your travels.<br><br>The megaliths surrounding you are the Sacrificial Stones. They represent the Forsaken, which you must slay in order to ascend to Valhalla.|
 |tutorial_stemple1_topic|Welcome to the tenth world, warrior|
 |tutorial_stemple2_label|Hugin: Vegvisirs|
-|tutorial_stemple2_text|These magical stones were scattered throughout the lands by Oden as signposts pointing toward the ritual grounds of the Forsaken.<br><br>If inspected closer, this one will reveal the summoning place of Eikthyr, your <color=yellow>first prey</color>. He is a mighty beast, so you need to properly arm yourself before even attempting to defeat him.|
+|tutorial_stemple2_text|These magical stones were scattered throughout the lands by Oden as signposts pointing toward the ritual grounds of the Forsaken.<br><br>If inspected closer, this one will reveal the summoning place of Eikthyr, your <color=yellow>first prey</color>. He is a mighty beast, so you need to properly arm yourself before even attempting to defeat him.|
 |tutorial_stemple2_topic|This stone is a Vegvisir|
 |tutorial_stemple4_label|Hugin: Eikthyr defeated|
-|tutorial_stemple4_text|You have been granted the power of Eikthyr. Use it in times of need.<br><br>Your next target dwells in the black forest. Go there, explore the lands, and uncover their lost treasures and resources.<br><br>The Elder awaits!|
+|tutorial_stemple4_text|You have been granted the power of Eikthyr. Use it in times of need.<br><br>Your next target dwells in the black forest. Go there, explore the lands, and uncover their lost treasures and resources.<br><br>The Elder awaits!|
 |tutorial_stemple4_topic|Oden is pleased|
 |tutorial_tissueref_label|Hugin: Eitr refinery|
-|tutorial_tissueref_text|Warrior, what kind of contraption is this?! It looks dangerous...<br><br>There is a grinding funnel up here, I wonder what you will put into it.|
+|tutorial_tissueref_text|Warrior, what kind of contraption is this?! It looks dangerous...<br><br>There is a grinding funnel up here, I wonder what you will put into it.|
 |tutorial_trinket_label|Hugin: Trinkets|
 |tutorial_trinket_text|Kra-kraaa! Warrior, is that a gleaming trinket I see in your grasp? Don it with pride, and let its power course through you as you strike down your foes. Once your adrenaline reaches its peak, you are sure to be rewarded!|
 |tutorial_trinket_topic|Adrenaline surges through you!|
@@ -6013,15 +6015,15 @@
 |tutorial_weight_text|If you carry too much luggage you will become encumbered, slowing you down and preventing you from regaining your stamina.|
 |tutorial_weight_topic|You need to lighten your load!|
 |tutorial_wishbone_label|Hugin: Wishbone|
-|tutorial_wishbone_text|It seems one of the many bones this living ossuary hid in his belly was a Wishbone.<br><br>This bone contains powerful magic which guides you to things hidden in the earth. It can locate <color=yellow>silver veins</color>, but may also lead you to buried treasure...|
+|tutorial_wishbone_text|It seems one of the many bones this living ossuary hid in his belly was a Wishbone.<br><br>This bone contains powerful magic which guides you to things hidden in the earth. It can locate <color=yellow>silver veins</color>, but may also lead you to buried treasure...|
 |tutorial_wishbone_topic|Bonemass left you a parting gift|
 |tutorial_wispattractor_label|Hugin: Wisp fountain|
-|tutorial_wispattractor_text|A strange edifice indeed. I wonder what it will attract. Let us just perch here for a while and see what happens...<br><br><br>Warrior, I am bored. Besides, it is not my job to babysit the likes of you long into the night... Just be vigilant and I'm sure you will be rewarded.|
+|tutorial_wispattractor_text|A strange edifice indeed. I wonder what it will attract. Let us just perch here for a while and see what happens...<br><br><br>Warrior, I am bored. Besides, it is not my job to babysit the likes of you long into the night... Just be vigilant and I'm sure you will be rewarded.|
 |tutorial_workbench_label|Hugin: Workbench|
 |tutorial_workbench_text|A workbench allows you to craft <color=yellow>complex items</color> as well as giving you access to lots of more <color=yellow>building pieces</color> to construct with the hammer.|
 |tutorial_workbench_topic|You have built a workbench|
 |tutorial_yggroot_label|Hugin: Yggdrasil roots|
-|tutorial_yggroot_text|Kraa! Although severed from the trunk, I can see that magic still lingers in the roots of the old ash.<br><br>Needless to say, no weapon of your design will be able to break the bark. You need something better, fashioned by more capable hands.|
+|tutorial_yggroot_text|Kraa! Although severed from the trunk, I can see that magic still lingers in the roots of the old ash.<br><br>Needless to say, no weapon of your design will be able to break the bark. You need something better, fashioned by more capable hands.|
 |ui_hold|Hold|
 |wolf_statue|Fenris Shrine|
 |xbox_codeofconduct_platform_specific_text|You must also follow Xbox's Community Standards, which applies in addition to our rules.|
