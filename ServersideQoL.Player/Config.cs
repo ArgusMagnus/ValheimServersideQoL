@@ -30,13 +30,15 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
 
   public ConfigEntry<bool> CanSacrificeMegingjord { get; } = BindEx(cfg, false,
-      "If true, players can permanently unlock increased carrying weight by sacrificing a megingjord in an obliterator");
+    "If true, players can permanently unlock increased carrying weight by sacrificing a megingjord in an obliterator");
   public ConfigEntry<bool> CanSacrificeCryptKey { get; } = BindEx(cfg, false,
-      "If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator");
+    "If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator");
   public ConfigEntry<bool> CanSacrificeWishbone { get; } = BindEx(cfg, false,
-      "If true, players can permanently unlock the ability to sense hidden objects by sacrificing a wishbone in an obliterator");
-  public ConfigEntry<bool> CanSacrificeTornSpirit { get; } = BindEx(cfg, false,
-      "If true, players can permanently unlock a wisp companion by sacrificing a torn spirit in an obliterator. WARNING: Wisp companion cannot be unsummoned and will stay as long as this setting is enabled.");
+    "If true, players can permanently unlock the ability to sense hidden objects by sacrificing a wishbone in an obliterator");
+  public ConfigEntry<bool> CanSacrificeTornSpirit { get; } = BindEx(cfg, false, """
+    If true, players can permanently unlock a wisp companion by sacrificing a torn spirit in an obliterator.
+    WARNING: Wisp companion cannot be unsummoned and will stay as long as this setting is enabled.
+    """);    
 
   public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
 
