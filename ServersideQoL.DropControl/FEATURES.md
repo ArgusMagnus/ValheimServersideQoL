@@ -23,7 +23,7 @@ On startup, a template configuration file will be generated.
 <details>
   <summary><b>Examples:</b></summary>
 
-*$(ValheimInstallDir)/BepInEx/config/ArgusMagnus.{PluginName}/Drops.yml*:
+*$(ValheimInstallDir)/BepInEx/config/ArgusMagnus.{PluginName}.Drops.yml*:
 
 ```
 Entries:

@@ -355,13 +355,13 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
       else if (!kIsEdge)
         pos.x += i is 0 ? -0.25f : 0.25f;
 
-      pos.y += 2f;
+      pos.y += Config.Instance.Advanced.Value.SignVerticalOffset;
       state.HubSign = PlacePiece(pos, Prefabs.Sign, rot);
       state.HubSign.Vars.SetText($"<color=white>{state.Tag}");
 
       if (GetTorches(state.HubId) is { Count: > 0 } torches)
       {
-        pos.y -= 1.5f;
+        pos.y -= Config.Instance.Advanced.Value.SignVerticalOffset - 0.5f;
         var p = pos;
         var d = iIsEdge && kIsEdge ? 0.25f / Mathf.Sqrt(2) : 0.25f;
         for (var j = 0; j < torches.Count; j++)
