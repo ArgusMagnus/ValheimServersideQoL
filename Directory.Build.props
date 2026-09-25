@@ -15,7 +15,7 @@
     <DependencyDirectory>$(MSBuildThisFileDirectory)Dependencies\</DependencyDirectory>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
-    <Version>2.1.0-beta.3</Version>
+    <Version>2.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('.Patchers')) == 'true'">
