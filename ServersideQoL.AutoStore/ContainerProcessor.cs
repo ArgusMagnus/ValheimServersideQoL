@@ -292,7 +292,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       return ProcessResult.DestroyZDO;
     else if (stackContainerState.Stacked)
     {
-      if (stackContainerState.RemoveAfter < DateTimeOffset.UtcNow)
+      if (stackContainerState.RemoveAfter < Timestamp.Now)
         zdo.RPC.Container.TakeAllResponse(true);
       else if (MoveItems(zdo, peers, state, stackContainerState))
       {
@@ -303,7 +303,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
         _stackContainers.Add(zdo = RecreatePiece(zdo), stackContainerState);
         zdo.Destroyed += OnStackContainerDestroyed;
-        // stackContainerState.RemoveAfter = DateTimeOffset.UtcNow;
+        stackContainerState.RemoveAfter = Timestamp.Now.AddSeconds(0.5f);
       }
       return ScheduleReprocessing(Config.Instance.Advanced.Value.ProcessingDelays.StackContainerWhenMovingItems);
     }
@@ -319,13 +319,13 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       }
       inventory.Save();
       stackContainerState.Stacked = true;
-      stackContainerState.RemoveAfter = DateTimeOffset.UtcNow.AddSeconds(Config.Instance.StackInventoryIntoContainersReturnDelay.Value);
+      stackContainerState.RemoveAfter = Timestamp.Now.AddSeconds(Config.Instance.StackInventoryIntoContainersReturnDelay.Value);
       zdo.Destroyed -= OnStackContainerDestroyed;
       _stackContainers.Remove(zdo);
       _stackContainers.Add(zdo = RecreatePiece(zdo), stackContainerState);
       zdo.Destroyed += OnStackContainerDestroyed;
     }
-    else if (stackContainerState.RemoveAfter < DateTimeOffset.UtcNow)
+    else if (stackContainerState.RemoveAfter < Timestamp.Now)
     {
       return ProcessResult.DestroyZDO;
     }
@@ -481,7 +481,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
   sealed record StackContainerState(ServersideQoLZDO PlayerZDO)
   {
-    public DateTimeOffset RemoveAfter { get; set; } = DateTimeOffset.UtcNow.AddSeconds(20);
+    public Timestamp RemoveAfter { get; set; } = Timestamp.Now.AddSeconds(4);
     public bool Stacked { get; set; }
   }
 }
