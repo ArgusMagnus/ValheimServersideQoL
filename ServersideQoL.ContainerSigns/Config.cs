@@ -47,6 +47,10 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Options to automatically put signs on barrels", AcceptableEnum<SignOptions>.Default);
   public ConfigEntry<SignOptions> ObliteratorSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on obliterators", new AcceptableEnum<SignOptions>([SignOptions.Front]));
+  public ConfigEntry<bool> FermenterSigns { get; } = BindEx(cfg, false, """
+    True to automatically put a sign on the tap side of fermenters, showing the content and the remaining fermentation time.
+    The position can be adjusted with a 'fermenter' entry (Front, VerticalOffset) in the advanced (yml) ChestSignOffsets config.
+    """);
 
   internal SignOptions GetSignOptions(int prefab)
   {
