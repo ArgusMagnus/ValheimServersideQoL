@@ -12,8 +12,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "True to automatically feed smelters from nearby containers");
   public ConfigEntry<bool> FeedFermenters { get; } = BindEx(cfg, false,
     "True to automatically add fermentable items (e.g. mead bases) to empty fermenters from nearby containers. Requires FeedFromContainers");
-  public ConfigEntry<bool> ExtractFermenters { get; } = BindEx(cfg, false,
-    "True to automatically move finished products (e.g. mead) from fermenters into nearby containers. Requires FeedFromContainers");
+  public ConfigEntry<bool> TapFermenters { get; } = BindEx(cfg, false,
+    "True to automatically tap fermenters when the content is ready. The products (e.g. mead) are dropped like when tapping by hand, use AutoStore to put them into containers");
 
   const string DefaultRangeEmoji = "↔️";
   public ConfigEntry<float> FeedFromContainersRange { get; } = BindEx(cfg, 4f, $"""
@@ -40,8 +40,6 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Minimum amount of fermentable items (e.g. mead bases) to leave in a container");
   public ConfigEntry<MessageTypes> OreOrFuelAddedMessageType { get; } = BindEx(cfg, MessageTypes.None,
     "Type of message to show when ore or fuel is added to a smelter", AcceptableEnum<MessageTypes>.Default);
-  public ConfigEntry<MessageTypes> FermenterExtractedMessageType { get; } = BindEx(cfg, MessageTypes.None,
-    "Type of message to show when a finished product is moved from a fermenter into a container", AcceptableEnum<MessageTypes>.Default);
   public ConfigEntry<float> CapacityMultiplier { get; } = BindEx(cfg, 1f,
     "Multiply a smelter's ore/fuel capacity by this factor");
   public ConfigEntry<float> TimePerProductMultiplier { get; } = BindEx(cfg, 1f,
@@ -55,7 +53,5 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public string FormatFuelAdded(string smelterName, string itemName, int stack) => string.Format(FuelAdded, smelterName, itemName, stack);
     string OreAdded { get; init; } = "{0}: $msg_added {1} {2}x";
     public string FormatOreAdded(string smelterName, string itemName, int stack) => string.Format(OreAdded, smelterName, itemName, stack);
-    string ProductExtracted { get; init; } = "{0}: {1} {2}x";
-    public string FormatProductExtracted(string fermenterName, string itemName, int stack) => string.Format(ProductExtracted, fermenterName, itemName, stack);
   }
 }

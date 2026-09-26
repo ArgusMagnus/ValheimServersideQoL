@@ -1,4 +1,3 @@
 - Automatically put signs on chests
 - Show container content on those signs
-- Automatically put signs on fermenters showing the remaining fermentation time
 - Configure chests for other ServersideQoL mods via those signs (e.g. auto-store pickup range or auto-smelter-feeding range)

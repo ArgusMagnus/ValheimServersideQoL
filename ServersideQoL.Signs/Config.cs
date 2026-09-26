@@ -15,6 +15,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       "black", "blue", "green", "orange", "purple", "red", "white", "yellow"]));
   public ConfigEntry<bool> TimeSigns { get; } = BindEx(cfg, true,
     Invariant($"True to update sign texts which contain time emojis (any of {string.Concat(SignProcessor.ClockEmojis)}) with the in-game time"));
+  public ConfigEntry<bool> FermenterSigns { get; } = BindEx(cfg, false,
+    "True to automatically put a sign on the tap side of fermenters, showing the content and the remaining fermentation time");
 
   public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
 

@@ -143,6 +143,16 @@ partial class ServersideQoLZDO
         => InvokeRoutedRPC(_zdo.GetOwner(), _zdo.m_uid, RpcName.MineRock5.Damage, parameters: [hit, hitAreaIndex]);
     }
 
+    public FermenterRpc Fermenter => new(_zdo);
+    public readonly ref struct FermenterRpc(ServersideQoLZDO zdo)
+    {
+      readonly ZDO _zdo = AssertAndGetZDO<Fermenter>(zdo);
+
+      /// <see cref="Fermenter.RPC_Tap"/>
+      public void Tap()
+        => InvokeRoutedRPC(_zdo.GetOwner(), _zdo.m_uid, RpcName.Fermenter.Tap);
+    }
+
     static ZDO AssertAndGetZDO<T>(ServersideQoLZDO zdo)
       where T : MonoBehaviour
     {
