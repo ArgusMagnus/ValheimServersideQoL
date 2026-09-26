@@ -88,6 +88,11 @@ public static class RPC
       public static RpcName Damage { get; } = new("RPC_Damage");
     }
 
+    public static class Fermenter
+    {
+      public static RpcName Tap { get; } = new("RPC_Tap");
+    }
+
     public static class ZSyncAnimation
     {
       public static RpcName SetTrigger { get; } = new("SetTrigger");

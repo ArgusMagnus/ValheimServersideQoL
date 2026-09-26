@@ -1,3 +1,3 @@
 - Automatically feeds processing stations such as smelters, kilns, windmills, etc. from nearby containers
 - Automatically feeds shield generators from nearby containers
-- Optionally fills fermenters from nearby containers and moves the finished mead into nearby containers
+- Optionally fills fermenters from nearby containers and taps them when the mead is ready
