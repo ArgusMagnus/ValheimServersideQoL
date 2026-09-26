@@ -20,7 +20,7 @@ On startup, a template configuration file will be generated.
 |MaxQuality|The maximum quality the drop can be.|
 |MultiplyMaxQualityByLevel|If true, `MaxQuality` is multiplied by the level of the killed creature. `QualityIncreaseChance` is adjusted so that the chance to get a max quality item stays the same across creature levels.|
 
-<details>
+<details open>
   <summary><b>Examples:</b></summary>
 
 *$(ValheimInstallDir)/BepInEx/config/ArgusMagnus.{PluginName}.Drops.yml*:

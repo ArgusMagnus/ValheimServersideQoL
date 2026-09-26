@@ -5,7 +5,7 @@ For anything else you'll need to copy and edit `$(ValheimInstallDir)/BepInEx/con
 and contains all the available component-prefab combinations and their fields with default values. If the yml-file contains entries that conflict with a preset
 set in the main config, the yml-file will win.
 
-<details>
+<details open>
   <summary><b>Examples:</b></summary>
 
 Omitting `PrefabNames` will apply the configuration to all prefabs of the specified component.
