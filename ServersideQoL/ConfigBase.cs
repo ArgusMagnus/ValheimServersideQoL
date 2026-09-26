@@ -24,6 +24,18 @@ public abstract class ConfigBase
     Logger = logger;
   }
 
+#if DEBUG
+  internal static bool GeneratingConfigMarkdown { get; set; }
+#endif
+
+  private protected static bool IsGeneratingConfigMarkdown =>
+#if DEBUG
+    GeneratingConfigMarkdown
+#else
+    false
+#endif
+    ;
+
   protected static class Shared
   {
     public static ConfigEntry<bool>? AutoStorePickup { get; set => Set(ref field, value); }
@@ -38,6 +50,8 @@ public abstract class ConfigBase
 
     static void Set<T>(ref T? field, T? value, [CallerMemberName] string configName = default!) where T : class
     {
+      if (IsGeneratingConfigMarkdown)
+        return;
       if (field is not null)
         throw new Exception($"Shared config {configName} already set");
       field = value;
@@ -55,6 +69,10 @@ public abstract class ConfigBase
 
   static readonly bool __configWatcherInstalled = AppDomain.CurrentDomain.GetAssemblies().Any(static x => !x.IsDynamic && Path.GetFileName(x.Location) is "ConfigWatcher.dll");
   static readonly Dictionary<ConfigFile, DebouncedFileWatcher> __fileWatcher = [];
+  static private protected readonly HashSet<ConfigEntryBase> __deprecatedEntries = [];
+
+  public static bool IsDeprecated(ConfigEntryBase entry)
+    => __deprecatedEntries.Contains(entry);
 
   private protected void InitializeFileWatcher()
   {
@@ -306,7 +324,6 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
 {
   static event Action<ConfigFile, TSelf>? Initialized;
   public sealed record Deprecated(string Reason, Action<TSelf> AdjustConfig);
-  static readonly HashSet<ConfigEntryBase> __deprecatedEntries = [];
 
   static Dictionary<string, IYamlConfigEntry>? __yaml = [];
   //static readonly Dictionary<string, FileSystemWatcher> __yamlFileWatchers = new(StringComparer.OrdinalIgnoreCase);
@@ -316,7 +333,7 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
 
   internal static bool IsInitialized { get; private set; }
   public static TSelf Instance { get => field ?? throw new InvalidOperationException("Config has not been initialized yet"); private set; }
-  protected static string Section => field ??= ((typeof(TSelf) == typeof(Config) || !Config.Instance.UnifiedConfig.Value) ? __section : $"M.{__section}");
+  protected static string Section => field ??= ((typeof(TSelf) == typeof(Config) || IsGeneratingConfigMarkdown || !Config.Instance.UnifiedConfig.Value) ? __section : $"M.{__section}");
   static readonly string __section = typeof(TSelf).Namespace.Split('.') is { Length: > 1 } parts ? parts[^1] : "General";
 
   EventHandler<SettingChangedEventArgs>? _configChanged;
@@ -371,9 +388,6 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     InitializeFileWatcher();
   }
 
-  public static bool IsDeprecated(ConfigEntryBase entry)
-    => __deprecatedEntries.Contains(entry);
-
   protected static ConfigEntry<T> BindEx<T>(ConfigFile config, T defaultValue, string description,
     AcceptableValueBase? acceptableValues = null,
     Deprecated? deprecated = null,
@@ -385,7 +399,7 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     Deprecated? deprecated = null,
     [CallerMemberName] string key = default!)
   {
-    var section = Config.Instance.UnifiedConfig.Value ? $"{Section}.{subSection}" : subSection;
+    var section = (!IsGeneratingConfigMarkdown && Config.Instance.UnifiedConfig.Value) ? $"{Section}.{subSection}" : subSection;
     return BindExCore(config, section, defaultValue, description, acceptableValues, deprecated, key);
   }
 
@@ -430,10 +444,13 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
   protected static YamlConfigEntry<T> BindYaml<T>(ConfigFile cfg, Action<T> onChanged, [CallerMemberName] string fileName = default!)
     where T : notnull, new()
   {
+    if (IsGeneratingConfigMarkdown)
+      return null!;
+
     if (__yaml is null)
       throw new InvalidOperationException("Config alredy initialized");
 
-    if (typeof(TSelf) != typeof(Config) && Config.Instance.UnifiedConfig.Value)
+    if (typeof(TSelf) != typeof(Config) && !IsGeneratingConfigMarkdown && Config.Instance.UnifiedConfig.Value)
       fileName = $"{__section}.{fileName}";
     var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), ServersideQoLPlugin.PluginGuid);
     var configPath = Path.Combine(configDir, $"{Path.GetFileNameWithoutExtension(cfg.ConfigFilePath)}.{fileName}.yml");
@@ -473,9 +490,9 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
 
   static void WriteYamlHeader(StreamWriter writer) => writer.WriteLine("""
     # IMPORTANT:
-    #   This file is for advanced tweaks.
-    #   You are expected to be familiar with YAML and its pitfalls if you decide to edit it.
-    #   Check the log for warnings related to this file.
+    # This file is for advanced tweaks.
+    # You are expected to be familiar with YAML and its pitfalls if you decide to edit it.
+    # Check the log for warnings related to this file.
 
     """);
 }

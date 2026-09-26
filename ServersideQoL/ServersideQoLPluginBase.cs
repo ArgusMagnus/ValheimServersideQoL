@@ -1,7 +1,10 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
 using ServersideQoL.Utilities;
+using System.Diagnostics;
 using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ServersideQoL;
 
@@ -51,6 +54,13 @@ public abstract class ServersideQoLPluginBaseCore<TSelf, TConfig> : ServersideQo
     IConfig? cfg = _config;
     if (cfg is null)
     {
+#if DEBUG
+      ConfigBase.GeneratingConfigMarkdown = true;
+      GenerateDefaultConfigMarkdown(GetMarkdownConfigPath() is { } path ?
+        CreateConfigSingleton(new ConfigFile(path, false) { SaveOnConfigSet = false }, Logger).ConfigFile : null);
+      ConfigBase.GeneratingConfigMarkdown = false;
+#endif
+
       cfg = _config = CreateConfigSingleton(GetConfigFile(base.Config), Logger);
       if (_config is Config { ConfigPerWorld.Value: true })
       {
@@ -95,6 +105,58 @@ public abstract class ServersideQoLPluginBaseCore<TSelf, TConfig> : ServersideQo
 
       return new(path, saveOnInit: false, BepInPlugin);
     }
+
+#if DEBUG
+    static string? GetMarkdownConfigPath()
+    {
+      if (typeof(TSelf).GetField("ProjectDirectory", BindingFlags.Static | BindingFlags.NonPublic)?.GetRawConstantValue() is string dir)
+        return Path.Combine(dir, "CONFIG.md");
+      return null;
+    }
+
+    static void GenerateDefaultConfigMarkdown(ConfigFile? cfg)
+    {
+      if (cfg is null)
+        return;
+
+      using var writer = new StreamWriter(cfg.ConfigFilePath, false, new UTF8Encoding(false));
+
+      var prevSection = "";
+
+      foreach (var (def, entry) in cfg.OrderBy(static x => x.Key.Section))
+      {
+        if (ConfigBase.IsDeprecated(entry))
+          continue;
+
+        if (def.Section != prevSection)
+        {
+          if (!string.IsNullOrEmpty(prevSection))
+            writer.WriteLine("</details>");
+          writer.WriteLine($"<details open><summary><b>{def.Section}</b></summary>");
+          writer.WriteLine();
+          writer.WriteLine("|Option|Default Value|Acceptable Values|Description|");
+          writer.WriteLine("|------|-------------|-----------------|-----------|");
+          prevSection = def.Section;
+        }
+
+        var accetableValues = entry.Description.AcceptableValues?.ToDescriptionString();
+        if (accetableValues is not null)
+          accetableValues = Regex.Replace(accetableValues, @"^#.+?\:\s*", "");
+        else if (entry.SettingType == typeof(bool))
+          accetableValues = Invariant($"{bool.TrueString}/{bool.FalseString}");
+        else if (entry.SettingType.IsEnum)
+        {
+          if (entry.SettingType.GetCustomAttribute<FlagsAttribute>() is null)
+            accetableValues = Invariant($"One of {string.Join(", ", Enum.GetNames(entry.SettingType))}");
+          else
+            accetableValues = Invariant($"Combination of {string.Join(", ", Enum.GetNames(entry.SettingType))}");
+        }
+
+        writer.WriteLine(Invariant($"|{def.Key}|{entry.DefaultValue}|{accetableValues}|{entry.Description.Description
+          .Replace("<", "&lt;").Replace(">", "&gt;").Replace(Environment.NewLine, " <br>")}|"));
+      }
+    }
+#endif
   }
 
   public static new Logger Logger { get; private set; } = default!;
