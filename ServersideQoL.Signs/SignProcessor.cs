@@ -3,13 +3,14 @@
 namespace ServersideQoL.Signs;
 
 
-[Processor("806bdb85-c857-4154-a246-a0b1d0917987")]
+[Processor(Id)]
 public sealed class SignProcessor : Processor<ProcessorPrefabInfo<Sign>>
 {
+  public const string Id = "806bdb85-c857-4154-a246-a0b1d0917987";
   internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
   readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
-  readonly Regex _defaultColorRegex = new(@"<color=[^>]+ d>");
+  internal Regex DefaultColorRegex { get; } = new(@"<color=[^>]+ d>");
 
   string? _timeText;
 
@@ -46,7 +47,7 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo<Sign>>
 
     {
       var found = false;
-      var newText = _defaultColorRegex.Replace(text, match =>
+      var newText = DefaultColorRegex.Replace(text, match =>
       {
         found = true;
         if (Config.Instance.DefaultColor.Value is { Length: > 0 } and not Config.NotSetDefaultColor)
