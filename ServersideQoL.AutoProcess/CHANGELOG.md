@@ -1,5 +1,8 @@
-### v2.1.1
-- Added options `FeedFermenters` and `TapFermenters` to automatically add fermentable items to fermenters from nearby containers and tap them when ready (the dropped products can be picked up by AutoStore). `FeedFromContainersLeaveAtLeastFermentable` (default 0) controls how many fermentable items are left in a container
+### v2.2.0
+- Added options `FeedFermenters` and `TapFermenters` to automatically add fermentable items to fermenters from nearby containers and
+  tap them when ready (the dropped products can be picked up by AutoStore).
+  `FeedFromContainersLeaveAtLeastFermentable` (default 0) controls how many fermentable items are left in a container.
+  [#293](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/293) (contributed by [explosivo22](https://github.com/explosivo22))
 
 ### v2.1.0
 - Added option `FeedFromContainersRangeSignPrefix` [#270](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/270) 

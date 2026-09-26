@@ -1,12 +1,13 @@
 ﻿using ServersideQoL.Utilities;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace ServersideQoL.Signs;
 
-[Processor("0daf063a-639c-4797-9a0d-c8fd7e7e420c")]
+[Processor(Id)]
 public sealed class FermenterSignProcessor : Processor<FermenterSignProcessor.PrefabInfo>
 {
+  public const string Id = "0daf063a-639c-4797-9a0d-c8fd7e7e420c";
+
   public sealed record PrefabInfo(Fermenter Fermenter) : ProcessorPrefabInfo
   {
     public (Vector3 Direction, float Distance, float Height) Placement { get; } = GetPlacement(Fermenter);
@@ -45,8 +46,6 @@ public sealed class FermenterSignProcessor : Processor<FermenterSignProcessor.Pr
   const float UpdateInterval = 5f;
 
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _signsByFermenters = [];
-  /// <see cref="SignProcessor"/>
-  readonly Regex _defaultColorRegex = new(@"^<color=[^>]+ d>");
 
   protected override void Initialize()
   {
@@ -102,7 +101,7 @@ public sealed class FermenterSignProcessor : Processor<FermenterSignProcessor.Pr
     }
 
     var signText = sign.Vars.GetText();
-    if (_defaultColorRegex.Match(signText) is { Success: true } color)
+    if (Instance<SignProcessor>().DefaultColorRegex.Match(signText) is { Success: true } color)
       text = $"{color.Value}{text}"; // keep the default color applied by the Signs mod instead of overwriting it every update
 
     if (signText != text)
