@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-namespace ServersideQoL.ContainerSigns;
+namespace ServersideQoL.Signs;
 
 [Processor("0daf063a-639c-4797-9a0d-c8fd7e7e420c")]
 public sealed class FermenterSignProcessor : Processor<FermenterSignProcessor.PrefabInfo>
@@ -45,7 +45,7 @@ public sealed class FermenterSignProcessor : Processor<FermenterSignProcessor.Pr
   const float UpdateInterval = 5f;
 
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _signsByFermenters = [];
-  /// <see cref="Signs.SignProcessor"/>
+  /// <see cref="SignProcessor"/>
   readonly Regex _defaultColorRegex = new(@"^<color=[^>]+ d>");
 
   protected override void Initialize()
@@ -55,7 +55,7 @@ public sealed class FermenterSignProcessor : Processor<FermenterSignProcessor.Pr
     _signsByFermenters.Clear();
   }
 
-  protected override bool ClaimExclusive(ServersideQoLZDO zdo) => false; // let other processors process the signs (e.g. the default sign color)
+  protected override bool ClaimExclusive(ServersideQoLZDO zdo) => false; // let SignProcessor process the signs (default sign color)
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
@@ -65,14 +65,6 @@ public sealed class FermenterSignProcessor : Processor<FermenterSignProcessor.Pr
     if (!_signsByFermenters.TryGetValue(zdo, out var sign))
     {
       var (direction, distance, height) = prefabInfo.Placement;
-      if (Config.Instance.Advanced.Value.ChestSignOffsets.TryGetValue(zdo.ZDO.GetPrefab(), out var signOffset))
-      {
-        if (!float.IsNaN(signOffset.Front))
-          distance = signOffset.Front;
-        if (!float.IsNaN(signOffset.VerticalOffset))
-          height = signOffset.VerticalOffset;
-      }
-
       direction = zdo.ZDO.GetRotation() * direction;
       var pos = zdo.ZDO.GetPosition() + direction * distance;
       pos.y += height;

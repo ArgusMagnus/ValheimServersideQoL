@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Description>Show in-game time on signs and set default sign color</Description>
+		<Description>Show in-game time on signs, set default sign color and put signs showing the remaining fermentation time on fermenters</Description>
 	</PropertyGroup>
 
 	<ItemGroup>

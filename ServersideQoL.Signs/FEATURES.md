@@ -1,2 +1,3 @@
 - Set default color for signs
 - Show in-game time on signs
+- Automatically put signs on fermenters showing the remaining fermentation time
