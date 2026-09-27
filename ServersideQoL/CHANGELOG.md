@@ -1,5 +1,5 @@
 ### v2.2.0
-- Compatibility patch
+- Print `Mod should only be installed on the host` warning only once [#302](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/302)
 
 ### v2.1.1
 - Added config options to readme

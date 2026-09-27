@@ -98,15 +98,20 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
     IEnumerator<YieldInstruction?> CallExecute()
     {
       bool pluginsInitialized = false;
+      bool printClientWarning = true;
 
       while (true)
       {
         while (ZNet.instance is null)
           yield return new WaitForSeconds(0.2f);
 
-        if (ZNet.instance.IsServer() is false)
+        if (!ZNet.instance.IsServer())
         {
-          Logger.LogWarning("Mod should only be installed on the host");
+          if (printClientWarning)
+          {
+            Logger.LogWarning("Mod should only be installed on the host");
+            printClientWarning = false;
+          }
           yield return new WaitForSeconds(5);
           continue;
         }
