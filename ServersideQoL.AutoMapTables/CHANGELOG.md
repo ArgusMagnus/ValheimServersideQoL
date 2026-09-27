@@ -1,3 +1,6 @@
+### v2.1.1
+- Fixed logic error in ward processing
+
 ### v2.1.0
 - Compatibility patch
 

@@ -24,3 +24,5 @@ If you experience an issue, please file a report there or on the [hexium mod pag
 
 ## Configuration
 The configuration is loaded from `$(ValheimInstallDir)/BepInEx/config/ArgusMagnus.{PluginName}.cfg`. Start the server once to generate the file if it does not exist.
+
+{Config}

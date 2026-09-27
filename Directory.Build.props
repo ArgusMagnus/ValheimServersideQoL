@@ -15,7 +15,7 @@
     <DependencyDirectory>$(MSBuildThisFileDirectory)Dependencies\</DependencyDirectory>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
-    <Version>2.1.0</Version>
+    <Version>2.1.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('.Patchers')) == 'true'">
@@ -39,6 +39,7 @@
 
     <None Include="$(MSBuildProjectDirectory)\icon.png" CopyToOutputDirectory="Always" />
     <None Include="$(MSBuildProjectDirectory)\FEATURES.md" CopyToOutputDirectory="Always" />
+    <None Include="$(MSBuildProjectDirectory)\CONFIG.md" CopyToOutputDirectory="Always" />
     <None Include="$(MSBuildProjectDirectory)\CHANGELOG.md" CopyToOutputDirectory="Always" />
   </ItemGroup>
 

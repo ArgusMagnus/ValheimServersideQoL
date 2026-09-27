@@ -132,6 +132,8 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
+    ProcessResult result;
+
     if (prefabInfo.MapTable is not null)
     {
       if (!_mapTables.TryGetValue(zdo, out var state))
@@ -169,10 +171,9 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
         _updateList.Clear();
       }
 
-      return ScheduleReprocessing(0.5f);
+      result = ScheduleReprocessing(1);
     }
-
-    if (prefabInfo.PrivateArea is not null)
+    else if (prefabInfo.PrivateArea is not null)
     {
       if (_wards.Add(zdo))
       {
@@ -188,9 +189,9 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
 
       foreach (var state in _mapTables.Values)
         UpdateMapTablePermittedPlayerIDs(state);
+      result = default;
     }
-
-    if (prefabInfo.TeleportWorld is not null)
+    else if (prefabInfo.TeleportWorld is not null)
     {
       var playerID = zdo.Vars.GetCreator();
       if (playerID.Value is 0)
@@ -204,10 +205,9 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
           state.UpToDateMapTables.Clear();
         }
       }
-      return default;
+      result = default;
     }
-
-    if (prefabInfo.Ship is not null)
+    else if (prefabInfo.Ship is not null)
     {
       var playerID = zdo.Vars.GetCreator();
       if (playerID.Value is 0)
@@ -221,43 +221,43 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
           state.UpToDateMapTables.Clear();
         }
       }
-      return default;
+      result = default;
     }
-
-    if (prefabInfo is { MineRock5: not null, MineRockPinConfig: not null })
+    else if (prefabInfo is { MineRock5: not null, MineRockPinConfig: not null })
     {
       if (Character.InInterior(zdo.ZDO.GetPosition()))
-        return ProcessResult.UnregisterProcessor;
-
-      HashSet<PlayerID>? ids = null;
-      foreach (var peer in peers.Enumerate())
+        result = ProcessResult.UnregisterProcessor;
+      else
       {
-        if (peer.PlayerState?.PlayerID is not { } playerID || !_playerStates.TryGetValue(playerID, out var playerState))
-          continue;
-        if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), peer.RefPos) > _oreDepositRangeSqr)
-          continue;
-        if (!playerState.OreVeins.Add(zdo))
-          continue;
-        zdo.Destroyed -= OnOreDepositDestroyed;
-        zdo.Destroyed += OnOreDepositDestroyed;
-        ids ??= __playerIDsVar.Get(zdo) ?? [];
-        ids.Add(playerID);
+        HashSet<PlayerID>? ids = null;
+        foreach (var peer in peers.Enumerate())
+        {
+          if (peer.PlayerState?.PlayerID is not { } playerID || !_playerStates.TryGetValue(playerID, out var playerState))
+            continue;
+          if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), peer.RefPos) > _oreDepositRangeSqr)
+            continue;
+          if (!playerState.OreVeins.Add(zdo))
+            continue;
+          zdo.Destroyed -= OnOreDepositDestroyed;
+          zdo.Destroyed += OnOreDepositDestroyed;
+          ids ??= __playerIDsVar.Get(zdo) ?? [];
+          ids.Add(playerID);
 
-        if (prefabInfo.MineRockPinConfig.PinType.Value is Minimap.PinType.None)
-          continue;
+          if (prefabInfo.MineRockPinConfig.PinType.Value is Minimap.PinType.None)
+            continue;
 
-        ShowMessage([peer], zdo, Config.Instance.Localization.Value.Discovered(prefabInfo.MineRock5.m_name), Config.Instance.DiscoveredMessageType.Value);
-        if ((Config.Instance.OreDepositsPinTarget.Value & Config.PinTargets.MapTable) is not 0)
-          playerState.UpToDateMapTables.Clear();
-        if ((Config.Instance.OreDepositsPinTarget.Value & Config.PinTargets.DiscoveringPlayer) is not 0)
-          RPC.DiscoverLocationResponse(peer.ZNetPeer.m_uid, prefabInfo.MineRockPinConfig.Label.Value, prefabInfo.MineRockPinConfig.PinType.Value, zdo.ZDO.GetPosition(), showMap: false);
+          ShowMessage([peer], zdo, Config.Instance.Localization.Value.Discovered(prefabInfo.MineRock5.m_name), Config.Instance.DiscoveredMessageType.Value);
+          if ((Config.Instance.OreDepositsPinTarget.Value & Config.PinTargets.MapTable) is not 0)
+            playerState.UpToDateMapTables.Clear();
+          if ((Config.Instance.OreDepositsPinTarget.Value & Config.PinTargets.DiscoveringPlayer) is not 0)
+            RPC.DiscoverLocationResponse(peer.ZNetPeer.m_uid, prefabInfo.MineRockPinConfig.Label.Value, prefabInfo.MineRockPinConfig.PinType.Value, zdo.ZDO.GetPosition(), showMap: false);
+        }
+        if (ids is not null)
+          __playerIDsVar.Set(zdo, ids);
+        result = default;
       }
-      if (ids is not null)
-        __playerIDsVar.Set(zdo, ids);
-      return default;
     }
-
-    if (prefabInfo.LocationProxy is not null)
+    else if (prefabInfo.LocationProxy is not null)
     {
       var hash = zdo.Vars.GetLocation();
       if (hash is 0)
@@ -304,11 +304,14 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
       if (ids is not null)
         __playerIDsVar.Set(zdo, ids);
 
-      return ScheduleReprocessing(0.5f);
+      result = ScheduleReprocessing(0.5f);
     }
-
-    Logger.DevLog($"Unexpected prefab: {prefabInfo.PrefabInfo.PrefabName}");
-    return ProcessResult.UnregisterProcessor;
+    else
+    {
+      result = ProcessResult.UnregisterProcessor;
+      Logger.DevLog($"Unexpected prefab: {prefabInfo.PrefabInfo.PrefabName}");
+    }
+    return result;
   }
 
   PlayerState GetOrAddPlayerState(PlayerID playerID)

@@ -51,10 +51,12 @@ try {
 
     $readme = Get-Content -LiteralPath "$PSScriptRoot\README.md" -Raw
     $readme = $readme.Replace('{Features}', (Get-Content -LiteralPath "$dir\FEATURES.md" -Raw))
+    $readme = $readme.Replace('{Config}', (Get-Content -LiteralPath "$dir\CONFIG.md" -Raw))
     $readme = $readme.Replace('{PluginName}', $vi.ProductName)
     $readme = $readme.Replace('{PluginManifestName}', $manifest.name)
     $readme = $readme.Replace('{PluginVersion}', $versionNumber)
     Remove-Item -LiteralPath "$dir\FEATURES.md" -Force
+    Remove-Item -LiteralPath "$dir\CONFIG.md" -Force
     Set-Content -LiteralPath "$dir\README.md" -Value $readme
     
     $patchers = Get-ChildItem -LiteralPath $dir -File -Filter '*.Patchers.dll'

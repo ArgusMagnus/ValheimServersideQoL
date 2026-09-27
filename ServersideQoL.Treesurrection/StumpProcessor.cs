@@ -48,9 +48,10 @@ public sealed class StumpProcessor : Processor<StumpProcessor.PrefabInfo>
     if (UnityEngine.Random.Range(0, 100) >= Config.Instance.SaplingDropChance.Value)
       return;
 
-    var sapling = prefabInfo.SaplingsByTree.Values.First()!;
+    Plant? sapling = null;
     if (prefabInfo.SaplingsByTree.Count > 1)
     {
+      Logger.DevLog($"{prefabInfo.PrefabInfo.PrefabName}: {string.Join(", ", prefabInfo.SaplingsByTree.Select(static x => $"{x.Key.name}/{x.Value.name}"))}");
       ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZNet.instance.GetSyncedSimulationDistance(), _sectorObjects);
       foreach (var tmpZdo in _sectorObjects)
       {
@@ -59,6 +60,7 @@ public sealed class StumpProcessor : Processor<StumpProcessor.PrefabInfo>
       }
       _sectorObjects.Clear();
     }
+    sapling ??= prefabInfo.SaplingsByTree.Values.First()!;
 
     var saplingZdo = PlaceObject(zdo.ZDO.GetPosition(), sapling.name.GetStableHashCode(), zdo.ZDO.GetRotation(), CreatorMarkers.ProcessorOwned);
     saplingZdo.Fields<Plant>()
@@ -73,7 +75,7 @@ public sealed class StumpProcessor : Processor<StumpProcessor.PrefabInfo>
   public sealed record PrefabInfo(Destructible Destructible) : ProcessorPrefabInfo
   {
     static Dictionary<GameObject, HashSet<TreeBase>>? __treesByStump;
-    static Dictionary<TreeBase, Plant>? __saplingByTree;
+    static Dictionary<TreeBase, Plant>? __saplingsByTree;
     static HashSet<Plant>? __saplings;
 
     [MemberNotNullWhen(true, nameof(SaplingsByTree)), MemberNotNullWhen(false, nameof(Sapling))]
@@ -89,7 +91,7 @@ public sealed class StumpProcessor : Processor<StumpProcessor.PrefabInfo>
         if (PrefabInfo.Prefab is null)
           return false;
 
-        if (__treesByStump is null || __saplingByTree is null || __saplings is null)
+        if (__treesByStump is null || __saplingsByTree is null || __saplings is null)
           Initialize();
 
         if (PrefabInfo.GetComponent<Plant>() is { } sapling && __saplings.Contains(sapling))
@@ -104,20 +106,26 @@ public sealed class StumpProcessor : Processor<StumpProcessor.PrefabInfo>
         Dictionary<TreeBase, Plant> saplingsByTree = new(trees.Count);
         foreach (var tree in trees)
         {
-          if (__saplingByTree.TryGetValue(tree, out sapling))
+          if (__saplingsByTree.TryGetValue(tree, out sapling))
             saplingsByTree.Add(tree, sapling);
         }
         if (saplingsByTree.Count is 0)
           return false;
+        if (saplingsByTree.Values.Distinct().Count() is 1)
+        {
+          var (key, value) = saplingsByTree.First();
+          saplingsByTree.Clear();
+          saplingsByTree.Add(key, value);
+        }
         SaplingsByTree = saplingsByTree;
         IsStump = true;
         return true;
 
-        [MemberNotNull(nameof(__treesByStump), nameof(__saplingByTree), nameof(__saplings))]
+        [MemberNotNull(nameof(__treesByStump), nameof(__saplingsByTree), nameof(__saplings))]
         static void Initialize()
         {
           __treesByStump = [];
-          __saplingByTree = [];
+          __saplingsByTree = [];
           __saplings = [];
           foreach (var go in ZNetScene.instance.m_prefabs)
           {
@@ -133,7 +141,7 @@ public sealed class StumpProcessor : Processor<StumpProcessor.PrefabInfo>
               {
                 if (go2.GetComponentInChildren<TreeBase>() is not { m_stubPrefab: not null } treeBase2)
                   continue;
-                __saplingByTree.Add(treeBase2, plant);
+                __saplingsByTree.Add(treeBase2, plant);
                 __saplings.Add(plant);
               }
             }
