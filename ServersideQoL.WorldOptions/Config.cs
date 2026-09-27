@@ -58,7 +58,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
         .GroupBy(static x => x.m_requiredGlobalKey)
         .OrderBy(x => keys[x.Key]?.m_health ?? float.MaxValue).ThenBy(static x => x.Key))
       {
-        var cfgKey = $"Set{NormalizeKey(keys[group.Key]?.name ?? group.Key)}";
+        var cfgKey = $"Set{SQoLUtils.ToPascalCase(keys[group.Key]?.name ?? group.Key)}";
         var defaultValue = group.Key;
         var itemNames = string.Join(", ", group.Select(static x => global::Localization.instance.Localize(x.m_prefab is null ? x.m_name : x.m_prefab.m_itemData.m_shared.m_name)));
         (entries ??= []).Add(
@@ -72,8 +72,6 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     }
 
     return result ?? EmptyReadOnlyCollections<Trader, IReadOnlyList<ConfigEntry<string>>>.Dictionary;
-
-    static string NormalizeKey(string key) => Regex.Replace(key, @"(?:^|_)([a-z])", static m => m.Groups[1].Value.ToUpperInvariant());
   }
 
   public enum RemoveMistlandsMistOptions

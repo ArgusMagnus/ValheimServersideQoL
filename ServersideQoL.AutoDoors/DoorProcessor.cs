@@ -1,4 +1,6 @@
-﻿using ServersideQoL.Utilities;
+﻿using BepInEx.Configuration;
+using ServersideQoL.Utilities;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ServersideQoL.AutoDoors;
 
@@ -7,7 +9,10 @@ public sealed class DoorProcessor : Processor<DoorProcessor.PrefabInfo>
 {
   public sealed record PrefabInfo(Door Door) : ProcessorPrefabInfo
   {
-    public override bool IsValid => Door is { m_keyItem: null, m_canNotBeClosed: false };
+    public ConfigEntry<bool> AutoClose { get; private set; } = default!;
+
+    [MemberNotNullWhen(true, nameof(AutoClose))]
+    public override bool IsValid => (AutoClose = (Config.Instance.AutoClose.TryGetValue(Door, out var cfg) ? cfg : null!)) is not null;
   }
 
   readonly Dictionary<ServersideQoLZDO, Timestamp> _closeAfter = [];
@@ -15,6 +20,9 @@ public sealed class DoorProcessor : Processor<DoorProcessor.PrefabInfo>
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
     const int StateClosed = 0;
+
+    if (!prefabInfo.AutoClose.Value)
+      return ProcessResult.UnregisterProcessor;
 
     if (zdo.Vars.GetCreator().Value is 0)
       return ProcessResult.UnregisterProcessor;

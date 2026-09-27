@@ -1,3 +1,6 @@
+### v2.2.0
+- Compatibility patch
+
 ### v2.1.1
 - Added config options to readme
 
