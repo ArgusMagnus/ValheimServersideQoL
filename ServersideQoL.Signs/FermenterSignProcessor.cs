@@ -4,6 +4,7 @@ using UnityEngine;
 namespace ServersideQoL.Signs;
 
 [Processor(Id)]
+[RunBefore<SignProcessor>]
 public sealed class FermenterSignProcessor : Processor<FermenterSignProcessor.PrefabInfo>
 {
   public const string Id = "0daf063a-639c-4797-9a0d-c8fd7e7e420c";
