@@ -139,7 +139,7 @@ public abstract class ServersideQoLPluginBaseCore<TSelf, TConfig> : ServersideQo
           prevSection = def.Section;
         }
 
-        var accetableValues = entry.Description.AcceptableValues?.ToDescriptionString();
+        var accetableValues = entry.Description.AcceptableValues?.ToDescriptionString()?.Split(Environment.NewLine)[0];
         if (accetableValues is not null)
           accetableValues = Regex.Replace(accetableValues, @"^#.+?\:\s*", "");
         else if (entry.SettingType == typeof(bool))

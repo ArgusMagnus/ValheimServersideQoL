@@ -10,15 +10,15 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|AshwoodDoor|True|True/False|True to automatically close Ashwood Door|
-|DarkwoodGate|True|True/False|True to automatically close Darkwood Gate|
-|FlametalGate|True|True/False|True to automatically close Flametal Gate|
-|IronGrate|True|True/False|True to automatically close Iron Gate|
-|PieceDrawbridge|False|True/False|True to automatically close Drawbridge|
-|PieceDrawbridgeLog|False|True/False|True to automatically close Drawbridge|
-|PieceHexagonalDoor|True|True/False|True to automatically close Hexagonal Gate|
-|StaveGate|True|True/False|True to automatically close Timberwood Gate|
-|WoodDoor|True|True/False|True to automatically close Wood Door|
-|WoodFenceGate|True|True/False|True to automatically close Roundpole Gate|
-|WoodGate|True|True/False|True to automatically close Wood Gate|
-|WoodWindow|False|True/False|True to automatically close Wood Shutter|
+|CloseAshwoodDoor|True|True/False|True to automatically close Ashwood Door|
+|CloseDarkwoodGate|True|True/False|True to automatically close Darkwood Gate|
+|CloseFlametalGate|True|True/False|True to automatically close Flametal Gate|
+|CloseIronGrate|True|True/False|True to automatically close Iron Gate|
+|ClosePieceDrawbridge|False|True/False|True to automatically close Drawbridge|
+|ClosePieceDrawbridgeLog|False|True/False|True to automatically close Drawbridge|
+|ClosePieceHexagonalDoor|True|True/False|True to automatically close Hexagonal Gate|
+|CloseStaveGate|True|True/False|True to automatically close Timberwood Gate|
+|CloseWoodDoor|True|True/False|True to automatically close Wood Door|
+|CloseWoodFenceGate|True|True/False|True to automatically close Roundpole Gate|
+|CloseWoodGate|True|True/False|True to automatically close Wood Gate|
+|CloseWoodWindow|False|True/False|True to automatically close Wood Shutter|
