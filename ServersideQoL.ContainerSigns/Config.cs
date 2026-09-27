@@ -25,13 +25,13 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public bool AutoStorePickup => Shared.AutoStorePickup?.Value ?? false;
   public int? AutoStorePickupMaxRange => Shared.AutoStorePickupMaxRange?.Value;
-  public string? AutoStorePickupRangeSignPrefix => Shared.AutoStorePickupRangeSignPrefix?.Value;
+  public ConfigEntry<string>? AutoStorePickupRangeSignPrefix => Shared.AutoStorePickupRangeSignPrefix;
   public bool AutoProcessFeedFromContainers => Shared.AutoProcessFeedFromContainers?.Value ?? false;
   public int? AutoProcessFeedFromContainersMaxRange => Shared.AutoProcessFeedFromContainersMaxRange?.Value;
-  public string? AutoProcessFeedFromContainersRangeSignPrefix => Shared.AutoProcessFeedFromContainersRangeSignPrefix?.Value;
+  public ConfigEntry<string>? AutoProcessFeedFromContainersRangeSignPrefix => Shared.AutoProcessFeedFromContainersRangeSignPrefix;
   public bool TameAssistFeedFromContainers => Shared.TameAssistFeedFromContainers?.Value ?? false;
   public int? TameAssistFeedFromContainersMaxRange => Shared.TameAssistFeedFromContainersMaxRange?.Value;
-  public string? TameAssistFeedFromContainersRangeSignPrefix => Shared.TameAssistFeedFromContainersRangeSignPrefix?.Value;
+  public ConfigEntry<string>? TameAssistFeedFromContainersRangeSignPrefix => Shared.TameAssistFeedFromContainersRangeSignPrefix;
 
   public ConfigEntry<SignOptions> WoodChestSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default);

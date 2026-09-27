@@ -20,9 +20,9 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
   readonly Dictionary<ServersideQoLZDO, List<ServersideQoLZDO>> _signsByChests = [];
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _chestsBySigns = [];
 
-  Regex _chestAutoStorePickupRangeRegex = default!;
-  Regex _chestAutoProcessFeedRangeRegex = default!;
-  Regex _chestTameAssistFeedRangeRegex = default!;
+  Regex? _chestAutoStorePickupRangeRegex;
+  Regex? _chestAutoProcessFeedRangeRegex;
+  Regex? _chestTameAssistFeedRangeRegex;
 
   //internal const string LinkEmoji = "🔗";
   //readonly Regex _incineratorTagRegex = new($@"{Regex.Escape(LinkEmoji)}\s*(?<T>\w*)");
@@ -34,7 +34,6 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
 
   readonly Dictionary<ServersideQoLZDO, uint> _chestDataRevisions = [];
 
-  [MemberNotNull(nameof(_chestAutoStorePickupRangeRegex), nameof(_chestAutoProcessFeedRangeRegex), nameof(_chestTameAssistFeedRangeRegex))]
   protected override void Initialize()
   {
     foreach (var zdo in _chestsBySigns.Keys)
@@ -42,23 +41,53 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
     _signsByChests.Clear();
     _chestsBySigns.Clear();
 
-    var str = Config.Instance.AutoStorePickupRangeSignPrefix ?? "";
-    var str2 = str.Replace("\uFE0F", ""); // strip variation selector;
-    _chestAutoStorePickupRangeRegex = str == str2 ?
-      new($@"{Regex.Escape(str)}(?<R>\d+)") :
-      new($@"(?:{Regex.Escape(str)}|{Regex.Escape(str2)})(?<R>\d+)");
+    if (Config.Instance.AutoStorePickupRangeSignPrefix is not null)
+    {
+      Config.Instance.AutoStorePickupRangeSignPrefix.SettingChanged -= OnConfigChanged;
+      OnConfigChanged(null, null);
+      Config.Instance.AutoStorePickupRangeSignPrefix.SettingChanged += OnConfigChanged;
 
-    str = Config.Instance.AutoProcessFeedFromContainersRangeSignPrefix ?? "";
-    str2 = str.Replace("\uFE0F", ""); // strip variation selector;
-    _chestAutoProcessFeedRangeRegex = str == str2 ?
-      new($@"{Regex.Escape(str)}(?<R>\d+)") :
-      new($@"(?:{Regex.Escape(str)}|{Regex.Escape(str2)})(?<R>\d+)");
+      void OnConfigChanged(object? sender, EventArgs? e)
+      {
+        var str = Config.Instance.AutoStorePickupRangeSignPrefix?.Value ?? "";
+        var str2 = str.Replace("\uFE0F", ""); // strip variation selector;
+        _chestAutoStorePickupRangeRegex = str == str2 ?
+          new($@"{Regex.Escape(str)}(?<R>\d+)") :
+          new($@"(?:{Regex.Escape(str)}|{Regex.Escape(str2)})(?<R>\d+)");
+      }
+    }
 
-    str = Config.Instance.TameAssistFeedFromContainersRangeSignPrefix ?? "";
-    str2 = str.Replace("\uFE0F", ""); // strip variation selector;
-    _chestTameAssistFeedRangeRegex = str == str2 ?
-      new($@"{Regex.Escape(str)}(?<R>\d+)") :
-      new($@"(?:{Regex.Escape(str)}|{Regex.Escape(str2)})(?<R>\d+)");
+    if (Config.Instance.AutoProcessFeedFromContainersRangeSignPrefix is not null)
+    {
+      Config.Instance.AutoProcessFeedFromContainersRangeSignPrefix.SettingChanged -= OnConfigChanged;
+      OnConfigChanged(null, null);
+      Config.Instance.AutoProcessFeedFromContainersRangeSignPrefix.SettingChanged += OnConfigChanged;
+
+      void OnConfigChanged(object? sender, EventArgs? e)
+      {
+        var str = Config.Instance.AutoProcessFeedFromContainersRangeSignPrefix?.Value ?? "";
+        var str2 = str.Replace("\uFE0F", ""); // strip variation selector;
+        _chestAutoProcessFeedRangeRegex = str == str2 ?
+          new($@"{Regex.Escape(str)}(?<R>\d+)") :
+          new($@"(?:{Regex.Escape(str)}|{Regex.Escape(str2)})(?<R>\d+)");
+      }
+    }
+
+    if (Config.Instance.TameAssistFeedFromContainersRangeSignPrefix is not null)
+    {
+      Config.Instance.TameAssistFeedFromContainersRangeSignPrefix.SettingChanged -= OnConfigChanged;
+      OnConfigChanged(null, null);
+      Config.Instance.TameAssistFeedFromContainersRangeSignPrefix.SettingChanged += OnConfigChanged;
+
+      void OnConfigChanged(object? sender, EventArgs? e)
+      {
+        var str = Config.Instance.TameAssistFeedFromContainersRangeSignPrefix?.Value ?? "";
+        var str2 = str.Replace("\uFE0F", ""); // strip variation selector;
+        _chestTameAssistFeedRangeRegex = str == str2 ?
+          new($@"{Regex.Escape(str)}(?<R>\d+)") :
+          new($@"(?:{Regex.Escape(str)}|{Regex.Escape(str2)})(?<R>\d+)");
+      }
+    }
 
     _contentListRegex2 = new(Regex.Escape(Config.Instance.ChestSignsContentListPlaceholder.Value));
     _chestDataRevisions.Clear();
@@ -126,7 +155,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
       var text = zdo.Vars.GetText();
       var newText = text;
       ContainerState? containerState = null;
-      if (Config.Instance.AutoStorePickup && Config.Instance.AutoStorePickupMaxRange is { } autoPickupMaxRange)
+      if (_chestAutoStorePickupRangeRegex is not null && Config.Instance.AutoStorePickup && Config.Instance.AutoStorePickupMaxRange is { } autoPickupMaxRange)
       {
         containerState ??= Instance<ContainerRegistryProcessor>().GetState(chest)!;
         containerState.AutoStorePickupRange = null;
@@ -143,7 +172,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           return result;
         });
       }
-      if (Config.Instance.AutoProcessFeedFromContainers && Config.Instance.AutoProcessFeedFromContainersMaxRange is { } feedMaxRange)
+      if (_chestAutoProcessFeedRangeRegex is not null && Config.Instance.AutoProcessFeedFromContainers && Config.Instance.AutoProcessFeedFromContainersMaxRange is { } feedMaxRange)
       {
         containerState ??= Instance<ContainerRegistryProcessor>().GetState(chest)!;
         containerState.AutoProcessFeedRange = null;
@@ -160,7 +189,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           return result;
         });
       }
-      if (Config.Instance.TameAssistFeedFromContainers && Config.Instance.TameAssistFeedFromContainersMaxRange is { } tamefeedMaxRange)
+      if (_chestTameAssistFeedRangeRegex is not null && Config.Instance.TameAssistFeedFromContainers && Config.Instance.TameAssistFeedFromContainersMaxRange is { } tamefeedMaxRange)
       {
         containerState ??= Instance<ContainerRegistryProcessor>().GetState(chest)!;
         containerState.TameAssistFeedRange = null;
