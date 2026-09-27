@@ -1,3 +1,6 @@
+### v2.1.1
+- Added config options to readme
+
 ### v2.1.0
 - Added support for TameAssist's new feeding from containers feature
 - Fixed issue that would open the host's inventory occasionally
