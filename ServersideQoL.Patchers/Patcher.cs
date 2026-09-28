@@ -121,6 +121,7 @@ static class Patcher
     //MakePublic(assembly, "Localization", fields: ["m_translations"]);
     MakePublic(assembly, "Player", fields: ["s_crouching"]);
     MakePublic(assembly, "RandEventSystem", fields: ["m_randomEvent"]);
+    MakePublic(assembly, "ServerOptionsGUI", fields: ["m_presets", "m_modifiers"]);
     MakePublic(assembly, "ZDOMan", fields: ["m_objectsByID"]);
     MakePublic(assembly, "ZoneSystem",
       fields: ["m_locationsByHash"],

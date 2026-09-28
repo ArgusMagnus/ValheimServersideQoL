@@ -13,23 +13,38 @@ sealed class Processor : Processor<Processor.PrefabInfo>
     foreach (var cfg in Config.Instance.GlobalKeys)
     {
       if (!cfg.DefaultValue.Equals(cfg.BoxedValue))
-        OnConfigChanged(cfg);
+        OnConfigChanged(Config.Instance, cfg);
     }
     Config.Instance.ConfigChanged += OnConfigChanged;
   }
 
-  void OnConfigChanged(object sender, SettingChangedEventArgs args)
-    => OnConfigChanged(args.ChangedSetting);
+  static void OnConfigChanged(object sender, SettingChangedEventArgs args)
+    => OnConfigChanged((Config)sender, args.ChangedSetting);
 
-  void OnConfigChanged(ConfigEntryBase cfg)
+  static void OnConfigChanged(Config instance, ConfigEntryBase cfg)
   {
-    if (cfg.DefaultValue.Equals(cfg.BoxedValue))
-      ZoneSystem.instance.GlobalKeyRemove(cfg.Definition.Key.ToLowerInvariant(), false);
-    else if (cfg.SettingType == typeof(bool))
-      ZoneSystem.instance.GlobalKeyAdd(cfg.Definition.Key.ToLowerInvariant(), false);
-    else
-      ZoneSystem.instance.GlobalKeyAdd(Invariant($"{cfg.Definition.Key.ToLowerInvariant()} {cfg.BoxedValue}"), false);
-    ZoneSystem.instance.SendGlobalKeys(ZRoutedRpc.Everybody);
+    switch (cfg)
+    {
+      case ConfigEntry<WorldPresets> presetCfg:
+        if (Enum.IsDefined(typeof(WorldPresets), presetCfg.Value))
+          ServerOptionsGUI.m_instance.SetPreset(ZNet.World, presetCfg.Value);
+        break;
+
+      case ConfigEntry<WorldModifierOption> modifierCfg:
+        if (Enum.IsDefined(typeof(WorldModifierOption), modifierCfg.Value))
+          ServerOptionsGUI.m_instance.SetPreset(ZNet.World, instance.WorldModifiers[modifierCfg], modifierCfg.Value);
+        break;
+
+      default:
+        if (cfg.DefaultValue.Equals(cfg.BoxedValue))
+          ZoneSystem.instance.GlobalKeyRemove(cfg.Definition.Key.ToLowerInvariant(), false);
+        else if (cfg.SettingType == typeof(bool))
+          ZoneSystem.instance.GlobalKeyAdd(cfg.Definition.Key.ToLowerInvariant(), false);
+        else
+          ZoneSystem.instance.GlobalKeyAdd(Invariant($"{cfg.Definition.Key.ToLowerInvariant()} {cfg.BoxedValue}"), false);
+        ZoneSystem.instance.SendGlobalKeys(ZRoutedRpc.Everybody);
+        break;
+    }
   }
 
   public sealed record PrefabInfo : ProcessorPrefabInfo

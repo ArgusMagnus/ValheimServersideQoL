@@ -1,7 +1,6 @@
 ﻿using BepInEx.Configuration;
 using ServersideQoL.Utilities;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 
 namespace ServersideQoL.ControlCenter;
 
@@ -10,14 +9,27 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
 
-  public IReadOnlyList<ConfigEntryBase> GlobalKeys { get; } = Get(global::GlobalKeys.Preset, cfg, "Sets the value for the '{0}' global key");
+  const WorldPresets NoPreset = (WorldPresets)(-1);
+  public ConfigEntry<WorldPresets> Preset { get; } = BindEx(cfg, nameof(WorldModifiers), NoPreset,
+    $"The world preset to set. {NoPreset} to not set any preset",
+    new AcceptableEnum<WorldPresets>([NoPreset, .. ServerOptionsGUI.m_presets.Select(static x => x.m_preset)]));
+
+  const WorldModifierOption NoModifier = (WorldModifierOption)(-1);
+  public IReadOnlyDictionary<ConfigEntry<WorldModifierOption>, WorldModifiers> WorldModifiers { get; } = ServerOptionsGUI.m_modifiers
+    .OfType<KeySlider>()
+    .Select(keySlider => (Key: keySlider.m_modifier, Cfg: BindEx(cfg, nameof(WorldModifiers), NoModifier,
+      Invariant($"World modifier '{keySlider.m_modifier}'. {NoModifier} to not set the world modifier"),
+      new AcceptableEnum<WorldModifierOption>([NoModifier, .. keySlider.m_settings.Select(static x => x.m_modifierValue)]))))
+    .ToDictionary(static x => x.Cfg, static x => x.Key);
+
+  public IReadOnlyList<ConfigEntryBase> GlobalKeys { get; } = Get(global::GlobalKeys.Preset, cfg, "Sets the value for the '{0}' global key", nameof(GlobalKeys));
 
   sealed record FieldInfoEx(FieldInfo Field, object? RestoreValueObject, double RestoreValue)
   {
     public double ComparisonValue { get; set; } = double.NaN;
   }
 
-  static IReadOnlyList<ConfigEntryBase> Get(GlobalKeys? maxEclusive, ConfigFile cfg, string descriptionFormat, [CallerMemberName] string section = default!)
+  static IReadOnlyList<ConfigEntryBase> Get(GlobalKeys? maxEclusive, ConfigFile cfg, string descriptionFormat, string section)
   {
     List<(double TestValue, double Value)> testResults = [];
     IEnumerable<double> testValues = [float.MinValue, int.MinValue, .. Enumerable.Range(-100, 100).Select(static x => (double)x), int.MaxValue, float.MaxValue];
