@@ -10,18 +10,23 @@ sealed class Processor : Processor<Processor.PrefabInfo>
   protected override void Initialize()
   {
     Config.Instance.ConfigChanged -= OnConfigChanged;
+    var sendGlobalKeys = OnConfigChanged(Config.Instance, Config.Instance.Preset, false);
+    foreach (var cfg in Config.Instance.WorldModifiers.Keys)
+      sendGlobalKeys |= OnConfigChanged(Config.Instance, cfg, false);
     foreach (var cfg in Config.Instance.GlobalKeys)
     {
-      if (!cfg.DefaultValue.Equals(cfg.BoxedValue))
-        OnConfigChanged(Config.Instance, cfg);
+      if (cfg.BoxedValue is not null)
+        sendGlobalKeys |= OnConfigChanged(Config.Instance, cfg, false);
     }
+    if (sendGlobalKeys)
+      ZoneSystem.instance.SendGlobalKeys(ZRoutedRpc.Everybody);
     Config.Instance.ConfigChanged += OnConfigChanged;
   }
 
   static void OnConfigChanged(object sender, SettingChangedEventArgs args)
-    => OnConfigChanged((Config)sender, args.ChangedSetting);
+    => OnConfigChanged((Config)sender, args.ChangedSetting, true);
 
-  static void OnConfigChanged(Config instance, ConfigEntryBase cfg)
+  static bool OnConfigChanged(Config instance, ConfigEntryBase cfg, bool sendGlobalKeys)
   {
     switch (cfg)
     {
@@ -35,16 +40,26 @@ sealed class Processor : Processor<Processor.PrefabInfo>
           ServerOptionsGUI.m_instance.SetPreset(ZNet.World, instance.WorldModifiers[modifierCfg], modifierCfg.Value);
         break;
 
-      default:
-        if (cfg.DefaultValue.Equals(cfg.BoxedValue))
-          ZoneSystem.instance.GlobalKeyRemove(cfg.Definition.Key.ToLowerInvariant(), false);
-        else if (cfg.SettingType == typeof(bool))
+      case ConfigEntry<bool?> { Value: { } boolCfg }:
+        if (boolCfg)
           ZoneSystem.instance.GlobalKeyAdd(cfg.Definition.Key.ToLowerInvariant(), false);
         else
+          ZoneSystem.instance.GlobalKeyRemove(cfg.Definition.Key.ToLowerInvariant(), false);
+        if (sendGlobalKeys)
+          ZoneSystem.instance.SendGlobalKeys(ZRoutedRpc.Everybody);
+        return !sendGlobalKeys;
+
+      default:
+        if (cfg.BoxedValue is null)
+          ZoneSystem.instance.GlobalKeyRemove(cfg.Definition.Key.ToLowerInvariant(), false);
+        else
           ZoneSystem.instance.GlobalKeyAdd(Invariant($"{cfg.Definition.Key.ToLowerInvariant()} {cfg.BoxedValue}"), false);
-        ZoneSystem.instance.SendGlobalKeys(ZRoutedRpc.Everybody);
-        break;
+        if (sendGlobalKeys)
+          ZoneSystem.instance.SendGlobalKeys(ZRoutedRpc.Everybody);
+        return !sendGlobalKeys;
     }
+
+    return false;
   }
 
   public sealed record PrefabInfo : ProcessorPrefabInfo

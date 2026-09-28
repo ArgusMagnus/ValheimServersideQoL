@@ -1,6 +1,7 @@
 ﻿using BepInEx.Configuration;
 using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.TypeInspectors;
@@ -165,7 +166,45 @@ public abstract class ConfigBase
     }
   }
 
-  public sealed class AcceptableEnum<T> : AcceptableValueBase
+  public interface IAcceptableValueBase<T>
+  {
+    internal AcceptableValueBase GetAcceptableValue()
+    {
+      if (this is not AcceptableValueBase result)
+        throw new Exception($"{GetType().FullName} does not derive from {nameof(AcceptableValueBase)}");
+      if (result.ValueType != typeof(T))
+        throw new Exception($"{GetType().FullName}: wrong value type: expected: {typeof(T).Name}, actual: {result.ValueType.Name}");
+      return result;
+    }
+  }
+
+  public sealed class AcceptableValueRange<T>(T minValue, T maxValue) : BepInEx.Configuration.AcceptableValueRange<T>(minValue, maxValue), IAcceptableValueBase<T>
+    where T : IComparable;
+
+  public sealed class AcceptableValueList<T>(params T[] acceptableValues) : BepInEx.Configuration.AcceptableValueList<T>(acceptableValues), IAcceptableValueBase<T>
+    where T : IEquatable<T>;
+
+  private protected const string NullableNotSetString = "NotSet";
+
+  //public sealed class AcceptableValueRangeOrNull<T>(T minValue, T maxValue) : AcceptableValueBase(typeof(T?)), IAcceptableValueBase<T?>
+  //  where T : struct, IComparable
+  //{
+  //  readonly AcceptableValueRange<T> _inner = new(minValue, maxValue);
+  //  public override object? Clamp(object? value) => value is null ? null : _inner.Clamp((T)value);
+  //  public override bool IsValid(object value) => value is null ? true : _inner.IsValid((T)value);
+  //  public override string ToDescriptionString() => _inner.ToDescriptionString();
+  //}
+
+  public sealed class AcceptableValueListOrNull<T>(params T[] acceptableValues) : AcceptableValueBase(typeof(T?)), IAcceptableValueBase<T?>
+    where T : IEquatable<T>
+  {
+    readonly AcceptableValueList<T> _inner = new(acceptableValues);
+    public override object? Clamp(object? value) => value is null ? null : _inner.Clamp((T)value);
+    public override bool IsValid(object? value) => value is null ? true : _inner.IsValid((T)value);
+    public override string ToDescriptionString() => _inner.ToDescriptionString().Replace("# Acceptable values: ", $"# Acceptable values: {NullableNotSetString}, ");
+  }
+
+  public sealed class AcceptableEnum<T> : AcceptableValueBase, IAcceptableValueBase<T>
       where T : unmanaged, Enum
   {
     public static AcceptableEnum<T> Default { get; } = new(GetDefaultValues());
@@ -185,7 +224,7 @@ public abstract class ConfigBase
     }
 
     public AcceptableEnum(IEnumerable<T> values)
-    : base(typeof(T))
+      : base(typeof(T))
     {
       if (SQoLEnumUtils.IsBitSet<T>())
       {
@@ -241,7 +280,7 @@ public abstract class ConfigBase
     }
   }
 
-  protected sealed class AcceptableFormatString(object[] testArgs) : AcceptableValueBase(typeof(string))
+  protected sealed class AcceptableFormatString(object[] testArgs) : AcceptableValueBase(typeof(string)), IAcceptableValueBase<string>
   {
     public override bool IsValid(object value)
     {
@@ -286,7 +325,7 @@ public abstract class ConfigBase
     }
   }
 
-  protected sealed class AcceptableArrayValues<T>(IReadOnlyList<T> values) : AcceptableValueBase(typeof(ConfigArray<T>))
+  protected sealed class AcceptableArrayValues<T>(IReadOnlyList<T> values) : AcceptableValueBase(typeof(ConfigArray<T>)), IAcceptableValueBase<ConfigArray<T>>
   {
     readonly ConfigArray<T> _values = new(values);
     readonly HashSet<T> _allowedValues = [.. values];
@@ -333,7 +372,7 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
 
   internal static bool IsInitialized { get; private set; }
   public static TSelf Instance { get => field ?? throw new InvalidOperationException("Config has not been initialized yet"); private set; }
-  protected static string Section => field ??= ((typeof(TSelf) == typeof(Config) || IsGeneratingConfigMarkdown || !Config.Instance.UnifiedConfig.Value) ? __section : $"M.{__section}");
+  protected static string Section => ((typeof(TSelf) == typeof(Config) || IsGeneratingConfigMarkdown || !Config.Instance.UnifiedConfig.Value) ? __section : $"M.{__section}");
   static readonly string __section = typeof(TSelf).Namespace.Split('.') is { Length: > 1 } parts ? parts[^1] : "General";
 
   EventHandler<SettingChangedEventArgs>? _configChanged;
@@ -389,15 +428,26 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
   }
 
   protected static ConfigEntry<T> BindEx<T>(ConfigFile config, T defaultValue, string description,
-    AcceptableValueBase? acceptableValues = null,
+    IAcceptableValueBase<T>? acceptableValues = null,
     Deprecated? deprecated = null,
     [CallerMemberName] string key = default!)
-    => BindExCore(config, Section, defaultValue, description, acceptableValues, deprecated, key);
+    => BindExCore(config, Section, defaultValue, description, acceptableValues?.GetAcceptableValue(), deprecated, key);
 
   protected static ConfigEntry<T> BindEx<T>(ConfigFile config, string subSection, T defaultValue, string description,
-    AcceptableValueBase? acceptableValues = null,
+    IAcceptableValueBase<T>? acceptableValues = null,
     Deprecated? deprecated = null,
     [CallerMemberName] string key = default!)
+  {
+    var section = (!IsGeneratingConfigMarkdown && Config.Instance.UnifiedConfig.Value) ? $"{Section}.{subSection}" : subSection;
+    return BindExCore(config, section, defaultValue, description, acceptableValues?.GetAcceptableValue(), deprecated, key);
+  }
+
+  [Obsolete(null, true)]
+  protected static ConfigEntry<T> BindEx<T>(ConfigFile config, T defaultValue, string description, AcceptableValueBase? acceptableValues, Deprecated? deprecated, string key)
+    => BindExCore(config, Section, defaultValue, description, acceptableValues, deprecated, key);
+
+  [Obsolete(null, true)]
+  protected static ConfigEntry<T> BindEx<T>(ConfigFile config, string subSection, T defaultValue, string description, AcceptableValueBase? acceptableValues, Deprecated? deprecated, string key)
   {
     var section = (!IsGeneratingConfigMarkdown && Config.Instance.UnifiedConfig.Value) ? $"{Section}.{subSection}" : subSection;
     return BindExCore(config, section, defaultValue, description, acceptableValues, deprecated, key);
@@ -409,14 +459,52 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
   {
     (defaultValue as ICustomConfigType)?.EnsureConverterAdded();
 
+    if (!TomlTypeConverter.CanConvert(typeof(T)) && Nullable.GetUnderlyingType(typeof(T)) is { } underlyingType)
+    {
+      if (!TomlTypeConverter.CanConvert(underlyingType))
+        throw new NotSupportedException();
+      var strPar = Expression.Parameter(typeof(string));
+      var objPar = Expression.Parameter(typeof(object));
+      var typePar = Expression.Parameter(typeof(Type));
+      TomlTypeConverter.AddConverter(typeof(T), new()
+      {
+        ConvertToObject = Expression.Lambda<Func<string, Type, object>>(Expression.Block(
+          Expression.IfThen(Expression.ReferenceNotEqual(strPar, Expression.Constant(null, typeof(string))), Expression.Assign(strPar, Expression.Call(strPar, nameof(string.Trim), []))),
+          Expression.Convert(
+            Expression.Condition(
+              Expression.OrElse(
+                Expression.Call(typeof(string), nameof(string.IsNullOrEmpty), [], strPar),
+                Expression.Call(typeof(string), nameof(string.Equals), [], strPar, Expression.Constant(NullableNotSetString), Expression.Constant(StringComparison.OrdinalIgnoreCase))),
+              Expression.Default(typeof(T)),
+              Expression.New(typeof(T).GetConstructor([underlyingType]), Expression.Call(typeof(TomlTypeConverter), nameof(TomlTypeConverter.ConvertToValue), [underlyingType], strPar))),
+            typeof(object))),
+          strPar, typePar).Compile(),
+
+        ConvertToString = Expression.Lambda<Func<object, Type, string>>(
+          Expression.Condition(
+            Expression.ReferenceEqual(objPar, Expression.Constant(null, typeof(object))),
+            Expression.Constant(NullableNotSetString),
+            Expression.Call(typeof(TomlTypeConverter), nameof(TomlTypeConverter.ConvertToString), [], arguments: [
+              Expression.Convert(Expression.Property(Expression.Convert(objPar, typeof(T)), nameof(Nullable<>.Value)), typeof(object)),
+              Expression.Constant(underlyingType)])),
+          objPar, typePar).Compile()
+      });
+    }
+
+    if (acceptableValues is null && typeof(T) == typeof(bool?))
+      acceptableValues = new AcceptableValueListOrNull<bool>([false, true]);
+
     if (deprecated is not null)
       description = string.Join(Environment.NewLine, [$"DEPRECATED: {deprecated.Reason}", description]);
+
     var cfg = config.Bind(section, key, defaultValue, new ConfigDescription(description, acceptableValues));
+
     if (deprecated is not null)
     {
       __deprecatedEntries.Add(cfg);
       Initialized += OnInitialized;
     }
+
     return cfg;
 
     void OnInitialized(ConfigFile cfgFile, TSelf modConfig)

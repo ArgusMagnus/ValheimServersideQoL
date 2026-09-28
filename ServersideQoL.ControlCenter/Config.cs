@@ -19,10 +19,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     .OfType<KeySlider>()
     .Select(keySlider => (Key: keySlider.m_modifier, Cfg: BindEx(cfg, nameof(WorldModifiers), NoModifier,
       Invariant($"World modifier '{keySlider.m_modifier}'. {NoModifier} to not set the world modifier"),
-      new AcceptableEnum<WorldModifierOption>([NoModifier, .. keySlider.m_settings.Select(static x => x.m_modifierValue)]))))
+      new AcceptableEnum<WorldModifierOption>([NoModifier, .. keySlider.m_settings.Select(static x => x.m_modifierValue)]),
+      key: $"{keySlider.m_modifier}")))
     .ToDictionary(static x => x.Cfg, static x => x.Key);
 
-  public IReadOnlyList<ConfigEntryBase> GlobalKeys { get; } = Get(global::GlobalKeys.Preset, cfg, "Sets the value for the '{0}' global key", nameof(GlobalKeys));
+  public IReadOnlyList<ConfigEntryBase> GlobalKeys { get; } = Get(global::GlobalKeys.Preset, cfg, "Sets the value for the '{0}' global key (vanilla default: {1})", nameof(GlobalKeys));
 
   sealed record FieldInfoEx(FieldInfo Field, object? RestoreValueObject, double RestoreValue)
   {
@@ -98,18 +99,23 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
         var multiplier = inRange.Any() ? inRange.Average(static x => x.TestValue / x.Value) : 1;
         min *= multiplier;
         max *= multiplier;
-        comparisonValue *= multiplier;
+        comparisonValue = Math.Round(comparisonValue * multiplier, 3);
 
-        AcceptableValueBase? range = null;
-        if (min > float.MinValue && max < float.MaxValue && min < max)
-          range = (AcceptableValueBase)Activator.CreateInstance(typeof(AcceptableValueRange<>).MakeGenericType(field.FieldType), Convert.ChangeType(min, field.FieldType), Convert.ChangeType(max, field.FieldType));
-        bindDefinition ??= new Func<ConfigFile, string, bool, string, AcceptableValueBase?, Deprecated?, string, ConfigEntry<bool>>(BindEx).Method.GetGenericMethodDefinition();
-        var entry = (ConfigEntryBase)bindDefinition.MakeGenericMethod(field.FieldType).Invoke(null, [cfg, section, Convert.ChangeType(comparisonValue, field.FieldType), string.Format(descriptionFormat, name), range, null, name]);
+        var nullableType = typeof(Nullable<>).MakeGenericType(field.FieldType);
+        object? range = null;
+        //if (min > float.MinValue && max < float.MaxValue && min < max)
+        //{
+        //  range = Activator.CreateInstance(typeof(AcceptableValueRange<>).MakeGenericType(nullableType),
+        //    Activator.CreateInstance(nullableType, Convert.ChangeType(min, field.FieldType)),
+        //    Activator.CreateInstance(nullableType, Convert.ChangeType(max, field.FieldType)));
+        //}
+        bindDefinition ??= new Func<ConfigFile, string, bool, string, IAcceptableValueBase<bool>?, Deprecated?, string, ConfigEntry<bool>>(BindEx).Method.GetGenericMethodDefinition();
+        var entry = (ConfigEntryBase)bindDefinition.MakeGenericMethod(nullableType).Invoke(null, [cfg, section, null, string.Format(descriptionFormat, name, comparisonValue), range, null, name]);
         result.Add(entry);
       }
       else
       {
-        result.Add(BindEx(cfg, section, false, string.Format(descriptionFormat, name), null, null, key: name));
+        result.Add(BindEx<bool?>(cfg, section, null, string.Format(descriptionFormat, name, false), key: name));
       }
 
       field?.SetValue(null, restoreValueObject);
