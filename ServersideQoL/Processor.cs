@@ -1,5 +1,4 @@
-﻿using Mono.Cecil.Cil;
-using ServersideQoL.Utilities;
+﻿using ServersideQoL.Utilities;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -23,6 +22,8 @@ public sealed class ProcessorAttribute(string id) : Attribute
   /// Priority of the processor if no other constraints apply. Processors with lower priority are run first.
   /// </summary>
   public int Priority { get; init; } = 0;
+
+  public bool ReinitializeOnConfigChanged { get; init; } = true;
 }
 
 public abstract class ProcessorDependencyAttribute : Attribute

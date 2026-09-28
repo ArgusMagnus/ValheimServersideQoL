@@ -2,14 +2,19 @@
 
 namespace ServersideQoL.ControlCenter;
 
-[Processor("bd8fd3f9-3acd-40de-8f8f-3feab6054678")]
+[Processor(Id, ReinitializeOnConfigChanged = false)]
 sealed class Processor : Processor<Processor.PrefabInfo>
 {
+  public const string Id = "bd8fd3f9-3acd-40de-8f8f-3feab6054678";
+
   protected override void Initialize()
   {
     Config.Instance.ConfigChanged -= OnConfigChanged;
     foreach (var cfg in Config.Instance.GlobalKeys)
-      OnConfigChanged(cfg);
+    {
+      if (!cfg.DefaultValue.Equals(cfg.BoxedValue))
+        OnConfigChanged(cfg);
+    }
     Config.Instance.ConfigChanged += OnConfigChanged;
   }
 

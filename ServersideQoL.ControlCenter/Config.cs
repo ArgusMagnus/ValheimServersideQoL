@@ -19,14 +19,14 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   static IReadOnlyList<ConfigEntryBase> Get(GlobalKeys? maxEclusive, ConfigFile cfg, string descriptionFormat, [CallerMemberName] string section = default!)
   {
-    List<(double TestValue, double Value)> testResults = new();
+    List<(double TestValue, double Value)> testResults = [];
     IEnumerable<double> testValues = [float.MinValue, int.MinValue, .. Enumerable.Range(-100, 100).Select(static x => (double)x), int.MaxValue, float.MaxValue];
-    Dictionary<string, string> keyTestValues = new();
+    Dictionary<string, string> keyTestValues = [];
 
     List<FieldInfoEx> fields = [.. typeof(Game).GetFields(BindingFlags.Public | BindingFlags.Static)
-            .Where(static x => !x.IsLiteral && !x.IsInitOnly)
-            .Select(static x => new FieldInfoEx(x, x.GetValue(null), TryGetAsDouble(x)))
-            .Where(static x => !double.IsNaN(x.RestoreValue))];
+      .Where(static x => !x.IsLiteral && !x.IsInitOnly)
+      .Select(static x => new FieldInfoEx(x, x.GetValue(null), TryGetAsDouble(x)))
+      .Where(static x => !double.IsNaN(x.RestoreValue))];
 
     MethodInfo? bindDefinition = null;
 

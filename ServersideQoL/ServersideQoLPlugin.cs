@@ -445,7 +445,10 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
           continue;
 
         foreach (var processor in cfg.Plugin.Processors)
-          processor.Initialize();
+        {
+          if (processor.Attribute.ReinitializeOnConfigChanged)
+            processor.Initialize();
+        }
 
         foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
         {
