@@ -1,5 +1,6 @@
 ﻿using BepInEx.Configuration;
 using ServersideQoL.Utilities;
+using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -39,6 +40,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
     var result = new List<ConfigEntryBase>();
     var emptySet = new HashSet<string>();
+
+    // Which keys are currently present (uncommented) in this section of the config file.
+    var sectionExists = TryReadSection(cfg.ConfigFilePath, section, out var existingKeys);
+    var bindAll = !sectionExists;
+
     foreach (GlobalKeys key in Enum.GetValues(typeof(GlobalKeys)))
     {
       if (maxEclusive is not null && key.ToInt64() >= maxEclusive.Value.ToInt64())
@@ -46,6 +52,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
       var name = key.ToString();
       var nameLower = name.ToLower();
+
+      // If the user commented out (or removed) this entry in the config file,
+      // leave it alone instead of binding and regenerating it.
+      if (!bindAll && !existingKeys.Contains(name))
+        continue;
 
       FieldInfo? field = null;
       object? restoreValueObject = null;
@@ -114,5 +125,38 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       try { return (double)Convert.ChangeType(obj, typeof(double)); }
       catch { return double.NaN; }
     }
+  }
+
+  /// <summary>
+  /// Reads which keys are present (uncommented) in <paramref name="section"/> of the config file.
+  /// Commented out (# or ;) and missing keys are not included, so they won't be bound again.
+  /// </summary>
+  /// <returns><c>true</c> when the section was found; <c>false</c> when the file or section doesn't exist yet.</returns>
+  static bool TryReadSection(string configPath, string section, out HashSet<string> keys)
+  {
+    keys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+    if (!File.Exists(configPath))
+      return false;
+
+    var found = false;
+    var inSection = false;
+    foreach (var line in File.ReadLines(configPath))
+    {
+      var trimmed = line.TrimStart();
+      if (trimmed.StartsWith('['))
+      {
+        var end = trimmed.IndexOf(']');
+        inSection = end > 0 && string.Equals(trimmed[1..end].Trim(), section, StringComparison.OrdinalIgnoreCase);
+        if (inSection) found = true;
+        continue;
+      }
+      if (!inSection || trimmed.Length == 0 || trimmed[0] is '#' or ';')
+        continue;
+      var eq = trimmed.IndexOf('=');
+      var keyName = (eq >= 0 ? trimmed[..eq] : trimmed).Trim();
+      if (keyName.Length > 0)
+        keys.Add(keyName);
+    }
+    return found;
   }
 }
