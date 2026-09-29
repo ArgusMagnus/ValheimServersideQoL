@@ -873,10 +873,10 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
   {
     static readonly Dictionary<string, string> __prevKeys = [];
 
-    public static void Prefix(ZoneSystem __instance, long peer)
+    public static bool Prefix(ZoneSystem __instance, long peer)
     {
-      if (peer != ZRoutedRpc.Everybody)
-        return;
+      if (peer is not ZRoutedRpc.Everybody)
+        return true;
 
       var changed = false;
 
@@ -894,12 +894,20 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         Instance.GlobalKeyValuesChanged();
       }
 
-      if (!changed)
-        return;
+      if (changed)
+      {
+        __prevKeys.Clear();
+        foreach (var (key, value) in __instance.m_globalKeysValues)
+          __prevKeys.Add(key, value);
+      }
 
-      __prevKeys.Clear();
-      foreach (var (key, value) in __instance.m_globalKeysValues)
-        __prevKeys.Add(key, value);
+      // Resending individually, otherwise global key modifications are not applied
+      foreach (var p in ZNet.instance.GetPeers())
+      {
+        Logger.DevLog($"Sending global keys to {p.m_uid}");
+        __instance.SendGlobalKeys(p.m_uid);
+      }
+      return false;
     }
 
     static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -926,8 +934,10 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
       static List<string> ModfiyGlobalKeys(List<string> globalKeys, long peer)
       {
-        if (Processor.Instance<PlayerRegistryProcessor>().GetStateForPeerID(peer) is not { } state)
+        if (peer is ZRoutedRpc.Everybody || Processor.Instance<PlayerRegistryProcessor>().GetStateForPeerID(peer) is not { } state)
           return globalKeys;
+
+        Logger.DevLog($"Modifying global keys for {peer}");
 
         foreach (var (key, (add, value)) in state.GlobalKeyModifications)
         {
