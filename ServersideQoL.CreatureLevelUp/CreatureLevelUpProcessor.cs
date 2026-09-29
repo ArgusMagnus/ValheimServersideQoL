@@ -27,6 +27,26 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     _sectorStates.Clear();
     _spawnData.Clear();
 
+    foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
+    {
+      if (GetProcessorPrefabInfo(zdo)?.CreatureSpawner is not { } creatureSpawner)
+        continue;
+
+      var sector = zdo.ZDO.GetSector();
+      if (!_sectorStates.TryGetValue(sector, out var state))
+        _sectorStates.Add(sector, state = new());
+
+      var prefab = creatureSpawner.m_creaturePrefab.name.GetStableHashCode();
+      if (!state.CreatureSpawnersBySpawned.TryGetValue(prefab, out var set))
+        state.CreatureSpawnersBySpawned.Add(prefab, set = []);
+
+      if (!set.Contains(zdo))
+      {
+        set.Add(zdo);
+        zdo.Destroyed += x => set.Remove(x);
+      }
+    }
+
     ServersideQoLPlugin.Instance.GlobalKeysChanged -= InitializeData;
     if (Config.Instance.MaxLevelIncrease.Value > 0 || Config.Instance.MaxLevelIncreasePerDefeatedBoss.Value > 0)
     {
@@ -43,20 +63,20 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     {
       case { CreatureSpawner: not null }:
         result |= LevelUpSpawner(zdo, prefabInfo.CreatureSpawner) | ProcessResult.ReregisterOnRecreated;
-        if ((result & ProcessResult.RecreateZDO) is not 0)
+        //if ((result & ProcessResult.RecreateZDO) is not 0)
         {
           var sector = zdo.ZDO.GetSector();
           if (!_sectorStates.TryGetValue(sector, out var state))
             _sectorStates.Add(sector, state = new());
 
           var prefab = prefabInfo.CreatureSpawner.m_creaturePrefab.name.GetStableHashCode();
-          if (!state.CreatureSpawnersBySpawned.TryGetValue(prefab, out var list))
-            state.CreatureSpawnersBySpawned.Add(prefab, list = []);
+          if (!state.CreatureSpawnersBySpawned.TryGetValue(prefab, out var set))
+            state.CreatureSpawnersBySpawned.Add(prefab, set = []);
 
-          if (!list.Contains(zdo))
+          if (!set.Contains(zdo))
           {
-            list.Add(zdo);
-            zdo.Destroyed += x => list.Remove(x);
+            set.Add(zdo);
+            zdo.Destroyed += x => set.Remove(x);
           }
         }
         break;
@@ -233,8 +253,8 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
       return result;
 
     if (_sectorStates.TryGetValue(zdo.ZDO.GetSector(), out var state) &&
-        state.CreatureSpawnersBySpawned.TryGetValue(zdo.ZDO.GetPrefab(), out var list) &&
-        list.Any(x => x.ZDO.GetConnectionZDOID(ZDOExtraData.ConnectionType.Spawned) == zdo.ZDO.m_uid))
+        state.CreatureSpawnersBySpawned.TryGetValue(zdo.ZDO.GetPrefab(), out var set) &&
+        set.Any(x => x.ZDO.GetConnectionZDOID(ZDOExtraData.ConnectionType.Spawned) == zdo.ZDO.m_uid))
     {
       initialLevel = -1;
     }
@@ -390,7 +410,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
 
   sealed class SectorState
   {
-    public Dictionary<int, List<ServersideQoLZDO>> CreatureSpawnersBySpawned { get; } = [];
+    public Dictionary<int, HashSet<ServersideQoLZDO>> CreatureSpawnersBySpawned { get; } = [];
     public Dictionary<int, List<SpawnAreaData>> SpawnAreasBySpawned { get; } = [];
 
     public sealed record SpawnAreaData(ZDOID ID, Vector3 Position, Biome Biome, float Radius, int Prefab, int MinLevel, int MaxLevel, float LevelUpChance)

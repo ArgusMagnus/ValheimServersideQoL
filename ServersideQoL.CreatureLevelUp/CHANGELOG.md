@@ -1,3 +1,6 @@
+### v2.2.0
+- Fixed issue with vanilla spawn config not being reliably detected for some creatures [#315](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/315)
+
 ### v2.1.0
 - Compatibility patch
 
