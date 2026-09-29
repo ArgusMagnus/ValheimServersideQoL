@@ -232,10 +232,11 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
         HashSet<PlayerID>? ids = null;
         foreach (var peer in peers.Enumerate())
         {
-          if (peer.PlayerState?.PlayerID is not { } playerID || !_playerStates.TryGetValue(playerID, out var playerState))
+          if (peer.PlayerState?.PlayerID is not { } playerID)
             continue;
           if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), peer.RefPos) > _oreDepositRangeSqr)
             continue;
+          var playerState = GetOrAddPlayerState(playerID);
           if (!playerState.OreVeins.Add(zdo))
             continue;
           zdo.Destroyed -= OnOreDepositDestroyed;
@@ -279,10 +280,11 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
 
         foreach (var peer in peers.Enumerate())
         {
-          if (peer.PlayerState?.PlayerID is not { } playerID || !_playerStates.TryGetValue(playerID, out var playerState))
+          if (peer.PlayerState?.PlayerID is not { } playerID)
             continue;
           if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), peer.RefPos) > _dungeonRangeSqr)
             continue;
+          var playerState = GetOrAddPlayerState(playerID);
           if (!playerState.Dungeons.TryAdd(zdo, (pos, component.m_enterText)))
             continue;
           ids ??= __playerIDsVar.Get(zdo) ?? [];

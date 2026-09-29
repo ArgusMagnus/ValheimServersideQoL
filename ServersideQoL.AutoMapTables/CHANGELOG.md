@@ -1,3 +1,6 @@
+### 2.2.0
+- Fixed ore deposits/dungeons sometimes not being recognized [#239](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/239)
+
 ### v2.1.1
 - Fixed logic error in ward processing
 
