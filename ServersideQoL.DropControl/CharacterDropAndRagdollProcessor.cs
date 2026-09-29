@@ -28,7 +28,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     public bool HasRagdoll { get; private set; }
 
     static IReadOnlyDictionary<string, Config.DropsConfig.DropConfig> DropsByName
-      => field ??= Config.Instance.Drops.Value.Entries.Where(static x => x.Enabled).ToDictionary(static x => x.Name);
+      => field ??= GetDropsByName();
     static IReadOnlyDictionary<Ragdoll, CharacterDrop> CharacterDropByRagdoll
       => field ??= GetCharacterDropByRagdoll();
 
@@ -96,6 +96,19 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
       }
     }
 
+    static IReadOnlyDictionary<string, Config.DropsConfig.DropConfig> GetDropsByName()
+    {
+      var result = new Dictionary<string, Config.DropsConfig.DropConfig>();
+      foreach (var entry in Config.Instance.Drops.Value.Entries)
+      {
+        if (!entry.Enabled)
+          continue;
+        DropControlPlugin.Logger.DevLog($"Using drop config for {entry.Name}");
+        result.Add(entry.Name, entry);
+      }
+      return result;
+    }
+
     static IReadOnlyDictionary<Ragdoll, CharacterDrop> GetCharacterDropByRagdoll()
     {
       var dict = new Dictionary<Ragdoll, CharacterDrop>();
@@ -121,7 +134,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
 
   float _dropArea;
   Vector3 _ragdollDropOffset;
-  SectorDictionary<Ragdoll, List<(CharacterDrop, int)>> _characterDropsByRagdoll = new(1);
+  readonly SectorDictionary<Ragdoll, List<(CharacterDrop, int)>> _characterDropsByRagdoll = new(1);
 
   protected override void Initialize()
   {

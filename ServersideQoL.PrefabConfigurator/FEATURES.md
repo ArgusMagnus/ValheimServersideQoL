@@ -10,7 +10,7 @@ set in the main config, the yml-file will win.
 
 Omitting `PrefabNames` will apply the configuration to all prefabs of the specified component.
 
-*$(ValheimInstallDir)/BepInEx/config/ArgusMagnus.{PluginName}.Prefabs.yml*:
+*$(ValheimInstallDir)/BepInEx/config/ArgusMagnus.ServersideQoL/ArgusMagnus.{PluginName}.Prefabs.yml*:
 
 ```
 Entries:
