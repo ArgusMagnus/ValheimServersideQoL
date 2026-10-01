@@ -1,4 +1,8 @@
-﻿using ServersideQoL.Processors;
+﻿extern alias Player;
+
+using HarmonyLib;
+using MonoMod.Utils;
+using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
@@ -29,6 +33,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
   readonly Dictionary<ServersideQoLZDO, State> _backpacks = [];
   readonly Dictionary<ServersideQoLZDO, State> _backpacksByPlayer = [];
   int _backpackSlots;
+  Func<PlayerID, bool>? _hasMegingjordEffect;
 
   static readonly ServerVar<bool> __isBackpackTombstone = BackpackPlugin.RegisterServerVar<bool>("IsBackbackTombstone");
 
@@ -38,9 +43,6 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
     _backpacksByPlayer.Clear();
 
     Instance<PlayerRegistryProcessor>().EmoteDetected -= OnEmoteDetected;
-    Instance<PlayerRegistryProcessor>().EmoteDetected += OnEmoteDetected;
-    RPC.Intercept.UpdateInterception(RPC.RpcName.Player.OnDeath, RPC_OnDeath,
-      Config.Instance.BackpackOnDeath.Value is not Config.BackPackOnDeathOptions.Keep);
 
     ServersideQoLPlugin.Instance.GlobalKeysChanged -= UpdateBackpackSlots;
     if (Config.Instance.OpenBackpackEmote.Value is ConfigBase.DisabledEmote)
@@ -50,7 +52,15 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
       UpdateBackpackSlots();
       if (Config.Instance.AdditionalBackpackSlotsPerDefeatedBoss.Value is not 0)
         ServersideQoLPlugin.Instance.GlobalKeysChanged += UpdateBackpackSlots;
+
+      Instance<PlayerRegistryProcessor>().EmoteDetected += OnEmoteDetected;
+
+      if (_hasMegingjordEffect is null && Instance(new(Player::ServersideQoL.Player.PlayerProcessor.Id)) is { } playerProcessor)
+        _hasMegingjordEffect = AccessTools.Method(playerProcessor.GetType(), nameof(Player::ServersideQoL.Player.PlayerProcessor.HasMegingjordEffect), parameters: [typeof(PlayerID)])?.CreateDelegate<Func<PlayerID, bool>>(playerProcessor);
     }
+
+    RPC.Intercept.UpdateInterception(RPC.RpcName.Player.OnDeath, RPC_OnDeath,
+      Config.Instance is { OpenBackpackEmote.Value: not ConfigBase.DisabledEmote, BackpackOnDeath.Value: not Config.BackPackOnDeathOptions.Keep });
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
@@ -64,6 +74,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
       else
       {
         result = default;
+        var isLocalPlayer = state.PlayerState.ZDO.ZDO.IsOwner();
         var hasNonTeleportableItems = false;
         var weightLimitExceeded = false;
         var totalWeight = 0f;
@@ -78,15 +89,18 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
           if (!IsItemTeleportable(item))
           {
             hasNonTeleportableItems = true;
-            drop = true;
+            if (isLocalPlayer)
+              drop = true;
           }
-          else
+
+          if (!drop)
           {
             totalWeight += item.GetWeight();
-            if (Config.Instance.MaxBackpackWeight.Value > 0 && totalWeight > Config.Instance.MaxBackpackWeight.Value)
+            if (Config.Instance.MaxBackpackWeight.Value > -1 && totalWeight > Config.Instance.MaxBackpackWeight.Value)
             {
               weightLimitExceeded = true;
-              drop = true;
+              if (isLocalPlayer)
+                drop = true;
             }
           }
 
@@ -97,18 +111,42 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
           }
         }
 
-        if (hasNonTeleportableItems || weightLimitExceeded)
+        if (isLocalPlayer)
         {
-          var owner = zdo.ZDO.GetOwner();
-          zdo.ClaimOwnershipInternal();
-          inventory.Save();
-          zdo.ZDO.SetOwnerInternal(owner);
-          state.BackpackContainer = RecreatePiece(zdo);
-          RPC.ShowMessage(owner, MessageHud.MessageType.Center, hasNonTeleportableItems ?
-              Config.Instance.Localization.Value.ForbiddenItems :
-              Config.Instance.Localization.Value.FormatWeightLimitExceeded(Config.Instance.MaxBackpackWeight.Value));
-          state.OpenBackpackAfter = Timestamp.Now.AddSeconds(Config.Instance.Advanced.Value.OpenBackpackDelay);
+          if (hasNonTeleportableItems || weightLimitExceeded)
+          {
+            var owner = zdo.ZDO.GetOwner();
+            zdo.ClaimOwnershipInternal();
+            inventory.Save();
+            zdo.ZDO.SetOwnerInternal(owner);
+            state.BackpackContainer = RecreatePiece(zdo);
+            RPC.ShowMessage(owner, MessageHud.MessageType.Center, hasNonTeleportableItems ?
+                Config.Instance.Localization.Value.ForbiddenItems :
+                Config.Instance.Localization.Value.FormatWeightLimitExceeded(Config.Instance.MaxBackpackWeight.Value));
+            state.OpenBackpackAfter = Timestamp.Now.AddSeconds(Config.Instance.Advanced.Value.OpenBackpackDelay);
+          }
         }
+        else
+        {
+          if (hasNonTeleportableItems)
+            state.PlayerState.AddGlobalKeyModification(new(GlobalKeys.NoPortals), true);
+          else
+            state.PlayerState.RemoveGlobalKeyModification(new(GlobalKeys.NoPortals));
+
+          if (!weightLimitExceeded)
+            state.PlayerState.RemoveGlobalKeyModification(new(GlobalKeys.CarryWeightRate));
+          else
+          {
+            var w0 = 300f;
+            if (state.PlayerState.ZDO.Vars.GetUtilityItem() == Prefabs.Megingjord || (state.HasMegingjordEffect ??= _hasMegingjordEffect?.Invoke(state.PlayerState.PlayerID) is true))
+              w0 += 150;
+            if (!ZoneSystem.instance.GetGlobalKey(GlobalKeys.CarryWeightRate, out float rate))
+              rate = 100;
+            rate -= (totalWeight - Config.Instance.MaxBackpackWeight.Value) * 100f / w0;
+            state.PlayerState.AddOrUpdateGlobalKeyModification(new(GlobalKeys.CarryWeightRate), rate);
+          }
+        }
+        return result;
       }
     }
     else if (prefabInfo.IsBackpackTombstone)
@@ -309,6 +347,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
     readonly BackpackProcessor _processor = processor;
     public PlayerState PlayerState { get; } = playerState;
     public Container? Container { get; private set; }
+    public bool? HasMegingjordEffect { get; set; }
 
     ServersideQoLZDO? _backpackContainer;
     public ServersideQoLZDO? BackpackContainer

@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" Private="False" />
+    <ProjectReference Include="..\ServersideQoL.Player\ServersideQoL.Player.csproj" Aliases="Player" Private="False" PrivateAssets="all" OutputItemType="Analyzer" />
   </ItemGroup>
 
 </Project>

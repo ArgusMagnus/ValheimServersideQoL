@@ -2,7 +2,7 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|Enabled|True|True/False|Enables/disables the entire mod|
+|Enabled|true|True/False|Enables/disables the entire mod|
 |MapTableRange|64||If a player enters this range around a map table, their discovered information (portal/ship/ore deposits/etc. position) is transfered to the map table.|
 |PortalsPinType|Icon4|None, Icon0, Icon1, Icon2, Icon3, Icon4|The pin type for portals on the map table|
 |ShipsPinType|Player|None, Icon0, Icon1, Icon2, Icon3, Icon4, Player|The pin type for ships on the map table|
@@ -24,4 +24,4 @@
 |OreDepositsDiscoverRange|32||An ore deposit is considered 'discovered by a player' when that player was within this range around the deposit while it was struck by a pickaxe|
 |UpdatedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a map table is updated|
 |DiscoveredMessageType|TopLeftFar|None, TopLeftFar, CenterFar, InWorld|Type of message to show to a player when they discovered map information|
-|DiscardPlayerPins|False|True/False|True to discard custom player pins from map tables|
+|DiscardPlayerPins|false|True/False|True to discard custom player pins from map tables|

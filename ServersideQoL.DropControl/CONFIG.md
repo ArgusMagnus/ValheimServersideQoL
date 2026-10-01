@@ -2,4 +2,4 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|Enabled|True|True/False|Enables/disables the entire mod|
+|Enabled|true|True/False|Enables/disables the entire mod|

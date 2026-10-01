@@ -2,7 +2,7 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|Enabled|True|True/False|Enables/disables the entire mod|
+|Enabled|true|True/False|Enables/disables the entire mod|
 |ChestSignsDefaultText|•||Default text for chest signs|
 |ChestSignsContentListPlaceholder|•||If this value is found in the text of a chest sign, it will be replaced by a list of contained items in that chest|
 |ChestSignsContentListMaxCount|3||Max number of entries to show in the content list on chest signs.|

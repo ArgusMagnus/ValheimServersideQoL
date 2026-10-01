@@ -1,3 +1,6 @@
+### v2.2.1
+- Compatiblity patch for [Backpack](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_Backpack)
+
 ### v2.0.11
 - Support for the new core options `UnifiedConfig` and `ConfigPerWorld`
 - Fixed sunken crypt doors not opening after sacrificing the crypt key [#241](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/241)

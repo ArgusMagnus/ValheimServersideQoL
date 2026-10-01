@@ -122,6 +122,9 @@ public abstract class Processor
       where T : Processor, new()
       => InstanceCache<T>.Instance;
 
+  public static Processor? Instance(Guid id)
+    => ServersideQoLPlugin.Instance.Processors.TryGetValue(id, out var processor) ? processor : null;
+
   static readonly int __oldPluginGuidHash = "argusmagnus.ServersideQoL".GetStableHashCode();
 
   internal static void StaticInitialize()
@@ -156,7 +159,7 @@ public abstract class Processor
       }
       if ((marker & CreatorMarkers.ProcessorOwned) is not 0)
       {
-        if (ServersideQoLPlugin.Instance.Processors.TryGetValue(__processorIdVar.Get(zdo), out var processor))
+        if (Instance(__processorIdVar.Get(zdo)) is { } processor)
         {
           processor.PlacedObjects.Add(zdo);
           zdo.Destroyed += processor.OnPlacedObjectDestroyed;

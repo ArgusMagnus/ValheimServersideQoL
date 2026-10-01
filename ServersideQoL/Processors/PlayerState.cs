@@ -33,5 +33,7 @@ public abstract class PlayerState
   public abstract IReadOnlyDictionary<GlobalKey, (bool? Add, float? Value)> GlobalKeyModifications { get; }
   public abstract void AddGlobalKeyModification(GlobalKey key, bool add, [CallerFilePath] string callerFilePath = default!);
   public abstract void AddGlobalKeyModification(GlobalKey key, float value, [CallerFilePath] string callerFilePath = default!);
+  public abstract void AddOrUpdateGlobalKeyModification(GlobalKey key, bool add, [CallerFilePath] string callerFilePath = default!);
+  public abstract void AddOrUpdateGlobalKeyModification(GlobalKey key, float value, [CallerFilePath] string callerFilePath = default!);
   public abstract void RemoveGlobalKeyModification(GlobalKey key, [CallerFilePath] string callerFilePath = default!);
 }

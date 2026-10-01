@@ -1,3 +1,6 @@
+### v2.2.1
+- Compatiblity patch for [Backpack](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_Backpack)
+
 ### v2.2.0
 - Print `Mod should only be installed on the host` warning only once [#302](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/302)
 
