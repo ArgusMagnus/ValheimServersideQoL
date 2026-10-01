@@ -16,6 +16,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
   SectorDictionary<HashSet<ServersideQoLZDO>>? _itemDrops;
   SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>? _containersByItemName;
   readonly HashSet<ItemDrop.ItemData.ItemType> _excludedTypes = [];
+  readonly HashSet<ItemDrop.ItemData.SharedData> _excludedItems = [];
 
   protected override void Initialize()
   {
@@ -35,14 +36,19 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     _eggDropTime.Clear();
 
     Config.Instance.AutoPickupExcludeItemTypes.SettingChanged -= UpdateExcludedTypes;
+    Config.Instance.AutoPickupExcludeItems.SettingChanged -= UpdateExcludedTypes;
     UpdateExcludedTypes(null, null);
     Config.Instance.AutoPickupExcludeItemTypes.SettingChanged += UpdateExcludedTypes;
+    Config.Instance.AutoPickupExcludeItems.SettingChanged += UpdateExcludedTypes;
 
     void UpdateExcludedTypes(object? sender, EventArgs? args)
     {
       _excludedTypes.Clear();
       foreach (var type in Config.Instance.AutoPickupExcludeItemTypes.Value.Items)
         _excludedTypes.Add(type);
+      _excludedItems.Clear();
+      foreach (var shared in Config.GetSharedItemData(Config.Instance.AutoPickupExcludeItems.Value, Logger))
+        _excludedItems.Add(shared);
     }
   }
 
@@ -50,7 +56,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
   {
     if (_containersByItemName is null || _itemDrops is null)
       return ProcessResult.UnregisterProcessor;
-    if (_excludedTypes.Contains(prefabInfo.ItemDrop.m_itemData.m_shared.m_itemType))
+    if (_excludedTypes.Contains(prefabInfo.ItemDrop.m_itemData.m_shared.m_itemType) || _excludedItems.Contains(prefabInfo.ItemDrop.m_itemData.m_shared))
       return ProcessResult.UnregisterProcessor;
     if (prefabInfo.Piece is not null && zdo.Vars.GetPiece())
       return ProcessResult.UnregisterProcessor; // ignore placed items (such as feasts)

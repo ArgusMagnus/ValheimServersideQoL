@@ -15,6 +15,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
   SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>? _containersByItemName;
   SectorDictionary<HashSet<ServersideQoLZDO>>? _containers;
   readonly HashSet<ItemDrop.ItemData.ItemType> _excludedTypes = [];
+  readonly HashSet<ItemDrop.ItemData.SharedData> _excludedItems = [];
   int _effectPrefab;
 
   internal void SpawnModifiedEffect(ServersideQoLZDO container)
@@ -43,14 +44,19 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     }
 
     Config.Instance.StackInventoryIntoContainersExcludeItemTypes.SettingChanged -= UpdateExcludedTypes;
+    Config.Instance.StackInventoryIntoContainersExcludeItems.SettingChanged -= UpdateExcludedTypes;
     UpdateExcludedTypes(null, null);
     Config.Instance.StackInventoryIntoContainersExcludeItemTypes.SettingChanged += UpdateExcludedTypes;
+    Config.Instance.StackInventoryIntoContainersExcludeItems.SettingChanged += UpdateExcludedTypes;
 
     void UpdateExcludedTypes(object? sender, EventArgs? args)
     {
       _excludedTypes.Clear();
       foreach (var type in Config.Instance.StackInventoryIntoContainersExcludeItemTypes.Value.Items)
         _excludedTypes.Add(type);
+      _excludedItems.Clear();
+      foreach (var shared in Config.GetSharedItemData(Config.Instance.StackInventoryIntoContainersExcludeItems.Value, Logger))
+        _excludedItems.Add(shared);
     }
 
     Config.Instance.Advanced.ValueChanged -= UpdateEffectPrefab;
@@ -247,7 +253,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
         var containerInventory = containerState.GetInventory();
         foreach (var item in containerInventory.Items)
         {
-          if (!_excludedTypes.Contains(item.m_shared.m_itemType))
+          if (!_excludedTypes.Contains(item.m_shared.m_itemType) && !_excludedItems.Contains(item.m_shared))
             (items ??= []).TryAdd(item.m_shared, item);
         }
       }

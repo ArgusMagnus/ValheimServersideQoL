@@ -36,6 +36,10 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Min distance all players must have to a dropped item for it to be picked up");
   public ConfigEntry<ConfigArray<ItemDrop.ItemData.ItemType>> AutoPickupExcludeItemTypes { get; } = BindEx(cfg, ConfigArray<ItemDrop.ItemData.ItemType>.Empty,
     "Item types which will be excluded from auto pickup", __acceptableExcludeItemTypes);
+  public ConfigEntry<ConfigArray<string>> AutoPickupExcludeItems { get; } = BindEx(cfg, ConfigArray<string>.Empty, $"""
+    Items (prefab names, e.g. MeadHealthMinor, SerpentStew) which will be excluded from auto pickup.
+    Use this when excluding the whole item type via {nameof(AutoPickupExcludeItemTypes)} is too broad.
+    """);
   public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = BindEx(cfg, true,
     "True to exclude food items for tames when tames are within search range");
   public ConfigEntry<bool> AutoPickupRequestOwnership { get; } = BindEx(cfg, true,
@@ -57,10 +61,28 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
   public ConfigEntry<ConfigArray<ItemDrop.ItemData.ItemType>> StackInventoryIntoContainersExcludeItemTypes { get; } = BindEx(cfg, ConfigArray<ItemDrop.ItemData.ItemType>.Empty,
     "Item types which will be excluded from stacking into containers via emote", __acceptableExcludeItemTypes);
+  public ConfigEntry<ConfigArray<string>> StackInventoryIntoContainersExcludeItems { get; } = BindEx(cfg, ConfigArray<string>.Empty, $"""
+    Items (prefab names, e.g. MeadHealthMinor, SerpentStew) which will be excluded from stacking into containers via emote.
+    Use this when excluding the whole item type via {nameof(StackInventoryIntoContainersExcludeItemTypes)} is too broad.
+    """);
   public ConfigEntry<float> StackInventoryIntoContainersReturnDelay { get; } = BindEx(cfg, 1f, """
     Time in seconds after which items which could not be stacked into containers are returned to the player.
     Increasing this value can help with bad connections.
     """, new AcceptableValueRange<float>(1f, 10f));
+
+  internal static IEnumerable<ItemDrop.ItemData.SharedData> GetSharedItemData(ConfigArray<string> prefabNames, Logger logger)
+  {
+    foreach (var name in prefabNames.Items)
+    {
+      var prefabName = name.Trim();
+      if (prefabName.Length is 0)
+        continue;
+      if (ObjectDB.instance.GetItemPrefab(prefabName)?.GetComponent<ItemDrop>() is { } itemDrop)
+        yield return itemDrop.m_itemData.m_shared;
+      else
+        logger.LogWarning($"Item '{prefabName}' not found");
+    }
+  }
 
   static readonly AcceptableArrayValues<ItemDrop.ItemData.ItemType> __acceptableExcludeItemTypes = new([.. ObjectDB.instance.m_items
     .Select(static x => x.GetComponent<ItemDrop>()?.m_itemData.m_shared)
