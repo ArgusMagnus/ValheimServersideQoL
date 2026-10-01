@@ -3,11 +3,14 @@ using ServersideQoL.Utilities;
 
 namespace ServersideQoL.Player;
 
-[Processor("7b156eea-3364-40ca-83ad-417a55fa6e4b")]
+[Processor(Id)]
 [DependsOn<PlayerRegistryProcessor>]
 public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Player>>
 {
+  public const string Id = "7b156eea-3364-40ca-83ad-417a55fa6e4b";
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _attachedCartsByPlayer = [];
+
+  public bool HasMegingjordEffect(PlayerID playerID) => Config.Instance.CanSacrificeMegingjord.Value && GetSacrifiedMegingjord(playerID);
 
   protected override void Initialize()
   {

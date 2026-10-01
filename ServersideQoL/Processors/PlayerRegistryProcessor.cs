@@ -350,6 +350,20 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
         OnGlobalKeyModificationChanged(callerFilePath);
     }
 
+    public override void AddOrUpdateGlobalKeyModification(GlobalKey key, bool add, string callerFilePath)
+    {
+      _globalKeyModifications ??= [];
+      _globalKeyModifications[key] = (add, null);
+      OnGlobalKeyModificationChanged(callerFilePath);
+    }
+
+    public override void AddOrUpdateGlobalKeyModification(GlobalKey key, float value, string callerFilePath)
+    {
+      _globalKeyModifications ??= [];
+      _globalKeyModifications[key] = (null, value);
+      OnGlobalKeyModificationChanged(callerFilePath);
+    }
+
     public override void RemoveGlobalKeyModification(GlobalKey key, string callerFilePath)
     {
       if (_globalKeyModifications?.Remove(key) is true)

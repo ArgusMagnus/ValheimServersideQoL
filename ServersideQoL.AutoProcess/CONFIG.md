@@ -2,10 +2,10 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|Enabled|True|True/False|Enables/disables the entire mod|
-|FeedFromContainers|True|True/False|True to automatically feed smelters from nearby containers|
-|FeedFermenters|False|True/False|True to automatically add fermentable items (e.g. mead bases) to empty fermenters from nearby containers. Requires FeedFromContainers|
-|TapFermenters|False|True/False|True to automatically tap fermenters when the content is ready. The products (e.g. mead) are dropped like when tapping by hand, use AutoStore to put them into containers|
+|Enabled|true|True/False|Enables/disables the entire mod|
+|FeedFromContainers|true|True/False|True to automatically feed smelters from nearby containers|
+|FeedFermenters|false|True/False|True to automatically add fermentable items (e.g. mead bases) to empty fermenters from nearby containers. Requires FeedFromContainers|
+|TapFermenters|false|True/False|True to automatically tap fermenters when the content is ready. The products (e.g. mead) are dropped like when tapping by hand, use AutoStore to put them into containers|
 |FeedFromContainersRange|4||Required proximity of a container to a smelter to be used as feeding source. <br>Can be overridden per chest by putting '&lt;FeedFromContainersRangeSignPrefix&gt;&lt;Range&gt;' on a chest sign, e.g. '↔️64'. <br>  For example, '↔️64' increase the range of that chest to 64m. <br>  Only works with automatic chest signs added by the ServersideQoL.ContainerSigns mod.|
 |FeedFromContainersRangeSignPrefix|↔️||Requires the ServersideQoL.ContainerSigns mod. <br>The prefix used to identify the container specifc feed range value in chest sign text.|
 |FeedFromContainersMaxRange|64||Requires the ServersideQoL.ContainerSigns mod. <br>Max feeding range players can set per chest (by putting '&lt;FeedFromContainersRangeSignPrefix&gt;&lt;Range&gt;' on a chest sign)|

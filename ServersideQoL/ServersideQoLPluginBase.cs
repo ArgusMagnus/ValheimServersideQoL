@@ -152,7 +152,7 @@ public abstract class ServersideQoLPluginBaseCore<TSelf, TConfig> : ServersideQo
             accetableValues = Invariant($"Combination of {string.Join(", ", Enum.GetNames(entry.SettingType))}");
         }
 
-        writer.WriteLine(Invariant($"|{def.Key}|{entry.DefaultValue}|{accetableValues}|{entry.Description.Description
+        writer.WriteLine(Invariant($"|{def.Key}|{TomlTypeConverter.ConvertToString(entry.DefaultValue, entry.SettingType)}|{accetableValues}|{entry.Description.Description
           .Replace("<", "&lt;").Replace(">", "&gt;").Replace(Environment.NewLine, " <br>")}|"));
       }
     }

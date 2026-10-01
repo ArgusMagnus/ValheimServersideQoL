@@ -52,6 +52,7 @@ partial class ServersideQoLZDO
     public void SetFollow(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_follow, value); }
     public int GetRightItem(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_rightItem, defaultValue);
     public int GetLeftItem(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_leftItem, defaultValue);
+    public int GetUtilityItem(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_utilityItem, defaultValue);
     public string GetText(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_text, defaultValue);
     public void SetText(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_text, value); }
     public string GetItem(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_item, defaultValue);
