@@ -7,6 +7,7 @@ using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using System.IO.Compression;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
@@ -41,7 +42,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
   readonly ConcurrentDictionary<int, PrefabInfo> _prefabInfos = [];
   readonly ConcurrentDictionary<IConfig, object?> _changedConfigs = [];
 
-  uint _unfinishedProcessingInRow;
+  SemaphoreSlim? _processingTimesWriterSemaphore;
+  StreamWriter? _processingTimesWriter;
+  ConcurrentBag<List<double>>? _processingTimesPool;
 
   sealed class SectorState
   {
@@ -57,7 +60,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
   readonly List<Processor> _unregister = [];
   readonly List<Processor> _reregisterOnRecreate = [];
-  List<(Processor, double)>? _processingTimes;
 
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
@@ -157,18 +159,19 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
           if (ZNet.instance is null)
             break;
 
-          var minFps = ZNet.instance.IsDedicated() ? 10 : 30;// Game.m_minimumFPSLimit;
-          var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
-          var maxDelta = 1.0 / minFps;
-          var actualFps = 1.0 / Time.unscaledDeltaTime;
-          if (Time.unscaledDeltaTime > maxDelta)
-          {
-            if (Config.DiagnosticLogs.Value)
-              Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
-            continue;
-          }
-          var fraction = Math.Min(1, (actualFps - minFps) / (targetFps - minFps));
-          var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
+          //var minFps = ZNet.instance.IsDedicated() ? 10 : 30;// Game.m_minimumFPSLimit;
+          //var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
+          //var maxDelta = 1.0 / minFps;
+          //var actualFps = 1.0 / Time.unscaledDeltaTime;
+          //if (Time.unscaledDeltaTime > maxDelta)
+          //{
+          //  if (Config.DiagnosticLogs.Value)
+          //    Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
+          //  continue;
+          //}
+          //var fraction = Math.Min(1, (actualFps - minFps) / (targetFps - minFps));
+          //var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
+          var budget = 0;
 
           try { Execute(peers, budget); }
           catch (OperationCanceledException) { yield break; }
@@ -393,11 +396,22 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
     var cfg = (IConfig)sender;
     if (Config.DiagnosticLogs.Value || ReferenceEquals(e.ChangedSetting, Config.DiagnosticLogs))
       Logger.LogInfo($"Config changed: [{e.ChangedSetting.Definition.Section}].[{e.ChangedSetting.Definition.Key}] = {e.ChangedSetting.BoxedValue}");
-    if (ReferenceEquals(e.ChangedSetting, Config.DiagnosticLogs) && Config.DiagnosticLogs.Value)
-      Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
+    if (ReferenceEquals(e.ChangedSetting, Config.DiagnosticLogs))
+    {
+      if (Config.DiagnosticLogs.Value)
+        Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
+      else
+      {
+        _processingTimesWriter?.Dispose();
+        _processingTimesWriter = null;
+      }
+    }
     if (ReferenceEquals(cfg.Enabled, e.ChangedSetting))
     {
       _preprocessors = null;
+      _processingTimesWriter?.Dispose();
+      _processingTimesWriter = null;
+
       if (cfg.Enabled.Value)
       {
         foreach (var processor in cfg.Plugin.Processors)
@@ -433,7 +447,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       _changedConfigs.TryAdd(cfg, null);
   }
 
-  void Execute(PeersEnumerable peers, double timeBudgetSeconds)
+  async void Execute(PeersEnumerable peers, double timeBudgetSeconds)
   {
     var timeStartSeconds = Time.realtimeSinceStartupAsDouble;
 
@@ -459,7 +473,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
     }
 
     peers.Update();
-    if (peers.Count is 0)
+    var peerCount = peers.Count;
+    if (peerCount is 0)
       return;
 
     var executeUntil = timeStartSeconds + timeBudgetSeconds;
@@ -502,7 +517,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         processor.PreProcessInternal(peers);
     }
 
-    int processedZdos = 0;
     int totalZdos = 0;
 
     foreach (var sectorState in _sectorsToProcess)
@@ -537,7 +551,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         _currentlyProcessing = sectorState;
         foreach (var zdo in sectorState.Changed)
         {
-          processedZdos++;
           if (!zdo.ZDO.IsValid())
             continue;
 
@@ -554,38 +567,93 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       sectorState.Peers.Clear();
     }
 
-    if (processedZdos < totalZdos)
-      _unfinishedProcessingInRow++;
-    else
-      _unfinishedProcessingInRow = 0;
+    if (!Config.Instance.DiagnosticLogs.Value)
+      return;
 
-    //#if DEBUG
-    //    var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
-    //#else
-    //        if (!Config.DiagnosticLogs.Value)
-    //            return;
-    //        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
-    //#endif
+    var elapsed = Time.realtimeSinceStartupAsDouble - timeStartSeconds;
+    var sectorCount = _sectorsToProcess.Count;
+    var fps = 1f / Time.unscaledDeltaTime;
+    _processingTimesWriterSemaphore ??= new(1, 1);
+    await Awaitable.BackgroundThreadAsync();
 
-    //    var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) * 1000;
-    //    Logger.Log(logLevel,
-    //        Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {timeBudgetSeconds * 1000:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
+    const long MaxCsvSize = 10 * 1024 * 1024; // 10 MB
+    const long MaxZipSize = MaxCsvSize;
 
-    //    if (logLevel is > LogLevel.Info or LogLevel.None)
-    //      return;
+    try
+    {
+      _processingTimesPool ??= [];
+      if (!_processingTimesPool.TryTake(out var processingTimes))
+        processingTimes = new(_enabledProcessors.Count);
 
-    //(_processingTimes ??= new(Processor.DefaultProcessors.Count)).Clear();
-    //foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
-    //{
-    //  var time = Math.Round(processor.ProcessingTimeSeconds * 1000, 2);
-    //  if (time <= 0)
-    //    continue;
-    //  _processingTimes.Add((processor, time));
-    //}
-    //if (_processingTimes.Count is 0)
-    //  return;
-    //_processingTimes.Sort(static (a, b) => Math.Sign(b.Item2 - a.Item2));
-    //Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", _processingTimes.Select(static x => Invariant($"{x.Item1.GetType().Name}: {x.Item2}ms")))}"));
+      foreach (var processor in _enabledProcessors)
+        processingTimes.Add(processor.ProcessingTimeSeconds);
+
+      await _processingTimesWriterSemaphore.WaitAsync();
+      string? fileToArchive = null;
+      try
+      {
+        if (_processingTimesWriter is null)
+        {
+          var path = GetPath();
+          if (File.Exists(path))
+          {
+            fileToArchive = $"{path}.tmp";
+            if (File.Exists(fileToArchive))
+              File.Delete(fileToArchive);
+            File.Move(path, fileToArchive);
+          }
+          _processingTimesWriter = new(GetPath(), append: false);
+          _processingTimesWriter.Write("Start;FPS;Elapsed [ms];Peers;Sectors;ZDOs");
+          foreach (var processor in _enabledProcessors)
+            _processingTimesWriter.Write($";{processor.GetType().FullName} [ms]");
+          _processingTimesWriter.WriteLine();
+        }
+
+        const double OneDay = 60 * 60 * 24;
+        var ts = TimeSpan.FromSeconds(timeStartSeconds);
+        if (timeStartSeconds < OneDay)
+          _processingTimesWriter.Write($@"{ts:hh\:mm\:ss\.fff};{fps:F1};{elapsed * 1000:F0};{peerCount};{sectorCount};{totalZdos}");
+        else
+          _processingTimesWriter.Write($@"{ts:d\.hh\:mm\:ss\.fff};{fps:F1};{elapsed * 1000:F0};{peerCount};{sectorCount};{totalZdos}");
+
+        foreach (var time in processingTimes)
+          _processingTimesWriter.Write($";{time * 1000:F0}");
+
+        _processingTimesWriter.WriteLine();
+        _processingTimesWriter.Flush();
+
+        if (_processingTimesWriter.BaseStream.Length >= MaxCsvSize)
+        {
+          _processingTimesWriter.Dispose();
+          _processingTimesWriter = null;
+        }
+      }
+      finally
+      {
+        processingTimes.Clear();
+        _processingTimesPool!.Add(processingTimes);
+        _processingTimesWriterSemaphore.Release();
+      }
+
+      if (fileToArchive is not null)
+      {
+        var entryName = $"{PluginGuid}.ProcessingTimes_{DateTime.Now:yyyyMMddHHmmss}.csv";
+        using var archive = new ZipArchive(File.Open(Path.ChangeExtension(GetPath(), ".zip"), FileMode.OpenOrCreate), ZipArchiveMode.Update);
+
+        while (archive.Entries.Count > 0 && archive.Entries.Sum(static x => x.CompressedLength) >= MaxZipSize)
+          archive.Entries.OrderBy(static x => x.LastWriteTime).First().Delete();
+
+        archive.CreateEntryFromFile(fileToArchive, entryName, System.IO.Compression.CompressionLevel.Optimal);
+        File.Delete(fileToArchive);
+      }
+
+      static string GetPath()
+        => Path.Combine(Paths.BepInExRootPath, $"{PluginGuid}.ProcessingTimes.csv");
+    }
+    catch (Exception ex)
+    {
+      Logger.LogError($"Failed to log processing times: {ex}");
+    }
   }
 
   void ProcessZdo(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo)
