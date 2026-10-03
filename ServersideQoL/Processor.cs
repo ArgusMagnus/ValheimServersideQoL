@@ -83,8 +83,7 @@ public abstract class Processor
   static ServersideQoLZDO? __dataZDO;
 
   static bool __enableProcessingTimeMonitoring;
-  public double ProcessingTimeSeconds { get; private set; }
-  public double TotalProcessingTimeSeconds { get; private set; }
+  Stopwatch? _processingTimeStopwatch;
   internal float ScheduleReprocessingDelay { get; private set; }
   internal bool HasPreProcessor { get; private set; } = true;
 
@@ -129,7 +128,11 @@ public abstract class Processor
 
   internal static void StaticInitialize()
   {
-    __enableProcessingTimeMonitoring = Config.Instance.DiagnosticLogs.Value;
+    if (__enableProcessingTimeMonitoring = Config.Instance.DiagnosticLogs.Value)
+    {
+      foreach (var processor in ServersideQoLPlugin.Instance.Processors.Values)
+        processor._processingTimeStopwatch ??= new();
+    }
     __dataZDO = null;
 
     foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
@@ -275,9 +278,9 @@ public abstract class Processor
     if (!__enableProcessingTimeMonitoring)
       return Process(peers, zdo);
 
-    var start = Time.realtimeSinceStartupAsDouble;
+    _processingTimeStopwatch!.Start();
     var result = Process(peers, zdo);
-    ProcessingTimeSeconds += Time.realtimeSinceStartupAsDouble - start;
+    _processingTimeStopwatch.Stop();
     return result;
   }
 
@@ -287,11 +290,19 @@ public abstract class Processor
       PreProcess(peers);
     else
     {
-      TotalProcessingTimeSeconds += ProcessingTimeSeconds;
-      var start = Time.realtimeSinceStartupAsDouble;
+      _processingTimeStopwatch!.Start();
       PreProcess(peers);
-      ProcessingTimeSeconds = Time.realtimeSinceStartupAsDouble - start;
+      _processingTimeStopwatch.Stop();
     }
+  }
+
+  internal long GetAndResetProcessingTimeMs()
+  {
+    if (_processingTimeStopwatch is null)
+      return -1;
+    var result = _processingTimeStopwatch.ElapsedMilliseconds;
+    _processingTimeStopwatch.Reset();
+    return result;
   }
 
   internal protected virtual bool ClaimExclusive(ServersideQoLZDO zdo) => PlacedObjects.Contains(zdo);
