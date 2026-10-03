@@ -44,7 +44,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
   SemaphoreSlim? _processingTimesWriterSemaphore;
   StreamWriter? _processingTimesWriter;
-  ConcurrentBag<List<double>>? _processingTimesPool;
+  ConcurrentBag<List<long>>? _processingTimesPool;
 
   sealed class SectorState
   {
@@ -159,19 +159,18 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
           if (ZNet.instance is null)
             break;
 
-          //var minFps = ZNet.instance.IsDedicated() ? 10 : 30;// Game.m_minimumFPSLimit;
-          //var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
-          //var maxDelta = 1.0 / minFps;
-          //var actualFps = 1.0 / Time.unscaledDeltaTime;
-          //if (Time.unscaledDeltaTime > maxDelta)
-          //{
-          //  if (Config.DiagnosticLogs.Value)
-          //    Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
-          //  continue;
-          //}
-          //var fraction = Math.Min(1, (actualFps - minFps) / (targetFps - minFps));
-          //var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
-          var budget = 0;
+          var minFps = ZNet.instance.IsDedicated() ? 10 : 30;// Game.m_minimumFPSLimit;
+          var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
+          var maxDelta = 1.0 / minFps;
+          var actualFps = 1.0 / Time.unscaledDeltaTime;
+          if (Time.unscaledDeltaTime > maxDelta)
+          {
+            if (Config.DiagnosticLogs.Value)
+              Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
+            continue;
+          }
+          var fraction = Math.Min(1, (actualFps - minFps) / (targetFps - minFps));
+          var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
 
           try { Execute(peers, budget); }
           catch (OperationCanceledException) { yield break; }
@@ -518,6 +517,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
     }
 
     int totalZdos = 0;
+    int processedSectors = 0;
 
     foreach (var sectorState in _sectorsToProcess)
     {
@@ -565,6 +565,10 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         _currentlyProcessing = null;
       }
       sectorState.Peers.Clear();
+
+      processedSectors++;
+      if (Time.realtimeSinceStartupAsDouble > executeUntil)
+        break;
     }
 
     if (!Config.Instance.DiagnosticLogs.Value)
@@ -586,7 +590,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         processingTimes = new(_enabledProcessors.Count);
 
       foreach (var processor in _enabledProcessors)
-        processingTimes.Add(processor.ProcessingTimeSeconds);
+        processingTimes.Add(processor.GetAndResetProcessingTimeMs());
 
       await _processingTimesWriterSemaphore.WaitAsync();
       string? fileToArchive = null;
@@ -603,7 +607,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
             File.Move(path, fileToArchive);
           }
           _processingTimesWriter = new(GetPath(), append: false);
-          _processingTimesWriter.Write("Start;FPS;Elapsed [ms];Peers;Sectors;ZDOs");
+          _processingTimesWriter.Write("Start;FPS;Elapsed [ms];Peers;Processed Sectors;Total Sectors;ZDOs");
           foreach (var processor in _enabledProcessors)
             _processingTimesWriter.Write($";{processor.GetType().FullName} [ms]");
           _processingTimesWriter.WriteLine();
@@ -612,12 +616,12 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         const double OneDay = 60 * 60 * 24;
         var ts = TimeSpan.FromSeconds(timeStartSeconds);
         if (timeStartSeconds < OneDay)
-          _processingTimesWriter.Write($@"{ts:hh\:mm\:ss\.fff};{fps:F1};{elapsed * 1000:F0};{peerCount};{sectorCount};{totalZdos}");
+          _processingTimesWriter.Write($@"{ts:hh\:mm\:ss\.fff};{fps:F1};{elapsed * 1000:F0};{peerCount};{processedSectors};{sectorCount};{totalZdos}");
         else
-          _processingTimesWriter.Write($@"{ts:d\.hh\:mm\:ss\.fff};{fps:F1};{elapsed * 1000:F0};{peerCount};{sectorCount};{totalZdos}");
+          _processingTimesWriter.Write($@"{ts:d\.hh\:mm\:ss\.fff};{fps:F1};{elapsed * 1000:F0};{peerCount};{processedSectors};{sectorCount};{totalZdos}");
 
         foreach (var time in processingTimes)
-          _processingTimesWriter.Write($";{time * 1000:F0}");
+          _processingTimesWriter.Write($";{time}");
 
         _processingTimesWriter.WriteLine();
         _processingTimesWriter.Flush();

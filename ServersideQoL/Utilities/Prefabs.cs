@@ -27,6 +27,7 @@ public static class Prefabs
   public static int Portal { get; } = "portal".GetStableHashCode();
   public static int Sconce { get; } = "piece_walltorch".GetStableHashCode();
   public static int DvergerGuardstone { get; } = "dverger_guardstone".GetStableHashCode();
+  public static int DvergerMetalWall { get; } = "piece_dvergr_metal_wall_2x2".GetStableHashCode();
   public static int Sign { get; } = "sign".GetStableHashCode();
   public static int Candle { get; } = "Candle_resin".GetStableHashCode();
   public static int BlackmetalChest { get; } = PrefabNames.BlackmetalChest.GetStableHashCode();
