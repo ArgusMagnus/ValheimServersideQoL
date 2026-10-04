@@ -234,5 +234,13 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
   }
 
   void OnAdvancedConfigChanged(ConfigBase.YamlConfigEntry<Config.AdvancedConfig> cfg)
-    => RequestReinitialization();
+  {
+    if (!Config.Instance.Enabled.Value)
+    {
+      Config.Instance.Advanced.ValueChanged -= OnAdvancedConfigChanged;
+      return;
+    }
+
+    RequestReinitialization();
+  }
 }
