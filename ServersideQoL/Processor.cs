@@ -87,10 +87,6 @@ public abstract class Processor
   internal float ScheduleReprocessingDelay { get; private set; }
   internal bool HasPreProcessor { get; private set; } = true;
 
-#if DEBUG
-  private protected static readonly Dictionary<int, Type> __prefabInfoTypes = [];
-#endif
-
   private protected Processor()
   {
     Attribute = GetType().GetCustomAttribute<ProcessorAttribute>() ?? throw new Exception($"Required {nameof(ProcessorAttribute)} missing on type {GetType().FullName}");
@@ -110,6 +106,9 @@ public abstract class Processor
 
   private protected abstract void AddPrefabInfoInterface(TypeExtensionBuilder<IPrefabInfo, PrefabInfo> prefabInfoBuilder);
   internal void AddPrefabInfoInterfaceInternal(TypeExtensionBuilder<IPrefabInfo, PrefabInfo> prefabInfoBuilder) => AddPrefabInfoInterface(prefabInfoBuilder);
+
+  internal event Action<Processor>? ReinitializationRequested;
+  protected void RequestReinitialization() => ReinitializationRequested?.Invoke(this);
 
   static class InstanceCache<T>
       where T : Processor, new()

@@ -4,38 +4,70 @@ using UnityEngine;
 
 namespace ServersideQoL.SuperWishbone;
 
-[Processor("82b4ec36-75f1-4924-a202-2934d4144915")]
+[Processor(Id)]
 public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.PrefabInfo>
 {
-  public sealed record PrefabInfo(LocationProxy? LocationProxy, Beacon? Beacon) : ProcessorPrefabInfo
+  public const string Id = "82b4ec36-75f1-4924-a202-2934d4144915";
+
+  public sealed record PrefabInfo : ProcessorPrefabInfo
   {
-    public override bool IsValid => LocationProxy is not null || PrefabInfo.PrefabHash == BeaconPrefabHash;
+    public LocationProxy? LocationProxy { get; private set; }
+    public bool IsBeacon { get; private set; }
+    public override bool IsValid
+    {
+      get
+      {
+        LocationProxy = PrefabInfo.GetComponent<LocationProxy>();
+        IsBeacon = PrefabInfo.PrefabHash == BeaconPrefabHash;
+        return true;
+      }
+    }
   }
 
   static int BeaconPrefabHash => Prefabs.MountainRemainsBuried;
+  readonly Dictionary<int, Config.AdvancedConfig.Entry> _advancedConfigEntries = [];
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _zdosByBeacon = [];
-
-  Regex? _regex;
+  readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _beaconsByZdo = [];
 
   static readonly ServerVar<bool> __beaconFoundVar = SuperWishbonePlugin.RegisterServerVar<bool>("BeaconState");
 
   protected override void Initialize()
   {
-    _regex = null;
-    var pattern = Config.Instance.FindLocationObjectRegex.Value.Trim();
-    if (!string.IsNullOrEmpty(pattern))
+    Config.Instance.Advanced.ValueChanged -= OnAdvancedConfigChanged;
+
+    foreach (var zdo in _zdosByBeacon.Keys)
+      DestroyObject(zdo);
+    _zdosByBeacon.Clear();
+
+    _advancedConfigEntries.Clear();
+
+    if (Config.Instance.Advanced.Value.Entries is { } entries)
     {
-      try { _regex = new(pattern); }
-      catch (Exception ex)
+      foreach (var entry in entries)
       {
-        Logger.LogError($"Invalid regex pattern: {pattern}{Environment.NewLine}    {ex}");
+        if (entry is not { PrefabNamePattern.Length: > 0, Enabled: true })
+          continue;
+
+        var pattern = ConvertToRegexPattern(entry.PrefabNamePattern);
+        foreach (var go in ZNetScene.instance.m_prefabs)
+        {
+          if (!Regex.IsMatch(go.name, pattern))
+            continue;
+
+          var hash = go.name.GetStableHashCode();
+          if (!_advancedConfigEntries.TryAdd(hash, entry))
+            Logger.LogWarning($"Prefab '{go.name}' matches multiple entries. Only the first is used.");
+          Logger.LogInfo($"Placing beacons for '{go.name}'");
+        }
       }
     }
+
+    Config.Instance.Advanced.ValueChanged += OnAdvancedConfigChanged;
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    if (_zdosByBeacon.TryGetValue(zdo, out var zdo2))
+    if (prefabInfo.IsBeacon && _zdosByBeacon.TryGetValue(zdo, out var zdo2))
     {
       if (peers.Any(x => Utils.DistanceXZ(x.RefPos, zdo.ZDO.GetPosition()) < 2))
       {
@@ -43,71 +75,118 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
         _zdosByBeacon.Remove(zdo);
         __beaconFoundVar.Set(zdo2, true);
       }
-      return ScheduleReprocessing();
+      return ScheduleReprocessing(0.1f);
     }
-
-
-    if (prefabInfo.LocationProxy is null || Config.Instance.Range.Value <= 0)
-      return ProcessResult.UnregisterProcessor;
-
-    if (Config.Instance is { FindDungeons.Value: false, FindVegvisir.Value: false } && _regex is null)
-      return ProcessResult.UnregisterProcessor;
-
-    if (__beaconFoundVar.Get(zdo))
-      return ProcessResult.UnregisterProcessor;
-
-    var hash = zdo.Vars.GetLocation();
-    if (hash is 0)
+    else if (_beaconsByZdo.TryGetValue(zdo, out var beacon))
+    {
+      var p = zdo.ZDO.GetPosition();
+      if (Character.InInterior(p))
+        p.y -= 4;
+      else
+        p.y = GetHeight(p) - 2;
+      beacon.ZDO.SetPosition(p);
+      ZDOMan.instance.ForceSendZDO(beacon.ZDO.m_uid);
       return default;
+    }
+    else if (_advancedConfigEntries.TryGetValue(zdo.ZDO.GetPrefab(), out var cfg))
+    {
+      if (cfg.MinQuality > 1 && prefabInfo.PrefabInfo.GetComponent<ItemDrop>() is { } itemDrop)
+      {
+        var data = itemDrop.m_itemData.Clone();
+        ItemDrop.LoadFromZDO(data, zdo.ZDO);
+        if (data.m_quality < cfg.MinQuality)
+          return ProcessResult.UnregisterProcessor;
+      }
 
-    using var loc = ZoneSystem.instance.GetAndLoadLocationByHash(hash);
-    if (!loc.IsValid)
+      var canMove = prefabInfo.PrefabInfo.GetComponent<ZSyncTransform>() is { m_syncPosition: true };
+      if (!canMove && __beaconFoundVar.Get(zdo))
+        return ProcessResult.UnregisterProcessor;
+      var p = GetBeaconPos(zdo.ZDO.GetPosition());
+      beacon = PlaceObject(p, BeaconPrefabHash, 0);
+      beacon.Fields<Beacon>().Set(static () => x => x.m_range, cfg.Range);
+      if (!canMove)
+      {
+        _zdosByBeacon.Add(beacon, zdo);
+        return ProcessResult.UnregisterProcessor;
+      }
+      else
+      {
+        _beaconsByZdo.Add(zdo, beacon);
+        zdo.Destroyed += zdo =>
+        {
+          if (_beaconsByZdo.TryGetValue(zdo, out var beacon))
+            beacon.Destroy();
+        };
+        return default;
+      }
+    }
+    else if (prefabInfo.LocationProxy is not null)
+    {
+      if (Config.Instance.Range.Value <= 0)
+        return ProcessResult.UnregisterProcessor;
+
+      if (Config.Instance is { FindDungeons.Value: false, FindVegvisir.Value: false })
+        return ProcessResult.UnregisterProcessor;
+
+      if (__beaconFoundVar.Get(zdo))
+        return ProcessResult.UnregisterProcessor;
+
+      var hash = zdo.Vars.GetLocation();
+      if (hash is 0)
+        return default;
+
+      using var loc = ZoneSystem.instance.GetAndLoadLocationByHash(hash);
+      if (!loc.IsValid)
+        return ProcessResult.UnregisterProcessor;
+
+      if (loc.Prefab is not { } prefab)
+        return ScheduleReprocessing();
+
+      List<RandomSpawn>? activeRandomSpawns = null;
+      List<Vector3>? beaconPositions = null;
+      HashSet<GameObject>? objs = null;
+      if (Config.Instance.FindDungeons.Value)
+      {
+        foreach (var c in prefab.GetComponentsInChildren<Teleport>())
+        {
+          if ((objs ??= []).Add(c.gameObject))
+            AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
+        }
+      }
+      if (Config.Instance.FindVegvisir.Value)
+      {
+        foreach (var c in prefab.GetComponentsInChildren<Vegvisir>())
+        {
+          if ((objs ??= []).Add(c.gameObject))
+            AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
+        }
+      }
+
+      if (beaconPositions is not { Count: > 0 })
+        return ProcessResult.UnregisterProcessor;
+
+      foreach (var pos in beaconPositions)
+      {
+        var p = GetBeaconPos(pos);
+        beacon = PlaceObject(p, BeaconPrefabHash, 0);
+        beacon.Fields<Beacon>().Set(static () => x => x.m_range, Config.Instance.Range.Value);
+        _zdosByBeacon.Add(beacon, zdo);
+      }
       return ProcessResult.UnregisterProcessor;
-
-    if (loc.Prefab is not { } prefab)
-      return ScheduleReprocessing();
-
-    List<RandomSpawn>? activeRandomSpawns = null;
-    List<Vector3>? beaconPositions = null;
-    HashSet<GameObject>? objs = null;
-    if (Config.Instance.FindDungeons.Value)
-    {
-      foreach (var c in prefab.GetComponentsInChildren<Teleport>())
-      {
-        if ((objs ??= []).Add(c.gameObject))
-          AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
-      }
     }
-    if (Config.Instance.FindVegvisir.Value)
+    else
     {
-      foreach (var c in prefab.GetComponentsInChildren<Vegvisir>())
-      {
-        if ((objs ??= []).Add(c.gameObject))
-          AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
-      }
-    }
-    if (_regex is not null)
-    {
-      foreach (var c in prefab.GetComponentsInChildren<Component>())
-      {
-        if ((objs ??= []).Add(c.gameObject) && _regex.IsMatch(Utils.GetPrefabName(c.gameObject)))
-          AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
-      }
-    }
-
-    if (beaconPositions is not { Count: > 0 })
       return ProcessResult.UnregisterProcessor;
-
-    foreach (var pos in beaconPositions)
-    {
-      var p = pos;
-      p.y -= 4;
-      var beacon = PlaceObject(p, BeaconPrefabHash, 0);
-      beacon.Fields<Beacon>().Set(static () => x => x.m_range, Config.Instance.Range.Value);
-      _zdosByBeacon.Add(beacon, zdo);
     }
 
-    return ProcessResult.UnregisterProcessor;
+    static Vector3 GetBeaconPos(Vector3 pos)
+    {
+      if (Character.InInterior(pos) || pos.y < ZoneSystem.c_WaterLevel - 2)
+        pos.y -= 4;
+      else
+        pos.y = GetHeight(pos) - 2;
+      return pos;
+    }
 
     static void AddBeaconPosition(ref List<Vector3>? positions, Component? component, ref List<RandomSpawn>? activeRandomSpawns, GameObject location, ServersideQoLZDO zdo)
     {
@@ -150,4 +229,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
       }
     }
   }
+
+  void OnAdvancedConfigChanged(ConfigBase.YamlConfigEntry<Config.AdvancedConfig> cfg)
+    => RequestReinitialization();
 }

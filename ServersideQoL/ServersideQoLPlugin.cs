@@ -40,7 +40,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
   Func<PrefabInfo> _prefabInfoFactory = default!;
   readonly ConcurrentDictionary<int, PrefabInfo> _prefabInfos = [];
-  readonly ConcurrentDictionary<IConfig, object?> _changedConfigs = [];
+  readonly ConcurrentDictionary<object, object?> _reinitializationRequested = [];
 
   SemaphoreSlim? _processingTimesWriterSemaphore;
   StreamWriter? _processingTimesWriter;
@@ -217,7 +217,11 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         if (plugin is not ServersideQoLPlugin)
           ++processorCount;
         if (plugin.Config.Enabled.Value)
+        {
           _enabledProcessors.Add(processor);
+          processor.ReinitializationRequested -= OnProcessorReinitializationRequested;
+          processor.ReinitializationRequested += OnProcessorReinitializationRequested;
+        }
       }
     }
     if (remove is not null)
@@ -414,13 +418,20 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       if (cfg.Enabled.Value)
       {
         foreach (var processor in cfg.Plugin.Processors)
+        {
           _enabledProcessors.Add(processor);
+          processor.ReinitializationRequested -= OnProcessorReinitializationRequested;
+          processor.ReinitializationRequested += OnProcessorReinitializationRequested;
+        }
         SortProcessors(_enabledProcessors, isPrefabList: false);
       }
       else
       {
         foreach (var processor in cfg.Plugin.Processors)
+        {
           _enabledProcessors.Remove(processor);
+          processor.ReinitializationRequested -= OnProcessorReinitializationRequested;
+        }
       }
 
       foreach (var prefabInfo in _prefabInfos.Values)
@@ -443,31 +454,42 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
     }
 
     if (cfg.Enabled.Value)
-      _changedConfigs.TryAdd(cfg, null);
+      _reinitializationRequested.TryAdd(cfg, null);
   }
+
+  void OnProcessorReinitializationRequested(Processor obj) => _reinitializationRequested.TryAdd(obj, null);
 
   async void Execute(PeersEnumerable peers, double timeBudgetSeconds)
   {
     var timeStartSeconds = Time.realtimeSinceStartupAsDouble;
 
-    if (_changedConfigs.Count > 0)
+    if (_reinitializationRequested.Count > 0)
     {
-      foreach (var cfg in _changedConfigs.Keys)
+      foreach (var obj in _reinitializationRequested.Keys)
       {
-        if (!_changedConfigs.TryRemove(cfg, out _) || !cfg.Enabled.Value)
-          continue;
-
-        foreach (var processor in cfg.Plugin.Processors)
+        switch (obj)
         {
-          if (processor.Attribute.ReinitializeOnConfigChanged)
+          case IConfig cfg:
+            if (!_reinitializationRequested.TryRemove(cfg, out _) || !cfg.Enabled.Value)
+              continue;
+
+            foreach (var processor in cfg.Plugin.Processors)
+            {
+              if (processor.Attribute.ReinitializeOnConfigChanged)
+                processor.Initialize();
+            }
+            break;
+
+          case Processor processor:
             processor.Initialize();
+            break;
         }
+      }
 
-        foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
-        {
-          zdo.ReregisterAll();
-          OnDataOrOwnerRevisionChanged(zdo);
-        }
+      foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
+      {
+        zdo.ReregisterAll();
+        OnDataOrOwnerRevisionChanged(zdo);
       }
     }
 
