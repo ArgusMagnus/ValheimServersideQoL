@@ -61,7 +61,7 @@ public sealed class TraderProcessor : Processor<ProcessorPrefabInfo<Trader>>
       List<GlobalKeyModification>? modifications = null;
       foreach (var entry in cfgList)
       {
-        if (entry.Value.Equals(entry.BoxedValue))
+        if (Equals(entry.Value, entry.DefaultValue))
           continue;
 
         var key = (string)entry.DefaultValue;
