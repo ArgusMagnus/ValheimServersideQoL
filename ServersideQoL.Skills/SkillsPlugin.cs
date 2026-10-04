@@ -8,5 +8,6 @@ partial class SkillsPlugin : ServersideQoLPluginBase<SkillsPlugin, Config>
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
     .Add<MineRockProcessor>()
-    .Add<PlayerSpawnedProcessor>();
+    .Add<PlayerSpawnedProcessor>()
+    .Add<WearNTearProcessor>();
 }

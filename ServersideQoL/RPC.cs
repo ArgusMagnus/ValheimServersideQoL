@@ -112,6 +112,12 @@ public static class RPC
     {
       public static RpcName SpawnObject { get; } = new("RPC_SpawnObject");
     }
+
+    public static class WearNTear
+    {
+      public static RpcName Repair { get; } = new("RPC_Repair");
+      public static RpcName HealthChanged { get; } = new("RPC_HealthChanged");
+    }
   }
 
   public static void ShowMessage(long targetPeerId, MessageHud.MessageType type, string message)

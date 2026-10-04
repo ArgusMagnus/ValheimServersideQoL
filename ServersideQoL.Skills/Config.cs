@@ -27,6 +27,23 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public bool RockCollapseEnabled => Math.Max(RockCollapseThresholdAtMinSkill.Value, RockCollapseThresholdAtMaxSkill.Value) > 0;
   }
 
+  public CraftingConfig Crafting { get; } = new(cfg);
+
+  public sealed class CraftingConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
+  {
+    public ConfigEntry<float> AreaRepairRangeAtMinSkill { get; } = BindEx(cfg, section, 0f, $"""
+      The range around a repaired build piece in which other build pieces will be repaired as well at crafting skill level 0.
+      The actual range scales linearly between this value and {nameof(AreaRepairRangeAtMaxSkill)} with skill level.
+      Set both of these values to 0 to disable this feature.
+      """);
+
+    public ConfigEntry<float> AreaRepairRangeAtMaxSkill { get; } = BindEx(cfg, section, 4f, $"""
+      The range around a repaired build piece in which other build pieces will be repaired as well at crafting skill level 100.
+      The actual range scales linearly between this value and {nameof(AreaRepairRangeAtMinSkill)} with skill level.
+      Set both of these values to 0 to disable this feature.
+      """);
+  }
+
   public BloodMagicConfig BloodMagic { get; } = new(cfg);
 
   public sealed class BloodMagicConfig(ConfigFile cfg, [CallerMemberName] string section = default!)

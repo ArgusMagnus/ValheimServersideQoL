@@ -1,3 +1,6 @@
+### v2.3.0
+- Added `AreaRepairRangeAtMinSkill`/`AreaRepairRangeAtMaxSkill` options [#288](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/288)
+
 ### v2.1.0
 - Compatibility patch
 

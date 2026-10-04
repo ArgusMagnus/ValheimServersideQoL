@@ -153,6 +153,16 @@ partial class ServersideQoLZDO
         => InvokeRoutedRPC(_zdo.GetOwner(), _zdo.m_uid, RpcName.Fermenter.Tap);
     }
 
+    public WearNTearRpc WearNTear => new(_zdo);
+    public readonly ref struct WearNTearRpc(ServersideQoLZDO zdo)
+    {
+      readonly ZDO _zdo = AssertAndGetZDO<WearNTear>(zdo);
+
+      /// <see cref="WearNTear.RPC_Repair"/>
+      public void Repair()
+        => InvokeRoutedRPC(_zdo.GetOwner(), _zdo.m_uid, RpcName.WearNTear.Repair);
+    }
+
     static ZDO AssertAndGetZDO<T>(ServersideQoLZDO zdo)
       where T : MonoBehaviour
     {
