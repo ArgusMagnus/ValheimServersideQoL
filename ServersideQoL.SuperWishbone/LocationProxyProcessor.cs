@@ -13,12 +13,16 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
   {
     public LocationProxy? LocationProxy { get; private set; }
     public bool IsBeacon { get; private set; }
+    public ItemDrop? ItemDrop { get; private set; }
+    public Character? Character { get; private set; }
     public override bool IsValid
     {
       get
       {
         LocationProxy = PrefabInfo.GetComponent<LocationProxy>();
         IsBeacon = PrefabInfo.PrefabHash == BeaconPrefabHash;
+        ItemDrop = PrefabInfo.GetComponent<ItemDrop>();
+        Character = PrefabInfo.GetComponent<Character>();
         return true;
       }
     }
@@ -79,20 +83,20 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
     }
     else if (_beaconsByZdo.TryGetValue(zdo, out var beacon))
     {
-      var p = zdo.ZDO.GetPosition();
-      if (Character.InInterior(p))
-        p.y -= 4;
-      else
-        p.y = GetHeight(p) - 2;
-      beacon.ZDO.SetPosition(p);
+      beacon.ZDO.SetPosition(GetBeaconPos(zdo.ZDO.GetPosition()));
       ZDOMan.instance.ForceSendZDO(beacon.ZDO.m_uid);
       return default;
     }
     else if (_advancedConfigEntries.TryGetValue(zdo.ZDO.GetPrefab(), out var cfg))
     {
-      if (cfg.MinQuality > 1 && prefabInfo.PrefabInfo.GetComponent<ItemDrop>() is { } itemDrop)
+      if (cfg.MinLevel > 1 && prefabInfo.Character is not null)
       {
-        var data = itemDrop.m_itemData.Clone();
+        if (zdo.Vars.GetLevel() < cfg.MinLevel)
+          return ProcessResult.UnregisterProcessor;
+      }
+      else if (cfg.MinQuality > 1 && prefabInfo.ItemDrop is not null)
+      {
+        var data = prefabInfo.ItemDrop.m_itemData.Clone();
         ItemDrop.LoadFromZDO(data, zdo.ZDO);
         if (data.m_quality < cfg.MinQuality)
           return ProcessResult.UnregisterProcessor;
@@ -101,8 +105,8 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
       var canMove = prefabInfo.PrefabInfo.GetComponent<ZSyncTransform>() is { m_syncPosition: true };
       if (!canMove && __beaconFoundVar.Get(zdo))
         return ProcessResult.UnregisterProcessor;
-      var p = GetBeaconPos(zdo.ZDO.GetPosition());
-      beacon = PlaceObject(p, BeaconPrefabHash, 0);
+
+      beacon = PlaceObject(GetBeaconPos(zdo.ZDO.GetPosition()), BeaconPrefabHash, 0);
       beacon.Fields<Beacon>().Set(static () => x => x.m_range, cfg.Range);
       if (!canMove)
       {
@@ -167,8 +171,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
 
       foreach (var pos in beaconPositions)
       {
-        var p = GetBeaconPos(pos);
-        beacon = PlaceObject(p, BeaconPrefabHash, 0);
+        beacon = PlaceObject(GetBeaconPos(pos), BeaconPrefabHash, 0);
         beacon.Fields<Beacon>().Set(static () => x => x.m_range, Config.Instance.Range.Value);
         _zdosByBeacon.Add(beacon, zdo);
       }

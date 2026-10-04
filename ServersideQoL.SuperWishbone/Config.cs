@@ -26,7 +26,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       public required string PrefabNamePattern { get; init; }
       public required bool Enabled { get; init; } = true;
       public float Range { get; init; } = Mathf.Max(Minimap.instance.m_exploreRadius, ZoneSystem.c_ZoneSize);
-      public int MinQuality { get; init; } = 0;
+      public int MinLevel { get; init; } = 1;
+      public int MinQuality { get; init; } = 1;
     }
 
     static List<Entry> GetDefaultEntries() => [
