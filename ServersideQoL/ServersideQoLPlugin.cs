@@ -977,14 +977,12 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       if (Instance.GlobalKeysChanged is not null && !__prevKeys.Keys.SequenceEqual(__instance.m_globalKeysValues.Keys))
       {
         changed = true;
-        Logger.DevLog($"Invoking {nameof(GlobalKeysChanged)} event");
         Instance.GlobalKeysChanged();
       }
 
       if (Instance.GlobalKeyValuesChanged is not null && !__prevKeys.SequenceEqual(__instance.m_globalKeysValues))
       {
         changed = true;
-        Logger.DevLog($"Invoking {nameof(GlobalKeyValuesChanged)} event");
         Instance.GlobalKeyValuesChanged();
       }
 
@@ -997,10 +995,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
       // Resending individually, otherwise global key modifications are not applied
       foreach (var p in ZNet.instance.GetPeers())
-      {
-        Logger.DevLog($"Sending global keys to {p.m_uid}");
         __instance.SendGlobalKeys(p.m_uid);
-      }
       return false;
     }
 
@@ -1030,8 +1025,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       {
         if (peer is ZRoutedRpc.Everybody || Processor.Instance<PlayerRegistryProcessor>().GetStateForPeerID(peer) is not { } state)
           return globalKeys;
-
-        Logger.DevLog($"Modifying global keys for {peer}");
 
         foreach (var (key, (add, value)) in state.GlobalKeyModifications)
         {

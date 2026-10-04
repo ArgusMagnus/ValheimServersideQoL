@@ -19,8 +19,6 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
     var range = MathF.Max(Config.Instance.Crafting.AreaRepairRangeAtMinSkill.Value, Config.Instance.Crafting.AreaRepairRangeAtMaxSkill.Value);
     _pieces = range > 0 ? new(range) : null;
 
-    Logger.DevLog($"Max range: {range}");
-
     RPC.Intercept.UpdateInterception(RPC.RpcName.WearNTear.HealthChanged, RPC_HealthChanged, range > 0);
     Instance<PlayerRegistryProcessor>().EnableSkillLevelEstimation(range > 0);
   }

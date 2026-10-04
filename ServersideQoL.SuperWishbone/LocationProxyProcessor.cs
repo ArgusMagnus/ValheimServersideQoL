@@ -83,7 +83,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
     }
     else if (_beaconsByZdo.TryGetValue(zdo, out var beacon))
     {
-      beacon.ZDO.SetPosition(GetBeaconPos(zdo.ZDO.GetPosition()));
+      beacon.ZDO.SetPosition(GetBeaconPos(zdo.ZDO.GetPosition(), false));
       ZDOMan.instance.ForceSendZDO(beacon.ZDO.m_uid);
       return default;
     }
@@ -106,7 +106,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
       if (!canMove && __beaconFoundVar.Get(zdo))
         return ProcessResult.UnregisterProcessor;
 
-      beacon = PlaceObject(GetBeaconPos(zdo.ZDO.GetPosition()), BeaconPrefabHash, 0);
+      beacon = PlaceObject(GetBeaconPos(zdo.ZDO.GetPosition(), false), BeaconPrefabHash, 0);
       beacon.Fields<Beacon>().Set(static () => x => x.m_range, cfg.Range);
       if (!canMove)
       {
@@ -147,14 +147,14 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
         return ScheduleReprocessing();
 
       List<RandomSpawn>? activeRandomSpawns = null;
-      List<Vector3>? beaconPositions = null;
+      List<(Vector3, bool)>? beaconPositions = null;
       HashSet<GameObject>? objs = null;
       if (Config.Instance.FindDungeons.Value)
       {
         foreach (var c in prefab.GetComponentsInChildren<Teleport>())
         {
           if ((objs ??= []).Add(c.gameObject))
-            AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
+            AddBeaconPosition(ref beaconPositions, true, c, ref activeRandomSpawns, prefab, zdo);
         }
       }
       if (Config.Instance.FindVegvisir.Value)
@@ -162,16 +162,16 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
         foreach (var c in prefab.GetComponentsInChildren<Vegvisir>())
         {
           if ((objs ??= []).Add(c.gameObject))
-            AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
+            AddBeaconPosition(ref beaconPositions, false, c, ref activeRandomSpawns, prefab, zdo);
         }
       }
 
       if (beaconPositions is not { Count: > 0 })
         return ProcessResult.UnregisterProcessor;
 
-      foreach (var pos in beaconPositions)
+      foreach (var (pos, isLocation) in beaconPositions)
       {
-        beacon = PlaceObject(GetBeaconPos(pos), BeaconPrefabHash, 0);
+        beacon = PlaceObject(GetBeaconPos(pos, isLocation), BeaconPrefabHash, 0);
         beacon.Fields<Beacon>().Set(static () => x => x.m_range, Config.Instance.Range.Value);
         _zdosByBeacon.Add(beacon, zdo);
       }
@@ -182,16 +182,16 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
       return ProcessResult.UnregisterProcessor;
     }
 
-    static Vector3 GetBeaconPos(Vector3 pos)
+    static Vector3 GetBeaconPos(Vector3 pos, bool isLocation)
     {
-      if (Character.InInterior(pos) || pos.y < ZoneSystem.c_WaterLevel - 2)
+      if (isLocation || Character.InInterior(pos) || pos.y < ZoneSystem.c_WaterLevel - 2)
         pos.y -= 4;
       else
         pos.y = GetHeight(pos) - 2;
       return pos;
     }
 
-    static void AddBeaconPosition(ref List<Vector3>? positions, Component? component, ref List<RandomSpawn>? activeRandomSpawns, GameObject location, ServersideQoLZDO zdo)
+    static void AddBeaconPosition(ref List<(Vector3, bool)>? positions, bool isLocation, Component? component, ref List<RandomSpawn>? activeRandomSpawns, GameObject location, ServersideQoLZDO zdo)
     {
       /// <see cref="ZoneSystem.SpawnProxyLocation"/>
       if (component is null)
@@ -200,7 +200,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
       if (component.GetComponent<RandomSpawn>() is not { } randomSpawn)
       {
         var pos = zdo.ZDO.GetPosition() + zdo.ZDO.GetRotation() * component.gameObject.transform.position;
-        (positions ??= []).Add(pos);
+        (positions ??= []).Add((pos, isLocation));
         return;
       }
 
@@ -228,7 +228,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
       if (activeRandomSpawns.Contains(randomSpawn))
       {
         var pos = zdo.ZDO.GetPosition() + zdo.ZDO.GetRotation() * randomSpawn.gameObject.transform.position;
-        (positions ??= []).Add(pos);
+        (positions ??= []).Add((pos, isLocation));
       }
     }
   }
