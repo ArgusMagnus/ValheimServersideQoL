@@ -118,8 +118,8 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
         _beaconsByZdo.Add(zdo, beacon);
         zdo.Destroyed += zdo =>
         {
-          if (_beaconsByZdo.TryGetValue(zdo, out var beacon))
-            beacon.Destroy();
+          if (_beaconsByZdo.Remove(zdo, out var beacon))
+            DestroyObject(beacon);
         };
         return default;
       }

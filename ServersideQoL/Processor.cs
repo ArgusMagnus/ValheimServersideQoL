@@ -412,7 +412,8 @@ public abstract class Processor
   protected void DestroyObject(ServersideQoLZDO zdo)
   {
     if (!PlacedObjects.Remove(zdo))
-      throw new ArgumentException();
+      throw new ArgumentException($"ZDO ({GetPrefabInfo(zdo).PrefabName}) not found in PlacedObjects.");
+    zdo.Destroyed -= OnPlacedObjectDestroyed;
     zdo.Destroy();
   }
 
