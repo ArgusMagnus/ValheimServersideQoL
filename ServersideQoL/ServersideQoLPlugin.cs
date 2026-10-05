@@ -1007,18 +1007,16 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       //    yield return instruction;
       //}
 
-      var listCtor = typeof(List<string>).GetConstructor([typeof(IEnumerable<string>)]);
       var method = ((Delegate)ModfiyGlobalKeys).Method;
 
       return new CodeMatcher().Start().Insert(instructions).Start()
-          .MatchForward(false, new CodeMatch(new CodeInstruction(OpCodes.Newobj, listCtor)))
+          .MatchForward(false, new CodeMatch(static x => x.opcode == OpCodes.Newobj && x.operand is ConstructorInfo ctor && ctor.DeclaringType == typeof(List<string>)))
+          .ThrowIfInvalid($"Failed to apply patch {nameof(ZoneSystemSendGlobalKeys)}.{nameof(Transpiler)}")
           .Advance(1)
-          .Insert(
-            // Load "peer" argument
-            new CodeInstruction(OpCodes.Ldarg_1),
+          .Insert(            
+            new CodeInstruction(OpCodes.Ldarg_1), // Load "peer" argument
             new CodeInstruction(OpCodes.Call, method)
           )
-          .ThrowIfInvalid($"Failed to apply patch {nameof(ZoneSystemSendGlobalKeys)}.{nameof(Transpiler)}")
           .InstructionEnumeration();
 
       static List<string> ModfiyGlobalKeys(List<string> globalKeys, long peer)

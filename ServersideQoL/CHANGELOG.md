@@ -1,5 +1,5 @@
 ### v2.2.1
-- Compatiblity patch for [Backpack](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_Backpack)
+- Fixed harmony transpiler exception on macOS [#326](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/326)
 
 ### v2.2.0
 - Print `Mod should only be installed on the host` warning only once [#302](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/302)
