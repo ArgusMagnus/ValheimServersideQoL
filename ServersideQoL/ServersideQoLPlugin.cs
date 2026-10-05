@@ -1001,15 +1001,23 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
     static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
-      //foreach (var instruction in instructions)
-      //{
-      //    Main.Instance.Logger.DevLog($"{instruction.opcode}: {instruction.operand}");
-      //    yield return instruction;
-      //}
+      // Reflection workaround for macOS support required because
+      // new CodeMatcher().Start().Insert(instructions).Start() throws on newer HarmonyX versions
+      // which are required for macOS support and new CodeMatch(instructions) cannot be used during compile time
+      // when targeting .netstandard2.1
+
+      var (codeMatcherCtor, ctorParameters) = typeof(CodeMatcher).GetConstructors()
+        .Select(static x => (Ctor: x, Parameters: x.GetParameters()))
+        .Where(static x => x.Parameters is { Length: > 0 } parameters
+          && parameters[0].ParameterType.IsAssignableFrom(typeof(IEnumerable<CodeInstruction>))
+          && !parameters.Skip(1).Any(static x => x.ParameterType.IsValueType))
+        .OrderBy(static x => x.Parameters.Length)
+        .First();
+
+      var codeMatcher = (CodeMatcher)codeMatcherCtor.Invoke([instructions, .. Enumerable.Repeat<object?>(null, ctorParameters.Length - 1)]);
 
       var method = ((Delegate)ModfiyGlobalKeys).Method;
-
-      return new CodeMatcher().Start().Insert(instructions).Start()
+      return codeMatcher
           .MatchForward(false, new CodeMatch(static x => x.opcode == OpCodes.Newobj && x.operand is ConstructorInfo ctor && ctor.DeclaringType == typeof(List<string>)))
           .ThrowIfInvalid($"Failed to apply patch {nameof(ZoneSystemSendGlobalKeys)}.{nameof(Transpiler)}")
           .Advance(1)
