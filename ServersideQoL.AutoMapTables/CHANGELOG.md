@@ -1,3 +1,7 @@
+### Unreleased
+- Fixed AutoMapTables throwing when a cartography table is covered only by inactive wards.
+- Inactive wards no longer restrict map-table access.
+
 ### 2.2.0
 - Fixed ore deposits/dungeons sometimes not being recognized [#239](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/239)
 

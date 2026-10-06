@@ -156,7 +156,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
       {
         if (peer.PlayerState?.PlayerID is not { } playerID)
           continue;
-        if (state.Wards is { Count: > 0 } && !state.PermittedPlayerIDs!.Contains(playerID))
+        if (state.HasActiveWard && !state.PermittedPlayerIDs.Contains(playerID))
           continue;
         if (!_playerStates.TryGetValue(playerID, out var playerState) || playerState.UpToDateMapTables.Contains(zdo))
           continue;
@@ -345,14 +345,15 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
     foreach (var playerState in _playerStates.Values)
       playerState.UpToDateMapTables.Remove(state.ZDO);
 
-    state.PermittedPlayerIDs?.Clear();
-    if (state.Wards is not { Count: > 0 })
+    state.PermittedPlayerIDs.Clear();
+    state.HasActiveWard = WardAccess.HasActiveWard(state.Wards, static ward => ward.Vars.GetEnabled());
+    if (!state.HasActiveWard)
       return;
 
-    foreach (var ward in state.Wards)
+    foreach (var ward in state.Wards!)
     {
       if (ward.Vars.GetEnabled())
-        AddPermittedPlayerIDs(ward, state.PermittedPlayerIDs ??= []);
+        AddPermittedPlayerIDs(ward, state.PermittedPlayerIDs);
     }
   }
 
@@ -558,6 +559,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
 
     /// <see cref="PrivateArea.CheckAccess"/>
     public HashSet<ServersideQoLZDO>? Wards { get; set; }
-    public HashSet<PlayerID>? PermittedPlayerIDs { get; set; }
+    public bool HasActiveWard { get; set; }
+    public HashSet<PlayerID> PermittedPlayerIDs { get; } = [];
   }
 }

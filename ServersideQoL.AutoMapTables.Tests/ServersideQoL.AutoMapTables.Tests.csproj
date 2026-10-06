@@ -1,0 +1,16 @@
+<Project Sdk="MSTest.Sdk/4.3.2">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseVSTest>true</UseVSTest>
+    <CreatePackage>false</CreatePackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\ServersideQoL.AutoMapTables\WardAccess.cs" Link="WardAccess.cs" />
+  </ItemGroup>
+
+</Project>
