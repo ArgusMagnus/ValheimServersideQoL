@@ -314,7 +314,13 @@ public static class RPC
 
       var original = new Action<long, ZDOID, string, object[]>(ZRoutedRpc.instance.InvokeRoutedRPC).Method;
       var method = new DynamicMethodDefinition(original) { Name = "InvokeRoutedRPC_InjectSender" };
-      typeof(DynamicMethodDefinition).GetProperty(nameof(DynamicMethodDefinition.OriginalMethod)).SetValue(method, null);
+      var originalMethodProperty = typeof(DynamicMethodDefinition).GetProperty(nameof(DynamicMethodDefinition.OriginalMethod));
+      if (originalMethodProperty.CanWrite)
+        originalMethodProperty.SetValue(method, null);
+      else if (typeof(DynamicMethodDefinition).GetField($"<{originalMethodProperty.Name}>k__BackingField", BindingFlags.Instance | BindingFlags.NonPublic) is { } originalMethodField)
+        originalMethodField.SetValue(method, null);
+      else
+        throw new Exception($"Property {nameof(DynamicMethodDefinition.OriginalMethod)} could not be set");
       method.Definition.Parameters.Add(new("senderPeerID", Mono.Cecil.ParameterAttributes.None, method.Module.ImportReference(typeof(long))));
       var instructions = method.Definition.Body.Instructions;
 
