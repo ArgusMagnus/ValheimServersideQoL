@@ -1005,6 +1005,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       // new CodeMatcher().Start().Insert(instructions).Start() throws on newer HarmonyX versions
       // which are required for macOS support and new CodeMatch(instructions) cannot be used during compile time
       // when targeting .netstandard2.1
+      // https://github.com/ArgusMagnus/ValheimServersideQoL/issues/326
 
       var (codeMatcherCtor, ctorParameters) = typeof(CodeMatcher).GetConstructors()
         .Select(static x => (Ctor: x, Parameters: x.GetParameters()))

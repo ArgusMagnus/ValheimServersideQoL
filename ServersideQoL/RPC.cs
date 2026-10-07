@@ -313,12 +313,16 @@ public static class RPC
       var idField = typeof(ZRoutedRpc).GetField("m_id", BindingFlags.NonPublic | BindingFlags.Instance);
 
       var original = new Action<long, ZDOID, string, object[]>(ZRoutedRpc.instance.InvokeRoutedRPC).Method;
-      var method = new DynamicMethodDefinition(original) { Name = "InvokeRoutedRPC_InjectSender" };
+      var method = new DynamicMethodDefinition(original);
+
+      try { method.Name = "InvokeRoutedRPC_InjectSender"; }
+      catch (MissingFieldException) { } // https://github.com/ArgusMagnus/ValheimServersideQoL/issues/326
+
       var originalMethodProperty = typeof(DynamicMethodDefinition).GetProperty(nameof(DynamicMethodDefinition.OriginalMethod));
       if (originalMethodProperty.CanWrite)
         originalMethodProperty.SetValue(method, null);
       else if (typeof(DynamicMethodDefinition).GetField($"<{originalMethodProperty.Name}>k__BackingField", BindingFlags.Instance | BindingFlags.NonPublic) is { } originalMethodField)
-        originalMethodField.SetValue(method, null);
+        originalMethodField.SetValue(method, null); // https://github.com/ArgusMagnus/ValheimServersideQoL/issues/326
       else
         throw new Exception($"Property {nameof(DynamicMethodDefinition.OriginalMethod)} could not be set");
       method.Definition.Parameters.Add(new("senderPeerID", Mono.Cecil.ParameterAttributes.None, method.Module.ImportReference(typeof(long))));
