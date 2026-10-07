@@ -43,7 +43,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
       if (!set.Contains(zdo))
       {
         set.Add(zdo);
-        zdo.Destroyed += x => set.Remove(x);
+        zdo.Destroyed += zdo => set.Remove(zdo);
       }
     }
 
@@ -76,7 +76,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
           if (!set.Contains(zdo))
           {
             set.Add(zdo);
-            zdo.Destroyed += x => set.Remove(x);
+            zdo.Destroyed += zdo => set.Remove(zdo);
           }
         }
         break;
@@ -209,6 +209,11 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
         increase += value;
     }
 
+    // Some CreatureSpawner, namely Spawner_Draugr/Spawner_Draugr_Ranged, have MinLevel > MaxLevel
+    var minLevel = Math.Min(creatureSpawner.m_minLevel, creatureSpawner.m_maxLevel);
+    if (fields.UpdateValue(static () => x => x.m_minLevel, minLevel))
+      result |= ProcessResult.RecreateZDO;
+
     var maxLevel = creatureSpawner.m_maxLevel + increase;
     if (Config.Instance.MaxLevelCap.Value > 0)
       maxLevel = Math.Min(maxLevel, Config.Instance.MaxLevelCap.Value);
@@ -216,11 +221,11 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
       result |= ProcessResult.RecreateZDO;
 
     var chance = creatureSpawner.m_levelupChance;
-    var steps = maxLevel - creatureSpawner.m_minLevel;
+    var steps = maxLevel - minLevel;
     if (steps > 0)
     {
       chance /= 100f;
-      chance = Mathf.Pow(chance, Mathf.Max(1f, creatureSpawner.m_maxLevel - creatureSpawner.m_minLevel) / steps) * 100f;
+      chance = Mathf.Pow(chance, Mathf.Max(1f, creatureSpawner.m_maxLevel - minLevel) / steps) * 100f;
       if (fields.UpdateValue(static () => x => x.m_levelupChance, chance))
         result |= ProcessResult.RecreateZDO;
     }

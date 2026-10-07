@@ -1,3 +1,6 @@
+### v2.2.1
+- Fixed some spawners (namely Spawner_Draugr/Spawner_Draugr_Ranged) using a too high min level after the max level is increased
+
 ### v2.2.0
 - Fixed issue with vanilla spawn config not being reliably detected for some creatures [#315](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/315)
 
