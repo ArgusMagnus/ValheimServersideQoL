@@ -201,6 +201,9 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
         result |= ProcessResult.RecreateZDO;
     }
 
+    /// todo: check <see cref="Location.m_excludeEnemyLevelOverrideGroups"/>, <see cref="Location.m_enemyMinLevelOverride"/>, etc.
+    ///       <see cref="CreatureSpawner.Spawn"/>
+
     var increase = Config.Instance.MaxLevelIncrease.Value;
     if (Config.Instance.MaxLevelIncreasePerDefeatedBoss.Value > 0)
     {
@@ -209,12 +212,14 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
         increase += value;
     }
 
+    var originalMaxLevel = Math.Max(1, creatureSpawner.m_maxLevel);
+
     // Some CreatureSpawner, namely Spawner_Draugr/Spawner_Draugr_Ranged, have MinLevel > MaxLevel
-    var minLevel = Math.Min(creatureSpawner.m_minLevel, creatureSpawner.m_maxLevel);
+    var minLevel = Math.Max(1, Math.Min(creatureSpawner.m_minLevel, originalMaxLevel));
     if (fields.UpdateValue(static () => x => x.m_minLevel, minLevel))
       result |= ProcessResult.RecreateZDO;
 
-    var maxLevel = creatureSpawner.m_maxLevel + increase;
+    var maxLevel = originalMaxLevel + increase;
     if (Config.Instance.MaxLevelCap.Value > 0)
       maxLevel = Math.Min(maxLevel, Config.Instance.MaxLevelCap.Value);
     if (fields.UpdateValue(static () => x => x.m_maxLevel, maxLevel))
@@ -225,7 +230,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     if (steps > 0)
     {
       chance /= 100f;
-      chance = Mathf.Pow(chance, Mathf.Max(1f, creatureSpawner.m_maxLevel - minLevel) / steps) * 100f;
+      chance = Mathf.Pow(chance, Mathf.Max(1f, originalMaxLevel - minLevel) / steps) * 100f;
       if (fields.UpdateValue(static () => x => x.m_levelupChance, chance))
         result |= ProcessResult.RecreateZDO;
     }
@@ -338,25 +343,27 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     if (increase <= 0)
       return result;
 
-    var maxLevel = spawnData.MaxLevel + increase;
+    var originalMaxLevel = Math.Max(1, spawnData.MaxLevel);
+    var minLevel = Math.Max(1, Math.Min(spawnData.MinLevel, originalMaxLevel)); // Some SpawnArea, namely Spawner_CharredStone_event, have MinLevel > MaxLevel
+    var maxLevel = originalMaxLevel + increase;
     if (Config.Instance.MaxLevelCap.Value > 0)
       maxLevel = Math.Min(maxLevel, Config.Instance.MaxLevelCap.Value);
     var chance = SpawnSystem.GetLevelUpChance(zdo.ZDO.GetPosition(), spawnData.LevelUpChance);
-    var steps = maxLevel - spawnData.MinLevel;
+    var steps = maxLevel - minLevel;
     if (steps is not 0)
     {
       chance /= 100f;
-      chance = Mathf.Pow(chance, Mathf.Max(1f, spawnData.MaxLevel - spawnData.MinLevel) / steps) * 100f;
+      chance = Mathf.Pow(chance, Mathf.Max(1f, originalMaxLevel - minLevel) / steps) * 100f;
     }
 
-    var level = Math.Min(spawnData.MinLevel, spawnData.MaxLevel); // Some SpawnArea, namely Spawner_CharredStone_event, have MinLevel > MaxLevel
+    var level = minLevel;
     while (level < maxLevel && UnityEngine.Random.Range(0f, 100f) <= chance)
       level++;
 
     if (level == initialLevel)
       return result;
 
-    //Logger.DevLog($"{GetPrefabInfo(zdo).PrefabName}: Set level {initialLevel} -> {level} (min: {spawnData.MinLevel}, max: {maxLevel} (+{increase} {biome}), chance: {chance:F2}%)");
+    //Logger.DevLog($"{GetPrefabInfo(zdo).PrefabName}: Set level {initialLevel} -> {level} (min: {minLevel}, max: {maxLevel} (+{increase} {biome}), chance: {chance:F2}%)");
     zdo.Vars.SetLevel(level);
     return result | ProcessResult.RecreateZDO;
   }
