@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.RegularExpressions;
 
 namespace ServersideQoL.Signs;
 
@@ -8,11 +9,19 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo<Sign>>
 {
   public const string Id = "806bdb85-c857-4154-a246-a0b1d0917987";
   internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
-  readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
+  Regex _clockRegex = default!;
 
   internal Regex DefaultColorRegex { get; } = new(@"<color=[^>]+ d>");
 
   string? _timeText;
+
+  [MemberNotNull(nameof(_clockRegex))]
+  protected override void Initialize()
+  {
+    _clockRegex = string.IsNullOrEmpty(Config.Instance.TimeSignsPlaceholder.Value) ?
+      new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?") :
+      new($@"(?:{string.Join("|", ClockEmojis.Prepend(Config.Instance.TimeSignsPlaceholder.Value).Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
+  }
 
   protected override void PreProcess(PeersEnumerable peers)
   {
