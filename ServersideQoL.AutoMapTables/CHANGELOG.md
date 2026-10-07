@@ -1,4 +1,8 @@
-### 2.2.0
+### v2.2.1
+- Fixed NullReferenceException when all wards in range of a map table are disabled [#334](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/334)
+- Fixed ship positions not being updated
+
+### v2.2.0
 - Fixed ore deposits/dungeons sometimes not being recognized [#239](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/239)
 
 ### v2.1.1

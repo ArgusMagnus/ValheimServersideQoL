@@ -156,7 +156,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
       {
         if (peer.PlayerState?.PlayerID is not { } playerID)
           continue;
-        if (state.Wards is { Count: > 0 } && !state.PermittedPlayerIDs!.Contains(playerID))
+        if (state.PermittedPlayerIDs is { Count: > 0 } && !state.PermittedPlayerIDs.Contains(playerID))
           continue;
         if (!_playerStates.TryGetValue(playerID, out var playerState) || playerState.UpToDateMapTables.Contains(zdo))
           continue;
@@ -215,11 +215,9 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
       if (peers.Any(x => x.PlayerState?.PlayerID == playerID))
       {
         var state = GetOrAddPlayerState(playerID);
+        state.UpToDateMapTables.Clear();
         if (state.Ships.Add(zdo))
-        {
           zdo.Destroyed += OnShipDestroyed;
-          state.UpToDateMapTables.Clear();
-        }
       }
       result = default;
     }
