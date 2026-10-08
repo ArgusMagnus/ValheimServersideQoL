@@ -1,3 +1,6 @@
+### v2.3.0
+- Added option `FeedFromContainersExcludeContainers` to exclude container types as feeding sources [#283](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/283)
+
 ### v2.2.0
 - Added options `FeedFermenters` and `TapFermenters` to automatically add fermentable items to fermenters from nearby containers and
   tap them when ready (the dropped products can be picked up by AutoStore).

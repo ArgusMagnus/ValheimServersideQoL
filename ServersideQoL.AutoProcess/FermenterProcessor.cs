@@ -4,10 +4,11 @@ using UnityEngine;
 
 namespace ServersideQoL.AutoProcess;
 
-[Processor("4d9ff5be-1a2e-469e-8046-addadfd58bab")]
+[Processor(Id)]
 [RunAfter<ContainerRegistryProcessor>]
 public sealed class FermenterProcessor : Processor<FermenterProcessor.PrefabInfo>
 {
+  public const string Id = "4d9ff5be-1a2e-469e-8046-addadfd58bab";
   public sealed record PrefabInfo(Fermenter Fermenter) : ProcessorPrefabInfo;
 
   const float TapRetryDelay = 10f;
@@ -65,6 +66,9 @@ public sealed class FermenterProcessor : Processor<FermenterProcessor.PrefabInfo
         toRemove?.Clear();
         foreach (var containerZdo in containers)
         {
+          if (Instance<SmelterProcessor>().ExcludedContainers.Contains(containerZdo.ZDO.GetPrefab()))
+            continue;
+
           if (Instance<ContainerRegistryProcessor>().GetState(containerZdo) is not { } containerState)
           {
             (toRemove ??= []).Add(containerZdo);
@@ -169,7 +173,13 @@ public sealed class FermenterProcessor : Processor<FermenterProcessor.PrefabInfo
   void OnContainerChanged(ServersideQoLZDO containerZdo, ContainerState state)
   {
     if (_fermenters is null)
-      throw new Exception("bug");
+    {
+      Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
+      return;
+    }
+
+    if (Instance<SmelterProcessor>().ExcludedContainers.Contains(containerZdo.ZDO.GetPrefab()))
+      return;
 
     var feedRangeSqr = state.AutoProcessFeedRange ?? Config.Instance.FeedFromContainersRange.Value;
     feedRangeSqr *= feedRangeSqr;

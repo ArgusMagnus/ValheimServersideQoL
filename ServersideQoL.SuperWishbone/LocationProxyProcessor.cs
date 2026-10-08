@@ -83,8 +83,11 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
     }
     else if (_beaconsByZdo.TryGetValue(zdo, out var beacon))
     {
-      beacon.ZDO.SetPosition(GetBeaconPos(zdo.ZDO.GetPosition(), false));
-      ZDOMan.instance.ForceSendZDO(beacon.ZDO.m_uid);
+      if (Utils.DistanceXZ(zdo.ZDO.GetPosition(), beacon.ZDO.GetPosition()) > 4)
+      {
+        beacon.ZDO.SetPosition(GetBeaconPos(zdo.ZDO.GetPosition(), false));
+        ZDOMan.instance.ForceSendZDO(beacon.ZDO.m_uid);
+      }
       return default;
     }
     else if (_advancedConfigEntries.TryGetValue(zdo.ZDO.GetPrefab(), out var cfg))

@@ -32,6 +32,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     """);
   public ConfigEntry<float> FeedFromContainersMinPlayerDistance { get; } = BindEx(cfg, 4f,
     "Min distance all players must have to a processing station");
+  public ConfigEntry<ConfigArray<string>> FeedFromContainersExcludeContainers { get; } = BindEx(cfg, new ConfigArray<string>([]),
+    "", AcceptableArrayValues.Get([..PlaceableContainers.Select(static x => x.Name)]));
   public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = BindEx(cfg, 1,
     "Minimum amount of fuel to leave in a container");
   public ConfigEntry<int> FeedFromContainersLeaveAtLeastOre { get; } = BindEx(cfg, 1,

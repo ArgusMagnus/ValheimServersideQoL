@@ -64,6 +64,12 @@ public abstract class ConfigBase
 
   protected static IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => ServersideQoLPlugin.Instance.PieceTablesByPieceName;
   protected static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => Processor.BossesByBiome;
+  protected sealed record PlaceableContainer(string Name, Container Container, Piece Piece);
+  protected static IReadOnlyList<PlaceableContainer> PlaceableContainers => field ??= [.. ZNetScene.instance.m_prefabs
+    .Where(static x => PieceTablesByPieceName.ContainsKey(x.name))
+    .Select(static x => new PlaceableContainer(x.name, x.GetComponentInChildren<Container>(), x.GetComponent<Piece>()))
+    .Where(static x => x is { Container: not null, Piece: not null })];
+
   public ConfigFile ConfigFile { get; }
   protected Logger Logger { get; }
   public abstract ConfigEntry<bool> Enabled { get; }

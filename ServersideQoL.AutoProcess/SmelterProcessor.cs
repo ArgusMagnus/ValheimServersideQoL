@@ -17,12 +17,16 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
 
   SectorDictionary<HashSet<ServersideQoLZDO>>? _smelters;
   SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>? _containersByItemName;
+  internal HashSet<int> ExcludedContainers { get; private set; } = [];
 
   protected override void Initialize()
   {
+    ExcludedContainers.Clear();
+
     Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
     if (Config.Instance.FeedFromContainers.Value)
     {
+      ExcludedContainers = [.. Config.Instance.FeedFromContainersExcludeContainers.Value.Items.Select(static x => x.GetStableHashCode())];
       _smelters = new(Mathf.Max(Config.Instance.FeedFromContainersRange.Value, Config.Instance.FeedFromContainersMaxRange.Value));
       _containersByItemName = Instance<ContainerRegistryProcessor>().GetContainersByItemName(_smelters.SectorWidth);
       Instance<ContainerRegistryProcessor>().ContainerChanged += OnContainerChanged;
@@ -99,6 +103,9 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
             toRemove?.Clear();
             foreach (var containerZdo in containers)
             {
+              if (ExcludedContainers.Contains(containerZdo.ZDO.GetPrefab()))
+                continue;
+
               if (Instance<ContainerRegistryProcessor>().GetState(containerZdo) is not { } containerState)
               {
                 (toRemove ??= []).Add(containerZdo);
@@ -216,6 +223,9 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
             toRemove?.Clear();
             foreach (var containerZdo in containers)
             {
+              if (ExcludedContainers.Contains(containerZdo.ZDO.GetPrefab()))
+                continue;
+
               if (Instance<ContainerRegistryProcessor>().GetState(containerZdo) is not { } containerState)
               {
                 (toRemove ??= []).Add(containerZdo);
@@ -326,7 +336,13 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
   void OnContainerChanged(ServersideQoLZDO containerZdo, ContainerState state)
   {
     if (_smelters is null)
-      throw new Exception("bug");
+    {
+      Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
+      return;
+    }
+
+    if (ExcludedContainers.Contains(containerZdo.ZDO.GetPrefab()))
+      return;
 
     var feedRangeSqr = state.AutoProcessFeedRange ?? Config.Instance.FeedFromContainersRange.Value;
     feedRangeSqr *= feedRangeSqr;
