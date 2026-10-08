@@ -3,6 +3,7 @@
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
 |Enabled|true|True/False|Enables/disables the entire mod|
+|SignConnectText|•||If a sign text is set to this value, the sign is connected to the closest container|
 |ChestSignsDefaultText|•||Default text for chest signs|
 |ChestSignsContentListPlaceholder|•||If this value is found in the text of a chest sign, it will be replaced by a list of contained items in that chest|
 |ChestSignsContentListMaxCount|3||Max number of entries to show in the content list on chest signs.|

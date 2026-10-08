@@ -1,6 +1,5 @@
 ﻿using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
-using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using static ServersideQoL.ContainerSigns.Config;
@@ -18,8 +17,9 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
   }
 
   readonly Dictionary<ServersideQoLZDO, List<ServersideQoLZDO>> _signsByChests = [];
+  readonly Dictionary<ServersideQoLZDO, List<ServersideQoLZDO>> _userSignsByChests = [];
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _chestsBySigns = [];
-
+  SectorDictionary<HashSet<ServersideQoLZDO>>? _containers;
   Regex? _chestAutoStorePickupRangeRegex;
   Regex? _chestAutoProcessFeedRangeRegex;
   Regex? _chestTameAssistFeedRangeRegex;
@@ -37,8 +37,12 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
   protected override void Initialize()
   {
     foreach (var zdo in _chestsBySigns.Keys)
-      zdo.Destroy();
+    {
+      if (zdo.IsModCreator())
+        zdo.Destroy();
+    }
     _signsByChests.Clear();
+    _userSignsByChests.Clear();
     _chestsBySigns.Clear();
 
     if (Config.Instance.AutoStorePickupRangeSignPrefix is not null)
@@ -93,6 +97,10 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
     _chestDataRevisions.Clear();
     Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
     Instance<ContainerRegistryProcessor>().ContainerChanged += OnContainerChanged;
+
+    _containers = null;
+    if (!string.IsNullOrWhiteSpace(Config.Instance.SignConnectText.Value))
+      _containers = new(ZoneSystem.c_ZoneSizeHalf);
   }
 
   protected override bool ClaimExclusive(ServersideQoLZDO zdo) => false; // let other processor process the signs
@@ -101,6 +109,8 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
   {
     if (prefabInfo.Container is not null)
     {
+      _containers?.TryAdd(zdo);
+
       var cfg = Config.Instance;
       var signOptions = cfg.GetSignOptions(zdo.ZDO.GetPrefab());
       if (signOptions is SignOptions.None || !cfg.Advanced.Value.ChestSignOffsets.TryGetValue(zdo.ZDO.GetPrefab(), out var signOffset) /*|| zdo.Vars.GetCreator() == default*/)
@@ -149,11 +159,51 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
     }
     else if (prefabInfo.Sign is not null)
     {
+      string? text = null;
+      string? newText = null;
       if (!_chestsBySigns.TryGetValue(zdo, out var chest))
-        return ProcessResult.UnregisterProcessor;
+      {
+        if (_containers is null)
+          return ProcessResult.UnregisterProcessor;
 
-      var text = zdo.Vars.GetText();
-      var newText = text;
+        text ??= zdo.Vars.GetText();
+        newText ??= text;
+        if (text != Config.Instance.SignConnectText.Value)
+          return default;
+
+        var minDistSqr = float.PositiveInfinity;
+        foreach (var containers in _containers.EnumerateAdjacent(zdo.ZDO.GetPosition()))
+        {
+          foreach (var containerZdo in containers)
+          {
+            var distSqr = Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition());
+            if (distSqr >= minDistSqr)
+              continue;
+            minDistSqr = distSqr;
+            chest = containerZdo;
+          }
+        }
+
+        if (chest is null)
+          return default;
+
+        if (chest.Vars.GetText(null!) is { } containerText)
+          newText = containerText;
+        else
+        {
+          if (!chest.IsOwnerOrUnassigned())
+            return ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(chest, default));
+          chest.Vars.SetText(newText = Config.Instance.ChestSignsDefaultText.Value);
+        }
+        _chestsBySigns.Add(zdo, chest);
+        if (!_userSignsByChests.TryGetValue(chest, out var set))
+          _userSignsByChests.Add(chest, set = []);
+        set.Add(zdo);
+        zdo.Destroyed += zdo => set.Remove(zdo);
+      }
+
+      text ??= zdo.Vars.GetText();
+      newText ??= text;
       ContainerState? containerState = null;
       if (_chestAutoStorePickupRangeRegex is not null && Config.Instance.AutoStorePickup && Config.Instance.AutoStorePickupMaxRange is { } autoPickupMaxRange)
       {
@@ -275,7 +325,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
 
   void OnContainerChanged(ServersideQoLZDO zdo, ContainerState state)
   {
-    if (!_signsByChests.TryGetValue(zdo, out var signs))
+    if (!_signsByChests.TryGetValue(zdo, out var signs) && !_userSignsByChests.TryGetValue(zdo, out signs))
       return;
 
     var dataRevision = zdo.ZDO.DataRevision;

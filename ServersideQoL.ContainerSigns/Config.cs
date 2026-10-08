@@ -10,6 +10,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Enables/disables the entire mod");
 
   const string DefaultPlaceholderString = "•";
+  public ConfigEntry<string> SignConnectText { get; } = BindEx(cfg, DefaultPlaceholderString,
+    "If a sign text is set to this value, the sign is connected to the closest container");
   public ConfigEntry<string> ChestSignsDefaultText { get; } = BindEx(cfg, DefaultPlaceholderString, "Default text for chest signs");
   public ConfigEntry<string> ChestSignsContentListPlaceholder { get; } = BindEx(cfg, DefaultPlaceholderString,
     "If this value is found in the text of a chest sign, it will be replaced by a list of contained items in that chest");
