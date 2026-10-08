@@ -1,4 +1,5 @@
-﻿using ServersideQoL.Processors;
+﻿extern alias Signs;
+using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -8,12 +9,13 @@ namespace ServersideQoL.ContainerSigns;
 
 [Processor(Id)]
 [RunAfter<ContainerRegistryProcessor>]
+//[RunBefore(Signs::ServersideQoL.Signs.SignProcessor.Id)]
 public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProcessor.PrefabInfo>
 {
   public const string Id = "bbbb47b4-3b9f-4d63-8bb2-a6f388ae1180";
   public sealed record PrefabInfo(Container? Container, Sign? Sign) : ProcessorPrefabInfo
   {
-    public override bool IsValid => Sign is not null || (Container is not null && PrefabInfo.HasComponent<Piece>() && PrefabInfo.HasComponent<PieceTable>());
+    public override bool IsValid => Sign is not null || (Container is not null && PrefabInfo.HasComponent<Piece>() && PrefabInfo.HasComponent<PieceTable>() && !PrefabInfo.HasComponent<ZSyncTransform>());
   }
 
   readonly Dictionary<ServersideQoLZDO, List<ServersideQoLZDO>> _signsByChests = [];
@@ -109,12 +111,17 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
   {
     if (prefabInfo.Container is not null)
     {
-      _containers?.TryAdd(zdo);
+      var result = ProcessResult.UnregisterProcessor;
+      if (_containers is not null)
+      {
+        _containers.TryAdd(zdo);
+        result |= ProcessResult.ReregisterOnRecreated;
+      }
 
       var cfg = Config.Instance;
       var signOptions = cfg.GetSignOptions(zdo.ZDO.GetPrefab());
       if (signOptions is SignOptions.None || !cfg.Advanced.Value.ChestSignOffsets.TryGetValue(zdo.ZDO.GetPrefab(), out var signOffset) /*|| zdo.Vars.GetCreator() == default*/)
-        return ProcessResult.UnregisterProcessor;
+        return result;
 
       if (!_signsByChests.ContainsKey(zdo))
       {
@@ -152,10 +159,11 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           //sign.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, true);
           //sign.Destroyed += _ => RPC.Remove(zdo);
         }
+        zdo.Destroyed -= OnChestDestroyed;
         zdo.Destroyed += OnChestDestroyed;
       }
 
-      return default;
+      return result;
     }
     else if (prefabInfo.Sign is not null)
     {
@@ -163,29 +171,39 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
       string? newText = null;
       if (!_chestsBySigns.TryGetValue(zdo, out var chest))
       {
+        const ZDOExtraData.ConnectionType ConnectionType = (ZDOExtraData.ConnectionType)0x80;
         if (_containers is null)
           return ProcessResult.UnregisterProcessor;
 
         text ??= zdo.Vars.GetText();
         newText ??= text;
-        if (text != Config.Instance.SignConnectText.Value)
-          return default;
 
-        var minDistSqr = float.PositiveInfinity;
-        foreach (var containers in _containers.EnumerateAdjacent(zdo.ZDO.GetPosition()))
+        if (ZDOMan.instance.GetZDO(zdo.ZDO.GetConnectionZDOID(ConnectionType))?.ServersideQoLZDO is { } connectedZdo && GetPrefabInfo(connectedZdo).HasComponent<Container>())
+          chest = connectedZdo;
+        else
         {
-          foreach (var containerZdo in containers)
-          {
-            var distSqr = Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition());
-            if (distSqr >= minDistSqr)
-              continue;
-            minDistSqr = distSqr;
-            chest = containerZdo;
-          }
-        }
+          if (text.RemoveRichTextTags() != Config.Instance.SignConnectText.Value)
+            return default;
 
-        if (chest is null)
-          return default;
+          chest = null;
+          var minDistSqr = float.PositiveInfinity;
+          foreach (var containers in _containers.EnumerateAdjacent(zdo.ZDO.GetPosition()))
+          {
+            foreach (var containerZdo in containers)
+            {
+              var distSqr = Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition());
+              if (distSqr >= minDistSqr)
+                continue;
+              minDistSqr = distSqr;
+              chest = containerZdo;
+            }
+          }
+
+          if (chest is null)
+            return default;
+
+          zdo.ZDO.SetConnection(ConnectionType, chest.ZDO.m_uid);
+        }
 
         if (chest.Vars.GetText(null!) is { } containerText)
           newText = containerText;
@@ -197,9 +215,17 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
         }
         _chestsBySigns.Add(zdo, chest);
         if (!_userSignsByChests.TryGetValue(chest, out var set))
+        {
           _userSignsByChests.Add(chest, set = []);
+          chest.Destroyed -= OnChestDestroyed;
+          chest.Destroyed += OnChestDestroyed;
+        }
         set.Add(zdo);
-        zdo.Destroyed += zdo => set.Remove(zdo);
+        zdo.Destroyed += zdo =>
+        {
+          _chestsBySigns.Remove(zdo);
+          set.Remove(zdo);
+        };
       }
 
       text ??= zdo.Vars.GetText();
@@ -313,6 +339,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
 
   void OnChestDestroyed(ServersideQoLZDO zdo)
   {
+    _userSignsByChests.Remove(zdo);
     if (_signsByChests.Remove(zdo, out var signs))
     {
       foreach (var sign in signs)
