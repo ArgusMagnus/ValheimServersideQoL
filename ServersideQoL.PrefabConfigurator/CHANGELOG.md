@@ -1,3 +1,6 @@
+### v2.2.1
+- Fixed config file path in readme
+
 ### v2.0.11
 - Support for the new core options `UnifiedConfig` and `ConfigPerWorld`
 

@@ -61,7 +61,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
           var hash = go.name.GetStableHashCode();
           if (!_advancedConfigEntries.TryAdd(hash, entry))
             Logger.LogWarning($"Prefab '{go.name}' matches multiple entries. Only the first is used.");
-          Logger.LogInfo($"Placing beacons for '{go.name}'");
+          Logger.LogDiagnosticInfo($"Placing beacons for '{go.name}'");
         }
       }
     }

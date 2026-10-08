@@ -268,5 +268,7 @@ public sealed class PrefabProcessor : Processor<PrefabProcessor.PrefabInfo>
     prefabInfo.Vector3Values = vector3Values;
     prefabInfo.StringValues = stringValues;
     prefabInfo.Skip = intValues is null && floatValues is null && vector3Values is null && stringValues is null;
+    if (!prefabInfo.Skip)
+      Logger.LogDiagnosticInfo($"Using config entries for {prefabInfo.PrefabInfo.PrefabName}");
   }
 }

@@ -23,6 +23,6 @@ Known issues are listed in the [github project](https://github.com/ArgusMagnus/V
 If you experience an issue, please file a report there or on the [hexium mod page](https://valheim.hexium.gg/mods/ArgusMagnus/{PluginManifestName}#fn-threads).
 
 ## Configuration
-The configuration is loaded from `$(ValheimInstallDir)/BepInEx/config/ArgusMagnus.{PluginName}.cfg`. Start the server once to generate the file if it does not exist.
+The configuration is loaded from `BepInEx/config/ArgusMagnus.{PluginName}.cfg`. Start the server once to generate the file if it does not exist.
 
 {Config}

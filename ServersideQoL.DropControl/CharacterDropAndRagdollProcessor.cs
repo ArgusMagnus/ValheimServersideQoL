@@ -103,7 +103,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
       {
         if (!entry.Enabled)
           continue;
-        DropControlPlugin.Logger.DevLog($"Using drop config for {entry.Name}");
+        DropControlPlugin.Logger.LogDiagnosticInfo($"Using drop config for {entry.Name}");
         result.Add(entry.Name, entry);
       }
       return result;

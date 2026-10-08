@@ -29,12 +29,25 @@ public sealed class Logger(string sourceName) : ILogSource, IDisposable
       _logger.Log(level, $@"[{ts:d\.hh\:mm\:ss\.fff}] {data}");
   }
 
+  public void LogDiagnostic(LogLevel level, object data)
+  {
+    if (ServersideQoLPlugin.Instance.Config.DiagnosticLogs.Value)
+      Log(level, data);
+  }
+
   public void LogFatal(object data) => Log(LogLevel.Fatal, data);
   public void LogError(object data) => Log(LogLevel.Error, data);
   public void LogWarning(object data) => Log(LogLevel.Warning, data);
   public void LogMessage(object data) => Log(LogLevel.Message, data);
   public void LogInfo(object data) => Log(LogLevel.Info, data);
   public void LogDebug(object data) => Log(LogLevel.Debug, data);
+
+  public void LogDiagnosticFatal(object data) => LogDiagnostic(LogLevel.Fatal, data);
+  public void LogDiagnosticError(object data) => LogDiagnostic(LogLevel.Error, data);
+  public void LogDiagnosticWarning(object data) => LogDiagnostic(LogLevel.Warning, data);
+  public void LogDiagnosticMessage(object data) => LogDiagnostic(LogLevel.Message, data);
+  public void LogDiagnosticInfo(object data) => LogDiagnostic(LogLevel.Info, data);
+  public void LogDiagnosticDebug(object data) => LogDiagnostic(LogLevel.Debug, data);
 
   [Conditional("DEBUG")]
   public void DevLog(string text, LogLevel logLevel = LogLevel.Warning) => Log(logLevel, text);

@@ -1,12 +1,12 @@
 Allows the wishbone to find
 - dungeons
 - vegvisir
-- any prefab defined in `$(ValheimInstallDir)/BepInEx/config/ArgusMagnus.ServersideQoL/ArgusMagnus.{PluginName}.Advanced.yml`
+- any prefab defined in `BepInEx/config/ArgusMagnus.ServersideQoL/ArgusMagnus.{PluginName}.Advanced.yml`
 
 <details open>
   <summary><b>Examples:</b></summary>
 
-*$(ValheimInstallDir)/BepInEx/config/ArgusMagnus.ServersideQoL/ArgusMagnus.{PluginName}.Advanced.yml*:
+*BepInEx/config/ArgusMagnus.ServersideQoL/ArgusMagnus.{PluginName}.Advanced.yml*:
 
 ```
 Entries:
