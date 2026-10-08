@@ -315,8 +315,11 @@ public static class RPC
       var original = new Action<long, ZDOID, string, object[]>(ZRoutedRpc.instance.InvokeRoutedRPC).Method;
       var method = new DynamicMethodDefinition(original);
 
-      try { method.Name = "InvokeRoutedRPC_InjectSender"; }
-      catch (MissingFieldException) { } // https://github.com/ArgusMagnus/ValheimServersideQoL/issues/326
+      // https://github.com/ArgusMagnus/ValheimServersideQoL/issues/326
+      [MethodImpl(MethodImplOptions.NoInlining)]
+      static void SetName(DynamicMethodDefinition method, string name) => method.Name = name;
+      try { SetName(method, "InvokeRoutedRPC_InjectSender"); }
+      catch (MissingFieldException) { }
 
       var originalMethodProperty = typeof(DynamicMethodDefinition).GetProperty(nameof(DynamicMethodDefinition.OriginalMethod));
       if (originalMethodProperty.CanWrite)
