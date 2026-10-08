@@ -8,7 +8,7 @@ namespace ServersideQoL.PrefabConfigurator;
 public sealed class BuildPieceProcessor : Processor<BuildPieceProcessor.PrefabInfo>
 {
   public const string Id = "3a6fd652-03b4-4b37-b031-fba0f999a6e7";
-  public sealed record PrefabInfo(WearNTear WearNTear, Piece? Piece, PieceTable? PieceTable) : ProcessorPrefabInfo;
+  public sealed record PrefabInfo(WearNTear WearNTear, Piece? Piece, PieceTable? PieceTable, ZSyncTransform? ZSyncTransform) : ProcessorPrefabInfo;
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
@@ -34,6 +34,14 @@ public sealed class BuildPieceProcessor : Processor<BuildPieceProcessor.PrefabIn
       {
         zdo.Vars.SetHealth(-1);
         result |= ProcessResult.RecreateZDO;
+      }
+
+      if (prefabInfo.ZSyncTransform is null)
+      {
+        if (!Config.Instance.BuildPieces.EnableAsSupport.Value)
+          fields.Reset(static () => x => x.m_supports);
+        else if (fields.UpdateValue(static () => x => x.m_supports, true))
+          result |= ProcessResult.RecreateZDO;
       }
     }
 

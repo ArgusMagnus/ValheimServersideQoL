@@ -1,7 +1,7 @@
 Configure every vanilla compatible field in the game.
 
 The main config has toggles for various presets (like enabling infinite fuel for fireplaces/lightsources or making build pieces indestructible/ignore rain damage).
-For anything else you'll need to copy and edit `BepInEx/config/ArgusMagnus.{PluginName}.Prefabs.default.yml` (see example below). This file is generated on startup
+For anything else you'll need to copy and edit `BepInEx/config/ArgusMagnus.ServersideQoL/ArgusMagnus.{PluginName}.Prefabs.default.yml` (see example below). This file is generated on startup
 and contains all the available component-prefab combinations and their fields with default values. If the yml-file contains entries that conflict with a preset
 set in the main config, the yml-file will win.
 

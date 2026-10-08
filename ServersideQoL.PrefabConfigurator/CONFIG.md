@@ -5,6 +5,7 @@
 |DisableRainDamage|false|True/False|True to prevent rain from damaging build pieces|
 |DisableSupportRequirements|None|PlayerBuilt, World|Ignore support requirements on build pieces|
 |MakeIndestructible|false|True/False|True to make player-built pieces indestructible|
+|EnableAsSupport|false|True/False|True to make player-built pieces valid support. <br>For example, this will allow players to place chests or signs on other chests.|
 </details>
 <details open><summary><b>Carts</b></summary>
 

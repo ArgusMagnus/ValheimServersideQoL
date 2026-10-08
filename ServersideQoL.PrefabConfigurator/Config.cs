@@ -39,6 +39,12 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public ConfigEntry<bool> MakeIndestructible { get; } = BindEx(cfg, section, false,
       "True to make player-built pieces indestructible");
 
+    public ConfigEntry<bool> EnableAsSupport { get; } = BindEx(cfg, section, false, """
+      True to make player-built pieces valid support.
+      For example, this will allow players to place chests or signs on other chests.
+      """);
+      
+
     [Flags]
     public enum DisableSupportRequirementsOptions
     {

@@ -1,3 +1,6 @@
+### v2.3.0
+- Added option `BuildPieces.EnableAsSupport` that allows players to place other build pieces on chests for example
+
 ### v2.2.1
 - Fixed config file path in readme
 
