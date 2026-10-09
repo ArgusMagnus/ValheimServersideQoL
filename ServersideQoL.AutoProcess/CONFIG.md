@@ -10,7 +10,7 @@
 |FeedFromContainersRangeSignPrefix|↔️||Requires the ServersideQoL.ContainerSigns mod. <br>The prefix used to identify the container specifc feed range value in chest sign text.|
 |FeedFromContainersMaxRange|64||Requires the ServersideQoL.ContainerSigns mod. <br>Max feeding range players can set per chest (by putting '&lt;FeedFromContainersRangeSignPrefix&gt;&lt;Range&gt;' on a chest sign)|
 |FeedFromContainersMinPlayerDistance|4||Min distance all players must have to a processing station|
-|FeedFromContainersExcludeContainers||Container, container, piece_chest, piece_chest, piece_chest_barrel, piece_chest_blackmetal, piece_chest_grausten, piece_chest_private, piece_chest_warderobe, piece_chest_wood, piece_gift1, piece_gift2, piece_gift3, piece_pot1, piece_pot2, piece_pot3, piece_chest, piece_chest||
+|FeedFromContainersExcludeContainers||Cart, incinerator, Karve, piece_chest, piece_chest_barrel, piece_chest_blackmetal, piece_chest_grausten, piece_chest_private, piece_chest_warderobe, piece_chest_wood, piece_gift1, piece_gift2, piece_gift3, piece_pot1, piece_pot2, piece_pot3, VikingShip, VikingShip_Ashlands||
 |FeedFromContainersLeaveAtLeastFuel|1||Minimum amount of fuel to leave in a container|
 |FeedFromContainersLeaveAtLeastOre|1||Minimum amount of ore to leave in a container|
 |FeedFromContainersLeaveAtLeastFermentable|0||Minimum amount of fermentable items (e.g. mead bases) to leave in a container|
