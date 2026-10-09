@@ -15,7 +15,67 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public PlantsConfig Plants { get; } = new(cfg);
   public CartsConfig Carts { get; } = new(cfg);
   public ShipsConfig Ships { get; } = new(cfg);
+  public CraftingStationsConfig CraftingStations { get; } = new(cfg);
   public YamlConfigEntry<PrefabsConfig> Prefabs { get; } = BindYaml<PrefabsConfig>(cfg);
+
+  /// <summary>
+  /// Per-crafting-station range overrides, grouped by prefab in the generated cfg.
+  /// Only emitted for stations that gate piece placement (a <see cref="Piece"/> references them
+  /// via <see cref="Piece.m_craftingStation"/>), e.g. workbench or stonecutter — not cooking stations.
+  /// <c>BuildRange_&lt;prefab&gt;</c>: build range; <c>-1</c> skips the station entirely (game default).
+  /// <c>EnemySpawnRange_&lt;prefab&gt;</c>: enemy spawn exclusion radius (PlayerBase effect area);
+  /// <c>-1</c> matches the configured build range.
+  /// </summary>
+  public sealed class CraftingStationsConfig
+  {
+    public IReadOnlyDictionary<int, ConfigEntry<float>> BuildRanges { get; } = new Dictionary<int, ConfigEntry<float>>();
+    public IReadOnlyDictionary<int, ConfigEntry<float>> EnemySpawnRanges { get; } = new Dictionary<int, ConfigEntry<float>>();
+
+    public CraftingStationsConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
+    {
+      /// Stations that gate piece placement: a piece can only be built in range of
+      /// the station its <see cref="Piece.m_craftingStation"/> points to.
+      var buildStations = new HashSet<CraftingStation>(ZNetScene.instance.m_prefabs
+        .Select(static x => x.GetComponent<Piece>()?.m_craftingStation)
+        .Where(static x => x is not null)!);
+
+      var buildRanges = (Dictionary<int, ConfigEntry<float>>)BuildRanges;
+      var enemySpawnRanges = (Dictionary<int, ConfigEntry<float>>)EnemySpawnRanges;
+      foreach (var prefab in ZNetScene.instance.m_prefabs.OrderBy(static x => x.name))
+      {
+        if (prefab.GetComponent<CraftingStation>() is not { } station || !buildStations.Contains(station))
+          continue;
+
+        var name = prefab.name;
+        var hash = name.GetStableHashCode();
+        var piece = prefab.GetComponent<Piece>();
+        var localized = piece is null ? name : global::Localization.instance.Localize(piece.m_name);
+        var spawnAreas = prefab.GetComponentsInChildren<EffectArea>(true)
+          .Where(static a => (a.m_type & EffectArea.Type.PlayerBase) is not 0)
+          .Select(static a => a.GetComponent<Collider>())
+          .Where(static c => c is SphereCollider or CapsuleCollider)
+          .ToList();
+
+        buildRanges.Add(hash, cfg.Bind(section, Invariant($"BuildRange_{name}"), station.m_rangeBuild, Invariant($"""
+          Build range for '{localized}' in meters. Game default: {station.m_rangeBuild}. -1 to skip this station and keep the game default.
+          """)));
+
+        if (spawnAreas.Count is not 0)
+          enemySpawnRanges.Add(hash, cfg.Bind(section, Invariant($"EnemySpawnRange_{name}"), Radius(spawnAreas[0]), Invariant($"""
+            Enemy spawn exclusion radius for '{localized}' in meters. Game default: {Radius(spawnAreas[0])}. 0 disables spawn exclusion.
+            -1 to match 'BuildRange_{name}' (game default: {station.m_rangeBuild}).
+            Note: this area also determines whether dropped items count as being inside a player base (they do not despawn there).
+            """)));
+      }
+    }
+
+    static float Radius(Collider collider) => collider switch
+    {
+      SphereCollider s => s.radius,
+      CapsuleCollider c => c.radius,
+      _ => 0
+    };
+  }
 
   public sealed class FireplacesConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
   {
@@ -23,7 +83,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       True to make all fireplaces/lightsources (including torches, braziers, etc.) toggleable.
       BEWARE: toggleable fireplaces/lightsources will be toggled off automatically by rain/heavy wind.
       """);
-      
+
     public ConfigEntry<bool> InfiniteFuel { get; } = BindEx(cfg, section, false,
       "True to make all fireplaces have infinite fuel");
   }
@@ -43,7 +103,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       True to make player-built pieces valid support.
       For example, this will allow players to place chests or signs on other chests.
       """);
-      
+
 
     [Flags]
     public enum DisableSupportRequirementsOptions
