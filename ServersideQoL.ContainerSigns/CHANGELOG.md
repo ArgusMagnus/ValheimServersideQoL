@@ -1,5 +1,6 @@
 ### v2.3.0
 - Added option `SignConnectText` to connect user placed signs to chests [#240](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/240)
+- Added option `ManuallyConnectedSignsReplaceAutoSigns` [#268](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/268)
 
 ### v2.2.0
 - Make `*RangeSignPrefix` config changes apply immediatly [#304](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/304)

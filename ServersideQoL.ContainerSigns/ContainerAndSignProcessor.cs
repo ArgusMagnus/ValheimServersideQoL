@@ -123,7 +123,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
       if (signOptions is SignOptions.None || !cfg.Advanced.Value.ChestSignOffsets.TryGetValue(zdo.ZDO.GetPrefab(), out var signOffset) /*|| zdo.Vars.GetCreator() == default*/)
         return result;
 
-      if (!_signsByChests.ContainsKey(zdo))
+      if (!_signsByChests.ContainsKey(zdo) && (!Config.Instance.ManuallyConnectedSignsReplaceAutoSigns.Value || !_userSignsByChests.TryGetValue(zdo, out var userSigns) || userSigns.Count is 0))
       {
         if (zdo.Vars.GetText(null!) is not { } text)
         {
@@ -214,18 +214,31 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           chest.Vars.SetText(newText = Config.Instance.ChestSignsDefaultText.Value);
         }
         _chestsBySigns.Add(zdo, chest);
-        if (!_userSignsByChests.TryGetValue(chest, out var set))
+        if (!_userSignsByChests.TryGetValue(chest, out var list))
         {
-          _userSignsByChests.Add(chest, set = []);
+          _userSignsByChests.Add(chest, list = []);
           chest.Destroyed -= OnChestDestroyed;
           chest.Destroyed += OnChestDestroyed;
         }
-        set.Add(zdo);
+        list.Add(zdo);
         zdo.Destroyed += zdo =>
         {
-          _chestsBySigns.Remove(zdo);
-          set.Remove(zdo);
+          list.Remove(zdo);
+          if (_chestsBySigns.Remove(zdo, out var chest) && Config.Instance.ManuallyConnectedSignsReplaceAutoSigns.Value && list.Count is 0)
+          {
+            chest.ReregisterAll();
+            ScheduleReprocessing(chest);
+          }
         };
+
+        if (Config.Instance.ManuallyConnectedSignsReplaceAutoSigns.Value && _signsByChests.Remove(chest, out var signs))
+        {
+          foreach (var sign in signs)
+          {
+            _chestsBySigns.Remove(sign);
+            DestroyObject(sign);
+          }
+        }
       }
 
       text ??= zdo.Vars.GetText();
@@ -303,8 +316,8 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
         if (list.Count > Config.Instance.ChestSignsContentListMaxCount.Value)
         {
           items = list
-              .Take(Config.Instance.ChestSignsContentListMaxCount.Value - 1)
-              .Append((Config.Instance.ChestSignsContentListNameRest.Value, list.Skip(Config.Instance.ChestSignsContentListMaxCount.Value - 1).Sum(static x => x.Count)));
+            .Take(Config.Instance.ChestSignsContentListMaxCount.Value - 1)
+            .Append((Config.Instance.ChestSignsContentListNameRest.Value, list.Skip(Config.Instance.ChestSignsContentListMaxCount.Value - 1).Sum(static x => x.Count)));
         }
 
         var listStr = string.Join(Config.Instance.ChestSignsContentListSeparator.Value, items
@@ -345,7 +358,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
       foreach (var sign in signs)
       {
         _chestsBySigns.Remove(sign);
-        sign.Destroy();
+        DestroyObject(sign);
       }
     }
   }

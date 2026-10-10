@@ -17,3 +17,4 @@
 |WardrobeSigns|None|Left, Right, Front, Back, TopLongitudinal, TopLateral|Options to automatically put signs on wardrobes|
 |BarrelSigns|None|Left, Right, Front, Back, TopLongitudinal, TopLateral|Options to automatically put signs on barrels|
 |ObliteratorSigns|None|Front|Options to automatically put signs on obliterators|
+|ManuallyConnectedSignsReplaceAutoSigns|false|True/False|If true, a player-placed sign that is connected to a chest via the SignConnectText option replaces automatically placed signs, <br>meaning the automatic signs will be removed from the chest until all manually connected signs are destroyed.|

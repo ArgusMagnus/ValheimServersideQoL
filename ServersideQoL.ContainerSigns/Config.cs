@@ -49,6 +49,10 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Options to automatically put signs on barrels", AcceptableEnum<SignOptions>.Default);
   public ConfigEntry<SignOptions> ObliteratorSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on obliterators", new AcceptableEnum<SignOptions>([SignOptions.Front]));
+  public ConfigEntry<bool> ManuallyConnectedSignsReplaceAutoSigns { get; } = BindEx(cfg, false, $"""
+    If true, a player-placed sign that is connected to a chest via the {nameof(SignConnectText)} option replaces automatically placed signs,
+    meaning the automatic signs will be removed from the chest until all manually connected signs are destroyed.
+    """);    
 
   internal SignOptions GetSignOptions(int prefab)
   {
