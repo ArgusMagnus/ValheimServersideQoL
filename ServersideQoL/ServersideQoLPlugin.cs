@@ -246,6 +246,12 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
     _prefabInfoFactory = prefabInfoBuilder.GetFactory();
 
+    if (Config.Instance.Language is { } langCfg)
+    {
+      Localization.instance.SetLanguage(langCfg.Value);
+      langCfg.SettingChanged += static (obj, _) => Localization.instance.SetLanguage(((ConfigEntry<string>)obj).Value);
+    }
+
     return true;
   }
 

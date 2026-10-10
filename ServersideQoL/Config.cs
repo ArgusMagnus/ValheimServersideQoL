@@ -33,6 +33,9 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public ConfigEntry<float> FarMessageRange { get; } = BindEx(cfg, ZoneSystem.c_ZoneSize,
     $"Max distance a player can have to a modified object to receive messages of type {MessageTypes.TopLeftFar} or {MessageTypes.CenterFar}");
 
+  public ConfigEntry<string>? Language { get; } = !ZNet.instance.IsDedicated() ? null : BindEx(cfg, Localization.instance.GetSelectedLanguage(),
+    "The language used for item names, etc.", new AcceptableValueList<string>([.. Localization.instance.GetLanguages()]));
+
   public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
 
   public sealed class AdvancedConfig

@@ -304,7 +304,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           return Config.Instance.ChestSignsContentListPlaceholder.Value;
 
         var list = inventory.Items
-            .GroupBy(static x => x.m_dropPrefab.name, static (k, g) => (Name: k, Count: g.Sum(static x => x.m_stack)))
+            .GroupBy(static x => x.m_shared.m_name, static (k, g) => (Name: Localization.instance.Localize(k), Count: g.Sum(static x => x.m_stack)))
             .OrderByDescending(static x => x.Count)
             .ToList();
 

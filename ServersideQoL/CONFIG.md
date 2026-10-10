@@ -9,3 +9,4 @@
 |UnifiedConfig|false|True/False|True to use a single config file for all SQoL mods. <br>DO NOT turn this on unless you've updated all SQoL mods to v2.0.11 minimum.|
 |ConfigPerWorld|false|True/False|True to save the config files for each world separately in the world save directory|
 |FarMessageRange|64||Max distance a player can have to a modified object to receive messages of type TopLeftFar or CenterFar|
+|Language|English|English, Swedish, French, Italian, German, Spanish, Russian, Romanian, Bulgarian, Macedonian, Finnish, Danish, Norwegian, Icelandic, Turkish, Lithuanian, Czech, Hungarian, Slovak, Polish, Dutch, Portuguese_European, Portuguese_Brazilian, Chinese, Chinese_Trad, Japanese, Korean, Hindi, Thai, Abenaki, Croatian, Georgian, Greek, Serbian, Ukrainian, Latvian|The language used for item names, etc.|
