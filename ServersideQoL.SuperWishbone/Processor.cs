@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ServersideQoL.SuperWishbone;
 
 [Processor(Id)]
-public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.PrefabInfo>
+public sealed class Processor : Processor<Processor.PrefabInfo>
 {
   public const string Id = "82b4ec36-75f1-4924-a202-2934d4144915";
 
@@ -61,7 +61,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
           var hash = go.name.GetStableHashCode();
           if (!_advancedConfigEntries.TryAdd(hash, entry))
             Logger.LogWarning($"Prefab '{go.name}' matches multiple entries. Only the first is used.");
-          Logger.LogDiagnosticInfo($"Placing beacons for '{go.name}'");
+          Logger.LogDiagnosticInfo($"Placing beacons for {go.name}");
         }
       }
     }
