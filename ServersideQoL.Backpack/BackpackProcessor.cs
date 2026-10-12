@@ -33,6 +33,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
   readonly Dictionary<ServersideQoLZDO, State> _backpacks = [];
   readonly Dictionary<ServersideQoLZDO, State> _backpacksByPlayer = [];
   int _backpackSlots;
+  int _maxBackpackWeight;
   Func<PlayerID, bool>? _hasMegingjordEffect;
 
   static readonly ServerVar<bool> __isBackpackTombstone = BackpackPlugin.RegisterServerVar<bool>("IsBackbackTombstone");
@@ -96,7 +97,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
           if (!drop)
           {
             totalWeight += item.GetWeight();
-            if (Config.Instance.MaxBackpackWeight.Value > -1 && totalWeight > Config.Instance.MaxBackpackWeight.Value)
+            if (_maxBackpackWeight > -1 && totalWeight > _maxBackpackWeight)
             {
               weightLimitExceeded = true;
               if (isLocalPlayer)
@@ -122,7 +123,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
             state.BackpackContainer = RecreatePiece(zdo);
             RPC.ShowMessage(owner, MessageHud.MessageType.Center, hasNonTeleportableItems ?
                 Config.Instance.Localization.Value.ForbiddenItems :
-                Config.Instance.Localization.Value.FormatWeightLimitExceeded(Config.Instance.MaxBackpackWeight.Value));
+                Config.Instance.Localization.Value.FormatWeightLimitExceeded(_maxBackpackWeight));
             state.OpenBackpackAfter = Timestamp.Now.AddSeconds(Config.Instance.Advanced.Value.OpenBackpackDelay);
           }
         }
@@ -142,7 +143,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
               w0 += 150;
             if (!ZoneSystem.instance.GetGlobalKey(GlobalKeys.CarryWeightRate, out float rate))
               rate = 100;
-            rate -= (totalWeight - Config.Instance.MaxBackpackWeight.Value) * 100f / w0;
+            rate -= (totalWeight - _maxBackpackWeight) * 100f / w0;
             state.PlayerState.AddOrUpdateGlobalKeyModification(new(GlobalKeys.CarryWeightRate), rate);
           }
         }
@@ -206,11 +207,14 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
   void UpdateBackpackSlots()
   {
     _backpackSlots = Config.Instance.InitialBackpackSlots.Value;
+    _maxBackpackWeight = Config.Instance.MaxBackpackWeight.Value;
     if (Config.Instance.AdditionalBackpackSlotsPerDefeatedBoss.Value is 0)
       return;
 
-    _backpackSlots += Config.Instance.AdditionalBackpackSlotsPerDefeatedBoss.Value * BossesByBiome.Values
-      .Count(static x => ZoneSystem.instance.GetGlobalKey(x.m_defeatSetGlobalKey));
+    var defeatedBossCount = BossesByBiome.Values.Count(static x => ZoneSystem.instance.GetGlobalKey(x.m_defeatSetGlobalKey));
+    _backpackSlots += defeatedBossCount * Config.Instance.AdditionalBackpackSlotsPerDefeatedBoss.Value;
+    if (_maxBackpackWeight >= 0)
+      _maxBackpackWeight += defeatedBossCount * Config.Instance.AdditionalMaxBackpackWeightPerDefeatedBoss.Value;
   }
 
   State GetState(PlayerState playerState)
@@ -431,8 +435,8 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
         AdjustSize(BackpackContainer, _processor._backpackSlots);
         BackpackContainer.ZDO.SetOwnerInternal(PlayerState.Owner);
       }
-      else if (Vector3.Distance(PlayerState.ZDO.ZDO.GetPosition(), BackpackContainer.ZDO.GetPosition()) > InventoryGui.instance.m_autoCloseDistance
-          || AdjustSize(BackpackContainer, _processor._backpackSlots))
+      else if (AdjustSize(BackpackContainer, _processor._backpackSlots)
+        || Vector3.Distance(PlayerState.ZDO.ZDO.GetPosition(), BackpackContainer.ZDO.GetPosition()) > InventoryGui.instance.m_autoCloseDistance)
       {
         BackpackContainer.ZDO.SetPosition(pos);
         BackpackContainer.ZDO.SetOwnerInternal(PlayerState.Owner);

@@ -1,3 +1,6 @@
+### v2.4.0
+- Added option `AdditionalMaxBackpackWeightPerDefeatedBoss` [#345](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/345)
+
 ### v2.2.1
 - Non-teleportable items in backback are no longer dropped but instead block portals
 - Backpack overweight no longer drops items but instead reduces player carry weight accordingly [#178](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/178)

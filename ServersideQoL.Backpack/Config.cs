@@ -19,6 +19,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public ConfigEntry<int> InitialBackpackSlots { get; } = BindEx(cfg, 4, "Initial available slots in the backpack");
   public ConfigEntry<int> AdditionalBackpackSlotsPerDefeatedBoss { get; } = BindEx(cfg, 4, "Additional backpack slots per defeated boss");
   public ConfigEntry<int> MaxBackpackWeight { get; } = BindEx(cfg, -1, "Maximum backpack weight. -1 for no limit.");
+  public ConfigEntry<int> AdditionalMaxBackpackWeightPerDefeatedBoss { get; } = BindEx(cfg, 0, "Additional maximum backpack weight per defeated boss");
   public ConfigEntry<BackPackOnDeathOptions> BackpackOnDeath { get; } = BindEx(cfg, BackPackOnDeathOptions.SameAsInventory, "What happens to backpack contents on player death");
 
   public enum BackPackOnDeathOptions
