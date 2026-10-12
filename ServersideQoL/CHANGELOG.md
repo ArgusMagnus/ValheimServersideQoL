@@ -1,3 +1,6 @@
+### v2.3.0
+- Added option `Language` that allows changing the server's language which affects things like item names in [TameAssist](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_ContainerSigns) (dedicated servers only)
+
 ### v2.2.1
 - Fixed harmony transpiler exception on macOS [#326](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/326)
 
