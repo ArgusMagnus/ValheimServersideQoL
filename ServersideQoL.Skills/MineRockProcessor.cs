@@ -28,26 +28,24 @@ public sealed class MineRockProcessor : Processor<MineRockProcessor.PrefabInfo>
       return default;
 
     var minDist = ZoneSystem.c_ZoneSizeHalf;
-    PlayerState? playerState = null;
     var skill = float.NaN;
-    foreach (var state in Instance<PlayerRegistryProcessor>().PlayerStates)
+    foreach (var peer in peers.Enumerate())
     {
-      if (state.LastUsedItem is not { m_itemData.m_shared.m_skillType: SkillType.Pickaxes })
+      if (peer.PlayerState is not { LastUsedItem.m_itemData.m_shared.m_skillType: SkillType.Pickaxes } state)
         continue;
-      if (float.IsNaN(skill = state.GetEstimatedSkillLevel( SkillType.Pickaxes)))
+      var s = state.GetEstimatedSkillLevel(SkillType.Pickaxes);
+      if (float.IsNaN(s))
         continue;
       var dist = Vector3.Distance(state.ZDO.ZDO.GetPosition(), zdo.ZDO.GetPosition());
       if (dist >= minDist)
         continue;
-      playerState = state;
+      skill = s;
       minDist = dist;
     }
 
-    if (playerState is null)
+    if (float.IsNaN(skill))
       return default;
 
-    if (float.IsNaN(skill))
-      skill = 0;
     var threshold = Utils.Lerp(Config.Instance.Pickaxe.RockCollapseThresholdAtMinSkill.Value, Config.Instance.Pickaxe.RockCollapseThresholdAtMaxSkill.Value, skill);
     threshold /= 100;
     if (threshold >= 1)

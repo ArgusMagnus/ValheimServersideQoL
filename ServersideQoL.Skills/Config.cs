@@ -1,5 +1,6 @@
 ﻿using BepInEx.Configuration;
 using System.Runtime.CompilerServices;
+using UnityEngine;
 
 namespace ServersideQoL.Skills;
 
@@ -42,6 +43,20 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       The actual range scales linearly between this value and {nameof(AreaRepairRangeAtMinSkill)} with skill level.
       Set both of these values to 0 to disable this feature.
       """);
+
+    public ConfigEntry<float> HealthMultiplierAtMinSkill { get; } = BindEx(cfg, section, 1f, $"""
+      The factor applied to a build piece's health at crafting skill level 0.
+      The actual factor scales linearly between this value and {nameof(HealthMultiplierAtMaxSkill)} with skill level.
+      Set both of these values to 0 to disable this feature.
+      """);
+
+    public ConfigEntry<float> HealthMultiplierAtMaxSkill { get; } = BindEx(cfg, section, 4f, $"""
+      The factor applied to a build piece's health at crafting skill level 0.
+      The actual factor scales linearly between this value and {nameof(HealthMultiplierAtMinSkill)} with skill level.
+      Set both of these values to 0 to disable this feature.
+      """);
+
+    public bool HealthMultiplierEnabled => Mathf.Max(HealthMultiplierAtMinSkill.Value, HealthMultiplierAtMaxSkill.Value) > 0;
   }
 
   public BloodMagicConfig BloodMagic { get; } = new(cfg);

@@ -1,3 +1,6 @@
+### v2.4.0
+- Added `HealthMultiplierAtMinSkill`/`HealthMultiplierAtMaxSkill` options [#337](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/337)
+
 ### v2.3.0
 - Added `AreaRepairRangeAtMinSkill`/`AreaRepairRangeAtMaxSkill` options [#288](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/288)
 

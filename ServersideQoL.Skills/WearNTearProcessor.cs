@@ -1,5 +1,8 @@
 ﻿using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
+using UnityEngine;
+using static Microsoft.CodeAnalysis.CSharp.SyntaxTokenParser;
+using static Skills;
 
 namespace ServersideQoL.Skills;
 
@@ -19,31 +22,75 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
     var range = MathF.Max(Config.Instance.Crafting.AreaRepairRangeAtMinSkill.Value, Config.Instance.Crafting.AreaRepairRangeAtMaxSkill.Value);
     _pieces = range > 0 ? new(range) : null;
 
-    RPC.Intercept.UpdateInterception(RPC.RpcName.WearNTear.HealthChanged, RPC_HealthChanged, range > 0);
-    Instance<PlayerRegistryProcessor>().EnableSkillLevelEstimation(range > 0);
+    RPC.Intercept.UpdateInterception(RPC.RpcName.WearNTear.HealthChanged, RPC_HealthChanged, range > 0 || Config.Instance.Crafting.HealthMultiplierEnabled);
+    Instance<PlayerRegistryProcessor>().EnableSkillLevelEstimation(range > 0 || Config.Instance.Crafting.HealthMultiplierEnabled);
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    if (_pieces is not null && zdo.Vars.GetCreator().Value is not 0)
-      _pieces.TryAdd(zdo);
-    return ProcessResult.UnregisterProcessor;
+    var creator = zdo.Vars.GetCreator();
+    if (creator.Value is 0)
+      return ProcessResult.UnregisterProcessor;
+
+    _pieces?.TryAdd(zdo);
+
+    var result = ProcessResult.UnregisterProcessor;
+
+    if (Config.Instance.Crafting.HealthMultiplierEnabled
+      && Instance<PlayerRegistryProcessor>().GetStateForPlayerID(creator) is { } playerState
+      && zdo.Vars.GetHealth(prefabInfo.WearNTear.m_health) == prefabInfo.WearNTear.m_health)
+    {
+      var skill = playerState.GetEstimatedSkillLevel(SkillType.Crafting);
+      if (!float.IsNaN(skill))
+      {
+        if (zdo.Fields<WearNTear>().UpdateValue(static () => x => x.m_health, GetMaxHealth(skill, prefabInfo)))
+        {
+          zdo.Vars.RemoveHealth();
+          result |= ProcessResult.RecreateZDO | ProcessResult.ReregisterOnRecreated;
+        }
+      }
+    }
+
+    return result;
   }
+
+  float GetMaxHealth(float skill, PrefabInfo prefabInfo)
+    => Mathf.Max(1, Mathf.Ceil(prefabInfo.WearNTear.m_health * Mathf.Lerp(
+      Config.Instance.Crafting.HealthMultiplierAtMinSkill.Value,
+      Config.Instance.Crafting.HealthMultiplierAtMaxSkill.Value, skill)));
 
   void RPC_HealthChanged(ZRoutedRpc.RoutedRPCData data, ServersideQoLZDO zdo, float health)
   {
-    if (Instance<PlayerRegistryProcessor>().GetStateForPeerID(data.m_senderPeerID) is not { } playerState || _pieces is null)
+    if (Instance<PlayerRegistryProcessor>().GetStateForPeerID(data.m_senderPeerID) is not { } playerState)
       return;
+
+    var skill = playerState.GetEstimatedSkillLevel(SkillType.Crafting);
+    if (float.IsNaN(skill))
+      return;
+
+    if (health < zdo.Fields<WearNTear>().GetFloat(static () => x => x.m_health))
+      return;
+
+    if (Config.Instance.Crafting.HealthMultiplierEnabled && GetProcessorPrefabInfo(zdo) is { } prefabInfo)
+    {
+      if (zdo.Fields<WearNTear>().UpdateValue(static () => x => x.m_health, GetMaxHealth(skill, prefabInfo)))
+      {
+        zdo.Vars.RemoveHealth();
+        zdo.Recreate().ReregisterAll();
+      }
+    }
+
+    if (_pieces is null)
+      return;
+
     //if (playerState.LastUsedItem is not { m_itemData.m_shared.m_skillType: global::Skills.SkillType.Crafting })
     //  return;
+
     if (Timestamp.Now > _clearIgnoredAfter)
       _ignore.Clear();
     else if (_ignore.Remove(zdo))
       return;
-    if (health < zdo.Fields<WearNTear>().GetFloat(static () => x => x.m_health))
-      return;
 
-    var skill = playerState.GetEstimatedSkillLevel(global::Skills.SkillType.Crafting);
     var rangeSqr = Utils.Lerp(Config.Instance.Crafting.AreaRepairRangeAtMinSkill.Value, Config.Instance.Crafting.AreaRepairRangeAtMaxSkill.Value, skill);
     if (!(rangeSqr > 0))
       return;
@@ -54,7 +101,7 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
     {
       foreach (var piece in pieces)
       {
-        if (Utils.DistanceSqr(pos, piece.ZDO.GetPosition()) > rangeSqr)
+        if (piece == zdo || Utils.DistanceSqr(pos, piece.ZDO.GetPosition()) > rangeSqr)
           continue;
         _ignore.Add(piece);
         _clearIgnoredAfter = Timestamp.Now.AddSeconds(2);
