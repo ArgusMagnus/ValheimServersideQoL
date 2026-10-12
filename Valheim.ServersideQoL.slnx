@@ -28,6 +28,7 @@
   <Project Path="ServersideQoL.Player/ServersideQoL.Player.csproj" Id="75cbd1e3-f114-462c-9c56-cb93a51d2d29" />
   <Project Path="ServersideQoL.PortalProgression/ServersideQoL.PortalProgression.csproj" Id="256f454c-2a68-4d69-a2e8-62e22cc26402" />
   <Project Path="ServersideQoL.PrefabConfigurator/ServersideQoL.PrefabConfigurator.csproj" Id="06cc4b4e-b03b-4f98-9673-a8ea9405fc0d" />
+  <Project Path="ServersideQoL.ReWarded/ServersideQoL.ReWarded.csproj" Id="2d69e1c2-ee86-4672-ba66-708408a0d556" />
   <Project Path="ServersideQoL.Signs/ServersideQoL.Signs.csproj" />
   <Project Path="ServersideQoL.Skills/ServersideQoL.Skills.csproj" Id="2ae25c40-7f3f-4c99-ad3f-f44f9a71af04" />
   <Project Path="ServersideQoL.SmartDefense/ServersideQoL.SmartDefense.csproj" Id="063f429e-801f-49af-bf6b-9c8d373120fa" />
