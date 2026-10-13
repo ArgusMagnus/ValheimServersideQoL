@@ -1,3 +1,6 @@
+### v2.3.1
+- Improved compatibility with other mods [#349](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/349)
+
 ### v2.3.0
 - Added option `Language` that allows changing the server's language which affects things like item names in [TameAssist](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_ContainerSigns) (dedicated servers only)
 

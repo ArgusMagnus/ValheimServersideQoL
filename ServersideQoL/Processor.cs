@@ -411,10 +411,17 @@ public abstract class Processor
 
   protected void DestroyObject(ServersideQoLZDO zdo)
   {
-    if (!PlacedObjects.Remove(zdo))
+    if (!TryDestroyObject(zdo))
       throw new ArgumentException($"ZDO ({GetPrefabInfo(zdo).PrefabName}) not found in PlacedObjects.");
+  }
+
+  protected bool TryDestroyObject(ServersideQoLZDO zdo)
+  {
+    if (!PlacedObjects.Remove(zdo))
+      return false;
     zdo.Destroyed -= OnPlacedObjectDestroyed;
     zdo.Destroy();
+    return true;
   }
 
   protected static Heightmap GetHeightmap(Vector3 pos) => Heightmap.FindHeightmap(pos) ?? HeightmapUtils.CreateHeightmap(pos);

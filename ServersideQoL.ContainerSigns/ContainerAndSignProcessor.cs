@@ -40,10 +40,10 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
 
   protected override void Initialize()
   {
-    foreach (var zdo in _chestsBySigns.Keys.ToList())
+    foreach (var zdo in _chestsBySigns.Keys)
     {
-      if (zdo.IsModCreator())
-        zdo.Destroy();
+      zdo.Destroyed -= OnAutoSignDestroyed;
+      TryDestroyObject(zdo);
     }
     _signsByChests.Clear();
     _userSignsByChests.Clear();
@@ -367,8 +367,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
     {
       sign.Destroyed -= OnAutoSignDestroyed;
       _chestsBySigns.Remove(sign);
-      if (PlacedObjects.Contains(sign))
-        DestroyObject(sign);
+      TryDestroyObject(sign);
     }
   }
 

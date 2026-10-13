@@ -118,7 +118,13 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   }
 
   static void OnDestroyed(ZDO zdo)
-    => zdo.ServersideQoLZDO._destroyed?.Invoke(zdo.ServersideQoLZDO);
+  {
+    try { zdo.ServersideQoLZDO._destroyed?.Invoke(zdo.ServersideQoLZDO); }
+    catch (Exception ex)
+    {
+      ServersideQoLPlugin.Logger.LogError($"Exception thrown in Destroyed handler of {zdo.ServersideQoLZDO.PrefabInfo?.PrefabName}: {ex}");
+    }
+  }
 
   internal void Unregister(IReadOnlyList<Processor> processors)
   {

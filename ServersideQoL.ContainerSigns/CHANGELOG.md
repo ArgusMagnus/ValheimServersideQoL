@@ -1,3 +1,6 @@
+### v2.3.1
+- Improved compatibility with other mods [#349](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/349)
+
 ### v2.3.0
 - Added option `SignConnectText` to connect user placed signs to chests [#240](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/240)
 - Added option `ManuallyConnectedSignsReplaceAutoSigns` [#268](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/268)
