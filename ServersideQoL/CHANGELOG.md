@@ -1,3 +1,6 @@
+### v2.4.0
+- Compatibility patch
+
 ### v2.3.1
 - Improved compatibility with other mods [#349](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/349)
 
