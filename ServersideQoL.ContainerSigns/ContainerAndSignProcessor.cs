@@ -40,7 +40,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
 
   protected override void Initialize()
   {
-    foreach (var zdo in _chestsBySigns.Keys)
+    foreach (var zdo in _chestsBySigns.Keys.ToList())
     {
       if (zdo.IsModCreator())
         zdo.Destroy();
@@ -160,6 +160,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           sign.Fields<WearNTear>().Set(static () => x => x.m_supports, false);
           //sign.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, true);
           //sign.Destroyed += _ => RPC.Remove(zdo);
+          sign.Destroyed += OnAutoSignDestroyed;
         }
         zdo.Destroyed -= OnChestDestroyed;
         zdo.Destroyed += OnChestDestroyed;
@@ -228,13 +229,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
         };
 
         if (Config.Instance.ManuallyConnectedSignsReplaceAutoSigns.Value && _signsByChests.Remove(chest, out var signs))
-        {
-          foreach (var sign in signs)
-          {
-            _chestsBySigns.Remove(sign);
-            DestroyObject(sign);
-          }
-        }
+          DestroyAutoSigns(signs);
       }
 
       text ??= zdo.Vars.GetText();
@@ -349,17 +344,31 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
   void OnChestDestroyed(ServersideQoLZDO zdo)
   {
     if (_signsByChests.Remove(zdo, out var signs))
-    {
-      foreach (var sign in signs)
-      {
-        _chestsBySigns.Remove(sign);
-        DestroyObject(sign);
-      }
-    }
+      DestroyAutoSigns(signs);
     if (_userSignsByChests.Remove(zdo, out signs))
     {
       foreach (var sign in signs)
         __connectToChest.Remove(sign);
+    }
+  }
+
+  void OnAutoSignDestroyed(ServersideQoLZDO sign)
+  {
+    if (!_chestsBySigns.Remove(sign, out var chest) || !_signsByChests.TryGetValue(chest, out var signs))
+      return;
+    signs.Remove(sign);
+    if (signs.Count is 0)
+      _signsByChests.Remove(chest);
+  }
+
+  void DestroyAutoSigns(List<ServersideQoLZDO> signs)
+  {
+    foreach (var sign in signs)
+    {
+      sign.Destroyed -= OnAutoSignDestroyed;
+      _chestsBySigns.Remove(sign);
+      if (PlacedObjects.Contains(sign))
+        DestroyObject(sign);
     }
   }
 
