@@ -26,7 +26,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
   readonly Dictionary<ServersideQoLZDO, MapTableState> _mapTables = [];
   readonly Dictionary<PlayerID, PlayerState> _playerStates = [];
   readonly HashSet<ServersideQoLZDO> _wards = [];
-  readonly Dictionary<PlayerID, (Peer, PlayerState)> _updateList = [];
+  readonly Dictionary<PlayerID, (Peer Peer, PlayerState PlayerState)> _updateList = [];
   readonly List<Pin> _pins = [];
   readonly HashSet<(Minimap.PinType, string)> _oreDepositPins = [];
   byte[]? _emptyExplored;
@@ -162,7 +162,11 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
           continue;
         if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), peer.RefPos) > _mapTableRangeSqr)
           continue;
-        _updateList.TryAdd(playerID, (peer, playerState));
+        if (!_updateList.TryAdd(playerID, (peer, playerState)))
+        {
+          if (peer.ZNetPeer.m_rpc.GetTimeSinceLastPing() < _updateList[playerID].Peer.ZNetPeer.m_rpc.GetTimeSinceLastPing())
+            _updateList[playerID] = (peer, playerState);
+        }
       }
 
       if (_updateList.Count > 0 || state.LastDataRevision != zdo.ZDO.DataRevision)

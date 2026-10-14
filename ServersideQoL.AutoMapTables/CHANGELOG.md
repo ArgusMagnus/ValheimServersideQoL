@@ -1,3 +1,6 @@
+### v2.3.2
+- Fixed ArgumentException [#354](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/354)
+
 ### v2.2.1
 - Fixed NullReferenceException when all wards in range of a map table are disabled [#334](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/334)
 - Fixed ship positions not being updated
