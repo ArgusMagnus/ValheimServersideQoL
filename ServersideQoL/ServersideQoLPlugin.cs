@@ -915,7 +915,17 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       {
         foreach (var processor in plugin.Processors)
         {
-          if (!processor.InitializePrefabInfoInternal(prefabInfo))
+          bool available;
+          try
+          {
+            available = processor.InitializePrefabInfoInternal(prefabInfo);
+          }
+          catch (Exception ex)
+          {
+            Logger.LogError($"{processor.GetType().FullName} cannot prepare prefab {prefabInfo.PrefabName} ({prefabHash}) and is skipped for it: {ex}");
+            continue;
+          }
+          if (!available)
             continue;
 
           prefabInfo.AvailableProcessors.Add(processor);
