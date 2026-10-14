@@ -699,7 +699,12 @@ public abstract class Processor<TPrefabInfo> : Processor
     var ext = prefabInfo.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>();
     if (ext.PrefabInfo is null)
     {
-      ext.PrefabInfo = CreateProcessorPrefabInfo(prefabInfo);
+      try { ext.PrefabInfo = CreateProcessorPrefabInfo(prefabInfo); }
+      catch(Exception ex)
+      {
+        ServersideQoLPlugin.Logger.LogFatal($"{GetType().FullName}: Exception while creating {typeof(TPrefabInfo).FullName} for {prefabInfo.PrefabName}: {ex}");
+        throw;
+      }
       ext.PrefabInfo?.PrefabInfo = prefabInfo;
     }
     return ext.PrefabInfo is { IsValid: true };
