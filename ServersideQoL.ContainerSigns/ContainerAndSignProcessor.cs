@@ -164,6 +164,8 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
         }
         zdo.Destroyed -= OnChestDestroyed;
         zdo.Destroyed += OnChestDestroyed;
+        zdo.Recreated -= OnChestRecreated;
+        zdo.Recreated += OnChestRecreated;
       }
 
       return result;
@@ -216,6 +218,8 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           _userSignsByChests.Add(chest, list = []);
           chest.Destroyed -= OnChestDestroyed;
           chest.Destroyed += OnChestDestroyed;
+          chest.Recreated -= OnChestRecreated;
+          chest.Recreated += OnChestRecreated;
         }
         list.Add(zdo);
         zdo.Destroyed += zdo =>
@@ -349,6 +353,22 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
     {
       foreach (var sign in signs)
         __connectToChest.Remove(sign);
+    }
+  }
+
+  void OnChestRecreated(ServersideQoLZDO oldChest, ServersideQoLZDO newChest)
+  {
+    if (_signsByChests.Remove(oldChest, out var signs))
+    {
+      _signsByChests[newChest] = signs;
+      foreach (var sign in signs)
+        _chestsBySigns[sign] = newChest;
+    }
+    if (_userSignsByChests.Remove(oldChest, out signs))
+    {
+      _userSignsByChests[newChest] = signs;
+      foreach (var sign in signs)
+        _chestsBySigns[sign] = newChest;
     }
   }
 
