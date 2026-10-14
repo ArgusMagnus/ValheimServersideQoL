@@ -90,6 +90,31 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
     }
   }
 
+  sealed class DebugLogListener : ILogListener
+  {
+    public void LogEvent(object sender, LogEventArgs eventArgs)
+    {
+      if (eventArgs.Level is not LogLevel.None and <= LogLevel.Error)
+        RPC.ShowMessage(ZRoutedRpc.Everybody, MessageHud.MessageType.Center, $"{eventArgs.Level} logged");
+    }
+
+    void IDisposable.Dispose() { }
+  }
+
+  [Conditional("DEBUG")]
+  void SetupDebugLogListener()
+  {
+    Application.logMessageReceived += OnApplicationLogReceived;
+    Application.logMessageReceivedThreaded += OnApplicationLogReceived;
+    BepInEx.Logging.Logger.Listeners.Add(new DebugLogListener());
+
+    static void OnApplicationLogReceived(string condition, string stackTrace, LogType type)
+    {
+      if (type is LogType.Exception or LogType.Error)
+        RPC.ShowMessage(ZRoutedRpc.Everybody, MessageHud.MessageType.Center, $"{type} logged");
+    }
+  }
+
   void Start()
   {
     if (!_patcherSucceeded)
@@ -124,6 +149,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         if (!pluginsInitialized)
         {
           pluginsInitialized = true;
+          SetupDebugLogListener();
           if (!InitializePlugins())
           {
             HarmonyInstance.UnpatchSelf();
@@ -248,7 +274,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
     if (Config.Instance.Language is { } langCfg)
     {
-      Localization.instance.SetLanguage(langCfg.Value);
+      if (langCfg.Value != Localization.instance.GetSelectedLanguage())
+        Localization.instance.SetLanguage(langCfg.Value);
       langCfg.SettingChanged += static (obj, _) => Localization.instance.SetLanguage(((ConfigEntry<string>)obj).Value);
     }
 
@@ -725,9 +752,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       {
         Logger.LogError($"{processor.GetType().Name} threw while processing ZDO ({zdo.PrefabInfo?.PrefabName}), disabling it for this ZDO: {ex}");
         _unregister.Add(processor);
-#if DEBUG
-        RPC.ShowMessage(ZRoutedRpc.Everybody, MessageHud.MessageType.Center, "Processor exception thrown");
-#endif
         continue;
       }
 

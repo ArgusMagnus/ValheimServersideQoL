@@ -265,7 +265,7 @@ public static class RPC
   static void InvokeRoutedRPC(long targetPeerId, RpcName methodName, object[]? parameters = null)
   {
     var methodNameStr = methodName.ToString();
-    if (Config.Instance.DiagnosticLogs.Value)
+    if (Config.IsInitialized && Config.Instance.DiagnosticLogs.Value)
     {
       __invokeCounters.TryGetValue(methodNameStr, out var count);
       __invokeCounters[methodNameStr] = ++count;
@@ -279,7 +279,7 @@ public static class RPC
   internal static void InvokeRoutedRPC(long targetPeerId, ZDOID targetZDO, RpcName methodName, object[]? parameters = null)
   {
     var methodNameStr = methodName.ToString();
-    if (Config.Instance.DiagnosticLogs.Value)
+    if (Config.IsInitialized && Config.Instance.DiagnosticLogs.Value)
     {
       __invokeCounters.TryGetValue(methodNameStr, out var count);
       __invokeCounters[methodNameStr] = ++count;
@@ -295,7 +295,7 @@ public static class RPC
   internal static void InvokeRoutedRPCAsSender(long senderPeerId, long targetPeerID, ZDOID targetZDO, RpcName methodName, object[] parameters)
   {
     var methodNameStr = methodName.ToString();
-    if (Config.Instance.DiagnosticLogs.Value)
+    if (Config.IsInitialized && Config.Instance.DiagnosticLogs.Value)
     {
       __invokeAsSenderCounters.TryGetValue(methodNameStr, out var count);
       __invokeAsSenderCounters[methodNameStr] = ++count;
