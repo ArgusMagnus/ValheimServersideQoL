@@ -33,6 +33,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       ComponentFieldAccessors = default;
       ScheduleBefore = float.NaN;
       _destroyed = default;
+      _recreated = default;
 #if DEBUG
       Debug = default;
 #endif
@@ -52,6 +53,13 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       _destroyed += value;
     }
     remove => _destroyed -= value;
+  }
+
+  Action<ServersideQoLZDO, ServersideQoLZDO>? _recreated;
+  public event Action<ServersideQoLZDO, ServersideQoLZDO>? Recreated
+  {
+    add => _recreated += value;
+    remove => _recreated -= value;
   }
 
   public TPrefabInfo? GetProcessorPrefabInfo<TPrefabInfo>()
@@ -271,7 +279,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     ZDOMan.instance.DestroyZDO(ZDO);
   }
 
-  public ServersideQoLZDO CreateClone(bool cloneProcessors, bool cloneDestroyedHandler)
+  public ServersideQoLZDO CreateClone(bool cloneProcessors, bool cloneEventHandlers)
   {
     var prefab = ZDO.GetPrefab();
     var pos = ZDO.GetPosition();
@@ -292,8 +300,11 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       zdo.ServersideQoLZDO.ExclusivityCheckDone = ExclusivityCheckDone;
       zdo.ServersideQoLZDO.ExclusivelyClaimedBy = ExclusivelyClaimedBy;
     }
-    if (cloneDestroyedHandler)
+    if (cloneEventHandlers)
+    {
       zdo.ServersideQoLZDO._destroyed = _destroyed;
+      zdo.ServersideQoLZDO._recreated = _recreated;
+    }
     return zdo.ServersideQoLZDO;
   }
 
@@ -302,7 +313,11 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     var zdo = CreateClone(true, true);
 
     // Call before Destroy and thus before ZDOMan.instance.m_onZDODestroyed
-    //_addData?.Recreated?.Invoke(this, zdo);
+    try { _recreated?.Invoke(this, zdo); }
+    catch (Exception ex)
+    {
+      ServersideQoLPlugin.Logger.LogError($"Exception thrown in Recreated handler of {PrefabInfo?.PrefabName}: {ex}");
+    }
 
     if (PrefabInfo is { ReleaseOwnershipOnRecreate: true })
       zdo.ReleaseOwnershipInternal(); // required for physics to work again
