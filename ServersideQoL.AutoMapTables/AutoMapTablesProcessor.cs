@@ -162,7 +162,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
           continue;
         if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), peer.RefPos) > _mapTableRangeSqr)
           continue;
-        _updateList.Add(playerID, (peer, playerState));
+        _updateList.TryAdd(playerID, (peer, playerState));
       }
 
       if (_updateList.Count > 0 || state.LastDataRevision != zdo.ZDO.DataRevision)
