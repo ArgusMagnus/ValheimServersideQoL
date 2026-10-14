@@ -36,6 +36,18 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public ConfigEntry<string>? Language { get; } = !ZNet.instance.IsDedicated() ? null : BindEx(cfg, Localization.instance.GetSelectedLanguage(),
     "The language used for item names, etc.", new AcceptableValueList<string>([.. Localization.instance.GetLanguages()]));
 
+  public ConfigEntry<MessageRecipients> CheckLogMessageRecipients { get; } = BindEx(cfg, MessageRecipients.Noone,
+    "Which players should receive in-game messages to check the server log when an error is logged");
+  public ConfigEntry<MessageHud.MessageType> CheckLogMessageType { get; } = BindEx(cfg, MessageHud.MessageType.Center,
+    "The message type shown to players");
+
+  public enum MessageRecipients
+  {
+    Noone,
+    Admins,
+    Everybody
+  }
+
   public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
 
   public sealed class AdvancedConfig

@@ -90,31 +90,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
     }
   }
 
-  sealed class DebugLogListener : ILogListener
-  {
-    public void LogEvent(object sender, LogEventArgs eventArgs)
-    {
-      if (eventArgs.Level is not LogLevel.None and <= LogLevel.Error)
-        RPC.ShowMessage(ZRoutedRpc.Everybody, MessageHud.MessageType.Center, $"{eventArgs.Level} logged");
-    }
-
-    void IDisposable.Dispose() { }
-  }
-
-  [Conditional("DEBUG")]
-  void SetupDebugLogListener()
-  {
-    Application.logMessageReceived += OnApplicationLogReceived;
-    Application.logMessageReceivedThreaded += OnApplicationLogReceived;
-    BepInEx.Logging.Logger.Listeners.Add(new DebugLogListener());
-
-    static void OnApplicationLogReceived(string condition, string stackTrace, LogType type)
-    {
-      if (type is LogType.Exception or LogType.Error)
-        RPC.ShowMessage(ZRoutedRpc.Everybody, MessageHud.MessageType.Center, $"{type} logged");
-    }
-  }
-
   void Start()
   {
     if (!_patcherSucceeded)
@@ -149,7 +124,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         if (!pluginsInitialized)
         {
           pluginsInitialized = true;
-          SetupDebugLogListener();
           if (!InitializePlugins())
           {
             HarmonyInstance.UnpatchSelf();
@@ -256,6 +230,17 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         __plugins.Remove(plugin);
     }
 
+
+    if (Config.Language is { } langCfg)
+    {
+      if (langCfg.Value != Localization.instance.GetSelectedLanguage())
+        Localization.instance.SetLanguage(langCfg.Value);
+      langCfg.SettingChanged += static (obj, _) => Localization.instance.SetLanguage(((ConfigEntry<string>)obj).Value);
+    }
+
+    OnCheckLogMessageRecipientsChanged(Config.CheckLogMessageRecipients, EventArgs.Empty);
+    Config.CheckLogMessageRecipients.SettingChanged += OnCheckLogMessageRecipientsChanged;
+
     if (!prefabInfoBuilder.HasInterfaces)
     {
       Logger.LogWarning("No plugins registered");
@@ -272,14 +257,58 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
     _prefabInfoFactory = prefabInfoBuilder.GetFactory();
 
-    if (Config.Instance.Language is { } langCfg)
+    return true;
+  }
+
+  void OnCheckLogMessageRecipientsChanged(object sender, EventArgs e)
+  {
+    var cfg = (ConfigEntry<Config.MessageRecipients>)sender;
+
+    Application.logMessageReceived -= OnApplicationLogReceived;
+    Application.logMessageReceivedThreaded -= OnApplicationLogReceived;
+    BepInEx.Logging.Logger.Listeners.Remove(PlayerMessageLogListener.Instance);
+
+    if (cfg.Value is Config.MessageRecipients.Noone)
+      return;
+
+    Application.logMessageReceived += OnApplicationLogReceived;
+    Application.logMessageReceivedThreaded += OnApplicationLogReceived;
+    BepInEx.Logging.Logger.Listeners.Add(PlayerMessageLogListener.Instance);
+
+    static void OnApplicationLogReceived(string condition, string stackTrace, LogType type)
     {
-      if (langCfg.Value != Localization.instance.GetSelectedLanguage())
-        Localization.instance.SetLanguage(langCfg.Value);
-      langCfg.SettingChanged += static (obj, _) => Localization.instance.SetLanguage(((ConfigEntry<string>)obj).Value);
+      if (type is LogType.Exception or LogType.Error)
+        SendCheckLogMessages(type);
+    }
+  }
+
+  sealed class PlayerMessageLogListener : ILogListener
+  {
+    public static PlayerMessageLogListener Instance => field ??= new();
+    private PlayerMessageLogListener() { }
+
+    public void LogEvent(object sender, LogEventArgs eventArgs)
+    {
+      if (eventArgs.Level is not LogLevel.None and <= LogLevel.Error)
+        SendCheckLogMessages(eventArgs.Level);
     }
 
-    return true;
+    void IDisposable.Dispose() { }
+  }
+
+  static void SendCheckLogMessages<T>(T logLevel)
+    where T : unmanaged, Enum
+  {
+    if (Config.Instance.CheckLogMessageRecipients.Value is Config.MessageRecipients.Everybody)
+      RPC.ShowMessage(ZRoutedRpc.Everybody, Config.Instance.CheckLogMessageType.Value, $"{logLevel} logged, check server log");
+    else
+    {
+      foreach (var peer in ZNet.instance.GetPeers())
+      {
+        if (peer.m_server || ZNet.instance.IsAdmin(peer.m_socket.GetHostName()))
+          RPC.ShowMessage(peer.m_uid, Config.Instance.CheckLogMessageType.Value, $"{logLevel} logged, check server log");
+      }
+    }
   }
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
