@@ -7,4 +7,5 @@
 |InitialBackpackSlots|4||Initial available slots in the backpack|
 |AdditionalBackpackSlotsPerDefeatedBoss|4||Additional backpack slots per defeated boss|
 |MaxBackpackWeight|-1||Maximum backpack weight. -1 for no limit.|
+|AdditionalMaxBackpackWeightPerDefeatedBoss|0||Additional maximum backpack weight per defeated boss|
 |BackpackOnDeath|SameAsInventory|One of SameAsInventory, Keep, Destroy, DropTombStone, DropItems|What happens to backpack contents on player death|

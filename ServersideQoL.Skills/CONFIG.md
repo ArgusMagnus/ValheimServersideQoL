@@ -22,6 +22,8 @@
 |------|-------------|-----------------|-----------|
 |AreaRepairRangeAtMinSkill|0||The range around a repaired build piece in which other build pieces will be repaired as well at crafting skill level 0. <br>The actual range scales linearly between this value and AreaRepairRangeAtMaxSkill with skill level. <br>Set both of these values to 0 to disable this feature.|
 |AreaRepairRangeAtMaxSkill|4||The range around a repaired build piece in which other build pieces will be repaired as well at crafting skill level 100. <br>The actual range scales linearly between this value and AreaRepairRangeAtMinSkill with skill level. <br>Set both of these values to 0 to disable this feature.|
+|HealthMultiplierAtMinSkill|1||The factor applied to a build piece's health at crafting skill level 0. <br>The actual factor scales linearly between this value and HealthMultiplierAtMaxSkill with skill level. <br>Set both of these values to 0 to disable this feature.|
+|HealthMultiplierAtMaxSkill|4||The factor applied to a build piece's health at crafting skill level 0. <br>The actual factor scales linearly between this value and HealthMultiplierAtMinSkill with skill level. <br>Set both of these values to 0 to disable this feature.|
 </details>
 <details open><summary><b>Pickaxe</b></summary>
 
