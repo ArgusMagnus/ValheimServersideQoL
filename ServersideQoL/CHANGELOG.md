@@ -1,6 +1,9 @@
 ### v2.4.0
 - Compatibility patch
 
+### v2.3.3
+- Added `ServersideQoLZDO.Recreated` event [#356](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/356)
+
 ### v2.3.2
 - Log exception thrown while creating ProcessorPrefabInfo [#353](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/353)
 

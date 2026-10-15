@@ -1,3 +1,6 @@
+### v2.3.3
+- Fixed disappearing signs on growing/shrinking chests [#355](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/355) [#356](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/356)
+
 ### v2.3.1
 - Improved compatibility with other mods [#349](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/349)
 
@@ -11,7 +14,7 @@
 
 ### v2.1.0
 - Added support for option `AutoPickupRangeSignPrefix` in AutoStore and `FeedFromContainersRangeSignPrefix` in AutoProcess [#270](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/270) 
-- Fixed issue with range config emoji ↔️ on some platforms [#273](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/273) (contributed by [Lempac](https://github.com/Lempac))
+- Fixed issue with range config emoji ↔️ on some platforms [#273](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/273)
 
 ### v2.0.11
 - Moved `FeedFromContainersMaxRange` config option from ContainerSigns to AutoProcess

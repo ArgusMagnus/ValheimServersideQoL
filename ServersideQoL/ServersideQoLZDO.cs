@@ -33,7 +33,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       ComponentFieldAccessors = default;
       ScheduleBefore = float.NaN;
       _destroyed = default;
-      _recreated = default;
+      Recreated = default;
 #if DEBUG
       Debug = default;
 #endif
@@ -55,12 +55,8 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     remove => _destroyed -= value;
   }
 
-  Action<ServersideQoLZDO, ServersideQoLZDO>? _recreated;
-  public event Action<ServersideQoLZDO, ServersideQoLZDO>? Recreated
-  {
-    add => _recreated += value;
-    remove => _recreated -= value;
-  }
+  public delegate void RecreatedHandler(ServersideQoLZDO oldZdo, ServersideQoLZDO newZdo);
+  public event RecreatedHandler? Recreated;
 
   public TPrefabInfo? GetProcessorPrefabInfo<TPrefabInfo>()
       where TPrefabInfo : notnull, ProcessorPrefabInfo
@@ -130,7 +126,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     try { zdo.ServersideQoLZDO._destroyed?.Invoke(zdo.ServersideQoLZDO); }
     catch (Exception ex)
     {
-      ServersideQoLPlugin.Logger.LogError($"Exception thrown in Destroyed handler of {zdo.ServersideQoLZDO.PrefabInfo?.PrefabName}: {ex}");
+      ServersideQoLPlugin.Logger.LogError($"Exception thrown in {nameof(Destroyed)} handler of {zdo.ServersideQoLZDO.PrefabInfo?.PrefabName}: {ex}");
     }
   }
 
@@ -303,7 +299,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     if (cloneEventHandlers)
     {
       zdo.ServersideQoLZDO._destroyed = _destroyed;
-      zdo.ServersideQoLZDO._recreated = _recreated;
+      zdo.ServersideQoLZDO.Recreated = Recreated;
     }
     return zdo.ServersideQoLZDO;
   }
@@ -313,10 +309,10 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     var zdo = CreateClone(true, true);
 
     // Call before Destroy and thus before ZDOMan.instance.m_onZDODestroyed
-    try { _recreated?.Invoke(this, zdo); }
+    try { Recreated?.Invoke(this, zdo); }
     catch (Exception ex)
     {
-      ServersideQoLPlugin.Logger.LogError($"Exception thrown in Recreated handler of {PrefabInfo?.PrefabName}: {ex}");
+      ServersideQoLPlugin.Logger.LogError($"Exception thrown in {nameof(Recreated)} handler of {PrefabInfo?.PrefabName}: {ex}");
     }
 
     if (PrefabInfo is { ReleaseOwnershipOnRecreate: true })
