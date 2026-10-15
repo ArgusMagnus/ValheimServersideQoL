@@ -19,10 +19,11 @@ partial class ServersideQoLZDO
       if (!ServersideQoLPlugin.Instance.Config.DiagnosticLogs.Value)
         return;
 #endif
-      //if (_zdo.PrefabInfo.Container is null || _zdo.IsOwnerOrUnassigned() || _zdo.IsModCreator())
-      //    return;
+      var zdo = _zdo.ServersideQoLZDO;
+      if (zdo.PrefabInfo is not { } prefabInfo || !prefabInfo.HasComponent<Container>() || zdo.IsOwnerOrUnassigned() || zdo.IsModCreator())
+        return;
 
-      //Main.Instance.Logger.LogWarning($"{Path.GetFileName(filePath)} L{lineNo}: Container was modified while it is owned by a client, which can lead to the loss of items.");
+      ServersideQoLPlugin.Logger.LogWarning($"{Path.GetFileName(filePath)} L{lineNo}: Container was modified while it is owned by a client, which can lead to the loss of items.");
     }
 
     public int GetState(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_state, defaultValue);
