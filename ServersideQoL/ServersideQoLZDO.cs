@@ -288,20 +288,21 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     SingletonCache<ZPackage>.Instance.SetPos(0);
     zdo.Deserialize(SingletonCache<ZPackage>.Instance);
     zdo.SetOwnerInternal(owner);
-    zdo.ServersideQoLZDO.PrefabInfo = PrefabInfo;
+    var szdo = zdo.ServersideQoLZDO;
+    szdo.PrefabInfo = PrefabInfo;
     if (cloneProcessors)
     {
-      zdo.ServersideQoLZDO.Processors = Processors;
-      zdo.ServersideQoLZDO.HasProcessors = HasProcessors;
-      zdo.ServersideQoLZDO.ExclusivityCheckDone = ExclusivityCheckDone;
-      zdo.ServersideQoLZDO.ExclusivelyClaimedBy = ExclusivelyClaimedBy;
+      szdo.Processors = Processors;
+      szdo.HasProcessors = HasProcessors;
+      szdo.ExclusivityCheckDone = ExclusivityCheckDone;
+      szdo.ExclusivelyClaimedBy = ExclusivelyClaimedBy;
     }
     if (cloneEventHandlers)
     {
-      zdo.ServersideQoLZDO._destroyed = _destroyed;
-      zdo.ServersideQoLZDO.Recreated = Recreated;
+      szdo._destroyed = _destroyed;
+      szdo.Recreated = Recreated;
     }
-    return zdo.ServersideQoLZDO;
+    return szdo;
   }
 
   public ServersideQoLZDO Recreate()
