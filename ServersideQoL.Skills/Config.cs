@@ -152,7 +152,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       "Min skill level required to allow the summoning of new hostile summons (such as summoned trolls) to replace older ones when the limit exceeded");
   }
 
-  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
+  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg, static x => x.OnChanged());
 
   public sealed class AdvancedConfig
   {
@@ -162,12 +162,28 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       public int MaxDestroyedRockPartsAtOnce { get; init; } = 5;
     }
 
+    public CraftingConfig Crafting { get; init; } = new();
+    public sealed class CraftingConfig
+    {
+      public AreaRepairConfig AreaRepair { get; init; } = new();
+      public sealed class AreaRepairConfig
+      {
+        public float IgnoreRepairedForSeconds { get; set; } = 10;
+        public float MaxRepairedAtOnce { get; init; } = 200;
+      }
+    }
+
     public BloodMagicConfig BloodMagic { get; init; } = new();
     public sealed class BloodMagicConfig
     {
       public sealed record FollowSummonerConfig(float MoveInterval, float MaxDistance) { FollowSummonerConfig() : this(default, default) { } }
 
       public FollowSummonerConfig FollowSummoners { get; init; } = new(4, 20);
+    }
+
+    internal void OnChanged()
+    {
+      Crafting.AreaRepair.IgnoreRepairedForSeconds = Mathf.Max(4, Crafting.AreaRepair.IgnoreRepairedForSeconds);
     }
   }
 }

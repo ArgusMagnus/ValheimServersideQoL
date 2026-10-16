@@ -76,7 +76,8 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
       if (zdo.Fields<WearNTear>().UpdateValue(static () => x => x.m_health, GetMaxHealth(skill, prefabInfo)))
       {
         zdo.Vars.RemoveHealth();
-        zdo.Recreate().ReregisterAll();
+        zdo = zdo.Recreate();
+        _pieces?.TryAdd(zdo);
       }
     }
 
@@ -86,7 +87,8 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
     //if (playerState.LastUsedItem is not { m_itemData.m_shared.m_skillType: global::Skills.SkillType.Crafting })
     //  return;
 
-    if (Timestamp.Now > _clearIgnoredAfter)
+    var now = Timestamp.Now;
+    if (now > _clearIgnoredAfter)
       _ignore.Clear();
     else if (_ignore.Remove(zdo))
       return;
@@ -97,14 +99,20 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
     rangeSqr *= rangeSqr;
 
     var pos = zdo.ZDO.GetPosition();
+    var count = 0;
     foreach (var pieces in _pieces.EnumerateAdjacent(pos))
     {
       foreach (var piece in pieces)
       {
-        if (piece == zdo || Utils.DistanceSqr(pos, piece.ZDO.GetPosition()) > rangeSqr)
+        if (piece == zdo || Utils.DistanceSqr(pos, piece.ZDO.GetPosition()) > rangeSqr || piece.Vars.GetHealth() >= piece.Fields<WearNTear>().GetFloat(static () => x => x.m_health))
           continue;
+        if (++count > Config.Instance.Advanced.Value.Crafting.AreaRepair.MaxRepairedAtOnce)
+        {
+          Logger.LogWarning($"AreaRepair exceeded max piece count ({Config.Instance.Advanced.Value.Crafting.AreaRepair.MaxRepairedAtOnce}) and is aborted. Player: {playerState.PlayerName}, Skill: {skill * 100:F0}, Range: {Mathf.Sqrt(rangeSqr)}");
+          return;
+        }
         _ignore.Add(piece);
-        _clearIgnoredAfter = Timestamp.Now.AddSeconds(2);
+        _clearIgnoredAfter = now.AddSeconds(Config.Instance.Advanced.Value.Crafting.AreaRepair.IgnoreRepairedForSeconds);
         piece.RPC.WearNTear.Repair();
       }
     }
