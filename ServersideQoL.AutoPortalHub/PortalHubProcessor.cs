@@ -9,9 +9,10 @@ namespace ServersideQoL.AutoPortalHub;
 [DependsOn<PlayerRegistryProcessor>]
 public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo>
 {
-  public sealed record PrefabInfo(TeleportWorld? TeleportWorld, Sign? Sign) : ProcessorPrefabInfo;
+  public sealed record PrefabInfo(TeleportWorld? TeleportWorld, Sign? Sign, Player? Player) : ProcessorPrefabInfo;
 
   readonly Dictionary<ServersideQoLZDO, PortalState> _knownPortals = [];
+  readonly Dictionary<ServersideQoLZDO, PlayerState> _playerStates = [];
   readonly IReadOnlyList<int> _torchPrefabs = [Prefabs.StandingIronTorch, Prefabs.StandingIronTorchBlue, Prefabs.StandingIronTorchGreen];
   bool _hubEnabled;
   float _hubRadius = 0;
@@ -85,7 +86,31 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
     if (!_hubEnabled)
       return ProcessResult.UnregisterProcessor;
 
-    if (prefabInfo.Sign is not null && PlacedObjects.Contains(zdo))
+    if (prefabInfo.Player is not null)
+    {
+      const float WaterEdgeSqr = WorldGenerator.waterEdge * WorldGenerator.waterEdge;
+      var pos = zdo.ZDO.GetPosition();
+      if (pos.sqrMagnitude < WaterEdgeSqr)
+      {
+        if (!_playerStates.TryGetValue(zdo, out var state))
+        {
+          _playerStates.Add(zdo, state = new());
+          zdo.Destroyed += zdo => _playerStates.Remove(zdo);
+        }
+        state.LastPosition = pos;
+        state.LastRoration = zdo.ZDO.GetRotation();
+        state.SaveCounter = 0;
+      }
+      else if (pos.y < _offset.y - 4 && Utils.ChebyshevDistance(_offset, pos) < Mathf.Max(ZoneSystem.c_ZoneSize, 2 * _lastHubWidth * 4) && _playerStates.TryGetValue(zdo, out var state))
+      {
+        if (++state.SaveCounter <= 3)
+          zdo.RPC.Player.TeleportTo(_offset with { y = _offset.y + 2 }, zdo.ZDO.GetRotation(), false);
+        else
+          zdo.RPC.Player.TeleportTo(state.LastPosition, state.LastRoration, true);
+      }
+      return default;
+    }
+    else if (prefabInfo.Sign is not null && PlacedObjects.Contains(zdo))
     {
       var (portal, state) = _knownPortals.FirstOrDefault(x => x.Value.HubSign == zdo);
       if (state is not null && zdo.Vars.GetText().RemoveRichTextTags() is { } tag && state.Tag != tag)
@@ -432,5 +457,12 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
     public required bool AllowAllItems { get; init; }
     public ServersideQoLZDO? HubPortal { get; set; }
     public ServersideQoLZDO? HubSign { get; set; }
+  }
+
+  sealed class PlayerState
+  {
+    public Vector3 LastPosition { get; set; }
+    public Quaternion LastRoration { get; set; }
+    public int SaveCounter { get; set; }
   }
 }

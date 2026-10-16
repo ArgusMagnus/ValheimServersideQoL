@@ -1,3 +1,6 @@
+### v2.4.0
+- Added safety net for cases where players landed outside or fell through the portal hub [#359](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/359)
+
 ### v2.1.0
 - Added option `SignVerticalOffset` in `ArgusMagnus.{PluginName}.Advanced.yml` that controls the vertical offset of signs in the portal hub [#289](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/289)
 
