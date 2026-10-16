@@ -14,6 +14,8 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
   readonly Dictionary<long, PlayerStateImpl> _statesByPeerID = [];
   readonly Dictionary<PlayerID, PlayerStateImpl> _statesByPlayerID = [];
   readonly Dictionary<ZDOID, PlayerStateImpl> _statesByCharacterID = [];
+  readonly Dictionary<string, int> _itemSetCounts = [];
+  readonly HashSet<StatusEffect> _statusEffects = [];
   readonly HashSet<(string, int)> _estimateSkillLevelsFor = [];
   bool _estimateSkillLevels = false;
 
@@ -106,12 +108,61 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
     {
       var usesEitr = state.CheckSkillItem.m_itemData.m_shared.m_attack.m_attackEitr > 0;
       var staminaOrEitr = usesEitr ? zdo.Vars.GetEitr() : zdo.Vars.GetStamina();
-
-      if (staminaOrEitr < state.CheckSkillStaminaEitr)
+      var rate = usesEitr ? Game.m_eitrRate : Game.m_staminaRate;
+      if (rate <= 0)
+        Logger.LogDiagnosticWarning($"{(usesEitr ? "Eitr" : "Stamina")} using skills cannot be estimated when {(usesEitr ? GlobalKeys.EitrRate : GlobalKeys.StaminaRate)} = 0");
+      else if (staminaOrEitr < state.CheckSkillStaminaEitr)
       {
+        /// <see cref="Attack.GetAttackStamina()"/>
+        /// todo: account for non-equipment effects (e.g. potions)
         var shared = state.CheckSkillItem.m_itemData.m_shared;
+
         var max = usesEitr ? shared.m_attack.m_attackEitr : shared.m_attack.m_attackStamina;
+        if (!usesEitr)
+        {
+          /// <see cref="ItemDrop.ItemData.SharedData.m_setStatusEffect"/>
+          /// <see cref="ItemDrop.ItemData.SharedData.m_equipStatusEffect"/>
+          /// <see cref="SEMan.ModifyAttackStaminaUsage(float, ref float, bool)"/>
+          var seModifier = 0f;
+          var eqModifier = 0f;
+          foreach (var slot in SQoLEnumUtils<EquipmemtSlots>.Values)
+          {
+            var itemHash = zdo.Vars.GetEquippedItemHash(slot);
+            if (itemHash is 0 || !ObjectDB.instance.TryGetItemPrefab(itemHash, out var prefab) || prefab.GetComponent<ItemDrop>()?.m_itemData.m_shared is not { } itemData)
+              continue;
+
+            eqModifier += shared.m_attack.m_isHomeItem ? itemData.m_homeItemsStaminaModifier : itemData.m_attackStaminaModifier;
+
+            if (itemData.m_equipStatusEffect is SE_Stats seStats && _statusEffects.Add(seStats))
+              seModifier += seStats.m_attackStaminaUseModifier;
+            if (itemData.m_setStatusEffect is not SE_Stats seStats2 || string.IsNullOrEmpty(itemData.m_setName))
+              continue;
+
+            if (!_itemSetCounts.TryGetValue(itemData.m_setName, out var counter))
+              _itemSetCounts.Add(itemData.m_setName, counter = 1);
+            else
+              counter++;
+            if (counter >= itemData.m_setSize)
+            {
+              if (_statusEffects.Add(seStats2))
+                seModifier += seStats2.m_attackStaminaUseModifier;
+              counter = int.MinValue;
+            }
+            if (counter is not 1)
+              _itemSetCounts[itemData.m_setName] = counter;
+          }
+          _itemSetCounts.Clear();
+          _statusEffects.Clear();
+
+          max *= 1f + eqModifier;
+          max *= 1f + seModifier;
+        }
+
         var eff = state.CheckSkillStaminaEitr - staminaOrEitr;
+        eff /= rate;
+        if (!usesEitr && shared.m_attack.m_staminaReturnPerMissingHP > 0)
+          eff += (zdo.Vars.GetMaxHealth() - zdo.Vars.GetHealth()) * shared.m_attack.m_staminaReturnPerMissingHP;
+
         var diff = max - eff;
         var estSkill = diff / (max * 0.33f);
         if (estSkill is >= 0f and <= 1f)
