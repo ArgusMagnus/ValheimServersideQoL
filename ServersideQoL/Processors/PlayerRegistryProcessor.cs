@@ -194,8 +194,8 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
 
           state.EstimatedSkillLevels[shared.m_skillType] = estSkill;
           SetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, estSkill);
-          var intSkill = Mathf.Floor(estSkill * 100);
-          var intPrevSkill = Mathf.Floor(prevEstSkill * 100);
+          var intSkill = Mathf.FloorToInt(estSkill * 100);
+          var intPrevSkill = Mathf.FloorToInt(prevEstSkill * 100);
           if (intSkill != intPrevSkill)
             Logger.Log(intSkill - intPrevSkill > 1f ? LogLevel.Warning : LogLevel.Info, $"Player {state.PlayerName}: Estimated {shared.m_skillType} skill level: {intSkill}, Previous estimate: {intPrevSkill} (Item: {state.CheckSkillItem.name}, max stamina: {max}, used stamina: {eff})");
         }
