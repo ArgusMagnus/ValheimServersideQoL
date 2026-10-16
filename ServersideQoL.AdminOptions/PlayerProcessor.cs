@@ -3,6 +3,7 @@ using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using static ServersideQoL.ServersideQoLZDO.ZDOVars;
 
 namespace ServersideQoL.AdminOptions;
 
@@ -48,14 +49,14 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
       var now = Timestamp.Now;
 
       if (state.NextBuildModifierMessage == default || (
-          state.BuildModifiers != default && state.NextBuildModifierMessage < now && zdo.Vars.GetRightItem() == Prefabs.Hammer))
+          state.BuildModifiers != default && state.NextBuildModifierMessage < now && zdo.Vars.GetEquippedItemHash(EquipmemtSlots.HandRight) == Prefabs.Hammer))
       {
         state.NextBuildModifierMessage = now.AddSeconds(4);
         RPC.ShowMessage(state.PlayerState.Owner, MessageHud.MessageType.TopLeft, $"Build modifiers: {state.BuildModifiers}");
       }
 
       if (state.NextLevelGroundModeMessage == default || (
-          state.LevelGroundMode != default && state.NextLevelGroundModeMessage < now && zdo.Vars.GetRightItem() == Prefabs.Hoe))
+          state.LevelGroundMode != default && state.NextLevelGroundModeMessage < now && zdo.Vars.GetEquippedItemHash(EquipmemtSlots.HandRight) == Prefabs.Hoe))
       {
         state.NextLevelGroundModeMessage = now.AddSeconds(4);
         RPC.ShowMessage(state.PlayerState.Owner, MessageHud.MessageType.TopLeft, $"Level ground mode: {state.LevelGroundMode}");

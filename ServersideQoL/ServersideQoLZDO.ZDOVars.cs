@@ -51,8 +51,11 @@ partial class ServersideQoLZDO
     public void SetPlayerName(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_playerName, value); }
     public string GetFollow(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_follow, defaultValue);
     public void SetFollow(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_follow, value); }
+    [Obsolete($"Use {nameof(GetEquippedItemHash)} instead", true)]
     public int GetRightItem(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_rightItem, defaultValue);
+    [Obsolete($"Use {nameof(GetEquippedItemHash)} instead", true)]
     public int GetLeftItem(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_leftItem, defaultValue);
+    [Obsolete($"Use {nameof(GetEquippedItemHash)} instead", true)]
     public int GetUtilityItem(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_utilityItem, defaultValue);
     public string GetText(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_text, defaultValue);
     public void SetText(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_text, value); }
@@ -80,6 +83,7 @@ partial class ServersideQoLZDO
     public void SetStartTime(DateTime value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_startTime, value.Ticks); }
     public DateTime GetPlantTime(DateTime defaultValue = default) => new(_zdo.GetLong(global::ZDOVars.s_plantTime, defaultValue.Ticks));
     public float GetHealth(float defaultValue = default) => _zdo.GetFloat(global::ZDOVars.s_health, defaultValue);
+    public float GetMaxHealth(float defaultValue = default) => _zdo.GetFloat(global::ZDOVars.s_maxHealth, defaultValue);
     public void SetHealth(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_health, value); }
     public string GetHealthString(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_health, defaultValue);
     public void SetHealth(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_health, value); }
@@ -126,6 +130,66 @@ partial class ServersideQoLZDO
     public void SetDropHash(int index, int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(Invariant($"drop_hash{index}"), value); }
     public int GetDropAmount(int index, int defaultValue = default) => _zdo.GetInt(Invariant($"drop_amount{index}"), defaultValue);
     public void SetDropAmount(int index, int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(Invariant($"drop_amount{index}"), value); }
+
+    /// <see cref="Player.UpdateModifiers()"/> <see cref="VisEquipment.SetItem"/>
+    public enum EquipmemtSlots
+    {
+      HandLeft,
+      HandRight,
+      //BackLeft, not sure what these are used for
+      //BackRight,
+      Chest,
+      Legs,
+      Helmet,
+      Shoulder,
+      Utility,
+      Trinket
+    }
+
+    public int GetEquippedItemHash(EquipmemtSlots slot, int defaultValue = default) => slot switch
+    {
+      EquipmemtSlots.HandLeft => _zdo.GetInt(global::ZDOVars.s_leftItem, defaultValue),
+      EquipmemtSlots.HandRight => _zdo.GetInt(global::ZDOVars.s_rightItem, defaultValue),
+      //EquipmemtSlots.BackLeft => _zdo.GetInt(global::ZDOVars.s_leftBackItem, defaultValue),
+      //EquipmemtSlots.BackRight => _zdo.GetInt(global::ZDOVars.s_rightBackItem, defaultValue),
+      EquipmemtSlots.Chest => _zdo.GetInt(global::ZDOVars.s_chestItem, defaultValue),
+      EquipmemtSlots.Legs => _zdo.GetInt(global::ZDOVars.s_legItem, defaultValue),
+      EquipmemtSlots.Helmet => _zdo.GetInt(global::ZDOVars.s_helmetItem, defaultValue),
+      EquipmemtSlots.Shoulder => _zdo.GetInt(global::ZDOVars.s_shoulderItem, defaultValue),
+      EquipmemtSlots.Utility => _zdo.GetInt(global::ZDOVars.s_utilityItem, defaultValue),
+      EquipmemtSlots.Trinket => _zdo.GetInt(global::ZDOVars.s_trinketItem, defaultValue),
+      _ => throw new ArgumentOutOfRangeException(nameof(slot))
+    };
+
+    public int GetEquippedItemVariant(EquipmemtSlots slot, int defaultValue = default) => slot switch
+    {
+      EquipmemtSlots.HandLeft => _zdo.GetInt(global::ZDOVars.s_leftItemVariant, defaultValue),
+      //EquipmemtSlots.HandRight => _zdo.GetInt(global::ZDOVars.s_rightItemVariant, defaultValue),
+      //EquipmemtSlots.BackLeft => _zdo.GetInt(global::ZDOVars.s_leftBackItemVariant, defaultValue),
+      //EquipmemtSlots.BackRight => _zdo.GetInt(global::ZDOVars.s_rightBackItemVariant, defaultValue),
+      //EquipmemtSlots.Chest => _zdo.GetInt(global::ZDOVars.s_chestItemVariant, defaultValue),
+      //EquipmemtSlots.Legs => _zdo.GetInt(global::ZDOVars.s_legItemVariant, defaultValue),
+      //EquipmemtSlots.Helmet => _zdo.GetInt(global::ZDOVars.s_helmetItemVariant, defaultValue),
+      EquipmemtSlots.Shoulder => _zdo.GetInt(global::ZDOVars.s_shoulderItemVariant, defaultValue),
+      //EquipmemtSlots.Utility => _zdo.GetInt(global::ZDOVars.s_utilityItemVariant, defaultValue),
+      //EquipmemtSlots.Trinket => _zdo.GetInt(global::ZDOVars.s_trinketItemVariant, defaultValue),
+      _ => throw new ArgumentOutOfRangeException(nameof(slot))
+    };
+
+    public int GetEquippedItemQuality(EquipmemtSlots slot, int defaultValue = default) => slot switch
+    {
+      EquipmemtSlots.HandLeft => _zdo.GetInt(global::ZDOVars.s_leftItemQuality, defaultValue),
+      EquipmemtSlots.HandRight => _zdo.GetInt(global::ZDOVars.s_rightItemQuality, defaultValue),
+      //EquipmemtSlots.BackLeft => _zdo.GetInt(global::ZDOVars.s_leftBackItemQuality, defaultValue),
+      //EquipmemtSlots.BackRight => _zdo.GetInt(global::ZDOVars.s_rightBackItemQuality, defaultValue),
+      //EquipmemtSlots.Chest => _zdo.GetInt(global::ZDOVars.s_chestItemQuality, defaultValue),
+      //EquipmemtSlots.Legs => _zdo.GetInt(global::ZDOVars.s_legItemQuality, defaultValue),
+      //EquipmemtSlots.Helmet => _zdo.GetInt(global::ZDOVars.s_helmetItemQuality, defaultValue),
+      EquipmemtSlots.Shoulder => _zdo.GetInt(global::ZDOVars.s_shoulderItemQuality, defaultValue),
+      //EquipmemtSlots.Utility => _zdo.GetInt(global::ZDOVars.s_utilityItemQuality, defaultValue),
+      //EquipmemtSlots.Trinket => _zdo.GetInt(global::ZDOVars.s_trinketItemQuality, defaultValue),
+      _ => throw new ArgumentOutOfRangeException(nameof(slot))
+    };
 
 #if DEBUG
     static readonly IReadOnlyDictionary<int, string> __namesByHash = new Func<IReadOnlyDictionary<int, string>>(static () =>

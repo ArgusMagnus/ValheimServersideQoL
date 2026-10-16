@@ -6,6 +6,7 @@ using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
+using static ServersideQoL.ServersideQoLZDO.ZDOVars;
 
 namespace ServersideQoL.Backpack;
 
@@ -139,7 +140,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
           else
           {
             var w0 = 300f;
-            if (state.PlayerState.ZDO.Vars.GetUtilityItem() == Prefabs.Megingjord || (state.HasMegingjordEffect ??= _hasMegingjordEffect?.Invoke(state.PlayerState.PlayerID) is true))
+            if (state.PlayerState.ZDO.Vars.GetEquippedItemHash(EquipmemtSlots.Utility) == Prefabs.Megingjord || (state.HasMegingjordEffect ??= _hasMegingjordEffect?.Invoke(state.PlayerState.PlayerID) is true))
               w0 += 150;
             if (!ZoneSystem.instance.GetGlobalKey(GlobalKeys.CarryWeightRate, out float rate))
               rate = 100;

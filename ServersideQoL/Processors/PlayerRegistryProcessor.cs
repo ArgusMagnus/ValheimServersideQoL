@@ -3,6 +3,7 @@ using ServersideQoL.Utilities;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using static ServersideQoL.ServersideQoLZDO.ZDOVars;
 using static Skills;
 
 namespace ServersideQoL.Processors;
@@ -186,7 +187,7 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
     if (Instance<PlayerRegistryProcessor>().GetStateForCharacterID(data.m_targetZDO) is not PlayerStateImpl state)
       return;
 
-    var item = GetItem(state.ZDO.Vars.GetRightItem(), state, name) ?? GetItem(state.ZDO.Vars.GetLeftItem(), state, name);
+    var item = GetItem(state.ZDO.Vars.GetEquippedItemHash(EquipmemtSlots.HandRight), state, name) ?? GetItem(state.ZDO.Vars.GetEquippedItemHash(EquipmemtSlots.HandLeft), state, name);
     if (item is null)
       return;
 

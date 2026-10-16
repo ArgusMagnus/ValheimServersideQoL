@@ -11,10 +11,6 @@ public sealed class CryptDoorProcessor : Processor<CryptDoorProcessor.PrefabInfo
   readonly List<ServersideQoLZDO> _allowedPlayers = [];
   readonly Dictionary<int, int> _keyItemWeightByHash = [];
 
-  /// <see cref="VisEquipment"/>
-  readonly IEnumerable<int> _visEquipmentVars = [ZDOVars.s_helmetItem, ZDOVars.s_chestItem, ZDOVars.s_legItem, ZDOVars.s_shoulderItem, ZDOVars.s_utilityItem,
-        ZDOVars.s_leftItem, ZDOVars.s_rightItem, ZDOVars.s_leftBackItem, ZDOVars.s_rightBackItem];
-
   protected override void Initialize()
   {
     _allowedPlayers.Clear();
@@ -58,11 +54,11 @@ public sealed class CryptDoorProcessor : Processor<CryptDoorProcessor.PrefabInfo
       int maxWeight = 0;
       int keyHash = 0;
       _keyItemWeightByHash.Clear();
-      foreach (var zdoVar in _visEquipmentVars)
+      foreach (var slot in SQoLEnumUtils<ServersideQoLZDO.ZDOVars.EquipmemtSlots>.Values)
       {
         foreach (var player in _allowedPlayers)
         {
-          var itemHash = player.ZDO.GetInt(zdoVar);
+          var itemHash = player.Vars.GetEquippedItemHash(slot);
           if (itemHash is 0)
             continue;
           if (!_keyItemWeightByHash.TryGetValue(itemHash, out var weight))

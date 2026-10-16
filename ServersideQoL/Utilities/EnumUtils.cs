@@ -56,3 +56,9 @@ public static class SQoLEnumUtils
         Expression.Convert(Expression.ConvertChecked(Expression.Parameter(typeof(long)) is var par ? par : throw new Exception(), enumType), typeof(object)), par).Compile();
   }
 }
+
+public static class SQoLEnumUtils<T>
+  where T : unmanaged, Enum
+{
+  public static IReadOnlyList<T> Values => field ??= (T[])Enum.GetValues(typeof(T));
+}
