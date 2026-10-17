@@ -383,6 +383,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       config.ConfigChanged += OnConfigChanged;
     }
 
+    Logger.DevLog($"{nameof(Achievements.IsWorldCheated)}: {Achievements.IsWorldCheated()}");
+
     var cfg = Config;
     Logger.LogInfo(Invariant($"Enabled: {cfg.Enabled.Value}, DiagnosticLogs: {cfg.DiagnosticLogs.Value}"));
 
@@ -553,6 +555,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         zdo.ReregisterAll();
         OnDataOrOwnerRevisionChanged(zdo);
       }
+      Logger.DevLog($"{nameof(Achievements.IsWorldCheated)}: {Achievements.IsWorldCheated()}");
     }
 
     peers.Update();

@@ -36,7 +36,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public sealed class LocalizationConfig
   { 
-    public string BackpackName { get; init; } = "Backpack";
+    string BackpackName { get; init; } = "Backpack ({0} kg)";
+    public string FormatBackpackName(int maxWeight) => string.Format(BackpackName, maxWeight < 0 ? "∞" : maxWeight);
     public string ForbiddenItems { get; init; } = "Backpack cannot contain non-teleportable items";
     string WeightLimitExceeded { get; init; } = "Backpack weight limit ({0}) exceeded";
     public string FormatWeightLimitExceeded(int maxWeight) => string.Format(WeightLimitExceeded, maxWeight);

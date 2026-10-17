@@ -172,7 +172,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
           }
           state.BackpackContainer.ClaimOwnershipInternal();
           backpackInventory.Save();
-          RPC.ShowMessage(playerState.Owner, MessageHud.MessageType.Center, $"$piece_tombstone_recovered ({Config.Instance.Localization.Value.BackpackName})");
+          RPC.ShowMessage(playerState.Owner, MessageHud.MessageType.Center, $"$piece_tombstone_recovered ({Config.Instance.Localization.Value.FormatBackpackName(_maxBackpackWeight)})");
           zdo.Destroy();
         }
         result = ScheduleReprocessing(0.1f);
@@ -294,7 +294,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
     __isBackpackTombstone.Set(zdo, true);
     /// <see cref="TombStone.Setup"/>
     zdo.Vars.SetOwner(playerState.PlayerID);
-    zdo.Vars.SetOwnerName($"{playerState.PlayerName} - {Config.Instance.Localization.Value.BackpackName}");
+    zdo.Vars.SetOwnerName($"{playerState.PlayerName} - {Config.Instance.Localization.Value.FormatBackpackName(_maxBackpackWeight)}");
 
     zdo.Fields<Container>()
         .Set(static () => x => x.m_width, backpackInventory.Inventory.GetWidth())
@@ -418,7 +418,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
       if (BackpackContainer is null)
       {
         BackpackContainer = GetExistingBackpack();
-        BackpackContainer?.Fields<Container>().Set(static () => x => x.m_name, Config.Instance.Localization.Value.BackpackName);
+        BackpackContainer?.Fields<Container>().Set(static () => x => x.m_name, Config.Instance.Localization.Value.FormatBackpackName(_processor._maxBackpackWeight));
       }
 #if DEBUG
       else if (BackpackContainer.ZDO.GetPrefab() != backpackPrefab)
@@ -432,7 +432,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
       {
         BackpackContainer = _processor.PlacePiece(pos, backpackPrefab, 0, CreatorMarkers.ProcessorOwned);
         BackpackContainer.Vars.SetPlayerID(PlayerState.PlayerID);
-        BackpackContainer.Fields<Container>().Set(static () => x => x.m_name, Config.Instance.Localization.Value.BackpackName);
+        BackpackContainer.Fields<Container>().Set(static () => x => x.m_name, Config.Instance.Localization.Value.FormatBackpackName(_processor._maxBackpackWeight));
         AdjustSize(BackpackContainer, _processor._backpackSlots);
         BackpackContainer.ZDO.SetOwnerInternal(PlayerState.Owner);
       }
