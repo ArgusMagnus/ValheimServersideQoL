@@ -10,7 +10,7 @@ public sealed class CampfireRegistryProcessor : Processor<ProcessorPrefabInfo<Fi
   readonly SectorDictionary<HashSet<ServersideQoLZDO>> _fires = new(ZoneSystem.c_ZoneSize);
   readonly Dictionary<ServersideQoLZDO, Vector3> _positions = [];
 
-  protected internal override void Initialize()
+  protected override void Initialize()
   {
     foreach (var zdo in _positions.Keys)
       zdo.Destroyed -= OnFireDestroyed;
