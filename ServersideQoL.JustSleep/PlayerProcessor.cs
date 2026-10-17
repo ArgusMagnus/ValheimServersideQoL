@@ -5,6 +5,7 @@ namespace ServersideQoL.JustSleep;
 
 [Processor("500d524e-2dbc-493d-8231-c8e9f03158bf")]
 [DependsOn<PlayerRegistryProcessor>]
+[DependsOn<CampfireRegistryProcessor>]
 public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<Player>>
 {
   bool _patched;
@@ -33,7 +34,10 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<Player>>
     {
       if (state.ZDO.Vars.GetInBed())
         inBed++;
-      else if (state.ZDO.Vars.GetEmote() is Emotes.Sit)
+      else if (state.ZDO.Vars.GetEmote() is Emotes.Sit
+        && (!Config.Instance.RequireCampfireForSitting.Value
+          || Instance<CampfireRegistryProcessor>().IsNearLitFire(
+            state.ZDO.ZDO.GetPosition(), Config.Instance.CampfireRange.Value)))
         sitting++;
     }
 
@@ -47,7 +51,8 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<Player>>
       return true;
 
     RPC.ShowMessage(ZRoutedRpc.Everybody, Config.Instance.SleepPromptMessageType.Value,
-        Config.Instance.Localization.Value.FormatPrompt(total, states.Count));
+        Config.Instance.Localization.Value.FormatPrompt(total, states.Count,
+          Config.Instance.RequireCampfireForSitting.Value, Config.Instance.CampfireRange.Value));
 
     return false;
   }
