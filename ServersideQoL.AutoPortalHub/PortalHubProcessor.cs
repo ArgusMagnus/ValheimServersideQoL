@@ -101,7 +101,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
         state.LastRoration = zdo.ZDO.GetRotation();
         state.SaveCounter = 0;
       }
-      else if (pos.y < _offset.y - 4 && Utils.ChebyshevDistance(_offset, pos) < Mathf.Max(ZoneSystem.c_ZoneSize, 2 * _lastHubWidth * 4) && _playerStates.TryGetValue(zdo, out var state))
+      else if (pos.y < _offset.y - 20 && Utils.ChebyshevDistance(_offset, pos) < Mathf.Max(ZoneSystem.c_ZoneSize, 2 * _lastHubWidth * 4) && _playerStates.TryGetValue(zdo, out var state))
       {
         if (++state.SaveCounter <= 3)
           zdo.RPC.Player.TeleportTo(_offset with { y = _offset.y + 2 }, zdo.ZDO.GetRotation(), false);

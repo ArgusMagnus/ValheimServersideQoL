@@ -154,6 +154,11 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
           _itemSetCounts.Clear();
           _statusEffects.Clear();
 
+          if (eqModifier is not 0)
+            Logger.DevLog($"{(usesEitr ? "Eitr" : "Stamina")} equipment modifier:     {eqModifier}");
+          if (seModifier is not 0)
+            Logger.DevLog($"{(usesEitr ? "Eitr" : "Stamina")} status effect modifier: {seModifier}");
+
           max *= 1f + eqModifier;
           max *= 1f + seModifier;
         }
