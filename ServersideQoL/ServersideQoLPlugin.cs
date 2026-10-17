@@ -725,7 +725,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
       if (fileToArchive is not null)
       {
-        var entryName = $"{PluginGuid}.ProcessingTimes_{DateTime.Now:yyyyMMddHHmmss}.csv";
+        var entryName = $"{PluginGuid}.ProcessingTimes.{ZNet.World.m_worldName}.{DateTime.Now:yyyyMMddHHmmss}.csv";
         using var archive = new ZipArchive(File.Open(Path.ChangeExtension(GetPath(), ".zip"), FileMode.OpenOrCreate), ZipArchiveMode.Update);
 
         while (archive.Entries.Count > 0 && archive.Entries.Sum(static x => x.CompressedLength) >= MaxZipSize)
@@ -736,7 +736,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       }
 
       static string GetPath()
-        => Path.Combine(Paths.BepInExRootPath, $"{PluginGuid}.ProcessingTimes.csv");
+        => Path.Combine(Paths.BepInExRootPath, $"{PluginGuid}.ProcessingTimes.{ZNet.World.m_worldName}.csv");
     }
     catch (Exception ex)
     {

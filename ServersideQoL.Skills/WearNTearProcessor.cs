@@ -116,5 +116,7 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
         piece.RPC.WearNTear.Repair();
       }
     }
+
+    Logger.DevLog($"{count} pieces repaired via area repair. Player: {playerState.PlayerName}, Skill: {skill * 100:F0}, Range: {Mathf.Sqrt(rangeSqr)}", BepInEx.Logging.LogLevel.Info);
   }
 }
