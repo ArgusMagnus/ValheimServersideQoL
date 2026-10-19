@@ -1,3 +1,6 @@
+### v2.4.1
+- Fixed detection of boss ordering [#364](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/364)
+
 ### v2.4.0
 - Compatibility patch
 

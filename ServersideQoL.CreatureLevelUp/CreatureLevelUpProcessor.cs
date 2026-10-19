@@ -6,9 +6,10 @@ using static ServersideQoL.CreatureLevelUp.Config;
 
 namespace ServersideQoL.CreatureLevelUp;
 
-[Processor("5ab42c92-d2fd-4efe-8904-720a46ac7f5b")]
+[Processor(Id)]
 public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcessor.PrefabInfo>
 {
+  public const string Id = "5ab42c92-d2fd-4efe-8904-720a46ac7f5b";
   public sealed record PrefabInfo(Character? Character, CreatureSpawner? CreatureSpawner, SpawnArea? SpawnArea) : ProcessorPrefabInfo;
 
   readonly Dictionary<Biome, int> _levelIncreasePerBiome = [];
@@ -140,7 +141,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     if (Config.Instance.MaxLevelIncreasePerDefeatedBoss.Value > 0)
     {
       var increase = 0;
-      foreach (var (biome, boss) in BossesByBiome.OrderByDescending(static x => x.Value.m_health))
+      foreach (var (boss, biome) in BossesInOrder.Enumerate())
       {
         if (ZoneSystem.instance.GetGlobalKey(boss.m_defeatSetGlobalKey))
           increase += Config.Instance.MaxLevelIncreasePerDefeatedBoss.Value;
@@ -386,7 +387,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     if (!_spawnDataByEvent.TryGetValue(currentEvent.m_name, out eventInfo))
     {
       var biome = Biome.None;
-      foreach (var (b, boss) in BossesByBiome.OrderBy(static x => x.Value.m_health))
+      foreach (var (boss, b) in BossesInOrder.Enumerate())
       {
         if (biome is Biome.None)
         {

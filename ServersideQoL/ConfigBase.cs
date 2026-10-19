@@ -64,6 +64,7 @@ public abstract class ConfigBase
 
   protected static IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => ServersideQoLPlugin.Instance.PieceTablesByPieceName;
   protected static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => Processor.BossesByBiome;
+  protected static IReadOnlyList<(Character Boss, Heightmap.Biome Biome)> BossesInOrder => Processor.BossesInOrder;
   protected sealed record PlaceableContainer(string Name, Container Container, Piece Piece);
   protected static IReadOnlyList<PlaceableContainer> PlaceableContainers => field ??= [.. ZNetScene.instance.m_prefabs
     .Where(static x => PieceTablesByPieceName.ContainsKey(x.name))

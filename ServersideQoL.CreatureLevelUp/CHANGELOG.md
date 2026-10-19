@@ -1,3 +1,6 @@
+### v2.4.1
+- Fixed boss ordering which caused Fader to increase Deep North creature levels [#364](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/364)
+
 ### v2.2.1
 - Fixed some spawners (namely Spawner_Draugr/Spawner_Draugr_Ranged) using a too high min level after the max level is increased
 - Fixed issue causing Abominations to die upon spawning

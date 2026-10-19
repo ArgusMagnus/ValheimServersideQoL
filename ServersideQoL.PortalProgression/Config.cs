@@ -27,9 +27,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public IReadOnlyList<Entry> Entries { get; } = new Func<IReadOnlyList<Entry>>(() =>
   {
-    var acceptableValues = new AcceptableValueList<string>([BossKeyNone, .. BossesByBiome.Values
-      .OrderBy(static x => x.m_health)
-      .Select(static x => x.m_defeatSetGlobalKey)]);
+    var acceptableValues = new AcceptableValueList<string>([BossKeyNone, .. BossesInOrder
+      .Select(static x => x.Boss.m_defeatSetGlobalKey)]);
 
     List<Entry> result = new();
     foreach (var item in ObjectDB.instance.m_items)

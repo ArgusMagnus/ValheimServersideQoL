@@ -226,12 +226,25 @@ public abstract class Processor
               break;
           }
         }
-        if (bowl is not null)
-          bosses.Add(location.m_biome, bowl.m_bossPrefab.GetComponent<Character>());
+        if (bowl is null)
+          continue;
+        var boss = bowl.m_bossPrefab.GetComponent<Character>();
+        if (boss.m_bossOrder < 1)
+        {
+          if (!string.IsNullOrEmpty(boss.m_bossEvent))
+            boss = ZNetScene.instance.m_prefabs.Select(static x => x.GetComponent<Character>()).FirstOrDefault(x => x is not null && x.m_bossOrder > 0 && x.m_bossEvent == boss.m_bossEvent) ?? boss;
+          if (boss.m_bossOrder < 1)
+            ServersideQoLPlugin.Logger.LogWarning($"Boss {boss.name}: Invalid {nameof(boss.m_bossOrder)}: {boss.m_bossOrder}");
+        }
+        ServersideQoLPlugin.Logger.LogDiagnosticInfo($"Boss found in {location.m_biome}: {boss.name} ({nameof(boss.m_bossOrder)}: {boss.m_bossOrder})");
+        bosses.Add(location.m_biome, boss);
       }
     }
     return bosses;
   }).Invoke();
+
+  protected internal static IReadOnlyList<(Character Boss, Heightmap.Biome Biome)> BossesInOrder
+    => field ??= [.. BossesByBiome.OrderBy(static x => x.Value.m_bossOrder).Select(static x => (x.Value, x.Key))];
 
   protected static ServersideQoLZDO DataZDO
   {
