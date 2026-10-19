@@ -53,20 +53,26 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public sealed class AdvancedConfig
   {
     public ProcessingDelaysConfig ProcessingDelays { get; init; } = new();
-    public ContainersConfig Containers { get; init; } = new();
-    public PlayersConfig Players { get; init; } = new();
-
     public sealed class ProcessingDelaysConfig
     {
       public float WhenNoNearbyPlayers { get; init; } = 2;
       public float AfterContainerOwnershipRequest { get; init; } = 0.1f;
     }
 
+    public RpcThrottleConfig RpcThrottle { get; init; } = new();
+    public sealed class RpcThrottleConfig
+    {
+      public float WindowInSeconds { get; init; } = 1;
+      public int MaxCallsPerWindow { get; init; } = 100;
+    }
+
+    public ContainersConfig Containers { get; init; } = new();
     public sealed class ContainersConfig
     {
       public float MinOwnershipRequestInterval { get; init; } = 1;
     }
 
+    public PlayersConfig Players { get; init; } = new();
     public sealed class PlayersConfig
     {
       public float UpdateStaminaInterval { get; init; } = 0.2f;

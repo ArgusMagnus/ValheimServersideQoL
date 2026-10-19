@@ -12,12 +12,15 @@ namespace ServersideQoL;
 
 public static class RPC
 {
-  public readonly struct RpcName
+  public readonly struct RpcName : IEquatable<RpcName>
   {
     readonly string _name;
 
     RpcName(string name) => _name = name;
     public override string ToString() => _name;
+    public bool Equals(RpcName other) => _name == other._name;
+    public override bool Equals(object obj) => obj is RpcName other && Equals(other);
+    public override int GetHashCode() => _name.GetHashCode();
 
     public static class MessageHud
     {
@@ -262,6 +265,35 @@ public static class RPC
   static readonly Dictionary<string, int> __invokeAsSenderCounters = [];
   static int __invokeTotalCounter;
 
+  static int _throttleCheckFrameCount = -1;
+  static Timestamp _nextThrottleCounterReset;
+  static int _throttleCounter;
+
+  static bool Drop()
+  {
+    if (!Config.IsInitialized)
+      return false;
+
+    var cfg = Config.Instance.Advanced.Value.RpcThrottle;
+    var frameCount = Time.frameCount;
+    if (_throttleCheckFrameCount != frameCount)
+    {
+      _throttleCheckFrameCount = frameCount;
+      var now = Timestamp.Now;
+      if (now > _nextThrottleCounterReset)
+      {
+        _nextThrottleCounterReset = now.AddSeconds(cfg.WindowInSeconds);
+        if (_throttleCounter > cfg.MaxCallsPerWindow && Config.Instance.DiagnosticLogs.Value)
+          ServersideQoLPlugin.Logger.LogWarning($"{nameof(RPC)}: Dropped {_throttleCounter - cfg.MaxCallsPerWindow} calls in the previous window ({cfg.WindowInSeconds} s)");
+        _throttleCounter = 0;
+      }
+    }
+
+    if (++_throttleCounter > cfg.MaxCallsPerWindow)
+      return true;
+    return false;
+  }
+
   static void InvokeRoutedRPC(long targetPeerId, RpcName methodName, object[]? parameters = null)
   {
     var methodNameStr = methodName.ToString();
@@ -273,7 +305,9 @@ public static class RPC
       if (count % 10 is 0)
         ServersideQoLPlugin.Logger.LogInfo($"{nameof(InvokeRoutedRPC)}: {methodNameStr}: {count} of {__invokeTotalCounter} ({(float)count / __invokeTotalCounter:P0})");
     }
-    ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, methodNameStr, parameters ?? []);
+
+    if (!Drop())
+      ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, methodNameStr, parameters ?? []);
   }
 
   internal static void InvokeRoutedRPC(long targetPeerId, ZDOID targetZDO, RpcName methodName, object[]? parameters = null)
@@ -287,7 +321,9 @@ public static class RPC
       if (count % 10 is 0)
         ServersideQoLPlugin.Logger.LogInfo($"{nameof(InvokeRoutedRPC)}: {methodNameStr}: {count} of {__invokeTotalCounter} ({(float)count / __invokeTotalCounter:P0})");
     }
-    ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, targetZDO, methodNameStr, parameters ?? []);
+
+    if (!Drop())
+      ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, targetZDO, methodNameStr, parameters ?? []);
   }
 
   static Action<ZRoutedRpc, long, ZDOID, string, object[], long>? __invokeRouteRPCAsSender;
@@ -303,6 +339,9 @@ public static class RPC
       if (count % 10 is 0)
         ServersideQoLPlugin.Logger.LogInfo($"{nameof(InvokeRoutedRPCAsSender)}: {methodNameStr}: {count} of {__invokeTotalCounter} ({(float)count / __invokeTotalCounter:P0})");
     }
+
+    if (Drop())
+      return;
 
     __invokeRouteRPCAsSender ??= GetDelegate();
     __invokeRouteRPCAsSender(ZRoutedRpc.instance, targetPeerID, targetZDO, methodNameStr, parameters, senderPeerId);
