@@ -44,7 +44,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
   SemaphoreSlim? _processingTimesWriterSemaphore;
   StreamWriter? _processingTimesWriter;
-  ConcurrentBag<List<long>>? _processingTimesPool;
+  ConcurrentBag<List<float>>? _processingTimesPool;
 
   sealed class SectorState
   {
@@ -383,8 +383,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       config.ConfigChanged += OnConfigChanged;
     }
 
-    Logger.DevLog($"{nameof(Achievements.IsWorldCheated)}: {Achievements.IsWorldCheated()}");
-
     var cfg = Config;
     Logger.LogInfo(Invariant($"Enabled: {cfg.Enabled.Value}, DiagnosticLogs: {cfg.DiagnosticLogs.Value}"));
 
@@ -555,7 +553,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         zdo.ReregisterAll();
         OnDataOrOwnerRevisionChanged(zdo);
       }
-      Logger.DevLog($"{nameof(Achievements.IsWorldCheated)}: {Achievements.IsWorldCheated()}");
     }
 
     peers.Update();
@@ -703,9 +700,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         const double OneDay = 60 * 60 * 24;
         var ts = TimeSpan.FromSeconds(timeStartSeconds);
         if (timeStartSeconds < OneDay)
-          _processingTimesWriter.Write($@"{ts:hh\:mm\:ss\.fff};{fps:F1};{elapsed * 1000:F0};{peerCount};{processedSectors};{sectorCount};{totalZdos}");
+          _processingTimesWriter.Write($@"{ts:hh\:mm\:ss\.fff};{fps:F1};{(float)(elapsed * 1000)};{peerCount};{processedSectors};{sectorCount};{totalZdos}");
         else
-          _processingTimesWriter.Write($@"{ts:d\.hh\:mm\:ss\.fff};{fps:F1};{elapsed * 1000:F0};{peerCount};{processedSectors};{sectorCount};{totalZdos}");
+          _processingTimesWriter.Write($@"{ts:d\.hh\:mm\:ss\.fff};{fps:F1};{(float)(elapsed * 1000)};{peerCount};{processedSectors};{sectorCount};{totalZdos}");
 
         foreach (var time in processingTimes)
           _processingTimesWriter.Write($";{time}");

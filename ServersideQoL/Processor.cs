@@ -308,11 +308,11 @@ public abstract class Processor
     }
   }
 
-  internal long GetAndResetProcessingTimeMs()
+  internal float GetAndResetProcessingTimeMs()
   {
     if (_processingTimeStopwatch is null)
       return -1;
-    var result = _processingTimeStopwatch.ElapsedMilliseconds;
+    var result = (float)_processingTimeStopwatch.Elapsed.TotalMilliseconds;
     _processingTimeStopwatch.Reset();
     return result;
   }
