@@ -141,7 +141,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     if (Config.Instance.MaxLevelIncreasePerDefeatedBoss.Value > 0)
     {
       var increase = 0;
-      foreach (var (boss, biome) in BossesInOrder.Enumerate())
+      foreach (var (boss, biome) in BossesInOrder.Reverse())
       {
         if (ZoneSystem.instance.GetGlobalKey(boss.m_defeatSetGlobalKey))
           increase += Config.Instance.MaxLevelIncreasePerDefeatedBoss.Value;
