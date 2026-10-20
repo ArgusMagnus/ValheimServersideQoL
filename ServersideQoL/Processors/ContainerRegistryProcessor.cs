@@ -102,8 +102,8 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    PlayerID creator = default;
-    if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private || (creator = zdo.Vars.GetCreator()).Value is 0)
+    var creator = zdo.Vars.GetCreator();
+    if (creator.Value is 0)
       return ProcessResult.UnregisterProcessor;
 
     ContainerStateImpl? state = null;
@@ -122,6 +122,9 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       }
       return ScheduleReprocessing();
     }
+
+    if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private)
+      return ProcessResult.UnregisterProcessor;
 
     if (zdo.Vars.GetInUse())
       return default;
