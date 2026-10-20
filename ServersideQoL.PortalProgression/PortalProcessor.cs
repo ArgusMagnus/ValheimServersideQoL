@@ -65,10 +65,7 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
           {
             state.Container.ZDO.ZDO.SetOwnerInternal(state.Player.Owner);
             state.Container.ZDO.ZDO.SetPosition(state.Player.ZDO.ZDO.GetPosition() with { y = -1000 });
-            state.Container.ZDO.Destroyed -= OnContainerDestroyed;
-            state.Container = Instance<ContainerRegistryProcessor>().GetState(RecreatePiece(state.Container.ZDO))!;
-            state.Container.ZDO.UnregisterAll();
-            state.Container.ZDO.Destroyed += OnContainerDestroyed;
+            RecreateContainer(state);
           }
         }
       }
@@ -88,10 +85,7 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
         Instance<ContainerRegistryProcessor>().SetReturnContentToCreator(state.Container.ZDO, true);
         state.Container.ZDO.Vars.SetCreator(state.Player.PlayerID);
         state.Stacked = true;
-        state.Container.ZDO.Destroyed -= OnContainerDestroyed;
-        state.Container = Instance<ContainerRegistryProcessor>().GetState(RecreatePiece(state.Container.ZDO))!;
-        state.Container.ZDO.UnregisterAll();
-        state.Container.ZDO.Destroyed += OnContainerDestroyed;
+        RecreateContainer(state);
         //if (Config.NonTeleportableItems.MessageType.Value is not MessageTypes.CenterNear and not MessageTypes.CenterFar)
         //    RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
         ShowMessage([state.Peer], state.PortalPosition, Config.Instance.Localization.Value.FormatItemsTaken(count), Config.Instance.MessageType.Value);
@@ -108,10 +102,7 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
           {
             state.Container.ZDO.ZDO.SetOwnerInternal(state.Player.Owner);
             state.Container.ZDO.ZDO.SetPosition(state.Player.ZDO.ZDO.GetPosition() with { y = -1000 });
-            state.Container.ZDO.Destroyed -= OnContainerDestroyed;
-            state.Container = Instance<ContainerRegistryProcessor>().GetState(RecreatePiece(state.Container.ZDO))!;
-            state.Container.ZDO.UnregisterAll();
-            state.Container.ZDO.Destroyed += OnContainerDestroyed;
+            RecreateContainer(state);
           }
           state.Container.ZDO.RPC.Container.StackResponse(true);
           RPC.ShowMessage(state.Player.Owner, MessageHud.MessageType.Center, "");
@@ -164,12 +155,25 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
       container.Destroyed += OnContainerDestroyed;
       if (!peer.ZNetPeer.m_server)
         player.ZDO.Destroyed += OnPlayerDestroyed;
+      SendFirst(peer, container);
       container.RPC.Container.StackResponse(true);
       RPC.ShowMessage(player.Owner, MessageHud.MessageType.Center, "");
     }
 
     return ScheduleReprocessing();
   }
+
+  void RecreateContainer(State state)
+  {
+    state.Container.ZDO.Destroyed -= OnContainerDestroyed;
+    state.Container = Instance<ContainerRegistryProcessor>().GetState(RecreatePiece(state.Container.ZDO))!;
+    state.Container.ZDO.UnregisterAll();
+    state.Container.ZDO.Destroyed += OnContainerDestroyed;
+    SendFirst(state.Peer, state.Container.ZDO);
+  }
+
+  static void SendFirst(Peer peer, ServersideQoLZDO container)
+    => ZDOMan.instance.ForceSendZDO(peer.ZNetPeer.m_uid, container.ZDO.m_uid);
 
   void UpdateTeleportableItems()
   {
