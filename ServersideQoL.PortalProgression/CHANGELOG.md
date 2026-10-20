@@ -1,3 +1,6 @@
+### v2.4.1
+- Fixed items held back by PortalProgression sometimes not being returned to their owner [#367](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/367) [#368](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/368)
+
 ### v2.0.11
 - Support for the new core options `UnifiedConfig` and `ConfigPerWorld`
 

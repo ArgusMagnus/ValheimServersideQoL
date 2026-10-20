@@ -155,7 +155,7 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
       container.Destroyed += OnContainerDestroyed;
       if (!peer.ZNetPeer.m_server)
         player.ZDO.Destroyed += OnPlayerDestroyed;
-      SendFirst(peer, container);
+      ForceSend(peer, container);
       container.RPC.Container.StackResponse(true);
       RPC.ShowMessage(player.Owner, MessageHud.MessageType.Center, "");
     }
@@ -169,11 +169,8 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
     state.Container = Instance<ContainerRegistryProcessor>().GetState(RecreatePiece(state.Container.ZDO))!;
     state.Container.ZDO.UnregisterAll();
     state.Container.ZDO.Destroyed += OnContainerDestroyed;
-    SendFirst(state.Peer, state.Container.ZDO);
+    ForceSend(state.Peer, state.Container.ZDO);
   }
-
-  static void SendFirst(Peer peer, ServersideQoLZDO container)
-    => ZDOMan.instance.ForceSendZDO(peer.ZNetPeer.m_uid, container.ZDO.m_uid);
 
   void UpdateTeleportableItems()
   {

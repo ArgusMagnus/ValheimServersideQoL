@@ -448,6 +448,11 @@ public abstract class Processor
     return $"(?i)^{searchPattern}$";
   }
 
+  protected static void ForceSend(ServersideQoLZDO zdo)
+    => ZDOMan.instance.ForceSendZDO(zdo.ZDO.m_uid);
+  protected static void ForceSend(Peer peer, ServersideQoLZDO zdo)
+    => ZDOMan.instance.ForceSendZDO(peer.ZNetPeer.m_uid, zdo.ZDO.m_uid);
+
   static List<Predicate<ItemDrop.ItemData>>? __isItemTeleportableEvaluationRequest;
   protected static event Predicate<ItemDrop.ItemData>? IsItemTeleportableEvaluationRequest
   {

@@ -1,3 +1,6 @@
+### v2.4.1
+- Fixed floating ships near map tables constantly updating the map tables causing performance issues [#369](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/369)
+
 ### v2.3.2
 - Fixed ArgumentException [#354](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/354)
 
