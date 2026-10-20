@@ -26,6 +26,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
   readonly Dictionary<ServersideQoLZDO, MapTableState> _mapTables = [];
   readonly Dictionary<PlayerID, PlayerState> _playerStates = [];
   readonly HashSet<ServersideQoLZDO> _wards = [];
+  readonly Dictionary<ServersideQoLZDO, Vector3> _shipPositions = [];
   readonly Dictionary<PlayerID, (Peer Peer, PlayerState PlayerState)> _updateList = [];
   readonly List<Pin> _pins = [];
   readonly HashSet<(Minimap.PinType, string)> _oreDepositPins = [];
@@ -52,6 +53,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
     _mapTables.Clear();
     _playerStates.Clear();
     _wards.Clear();
+    _shipPositions.Clear();
 
     foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
     {
@@ -219,9 +221,14 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
       if (peers.Any(x => x.PlayerState?.PlayerID == playerID))
       {
         var state = GetOrAddPlayerState(playerID);
-        state.UpToDateMapTables.Clear();
+        var pos = zdo.ZDO.GetPosition();
         if (state.Ships.Add(zdo))
           zdo.Destroyed += OnShipDestroyed;
+        if (!_shipPositions.TryGetValue(zdo, out var last) || Utils.DistanceXZ(pos, last) >= Minimap.instance.m_pixelSize)
+        {
+          _shipPositions[zdo] = pos;
+          state.UpToDateMapTables.Clear();
+        }
       }
       result = default;
     }
@@ -510,6 +517,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
 
   void OnShipDestroyed(ServersideQoLZDO zdo)
   {
+    _shipPositions.Remove(zdo);
     if (!_playerStates.TryGetValue(zdo.Vars.GetCreator(), out var state))
       return;
     if (state.Ships.Remove(zdo))
