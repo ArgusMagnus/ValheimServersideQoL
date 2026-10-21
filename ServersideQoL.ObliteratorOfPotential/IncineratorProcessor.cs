@@ -52,46 +52,55 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
       if (!_itemsByUpgrader.TryGetValue(upgrader.m_dropPrefab, out var set))
         continue;
 
-      // todo: handle upgrader stacks
-
-      Logger.DevLog($"Upgrader found: {upgrader.m_dropPrefab.name}");
-      foreach (var sacrifice in inventory.Items)
+      for (int i = 0; i < upgrader.m_stack; i++)
       {
-        if (upgrader == sacrifice || sacrifice.GetArmor() <= 0 || !set.Contains(sacrifice.m_dropPrefab) || _used.Contains(sacrifice))
-          continue;
-
-        Logger.DevLog($"Sacrifice found: {sacrifice.m_dropPrefab.name}");
-        foreach (var item in inventory.Items)
+        Logger.DevLog($"Upgrader found: {upgrader.m_dropPrefab.name}");
+        foreach (var sacrifice in inventory.Items)
         {
-          if (item == upgrader || item == sacrifice || item.m_shared.m_itemType != sacrifice.m_shared.m_itemType ||
-              item.m_shared.m_armorPerLevel <= 0 || item.GetArmor() >= sacrifice.GetArmor() || _used.Contains(item))
+          if (upgrader == sacrifice || sacrifice.GetArmor() <= 0 || !set.Contains(sacrifice.m_dropPrefab) || _used.Contains(sacrifice))
             continue;
 
-          _used.Add(sacrifice);
-          _used.Add(item);
-
-          var newItem = item.Clone();
-          while (newItem.GetArmor() < sacrifice.GetArmor())
-            newItem.m_quality++;
-
-          Logger.DevLog($"Item found: {item.m_dropPrefab.name}, new quality: {newItem.m_quality}");
-          if (state is null)
+          Logger.DevLog($"Sacrifice found: {sacrifice.m_dropPrefab.name}");
+          foreach (var item in inventory.Items)
           {
-            _states.Add(zdo, state = new() { Revision = zdo.ZDO.DataRevision });
-            zdo.Destroyed += OnIncineratorDestroyed;
+            if (item == upgrader || item == sacrifice || item.m_shared.m_itemType != sacrifice.m_shared.m_itemType ||
+                (item.m_shared is { m_armorPerLevel: <= 0, m_blockPowerPerLevel: <= 0 } && item.m_shared.m_damagesPerLevel.GetTotalDamage() <= 0) ||
+                (item.GetArmor() >= sacrifice.GetArmor() && item.GetBaseBlockPower() >= sacrifice.GetBaseBlockPower() && item.GetDamage().GetTotalDamage() >= sacrifice.GetDamage().GetTotalDamage()) ||
+                _used.Contains(item))
+              continue;
+
+            _used.Add(sacrifice);
+            _used.Add(item);
+
+            var newItem = item.Clone();
+            while (newItem.GetArmor() <= sacrifice.GetArmor() && newItem.GetBaseBlockPower() <= sacrifice.GetBaseBlockPower() && newItem.GetDamage().GetTotalDamage() <= sacrifice.GetDamage().GetTotalDamage())
+              newItem.m_quality++;
+
+            Logger.DevLog($"Item found: {item.m_dropPrefab.name}, new quality: {newItem.m_quality}");
+            if (state is null)
+            {
+              _states.Add(zdo, state = new() { Revision = zdo.ZDO.DataRevision });
+              zdo.Destroyed += OnIncineratorDestroyed;
+            }
+            else if (state.Revision != zdo.ZDO.DataRevision)
+            {
+              state.Revision = zdo.ZDO.DataRevision;
+              state.NewItems.Clear();
+            }
+            state.NewItems.Add(newItem);
           }
-          else if (state.Revision != zdo.ZDO.DataRevision)
-          {
-            state.Revision = zdo.ZDO.DataRevision;
-            state.NewItems.Clear();
-          }
-          state.NewItems.Add(newItem);
         }
       }
     }
 
     var result = ProcessResult.Default;
-    if (_used.Count is 0 && state is { LeverReturned: true })
+    if (_used.Count is not 0)
+    {
+      state.Sign ??= PlacePiece(zdo.ZDO.GetPosition(), Prefabs.Sign, zdo.ZDO.GetRotation());
+      var text = string.Join("<br>", state.NewItems.Select(static x => $"{Localization.instance.Localize(x.m_shared.m_name)} +{x.m_quality}"));
+      state.Sign.Vars.SetText($"<mark=#000000><color=white>{text}<size=45><br><br>");
+    }
+    else if (state is { LeverReturned: true })
     {
       if (!zdo.IsOwnerOrUnassigned())
         result = ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(containerState, default));
@@ -101,7 +110,13 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
           inventory.Inventory.AddItem(item);
         inventory.Save();
         _states.Remove(zdo);
+        if (state.Sign is not null)
+          DestroyObject(state.Sign);
       }
+    }
+    else
+    {
+      state?.Sign?.Vars.SetText("");
     }
 
     _used.Clear();
@@ -109,7 +124,11 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
     return result;
   }
 
-  void OnIncineratorDestroyed(ServersideQoLZDO zdo) => _states.Remove(zdo);
+  void OnIncineratorDestroyed(ServersideQoLZDO zdo)
+  {
+    if (_states.Remove(zdo, out var state) && state.Sign is not null)
+      DestroyObject(state.Sign);
+  }
 
   void RPC_AnimateLever(ServersideQoLZDO zdo)
   {
@@ -129,5 +148,6 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
     public List<ItemDrop.ItemData> NewItems { get; } = [];
     public bool LeverPulled { get; set; }
     public bool LeverReturned { get; set; }
+    public ServersideQoLZDO? Sign { get; set; }
   }
 }
