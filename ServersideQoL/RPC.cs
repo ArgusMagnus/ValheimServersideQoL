@@ -104,6 +104,7 @@ public static class RPC
     public static class Incinerator
     {
       public static RpcName AnimateLever { get; } = new("RPC_AnimateLever");
+      public static RpcName AnimateLeverReturn { get; } = new("RPC_AnimateLeverReturn");
     }
 
     public static class TeleportWorld
