@@ -386,7 +386,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
       var pos = PlayerState.ZDO.ZDO.GetPosition();
       pos.y -= 0.6f;
 
-      static bool AdjustSize(ServersideQoLZDO zdo, int slots)
+      static bool AdjustSizeAndName(ServersideQoLZDO zdo, int slots, int maxWeight)
       {
         var fields = zdo.Fields<Container>();
         var state = Instance<ContainerRegistryProcessor>().GetState(zdo)!;
@@ -394,7 +394,9 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
         var actualSlots = Math.Max(slots, inventory.Items.Count);
         var (width, height) = GetInventorySize(actualSlots, true);
         if ((fields.UpdateValue(static () => x => x.m_width, width),
-            fields.UpdateValue(static () => x => x.m_height, height)) == (false, false))
+            fields.UpdateValue(static () => x => x.m_height, height),
+            fields.UpdateValue(static () => x => x.m_name, Config.Instance.Localization.Value.FormatBackpackName(maxWeight)))
+            == (false, false, false))
           return false;
 
         using var enumerator = inventory.Items.GetEnumerator();
@@ -418,7 +420,6 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
       if (BackpackContainer is null)
       {
         BackpackContainer = GetExistingBackpack();
-        BackpackContainer?.Fields<Container>().Set(static () => x => x.m_name, Config.Instance.Localization.Value.FormatBackpackName(_processor._maxBackpackWeight));
       }
 #if DEBUG
       else if (BackpackContainer.ZDO.GetPrefab() != backpackPrefab)
@@ -432,11 +433,10 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
       {
         BackpackContainer = _processor.PlacePiece(pos, backpackPrefab, 0, CreatorMarkers.ProcessorOwned);
         BackpackContainer.Vars.SetPlayerID(PlayerState.PlayerID);
-        BackpackContainer.Fields<Container>().Set(static () => x => x.m_name, Config.Instance.Localization.Value.FormatBackpackName(_processor._maxBackpackWeight));
-        AdjustSize(BackpackContainer, _processor._backpackSlots);
+        AdjustSizeAndName(BackpackContainer, _processor._backpackSlots, _processor._maxBackpackWeight);
         BackpackContainer.ZDO.SetOwnerInternal(PlayerState.Owner);
       }
-      else if (AdjustSize(BackpackContainer, _processor._backpackSlots)
+      else if (AdjustSizeAndName(BackpackContainer, _processor._backpackSlots, _processor._maxBackpackWeight)
         || Vector3.Distance(PlayerState.ZDO.ZDO.GetPosition(), BackpackContainer.ZDO.GetPosition()) > InventoryGui.instance.m_autoCloseDistance)
       {
         BackpackContainer.ZDO.SetPosition(pos);

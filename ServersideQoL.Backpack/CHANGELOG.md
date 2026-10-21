@@ -1,3 +1,6 @@
+### v2.4.1
+- Minor fixes
+
 ### v2.4.0
 - Added option `AdditionalMaxBackpackWeightPerDefeatedBoss` [#345](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/345)
 - Show max backpack weight in backpack inventory

@@ -1,3 +1,6 @@
+### v2.4.1
+- Minor fixes
+
 ### v2.1.0
 - Compatibility patch
 

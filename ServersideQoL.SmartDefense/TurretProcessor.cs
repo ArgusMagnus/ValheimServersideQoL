@@ -45,9 +45,15 @@ public sealed class TurretProcessor : Processor<TurretProcessor.PrefabInfo>
       result |= ProcessResult.RecreateZDO;
 
     if (!Config.Instance.Turrets.DontTargetTames.Value)
-      fields.Reset(static () => x => x.m_targetTamed);
-    else if (fields.UpdateValue(static () => x => x.m_targetTamed, false))
+    {
+      fields.Reset(static () => x => x.m_targetTamed)
+            .Reset(static () => x => x.m_targetTamedConfig);
+    }
+    else if ((fields.UpdateValue(static () => x => x.m_targetTamed, false),
+              fields.UpdateValue(static () => x => x.m_targetTamedConfig, false)) != (false, false))
+    {
       result |= ProcessResult.RecreateZDO;
+    }
 
     if (!Config.Instance.Turrets.DontTargetTames.Value)
       fields.Reset(static () => x => x.m_targetTamedConfig);
