@@ -164,6 +164,8 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
           result |= ProcessResult.RecreateZDO;
 
         zdo.Destroyed += OnCharacterDropDestroyed;
+        // required because checking zdo.Vars.GetHealth() does not work reliably
+        zdo.Recreated += (oldZdo, _) => oldZdo.Destroyed -= OnCharacterDropDestroyed;
       }
     }
     else if (prefabInfo.IsRagdoll)
@@ -271,8 +273,9 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
   {
     if (GetProcessorPrefabInfo(zdo) is not { CharacterDrop: not null } prefabInfo)
       return;
-    if (prefabInfo.Ragdoll is null && zdo.Vars.GetHealth(1) > 0)
-      return;
+    // zdo.Vars.GetHealth(1) does not work reliably, presumeably sometimes the ZDO is destroyed before the health value is sent to the server
+    //if (prefabInfo.Ragdoll is null && zdo.Vars.GetHealth(1) > 0)
+    //  return;
 
     var offset = prefabInfo.Ragdoll is not null ? _ragdollDropOffset : prefabInfo.CharacterDrop.m_spawnOffset;
 
