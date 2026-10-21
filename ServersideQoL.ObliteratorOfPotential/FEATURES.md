@@ -1,0 +1,1 @@
+- Gives obliterators the power to upgrade gear by sacrificing other gear and battle idols
