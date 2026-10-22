@@ -132,7 +132,7 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
         done = true;
       }
     }
-    else if (state.NewItems.Count is 0)
+    else if (state?.NewItems.Count is 0)
     {
       done = true;
     }
@@ -141,7 +141,7 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
     {
       zdo.Destroyed -= OnIncineratorDestroyed;
       _states.Remove(zdo);
-      if (state.Sign is not null)
+      if (state!.Sign is not null)
         DestroyObject(state.Sign);
     }
 
