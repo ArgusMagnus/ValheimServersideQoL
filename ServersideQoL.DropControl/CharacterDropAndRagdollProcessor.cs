@@ -176,7 +176,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
         (characterDrop, level) = characterDropAndLevel;
       else
       {
-        Logger.DevLog($"CharacterDrop for Ragdoll not found: {prefabInfo.PrefabInfo.PrefabName}");
+        Logger.LogDiagnosticInfo($"CharacterDrop for Ragdoll not found: {prefabInfo.PrefabInfo.PrefabName}");
         var minLevelMultiplier = 0;
         var maxLevelMultiplierSaturated = int.MaxValue;
         var maxLevelMultiplierUnsaturated = int.MaxValue;
@@ -210,11 +210,11 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
         if (maxLevelMultiplierUnsaturated is int.MaxValue)
         {
           maxLevelMultiplierUnsaturated = maxLevelMultiplierSaturated;
-          Logger.DevLog($"Ragdoll drop amounts exceeded 100, level multiplier could not be determined exactly (min: {minLevelMultiplier}, max: {maxLevelMultiplierUnsaturated}): {prefabInfo.PrefabInfo.PrefabName}");
+          Logger.LogDiagnosticWarning($"Ragdoll drop amounts exceeded 100, level multiplier could not be determined exactly (min: {minLevelMultiplier}, max: {maxLevelMultiplierUnsaturated}): {prefabInfo.PrefabInfo.PrefabName}");
         }
 
         if (minLevelMultiplier <= 0)
-          Logger.DevLog($"Ragdoll drop level multiplier could not be determined (min: {minLevelMultiplier}, max: {maxLevelMultiplierUnsaturated}): {prefabInfo.PrefabInfo.PrefabName}");
+          Logger.LogDiagnosticWarning($"Ragdoll drop level multiplier could not be determined (min: {minLevelMultiplier}, max: {maxLevelMultiplierUnsaturated}): {prefabInfo.PrefabInfo.PrefabName}");
         else
           level = (int)Mathf.Log(minLevelMultiplier, 2) + 1;
       }
