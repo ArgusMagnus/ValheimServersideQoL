@@ -57,7 +57,13 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
         Logger.DevLog($"Upgrader found: {upgrader.m_dropPrefab.name}");
         foreach (var sacrifice in inventory.Items)
         {
-          if (upgrader == sacrifice || sacrifice.GetArmor() <= 0 || !set.Contains(sacrifice.m_dropPrefab) || _used.Contains(sacrifice))
+          if (upgrader == sacrifice || !set.Contains(sacrifice.m_dropPrefab) || _used.Contains(sacrifice))
+            continue;
+
+          var sacrificeArmor = sacrifice.GetArmor();
+          var sacrificeBaseBlockPower = sacrifice.GetBaseBlockPower();
+          var sacrificeTotalDamage = sacrifice.GetDamage().GetTotalDamage();
+          if (sacrificeArmor <= 0 && sacrificeBaseBlockPower <= 0 && sacrificeTotalDamage <= 0)
             continue;
 
           Logger.DevLog($"Sacrifice found: {sacrifice.m_dropPrefab.name}");
@@ -65,16 +71,29 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
           {
             if (item == upgrader || item == sacrifice || item.m_shared.m_itemType != sacrifice.m_shared.m_itemType ||
                 (item.m_shared is { m_armorPerLevel: <= 0, m_blockPowerPerLevel: <= 0 } && item.m_shared.m_damagesPerLevel.GetTotalDamage() <= 0) ||
-                (item.GetArmor() >= sacrifice.GetArmor() && item.GetBaseBlockPower() >= sacrifice.GetBaseBlockPower() && item.GetDamage().GetTotalDamage() >= sacrifice.GetDamage().GetTotalDamage()) ||
+                (item.GetArmor() >= sacrificeArmor && item.GetBaseBlockPower() >= sacrificeBaseBlockPower && item.GetDamage().GetTotalDamage() >= sacrificeTotalDamage) ||
                 _used.Contains(item))
+              continue;
+
+            ItemDrop.ItemData? newItem = null;
+            while (true)
+            {
+              if (item.m_shared.m_armorPerLevel > 0 && (newItem ??= item.Clone()).GetArmor() >= sacrificeArmor)
+                break;
+              if (item.m_shared.m_blockPowerPerLevel > 0 && (newItem ??= item.Clone()).GetBaseBlockPower() >= sacrificeBaseBlockPower)
+                break;
+              if (item.m_shared.m_damagesPerLevel.GetTotalDamage() > 0 && (newItem ??= item.Clone()).GetDamage().GetTotalDamage() >= sacrificeTotalDamage)
+                break;
+              if (newItem is null)
+                break;
+              newItem.m_quality++;
+            }
+
+            if (newItem is null || newItem.m_quality == item.m_quality)
               continue;
 
             _used.Add(sacrifice);
             _used.Add(item);
-
-            var newItem = item.Clone();
-            while (newItem.GetArmor() <= sacrifice.GetArmor() && newItem.GetBaseBlockPower() <= sacrifice.GetBaseBlockPower() && newItem.GetDamage().GetTotalDamage() <= sacrifice.GetDamage().GetTotalDamage())
-              newItem.m_quality++;
 
             Logger.DevLog($"Item found: {item.m_dropPrefab.name}, new quality: {newItem.m_quality}");
             if (state is null)
@@ -94,10 +113,11 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
     }
 
     var result = ProcessResult.Default;
+    var done = false;
     if (_used.Count is not 0)
     {
       state.Sign ??= PlacePiece(zdo.ZDO.GetPosition(), Prefabs.Sign, zdo.ZDO.GetRotation());
-      var text = string.Join("<br>", state.NewItems.Select(static x => $"{Localization.instance.Localize(x.m_shared.m_name)} +{x.m_quality}"));
+      var text = string.Join("<br>", state.NewItems.Select(static x => $"{Localization.instance.Localize(x.m_shared.m_name)} {x.m_quality}"));
       state.Sign.Vars.SetText($"<mark=#000000><color=white>{text}<size=45><br><br>");
     }
     else if (state is { LeverReturned: true })
@@ -109,14 +129,20 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
         foreach (var item in state.NewItems)
           inventory.Inventory.AddItem(item);
         inventory.Save();
-        _states.Remove(zdo);
-        if (state.Sign is not null)
-          DestroyObject(state.Sign);
+        done = true;
       }
     }
-    else
+    else if (state.NewItems.Count is 0)
     {
-      state?.Sign?.Vars.SetText("");
+      done = true;
+    }
+
+    if (done)
+    {
+      zdo.Destroyed -= OnIncineratorDestroyed;
+      _states.Remove(zdo);
+      if (state.Sign is not null)
+        DestroyObject(state.Sign);
     }
 
     _used.Clear();
