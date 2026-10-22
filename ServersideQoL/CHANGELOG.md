@@ -2,6 +2,7 @@
 - Fixed detection of boss ordering [#364](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/364)
 - Throttle rpc calls [#365](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/365)
 - Fixed items held back by PortalProgression sometimes not being returned to their owner [#367](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/367)
+- Fixed white spaces not being trimmed in some conifg values [#376](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/376)
 
 ### v2.4.0
 - Compatibility patch

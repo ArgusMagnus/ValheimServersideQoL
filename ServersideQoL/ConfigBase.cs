@@ -326,7 +326,7 @@ public abstract class ConfigBase
         throw new NotSupportedException();
       TomlTypeConverter.AddConverter(typeof(ConfigArray<T>), new()
       {
-        ConvertToObject = static (str, type) => string.IsNullOrWhiteSpace(str) ? Empty : new([.. str.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(static x => TomlTypeConverter.ConvertToValue<T>(x))]),
+        ConvertToObject = static (str, type) => string.IsNullOrWhiteSpace(str) ? Empty : new([.. str.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(static x => TomlTypeConverter.ConvertToValue<T>(x.Trim()))]),
         ConvertToString = static (obj, type) => string.Join(", ", ((ConfigArray<T>)obj).Items.Select(static x => TomlTypeConverter.ConvertToString(x, typeof(T))))
       });
     }
