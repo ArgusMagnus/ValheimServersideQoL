@@ -1,4 +1,6 @@
-Gives obliterators the power to upgrade gear by sacrificing other gear and idols:
+An obliterator is place near the Forge of Potential that can upgrade gear by sacrificing a piece of the same type and a matching idol.
+Optionally, this power can be given to every obliterator (config option).
+
 1. Put two items of the same type (e.g. two helmets) plus an idol matching one of the items into the an obliterator
     - The idol and the item matching the idol will be destroyed
     - The other item will be upgraded to match the destroyed item stat-wise
