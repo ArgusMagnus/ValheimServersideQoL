@@ -1,4 +1,5 @@
-﻿using BepInEx.Configuration;
+﻿using BepInEx;
+using BepInEx.Configuration;
 using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
@@ -568,12 +569,16 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
         .Build();
 
     {
-      Directory.CreateDirectory(configDir);
+      var dir = Path.Combine(configDir, "templates");
+      Directory.CreateDirectory(dir);
       var defaultConfigPath = Path.ChangeExtension(entry.FilePath, "default.yml");
+      try { File.Delete(defaultConfigPath); }
+      catch { }
+      defaultConfigPath = Path.Combine(dir, Path.GetFileName(entry.FilePath));
       using var file = new StreamWriter(defaultConfigPath, append: false);
       file.WriteLine($"""
-        # {Path.GetFileName(defaultConfigPath)} contains the default values and is overwritten regularly.
-        # Rename it to {Path.GetFileName(entry.FilePath)} if you want to change values.
+        # This file contains the default values and is overwritten regularly.
+        # Copy it to {Path.GetRelativePath(Path.GetDirectoryName(Paths.BepInExRootPath), configDir)}{Path.DirectorySeparatorChar} if you want to change values.
         """);
       file.WriteLine();
       WriteYamlHeader(file);

@@ -1,3 +1,6 @@
+### v2.4.2
+- Moved templates for YAML config files to subdirectory
+
 ### v2.4.1
 - Fixed detection of boss ordering [#364](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/364)
 - Throttle rpc calls [#365](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/365)
