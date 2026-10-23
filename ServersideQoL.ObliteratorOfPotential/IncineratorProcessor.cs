@@ -41,11 +41,16 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
 
   protected override void Initialize()
   {
-    _obliteratorOfPotential ??= PlacedObjects.FirstOrDefault(x => GetProcessorPrefabInfo(x) is { IsUpgradeStation: true });
-    if (_obliteratorOfPotential is not null && !Config.Instance.PlaceNearForgeOfPotential.Value)
+    _obliteratorOfPotential ??= PlacedObjects.FirstOrDefault(x => GetProcessorPrefabInfo(x) is { IsIncinerator: true });
+    if (_obliteratorOfPotential is not null)
     {
-      DestroyObject(_obliteratorOfPotential);
-      _obliteratorOfPotential = null;
+      if (Config.Instance.PlaceNearForgeOfPotential.Value)
+        _obliteratorOfPotential.Fields<Container>().Set(static () => x => x.m_name, $"{Localization.instance.Localize(GetProcessorPrefabInfo(_obliteratorOfPotential)!.Container!.m_name)} of Potential");
+      else
+      {
+        DestroyObject(_obliteratorOfPotential);
+        _obliteratorOfPotential = null;
+      }
     }
 
     if (_itemsByUpgrader.Count is 0)
@@ -79,8 +84,11 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
         return ProcessResult.UnregisterProcessor;
 
       var pos = zdo.ZDO.GetPosition();
-      pos.y += 4;
+      pos += zdo.ZDO.GetRotation() * Vector3.forward * 1f;
+      pos.y -= 0.25f;
       _obliteratorOfPotential = PlacePiece(pos, Prefabs.Incinerator, zdo.ZDO.GetRotation(), CreatorMarkers.ProcessorOwned);
+      _obliteratorOfPotential.Fields<Container>().Set(static () => x => x.m_name,
+        $"{Localization.instance.Localize(GetProcessorPrefabInfo(_obliteratorOfPotential)!.Container!.m_name)} of Potential");
       return ProcessResult.UnregisterProcessor;
     }
     else if (prefabInfo.IsIncinerator)
@@ -88,7 +96,7 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
       if (zdo != _obliteratorOfPotential && !Config.Instance.EveryObliteratorCanUpgrade.Value)
         return ProcessResult.UnregisterProcessor;
 
-      if (_states.TryGetValue(zdo, out var state) && !state.LeverPulled && !state.LeverReturned)
+      if (_states.TryGetValue(zdo, out var state) && !state.LeverReturned && (!state.LeverPulled || zdo.Vars.GetInUse()))
         state.NewItems.Clear();
 
       var containerState = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container);
@@ -162,9 +170,15 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
       var done = false;
       if (_used.Count is not 0)
       {
-        state.Sign ??= PlacePiece(zdo.ZDO.GetPosition(), Prefabs.Sign, zdo.ZDO.GetRotation());
+        if (state.Sign is null)
+        {
+          var pos = zdo.ZDO.GetPosition();
+          if (zdo == _obliteratorOfPotential)
+            pos.y += 1f;
+          state.Sign = PlacePiece(pos, Prefabs.Sign, zdo.ZDO.GetRotation());
+        }
         var text = string.Join("<br>", state.NewItems.Select(static x => $"{Localization.instance.Localize(x.m_shared.m_name)} {x.m_quality}"));
-        state.Sign.Vars.SetText($"<mark=#000000><color=white>{text}<size=45><br><br>");
+        state.Sign.Vars.SetText(zdo == _obliteratorOfPotential ? text : $"<mark=#000000><color=white>{text}<size=45><br><br>");
       }
       else if (state is { LeverReturned: true })
       {
