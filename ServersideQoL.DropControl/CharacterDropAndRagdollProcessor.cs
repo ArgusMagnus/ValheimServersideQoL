@@ -83,7 +83,8 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
             m_amountMax = drop.AmountMax,
             m_chance = drop.Chance,
             m_onePerPlayer = drop.OnePerPlayer,
-            m_levelMultiplier = drop.DoubleAmountAndChancePerLevel,
+            m_levelMultiplier = drop.DoubleChancePerLevel || drop.DoubleAmountAndChancePerLevel,
+            m_levelMultiplierNotAmount = drop.DoubleChancePerLevel && !drop.DoubleAmountAndChancePerLevel,
             m_dontScale = drop.IgnoreWorldResourceRate
           });
 
@@ -229,6 +230,8 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
       else
       {
         var drops = GenerateDropList(characterDrop, level);
+        if (level > 1)
+          Logger.DevLog($"{prefabInfo.PrefabInfo.PrefabName}: Setting drops: {string.Join(", ", drops.Select(x => (x.Key.name, x.Value)))}");
         /// <see cref="Ragdoll.Setup"/>
         zdo.Vars.SetDrops(drops.Count);
         for (int i = 0; i < drops.Count; i++)
@@ -314,15 +317,17 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
         if (UnityEngine.Random.value > chance)
           continue;
 
-        int amount = (drop.m_dontScale ? UnityEngine.Random.Range(drop.m_amountMin, drop.m_amountMax) : Game.instance.ScaleDrops(drop.m_prefab, drop.m_amountMin, drop.m_amountMax));
-        if (drop.m_levelMultiplier)
-          amount *= levelMultiplier;
-
+        int amount;
         if (drop.m_onePerPlayer)
           amount = ZNet.instance.GetNrOfPlayers();
-
-        if (amount > 100)
-          amount = 100;
+        else
+        {
+          amount = drop.m_dontScale ? UnityEngine.Random.Range(drop.m_amountMin, drop.m_amountMax) : Game.instance.ScaleDrops(drop.m_prefab, drop.m_amountMin, drop.m_amountMax);
+          if (drop.m_levelMultiplier && !drop.m_levelMultiplierNotAmount)
+            amount *= levelMultiplier;
+          if (amount > 100)
+            amount = 100;
+        }
 
         if (amount > 0)
           SpawnDrop(drop, cfg, amount, level, levelMultiplier, zdo.ZDO.GetPosition() + offset, dropArea);
