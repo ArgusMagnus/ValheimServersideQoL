@@ -77,6 +77,7 @@ public sealed class MineRockProcessor : Processor<MineRockProcessor.PrefabInfo>
         hit.m_damage.m_damage = health;
         zdo.RPC.MineRock5.Damage(hit, idx);
       }
+      return ScheduleReprocessing(ServersideQoL.Config.Instance.Advanced.Value.RpcThrottle.WindowInSeconds * 0.5f);
     }
     return default;
   }

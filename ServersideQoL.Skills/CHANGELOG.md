@@ -1,3 +1,6 @@
+### v2.4.2
+- Fixed rock/ore deposits not being fully collapsed (due to RPC throttling introduced in [ServersideQoL](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL) v2.4.1
+
 ### v2.4.0
 - Added `HealthMultiplierAtMinSkill`/`HealthMultiplierAtMaxSkill` options [#337](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/337)
 - Fixed issue with area repair that could freeze the server [#288](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/288)
