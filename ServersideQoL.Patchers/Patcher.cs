@@ -117,6 +117,7 @@ static class Patcher
     assembly = AssemblyDefinition.ReadAssembly(ms);
 
     MakePublic(assembly, "Character", fields: ["s_encumbered", "s_inWater"]);
+    MakePublic(assembly, "CharacterDrop", fields: ["m_character"]);
     MakePublic(assembly, "Container", methods: ["CheckForChanges"]);
     //MakePublic(assembly, "Localization", fields: ["m_translations"]);
     MakePublic(assembly, "Player", fields: ["s_crouching"]);

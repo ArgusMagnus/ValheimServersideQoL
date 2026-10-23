@@ -1,3 +1,6 @@
+### v2.4.2
+- Fixed starred creatures sometimes not dropping appropriate ammounts of their drops [#377](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/377)
+
 ### v2.4.1
 - Fixed some creatures (those without ragdolls) sometimes not spawning their drops [#336](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/336)
 

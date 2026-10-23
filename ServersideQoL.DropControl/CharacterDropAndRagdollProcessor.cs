@@ -230,8 +230,6 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
       else
       {
         var drops = GenerateDropList(characterDrop, level);
-        if (level > 1)
-          Logger.DevLog($"{prefabInfo.PrefabInfo.PrefabName}: Setting drops: {string.Join(", ", drops.Select(x => (x.Key.name, x.Value)))}");
         /// <see cref="Ragdoll.Setup"/>
         zdo.Vars.SetDrops(drops.Count);
         for (int i = 0; i < drops.Count; i++)
@@ -255,20 +253,22 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     _characterDropsByRagdoll.Add((zdo.ZDO.GetPosition(), ragdoll), (characterDrop, zdo.Vars.GetLevel()));
   }
 
-  static List<KeyValuePair<GameObject,int>> GenerateDropList(CharacterDrop characterDrop, int level)
+  List<KeyValuePair<GameObject,int>> GenerateDropList(CharacterDrop characterDrop, int level)
   {
-    var character = characterDrop.GetComponent<Character>();
-    var lvlBkp = character.GetLevel();
-    try { character.SetLevel(level); }
-    catch (NullReferenceException) { System.Diagnostics.Debug.Assert(character.GetLevel() == level); }
+    var characterBkp = characterDrop.m_character;
+    characterDrop.m_character = characterBkp ??= characterDrop.GetComponent<Character>();
+    var lvlBkp = characterDrop.m_character.GetLevel();
+    try { characterDrop.m_character.SetLevel(level); }
+    catch (NullReferenceException) { if (characterDrop.m_character.GetLevel() != level) Logger.LogWarning($"Failed to set level on {characterDrop.name}"); }
     try
     {
       return characterDrop.GenerateDropList();
     }
     finally
     {
-      try { character.SetLevel(lvlBkp); }
-      catch (NullReferenceException) { System.Diagnostics.Debug.Assert(character.GetLevel() == lvlBkp); }
+      try { characterDrop.m_character.SetLevel(lvlBkp); }
+      catch (NullReferenceException) { if (characterDrop.m_character.GetLevel() != lvlBkp) Logger.LogWarning($"Failed to reset level on {characterDrop.name}"); }
+      characterDrop.m_character = characterBkp;
     }
   }
 
