@@ -1,2 +1,2 @@
-### v2.5.0
+### v2.4.2
 - Initial release
