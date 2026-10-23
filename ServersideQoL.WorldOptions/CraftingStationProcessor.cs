@@ -5,7 +5,10 @@ public sealed class CraftingStationProcessor : Processor<CraftingStationProcesso
 {
   public const string Id = "aaa674b7-2a64-42f1-aab5-e871f5dc0c63";
 
-  public sealed record PrefabInfo(CraftingStation? CraftingStation, StationExtension? StationExtension) : ProcessorPrefabInfo;
+  public sealed record PrefabInfo(CraftingStation? CraftingStation, StationExtension? StationExtension) : ProcessorPrefabInfo
+  {
+    public override bool IsValid => PrefabInfo.HasComponent<Piece>() && PrefabInfo.HasComponent<PieceTable>();
+  }
 
   readonly Dictionary<CraftingStation, StationInfo> _infos = [];
 
