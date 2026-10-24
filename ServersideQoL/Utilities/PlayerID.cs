@@ -1,6 +1,8 @@
-﻿namespace ServersideQoL.Utilities;
+﻿using System.Runtime.InteropServices;
 
-public readonly record struct PlayerID(long Value)
+namespace ServersideQoL.Utilities;
+
+public readonly record struct PlayerID(long Value) : ISerializableParameter
 {
 #if DEBUG
   static PlayerID()
@@ -81,5 +83,16 @@ public readonly record struct PlayerID(long Value)
     else if ((value & ModPlayerIDMask) is not 0)
       throw new ArgumentOutOfRangeException(nameof(value));
     return value;
+  }
+
+  void ISerializableParameter.Serialize(ref ZPackage pkg)
+  {
+    pkg.Write(Value);
+  }
+
+  unsafe void ISerializableParameter.Deserialize(ref ZPackage pkg)
+  {
+    fixed (PlayerID* p = &this)
+      *(long*)p = pkg.ReadLong();
   }
 }

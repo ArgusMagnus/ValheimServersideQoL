@@ -1,3 +1,6 @@
+### v2.4.3
+- Fixed issue when RPCs for already destroyed ZDOs are received
+
 ### v2.4.2
 - Moved templates for YAML config files to subdirectory
 

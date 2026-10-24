@@ -2,6 +2,7 @@
 using MonoMod.Cil;
 using MonoMod.Utils;
 using ServersideQoL.Utilities;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -103,6 +104,7 @@ public static class RPC
 
     public static class Incinerator
     {
+      public static RpcName RequestIncinerate { get; } = new("RPC_RequestIncinerate");
       public static RpcName AnimateLever { get; } = new("RPC_AnimateLever");
       public static RpcName AnimateLeverReturn { get; } = new("RPC_AnimateLeverReturn");
     }
@@ -425,12 +427,20 @@ public static class RPC
               if (del.DataParameterIndex > -1)
                 __args.Insert(del.DataParameterIndex, data);
               if (del.ZdoParameterIndex > -1)
-                __args.Insert(del.ZdoParameterIndex, zdo ??= ZDOMan.instance.GetZDO(data.m_targetZDO).ServersideQoLZDO);
+              {
+                if (!GetZdo(ref zdo, data.m_targetZDO, rpcMethod))
+                  continue;
+                __args.Insert(del.ZdoParameterIndex, zdo);
+              }
             }
             else
             {
               if (del.ZdoParameterIndex > -1)
-                __args.Insert(del.ZdoParameterIndex, zdo ??= ZDOMan.instance.GetZDO(data.m_targetZDO).ServersideQoLZDO);
+              {
+                if (!GetZdo(ref zdo, data.m_targetZDO, rpcMethod))
+                  continue;
+                __args.Insert(del.ZdoParameterIndex, zdo);
+              }
               if (del.DataParameterIndex > -1)
                 __args.Insert(del.DataParameterIndex, data);
             }
@@ -464,6 +474,15 @@ public static class RPC
         ServersideQoLPlugin.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);
       }
       return true;
+
+      static bool GetZdo([NotNullWhen(true)] ref ServersideQoLZDO? zdo, in ZDOID id, RpcMethod rpcMethod)
+      {
+        zdo ??= ZDOMan.instance.GetZDO(id)?.ServersideQoLZDO;
+        if (zdo is not null)
+          return true;
+        ServersideQoLPlugin.Logger.LogDiagnosticInfo($"{nameof(HandleRoutedRPCPrefix)}::{rpcMethod.Name}: ZDO with ID {id} not found");
+        return false;
+      }
     }
 
     sealed class RpcDelegate
