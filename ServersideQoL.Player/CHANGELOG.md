@@ -1,3 +1,7 @@
+### v2.4.3
+- Improved reliability when sacrificing items for their effects [#380](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/380)
+- Added a text above obliterators when a valid sacrifice is recognized, showing the item(s) to be sacrificed and the player who will receive the buffs
+
 ### v2.2.1
 - Compatiblity patch for [Backpack](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_Backpack)
 

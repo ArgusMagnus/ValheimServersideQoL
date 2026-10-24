@@ -9,5 +9,6 @@ partial class PlayerPlugin : ServersideQoLPluginBase<PlayerPlugin, Config>
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
     .Add<PlayerProcessor>()
     .Add<CryptDoorProcessor>()
-    .Add<VagonProcessor>();
+    .Add<VagonProcessor>()
+    .Add<IncineratorProcessor>();
 }

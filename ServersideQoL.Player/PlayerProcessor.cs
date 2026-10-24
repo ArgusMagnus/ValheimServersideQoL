@@ -14,12 +14,6 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
 
   protected override void Initialize()
   {
-    RPC.Intercept.UpdateInterception(RPC.RpcName.Incinerator.AnimateLever, RPC_AnimateLever,
-        Config.Instance.CanSacrificeMegingjord.Value ||
-        Config.Instance.CanSacrificeCryptKey.Value ||
-        Config.Instance.CanSacrificeWishbone.Value ||
-        Config.Instance.CanSacrificeTornSpirit.Value);
-
     Instance<PlayerRegistryProcessor>().StaminaUpdated -= OnPlayerStaminaUpdated;
     if (Config.Instance.InfiniteEncumberedStamina.Value || Config.Instance.InfiniteSneakingStamina.Value || Config.Instance.InfiniteSwimmingStamina.Value)
       Instance<PlayerRegistryProcessor>().StaminaUpdated += OnPlayerStaminaUpdated;
@@ -97,62 +91,6 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
     }
   }
 
-  void RPC_AnimateLever(ServersideQoLZDO zdo, ZRoutedRpc.RoutedRPCData data)
-  {
-    if (Instance<ContainerRegistryProcessor>().GetState(zdo) is not { } state || !GetPrefabInfo(zdo).HasComponent<Incinerator>())
-      return;
-
-    PlayerState? playerState = null;
-    ContainerState.IInventory? inventory = null;
-    if (Config.Instance.CanSacrificeMegingjord.Value && (inventory ??= state.GetInventory()).Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Megingjord))
-    {
-      playerState ??= Instance<PlayerRegistryProcessor>().GetStateForPeerID(data.m_senderPeerID);
-      if (playerState is null)
-        Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
-      else
-      {
-        SetSacrifiedMegingjord(playerState.PlayerID, true);
-        playerState.ZDO.RPC.Character.AddStatusEffect(StatusEffects.Megingjord);
-        RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Instance.Localization.Value.SacrificedMegingjord);
-      }
-    }
-    if (Config.Instance.CanSacrificeCryptKey.Value && (inventory ??= state.GetInventory()).Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
-    {
-      playerState ??= Instance<PlayerRegistryProcessor>().GetStateForPeerID(data.m_senderPeerID);
-      if (playerState is null)
-        Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
-      else
-      {
-        SetSacrifiedCryptKey(playerState.PlayerID, true);
-        RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Instance.Localization.Value.SacrificedCryptKey);
-      }
-    }
-    if (Config.Instance.CanSacrificeWishbone.Value && (inventory ??= state.GetInventory()).Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Wishbone))
-    {
-      playerState ??= Instance<PlayerRegistryProcessor>().GetStateForPeerID(data.m_senderPeerID);
-      if (playerState is null)
-        Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
-      else
-      {
-        SetSacrifiedWishbone(playerState.PlayerID, true);
-        playerState.ZDO.RPC.Character.AddStatusEffect(StatusEffects.Wishbone);
-        RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Instance.Localization.Value.SacrificedWishbone);
-      }
-    }
-    if (Config.Instance.CanSacrificeTornSpirit.Value && (inventory ??= state.GetInventory()).Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.TornSpirit))
-    {
-      playerState ??= Instance<PlayerRegistryProcessor>().GetStateForPeerID(data.m_senderPeerID);
-      if (playerState is null)
-        Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
-      else
-      {
-        SetSacrifiedTornSpirit(playerState.PlayerID, true);
-        playerState.ZDO.RPC.Character.AddStatusEffect(StatusEffects.Demister);
-        RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Instance.Localization.Value.SacrificedTornSpirit);
-      }
-    }
-  }
-
   void OnEmoteDetected(PlayerState state, Emotes emote)
   {
     if (Config.Instance.OpenCartEmote.Value is not ConfigBase.AnyEmote && Config.Instance.OpenCartEmote.Value != emote)
@@ -206,11 +144,11 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
   }
 
   static bool GetSacrifiedMegingjord(PlayerID playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID.Value}_SacrifiedMegingjord", defaultValue);
-  static void SetSacrifiedMegingjord(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedMegingjord", value);
+  internal static void SetSacrifiedMegingjord(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedMegingjord", value);
   internal static bool GetSacrifiedCryptKey(PlayerID playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID.Value}_SacrifiedCryptKey", defaultValue);
-  static void SetSacrifiedCryptKey(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedCryptKey", value);
+  internal static void SetSacrifiedCryptKey(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedCryptKey", value);
   static bool GetSacrifiedWishbone(PlayerID playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID.Value}_SacrifiedWishbone", defaultValue);
-  static void SetSacrifiedWishbone(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedWishbone", value);
+  internal static void SetSacrifiedWishbone(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedWishbone", value);
   static bool GetSacrifiedTornSpirit(PlayerID playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID.Value}_SacrifiedTornSpirit", defaultValue);
-  static void SetSacrifiedTornSpirit(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedTornSpirit", value);
+  internal static void SetSacrifiedTornSpirit(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedTornSpirit", value);
 }
