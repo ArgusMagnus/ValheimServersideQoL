@@ -250,7 +250,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           if (range > autoPickupMaxRange)
           {
             range = autoPickupMaxRange;
-            result = Invariant($"{Config.Instance.AutoStorePickupRangeSignPrefix}{range}");
+            result = Invariant($"{Config.Instance.AutoStorePickupRangeSignPrefix.Value}{range}");
           }
           containerState.AutoStorePickupRange = range;
           return result;
@@ -267,7 +267,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           if (range > feedMaxRange)
           {
             range = feedMaxRange;
-            result = Invariant($"{Config.Instance.AutoProcessFeedFromContainersRangeSignPrefix}{range}");
+            result = Invariant($"{Config.Instance.AutoProcessFeedFromContainersRangeSignPrefix.Value}{range}");
           }
           containerState.AutoProcessFeedRange = range;
           return result;
@@ -284,7 +284,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           if (range > tamefeedMaxRange)
           {
             range = tamefeedMaxRange;
-            result = Invariant($"{Config.Instance.TameAssistFeedFromContainersRangeSignPrefix}{range}");
+            result = Invariant($"{Config.Instance.TameAssistFeedFromContainersRangeSignPrefix.Value}{range}");
           }
           containerState.TameAssistFeedRange = range;
           return result;
