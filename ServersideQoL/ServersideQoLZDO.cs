@@ -60,7 +60,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
 
   public TPrefabInfo? GetProcessorPrefabInfo<TPrefabInfo>()
       where TPrefabInfo : notnull, ProcessorPrefabInfo
-      => PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo;
+      => PrefabInfo?.GetProcessorPrefabInfo<TPrefabInfo>();
 
   [Conditional("DEBUG")]
   public void AssertHasProcessorPrefabInfo<TPrefabInfo>()

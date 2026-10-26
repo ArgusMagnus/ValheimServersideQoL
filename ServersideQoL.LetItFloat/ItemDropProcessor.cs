@@ -14,13 +14,16 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 
   public sealed record PrefabInfo(ItemDrop ItemDrop) : ProcessorPrefabInfo
   {
-    public override bool IsValid => !PrefabInfo.HasComponent<Floating>() && !PrefabInfo.HasComponent<Fish>();
+    public override bool IsValid => ItemDrop.IsItem && !PrefabInfo.HasComponent<Floating>() && !PrefabInfo.HasComponent<Fish>();
   }
 
   readonly SectorDictionary<ServersideQoLZDO> _crates = new(4);
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
+    if (Config.Instance.Advanced.Value.ExcludedPrefabHashes.Contains(zdo.ZDO.GetPrefab()))
+      return ProcessResult.UnregisterProcessor;
+
     if (zdo.ZDO.GetPosition() is { y: > ZoneSystem.c_WaterLevel } ||
         GetHeight(zdo.ZDO.GetPosition()) is > ZoneSystem.c_WaterLevel - 2)
       return default;

@@ -63,9 +63,9 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     """, new AcceptableValueRange<float>(1f, 10f));
 
   static readonly AcceptableArrayValues<ItemDrop.ItemData.ItemType> __acceptableExcludeItemTypes = new([.. ObjectDB.instance.m_items
-    .Select(static x => x.GetComponent<ItemDrop>()?.m_itemData.m_shared)
-    .Where(static x => x is { m_icons.Length: > 0 })
-    .Select(static x => x!.m_itemType)
+    .Select(static x => x.GetComponent<ItemDrop>()!)
+    .Where(static x => x is { IsItem: true })
+    .Select(static x => x.m_itemData.m_shared.m_itemType)
     .Distinct()
     .OrderBy(static x => x.ToString())]);
 

@@ -24,4 +24,19 @@ public static class Extensions
         })
         .Where(static x => x is not null);
   }
+
+  extension(ItemDrop.ItemData.SharedData sharedData)
+  {
+    public bool IsItem => sharedData.m_icons is { Length: > 0 };
+  }
+
+  extension(ItemDrop.ItemData itemData)
+  {
+    public bool IsItem => itemData.m_shared.IsItem;
+  }
+
+  extension(ItemDrop itemDrop)
+  {
+    public bool IsItem => itemDrop.m_itemData.IsItem;
+  }
 }

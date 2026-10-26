@@ -10,7 +10,10 @@ namespace ServersideQoL.AutoStore;
 public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 {
   public const string Id = "5f86a765-e449-4047-afc8-a63e4d681a48";
-  public sealed record PrefabInfo(ItemDrop ItemDrop, Piece? Piece, EggGrow? EggGrow, ZSyncTransform? ZSyncTransform) : ProcessorPrefabInfo;
+  public sealed record PrefabInfo(ItemDrop ItemDrop, Piece? Piece, EggGrow? EggGrow, ZSyncTransform? ZSyncTransform) : ProcessorPrefabInfo
+  {
+    public override bool IsValid => ItemDrop.IsItem;
+  }
 
   readonly Dictionary<ServersideQoLZDO, DateTimeOffset> _eggDropTime = [];
   SectorDictionary<HashSet<ServersideQoLZDO>>? _itemDrops;
