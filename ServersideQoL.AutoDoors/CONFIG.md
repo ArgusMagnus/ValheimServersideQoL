@@ -5,6 +5,7 @@
 |Enabled|true|True/False|Enables/disables the entire mod|
 |AutoCloseMinPlayerDistance|4||Minimum distance all players must have to the door before it is closed.|
 |AutoCloseMinOpenSeconds|2||Minimum time the door must have been open before it is closed.|
+|SynchronizePairs|true|True/False|True to synchronize the state of door/gate pairs|
 </details>
 <details open><summary><b>Doors</b></summary>
 

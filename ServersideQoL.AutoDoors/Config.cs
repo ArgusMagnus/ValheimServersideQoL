@@ -11,6 +11,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     Invariant($"Minimum distance all players must have to the door before it is closed."));
   public ConfigEntry<float> AutoCloseMinOpenSeconds { get; } = BindEx(cfg, 2f,
     Invariant($"Minimum time the door must have been open before it is closed."));
+  public ConfigEntry<bool> SynchronizePairs { get; } = BindEx(cfg, true,
+    "True to synchronize the state of door/gate pairs");
 
   public IReadOnlyDictionary<Door, ConfigEntry<bool>> AutoClose { get; } = GetAutoClosePerDoor(cfg);
 

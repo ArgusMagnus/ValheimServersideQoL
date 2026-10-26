@@ -1,3 +1,6 @@
+### v2.5.0
+- Added option `SynchronizePairs` to synchronize the state of door/gate pairs [#318](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/318)
+
 ### v2.2.0
 - Added options to enable/disable auto closing per door type [#226](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/226)
 

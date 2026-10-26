@@ -15,7 +15,7 @@
     <DependencyDirectory>$(MSBuildThisFileDirectory)Dependencies\</DependencyDirectory>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
-    <Version>2.4.3</Version>
+    <Version>2.5.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('.Patchers')) == 'true'">
@@ -50,6 +50,7 @@
     <RequiredReference Include="BepInEx" HintPath="$(ValheimDir)BepInEx\core\BepInEx.dll" Private="False" />
     <RequiredReference Include="UnityEngine" HintPath="$(ValheimDir)valheim_server_Data\Managed\UnityEngine.dll" Private="False" />
     <RequiredReference Include="UnityEngine.CoreModule" HintPath="$(ValheimDir)valheim_server_Data\Managed\UnityEngine.CoreModule.dll" Private="False" />
+    <RequiredReference Include="UnityEngine.AnimationModule" HintPath="$(ValheimDir)valheim_server_Data\Managed\UnityEngine.AnimationModule.dll" Private="False" />
     <RequiredReference Include="0Harmony" HintPath="$(ValheimDir)BepInEx\core\0Harmony.dll" Private="False" />
     <RequiredReference Include="Mono.Cecil" HintPath="$(ValheimDir)BepInEx\core\Mono.Cecil.dll" Private="False" />
     <RequiredReference Include="MonoMod.Utils" HintPath="$(ValheimDir)BepInEx\core\MonoMod.Utils.dll" Private="False" />
