@@ -100,7 +100,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       [PrefabNames.GraustenChest] = new(0.8f, 0.8f, 0.5f, 0.5f, 0.5f, 1.2f),
       [PrefabNames.Wardrobe] = new(0.8f, 0.8f, 0.5f, 0.5f, 1f, 2.7f),
       [PrefabNames.Barrel] = new(0.4f, 0.4f, 0.4f, 0.4f, 0.45f, 0.9f),
-      [PrefabNames.Incinerator] = new(float.NaN, float.NaN, 0.1f, float.NaN, 1.5f, float.NaN)
+      [PrefabNames.Incinerator] = new(float.NaN, float.NaN, 0.1f, float.NaN, 1.75f, float.NaN)
     };
 
     [YamlIgnore]

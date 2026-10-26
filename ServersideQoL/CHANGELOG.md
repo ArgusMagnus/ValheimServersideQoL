@@ -1,6 +1,9 @@
 ### v2.5.0
 - Compatibility patch
 
+### v2.4.4
+- Compatibility patch
+
 ### v2.4.3
 - Fixed issue when RPCs for already destroyed ZDOs are received
 

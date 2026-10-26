@@ -108,7 +108,6 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
 
         for (int i = 0; i < upgrader.m_stack; i++)
         {
-          Logger.DevLog($"Upgrader found: {upgrader.m_dropPrefab.name}");
           foreach (var sacrifice in inventory.Items)
           {
             if (upgrader == sacrifice || !set.Contains(sacrifice.m_dropPrefab) || _used.Contains(sacrifice))
@@ -120,10 +119,9 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
             if (sacrificeArmor <= 0 && sacrificeBaseBlockPower <= 0 && sacrificeTotalDamage <= 0)
               continue;
 
-            Logger.DevLog($"Sacrifice found: {sacrifice.m_dropPrefab.name}");
             foreach (var item in inventory.Items)
             {
-              if (item == upgrader || item == sacrifice || item.m_shared.m_itemType != sacrifice.m_shared.m_itemType ||
+              if (item == upgrader || item == sacrifice || item.m_shared.m_itemType != sacrifice.m_shared.m_itemType || item.m_shared.m_skillType != sacrifice.m_shared.m_skillType ||
                   (item.m_shared is { m_armorPerLevel: <= 0, m_blockPowerPerLevel: <= 0 } && item.m_shared.m_damagesPerLevel.GetTotalDamage() <= 0) ||
                   (item.GetArmor() >= sacrificeArmor && item.GetBaseBlockPower() >= sacrificeBaseBlockPower && item.GetDamage().GetTotalDamage() >= sacrificeTotalDamage) ||
                   _used.Contains(item))
@@ -149,7 +147,6 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
               _used.Add(sacrifice);
               _used.Add(item);
 
-              Logger.DevLog($"Item found: {item.m_dropPrefab.name}, new quality: {newItem.m_quality}");
               if (state is null)
               {
                 _states.Add(zdo, state = new() { Revision = zdo.ZDO.DataRevision });
@@ -174,11 +171,11 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
         {
           var pos = zdo.ZDO.GetPosition();
           if (zdo == _obliteratorOfPotential)
-            pos.y += 1f;
+            pos.y += 1.25f;
           state.Sign = PlacePiece(pos, Prefabs.Sign, zdo.ZDO.GetRotation());
         }
         var text = string.Join("<br>", state.NewItems.Select(static x => $"{Localization.instance.Localize(x.m_shared.m_name)} {x.m_quality}"));
-        state.Sign.Vars.SetText(zdo == _obliteratorOfPotential ? text : $"<mark=#000000><color=white>{text}<size=45><br><br>");
+        state.Sign.Vars.SetText(zdo == _obliteratorOfPotential ? $"<color=white>{text}" : $"<mark=#000000><color=white>{text}<size=45><br><br>");
       }
       else if (state is { LeverReturned: true })
       {

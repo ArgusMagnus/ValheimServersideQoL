@@ -1,3 +1,7 @@
+### v2.4.4
+- Fixed config entry values in container sign range prefixes [#387](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/387)
+- Moved default Obliterator sign position a bit for compatibility with [ObliteratorOfPotential](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_ObliteratorOfPotential) and [Player](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_Player)
+
 ### v2.3.3
 - Fixed disappearing signs on growing/shrinking chests [#355](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/355) [#356](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/356)
 
