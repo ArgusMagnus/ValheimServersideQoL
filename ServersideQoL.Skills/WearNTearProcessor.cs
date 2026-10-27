@@ -104,7 +104,10 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
     {
       foreach (var piece in pieces)
       {
-        if (piece == zdo || Utils.DistanceSqr(pos, piece.ZDO.GetPosition()) > rangeSqr || piece.Vars.GetHealth() >= piece.Fields<WearNTear>().GetFloat(static () => x => x.m_health))
+        if (piece == zdo || Utils.DistanceSqr(pos, piece.ZDO.GetPosition()) > rangeSqr)
+          continue;
+        var maxHealth = piece.Fields<WearNTear>().GetFloat(static () => x => x.m_health);
+        if (piece.Vars.GetHealth(maxHealth) >= maxHealth)
           continue;
         if (++count > Config.Instance.Advanced.Value.Crafting.AreaRepair.MaxRepairedAtOnce)
         {
@@ -112,6 +115,8 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
           return;
         }
         _ignore.Add(piece);
+        piece.Recreated -= OnPieceRecreated;
+        piece.Recreated += OnPieceRecreated;
         _clearIgnoredAfter = now.AddSeconds(Config.Instance.Advanced.Value.Crafting.AreaRepair.IgnoreRepairedForSeconds);
         piece.RPC.WearNTear.Repair();
       }
@@ -119,4 +124,6 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
 
     Logger.DevLog($"{count} pieces repaired via area repair. Player: {playerState.PlayerName}, Skill: {skill * 100:F0}, Range: {Mathf.Sqrt(rangeSqr)}", BepInEx.Logging.LogLevel.Info);
   }
+
+  void OnPieceRecreated(ServersideQoLZDO oldZdo, ServersideQoLZDO newZdo) => _ignore.Add(newZdo);
 }
