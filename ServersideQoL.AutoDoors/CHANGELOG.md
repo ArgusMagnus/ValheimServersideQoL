@@ -1,3 +1,6 @@
+### v2.5.1
+- Improved matching of door pairs [#318](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/318)
+
 ### v2.5.0
 - Added option `SynchronizePairs` to synchronize the state of door/gate pairs [#318](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/318)
 

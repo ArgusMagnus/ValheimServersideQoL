@@ -21,7 +21,6 @@ public sealed class DoorProcessor : Processor<DoorProcessor.PrefabInfo>
 
   readonly Dictionary<ServersideQoLZDO, Timestamp> _closeAfter = [];
   readonly SectorDictionary<PrefabInfo, HashSet<ServersideQoLZDO>> _doors = new(4);
-  readonly Quaternion _expectedRot = Quaternion.Euler(0, 180, 0);
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _pairedDoors = [];
 
   protected override void Initialize()
@@ -78,40 +77,61 @@ public sealed class DoorProcessor : Processor<DoorProcessor.PrefabInfo>
     {
       result &= ~ProcessResult.UnregisterProcessor;
 
-      if (prefabInfo.PrefabInfo.Prefab?.GetBoundingBox() is { } bounds && _doors.TryAdd(prefabInfo, zdo))
+      if (prefabInfo.PrefabInfo.Prefab is not null && _doors.TryAdd(prefabInfo, zdo))
       {
-        var pos = zdo.ZDO.GetPosition();
-        var rot = zdo.ZDO.GetRotation();
-        Quaternion? inverseRot = null;
-        float? expectedDistanceSqr = null;
+        Dictionary<string, Vector3>? snapPoints = null;
 
-        foreach (var doors in _doors.EnumerateAdjacent((pos, prefabInfo)))
+        foreach (var doors in _doors.EnumerateAdjacent((zdo.ZDO.GetPosition(), prefabInfo)))
         {
           foreach (var door in doors)
           {
             if (door == zdo || _pairedDoors.ContainsKey(door))
               continue;
 
-            inverseRot ??= Quaternion.Inverse(rot);
-            var relativeRot = inverseRot.Value * door.ZDO.GetRotation();
-            var angle = Quaternion.Angle(relativeRot, _expectedRot);
-            //Logger.DevLog($"{prefabInfo.PrefabInfo.PrefabName}: Angle={angle}");
-            if (angle > 0.1f)
-              continue;
+            const string SnapPointTag = "snappoint";
 
-            var v = door.ZDO.GetPosition() - pos;
-            expectedDistanceSqr ??= Vector3.Project(rot * bounds.size, v).sqrMagnitude;
-            var distanceSqr = v.sqrMagnitude;
-            //Logger.DevLog($"{prefabInfo.PrefabInfo.PrefabName}: Distance={Mathf.Sqrt(distanceSqr)}, ExpectedDistance={Mathf.Sqrt(expectedDistanceSqr.Value)}");
-            if (Mathf.Abs(distanceSqr - expectedDistanceSqr.Value) > 0.1f)
-              continue;
+            var originalPos = prefabInfo.PrefabInfo.Prefab.transform.localPosition;
+            var originalRot = prefabInfo.PrefabInfo.Prefab.transform.localRotation;
+            try
+            {
+              if (snapPoints is null)
+              {
+                snapPoints = new(prefabInfo.PrefabInfo.Prefab.transform.childCount);
+                prefabInfo.PrefabInfo.Prefab.transform.localPosition = zdo.ZDO.GetPosition();
+                prefabInfo.PrefabInfo.Prefab.transform.localRotation = zdo.ZDO.GetRotation();
+                for (int i = 0; i < prefabInfo.PrefabInfo.Prefab.transform.childCount; i++)
+                {
+                  var child = prefabInfo.PrefabInfo.Prefab.transform.GetChild(i);
+                  if (child.CompareTag(SnapPointTag))
+                    snapPoints.Add(child.name, child.position);
+                }
+              }
 
-            _pairedDoors.Add(zdo, door);
-            _pairedDoors.Add(door, zdo);
+              if (snapPoints.Count is 0)
+                continue;
 
-            zdo.Destroyed += OnPairedDoorDestroyed;
-            door.Destroyed += OnPairedDoorDestroyed;
-            //Logger.DevLog("Pair found");
+              prefabInfo.PrefabInfo.Prefab.transform.localPosition = door.ZDO.GetPosition();
+              prefabInfo.PrefabInfo.Prefab.transform.localRotation = door.ZDO.GetRotation();
+              for (int i = 0; i < prefabInfo.PrefabInfo.Prefab.transform.childCount; i++)
+              {
+                var child = prefabInfo.PrefabInfo.Prefab.transform.GetChild(i);
+                if (!child.CompareTag(SnapPointTag))
+                  continue;
+                if (Utils.DistanceSqr(child.position, snapPoints[child.name]) > 0.01f)
+                  continue;
+
+                _pairedDoors.Add(zdo, door);
+                _pairedDoors.Add(door, zdo);
+                zdo.Destroyed += OnPairedDoorDestroyed;
+                door.Destroyed += OnPairedDoorDestroyed;
+                break;
+              }
+            }
+            finally
+            {
+              prefabInfo.PrefabInfo.Prefab.transform.localPosition = originalPos;
+              prefabInfo.PrefabInfo.Prefab.transform.localRotation = originalRot;
+            }
           }
         }
       }
