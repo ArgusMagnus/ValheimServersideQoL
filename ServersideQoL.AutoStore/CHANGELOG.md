@@ -1,3 +1,6 @@
+### v2.5.1
+- Minor fixes and optimizations
+
 ### v2.1.0
 - Added option `AutoPickupRangeSignPrefix` [#270](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/270) 
 - Added option `SuppressContainerModifiedEffectSound`

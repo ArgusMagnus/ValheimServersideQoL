@@ -1,3 +1,6 @@
+### v2.5.1
+- Fixed area repair causing rpc feedback loop [#288](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/288)
+
 ### v2.4.2
 - Fixed rock/ore deposits not being fully collapsed (due to RPC throttling introduced in [ServersideQoL](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL) v2.4.1
 
