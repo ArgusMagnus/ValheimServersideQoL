@@ -1,3 +1,6 @@
+### v2.6.0
+- Added option `DespawnAfterMinutes` (default 60) after which crates are despawned [#385](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/385)
+
 ### v2.5.1
 - Added YAML option `Exclude` to exclude items [#346](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/346)
 

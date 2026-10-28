@@ -7,6 +7,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 {
   public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
+  public ConfigEntry<float> DespawnAfterMinutes { get; } = BindEx(cfg, (float)TimeSpan.FromSeconds(ItemDrop.c_AutoDestroyTimeout).TotalMinutes,
+    "The time in minutes after cargo crates are despawned");
 
   public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg, static x => x.Refresh());
 

@@ -119,6 +119,7 @@ static class Patcher
     MakePublic(assembly, "Character", fields: ["s_encumbered", "s_inWater"]);
     MakePublic(assembly, "CharacterDrop", fields: ["m_character"]);
     MakePublic(assembly, "Container", methods: ["CheckForChanges"]);
+    MakePublic(assembly, "ItemDrop", fields: ["c_AutoDestroyTimeout"]);
     //MakePublic(assembly, "Localization", fields: ["m_translations"]);
     MakePublic(assembly, "Player", fields: ["s_crouching"]);
     MakePublic(assembly, "RandEventSystem", fields: ["m_randomEvent"]);
