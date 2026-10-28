@@ -1,3 +1,6 @@
+### v2.5.1
+- Fixed some dungeons not being recognized [#379](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/379)
+
 ### v2.4.1
 - Fixed floating ships near map tables constantly updating the map tables causing performance issues [#369](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/369)
 

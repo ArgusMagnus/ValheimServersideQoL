@@ -291,7 +291,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
         {
           if (peer.PlayerState?.PlayerID is not { } playerID)
             continue;
-          if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), peer.RefPos) > _dungeonRangeSqr)
+          if (Utils.DistanceSqr(pos, peer.RefPos) > _dungeonRangeSqr)
             continue;
           var playerState = GetOrAddPlayerState(playerID);
           if (!playerState.Dungeons.TryAdd(zdo, (pos, component.m_enterText)))
