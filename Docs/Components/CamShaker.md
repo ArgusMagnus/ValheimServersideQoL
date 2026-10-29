@@ -424,8 +424,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|3|
-|m_range|System.Single|50|
+|m_strength|System.Single|2.3|
+|m_range|System.Single|30|
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
@@ -435,19 +435,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|3|
-|m_range|System.Single|50|
-|m_delay|System.Single|0|
-|m_continous|System.Boolean|False|
-|m_continousDuration|System.Single|0|
-|m_localOnly|System.Boolean|False|
-
-## fx_frozenking_chain_ground_impact_2: fx_frozenking_chain_ground_impact_2
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_strength|System.Single|1.34|
-|m_range|System.Single|50|
+|m_strength|System.Single|2.3|
+|m_range|System.Single|30|
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
@@ -457,8 +446,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|3|
-|m_range|System.Single|50|
+|m_strength|System.Single|2|
+|m_range|System.Single|30|
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
@@ -468,19 +457,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|3|
-|m_range|System.Single|50|
-|m_delay|System.Single|0|
-|m_continous|System.Boolean|False|
-|m_continousDuration|System.Single|0|
-|m_localOnly|System.Boolean|False|
-
-## fx_frozenking_chain_rush_impact: fx_frozenking_chain_rush_impact
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_strength|System.Single|1.34|
-|m_range|System.Single|50|
+|m_strength|System.Single|2.5|
+|m_range|System.Single|30|
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
@@ -789,7 +767,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_strength|System.Single|1|
 |m_range|System.Single|50|
-|m_delay|System.Single|0.2|
+|m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|False|
@@ -800,7 +778,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_strength|System.Single|1|
 |m_range|System.Single|50|
-|m_delay|System.Single|0|
+|m_delay|System.Single|0.2|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|False|

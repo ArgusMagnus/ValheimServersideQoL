@@ -6105,6 +6105,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_hitEffectBigThreshold|System.Single|0|
 |m_hitEffectBuildUpThreshold|System.Single|0|
 
+## WallSnow1: WallSnow1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_health|System.Single|100|
+|m_minDamageTreshold|System.Single|0|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_ttl|System.Single|0|
+|m_spawnWhenDamaged|UnityEngine.GameObject|*null*|
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
+|m_autoCreateFragments|System.Boolean|False|
+|m_hitEffectBigThreshold|System.Single|0|
+|m_hitEffectBuildUpThreshold|System.Single|0|
+
+## WallSnow2: WallSnow2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_health|System.Single|100|
+|m_minDamageTreshold|System.Single|0|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_ttl|System.Single|0|
+|m_spawnWhenDamaged|UnityEngine.GameObject|*null*|
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
+|m_autoCreateFragments|System.Boolean|False|
+|m_hitEffectBigThreshold|System.Single|0|
+|m_hitEffectBuildUpThreshold|System.Single|0|
+
+## WallSnow3: WallSnow3
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_health|System.Single|100|
+|m_minDamageTreshold|System.Single|0|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_ttl|System.Single|0|
+|m_spawnWhenDamaged|UnityEngine.GameObject|*null*|
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
+|m_autoCreateFragments|System.Boolean|False|
+|m_hitEffectBigThreshold|System.Single|0|
+|m_hitEffectBuildUpThreshold|System.Single|0|
+
+## WallSnow4: WallSnow4
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_health|System.Single|100|
+|m_minDamageTreshold|System.Single|0|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_ttl|System.Single|0|
+|m_spawnWhenDamaged|UnityEngine.GameObject|*null*|
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
+|m_autoCreateFragments|System.Boolean|False|
+|m_hitEffectBigThreshold|System.Single|0|
+|m_hitEffectBuildUpThreshold|System.Single|0|
+
 ## widestone: widestone
 
 |Field|Type|Default Value|

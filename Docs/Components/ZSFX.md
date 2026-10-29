@@ -456,10 +456,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0.1|
+|m_fadeOutDuration|System.Single|0.1|
 |m_fadeOutDelay|System.Single|0|
 |m_fadeOutOnAwake|System.Boolean|False|
 |m_randomPan|System.Boolean|False|
@@ -490,10 +490,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0.1|
+|m_fadeOutDuration|System.Single|0.1|
 |m_fadeOutDelay|System.Single|0|
 |m_fadeOutOnAwake|System.Boolean|False|
 |m_randomPan|System.Boolean|False|
@@ -524,10 +524,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0.1|
+|m_fadeOutDuration|System.Single|0.1|
 |m_fadeOutDelay|System.Single|0|
 |m_fadeOutOnAwake|System.Boolean|False|
 |m_randomPan|System.Boolean|False|
@@ -558,10 +558,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0.1|
+|m_fadeOutDuration|System.Single|0.1|
 |m_fadeOutDelay|System.Single|0|
 |m_fadeOutOnAwake|System.Boolean|False|
 |m_randomPan|System.Boolean|False|
@@ -1768,7 +1768,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-73716780|
+|m_hash|System.Int32|-646712673|
 
 ## fermenter: SFX
 
@@ -1802,7 +1802,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-646712673|
+|m_hash|System.Int32|-73716780|
 
 ## Fire: sfx_fire_loop
 
@@ -10894,10 +10894,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0.1|
+|m_fadeOutDuration|System.Single|0.1|
 |m_fadeOutDelay|System.Single|0|
 |m_fadeOutOnAwake|System.Boolean|False|
 |m_randomPan|System.Boolean|False|
