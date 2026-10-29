@@ -1,3 +1,6 @@
+### v2.6.0
+- Compatibility patch
+
 ### v2.5.1
 - Compatibility patch
 
