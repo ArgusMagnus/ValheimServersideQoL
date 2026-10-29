@@ -25,12 +25,13 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     public Config.DropsConfig.DropConfig DropConfig { get; private set; } = default!;
     public bool RequiresCustomSpawnDrops { get; private set; }
     public IReadOnlyDictionary<int, CharacterDrop.Drop> OriginalDropsByHash { get; private set; } = default!;
-    public bool HasRagdoll { get; private set; }
 
     static IReadOnlyDictionary<string, Config.DropsConfig.DropConfig> DropsByName
       => field ??= GetDropsByName();
     static IReadOnlyDictionary<Ragdoll, CharacterDrop> CharacterDropByRagdoll
       => field ??= GetCharacterDropByRagdoll();
+
+    public static HashSet<int> ToBeDestroyed { get; } = [];
 
     public PrefabInfo(ItemDrop? itemDrop, CharacterDrop? characterDrop, Ragdoll? ragdoll)
     {
@@ -45,7 +46,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     {
       get
       {
-        if (ItemDrop is not null)
+        if (ItemDrop is { IsItem: true })
           return true;
 
         if (CharacterDrop is not null)
@@ -67,6 +68,16 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
         OriginalDropsByHash = CharacterDrop.m_drops
           .Where(static x => x.m_levelMultiplier && !x.m_onePerPlayer)
           .ToDictionary(static x => ZNetScene.instance.GetPrefabHash(x.m_prefab));
+
+        if (IsCharacterDrop && Ragdoll is null)
+        {
+          foreach (var drop in CharacterDrop.m_drops)
+          {
+            if (drop.m_prefab is not null)
+              ToBeDestroyed.Add(ZNetScene.instance.GetPrefabHash(drop.m_prefab));
+          }
+        }
+
         CharacterDrop.m_drops.Clear();
         foreach (var drop in cfg.Drops)
         {
@@ -150,11 +161,8 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
 
     var result = ProcessResult.UnregisterProcessor;
 
-    if (prefabInfo.ItemDrop is not null)
-    {
-      if (zdo.ZDO.GetPosition().y > DestroyHeight)
+    if (zdo.ZDO.GetPosition().y > DestroyHeight && PrefabInfo.ToBeDestroyed.Contains(zdo.ZDO.GetPrefab()))
         result = ProcessResult.DestroyZDO;
-    }
     else if (prefabInfo.IsCharacterDrop)
     {
       if (prefabInfo.Ragdoll is not null)
