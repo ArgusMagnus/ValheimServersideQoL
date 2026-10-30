@@ -1,4 +1,5 @@
-﻿using ServersideQoL.Utilities;
+﻿using BepInEx.Configuration;
+using ServersideQoL.Utilities;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -127,11 +128,10 @@ public abstract class Processor
 
   internal static void StaticInitialize()
   {
-    if (__enableProcessingTimeMonitoring = Config.Instance.DiagnosticLogs.Value)
-    {
-      foreach (var processor in ServersideQoLPlugin.Instance.Processors.Values)
-        processor._processingTimeStopwatch ??= new();
-    }
+    Config.Instance.DiagnosticLogs.SettingChanged -= OnDiagnosticLogsConfigChanged;
+    OnDiagnosticLogsConfigChanged(Config.Instance.DiagnosticLogs, EventArgs.Empty);
+    Config.Instance.DiagnosticLogs.SettingChanged += OnDiagnosticLogsConfigChanged;
+
     __dataZDO = null;
 
     foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
@@ -173,6 +173,16 @@ public abstract class Processor
           }
         }
       }
+    }
+  }
+
+  static void OnDiagnosticLogsConfigChanged(object sender, EventArgs e)
+  {
+    var cfg = (ConfigEntry<bool>)sender;
+    if (__enableProcessingTimeMonitoring = cfg.Value)
+    {
+      foreach (var processor in ServersideQoLPlugin.Instance.Processors.Values)
+        processor._processingTimeStopwatch ??= new();
     }
   }
 
@@ -311,7 +321,7 @@ public abstract class Processor
   internal float GetAndResetProcessingTimeMs()
   {
     if (_processingTimeStopwatch is null)
-      return -1;
+      return float.NaN;
     var result = (float)_processingTimeStopwatch.Elapsed.TotalMilliseconds;
     _processingTimeStopwatch.Reset();
     return result;
