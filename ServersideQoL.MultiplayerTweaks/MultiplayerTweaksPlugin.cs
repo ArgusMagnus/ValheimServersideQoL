@@ -11,4 +11,5 @@ partial class MultiplayerTweaksPlugin : ServersideQoLPluginBase<MultiplayerTweak
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
     .Add<Processor>();
+    //.Add<PlayerProcessor>();
 }

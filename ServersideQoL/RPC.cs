@@ -124,6 +124,11 @@ public static class RPC
       public static RpcName Repair { get; } = new("RPC_Repair");
       public static RpcName HealthChanged { get; } = new("RPC_HealthChanged");
     }
+
+    public static class ZNet
+    {
+      public static RpcName SavePlayerProfile { get; } = new("SavePlayerProfile");
+    }
   }
 
   public static void ShowMessage(long targetPeerId, MessageHud.MessageType type, string message)
@@ -188,6 +193,9 @@ public static class RPC
   /// <see cref="Game.DiscoverClosestLocation(string, Vector3, string, int, bool, bool)"/>
   public static void DiscoverLocationResponse(long targetPeerID, string pinName, Minimap.PinType pinType, Vector3 pos, bool showMap)
     => InvokeRoutedRPC(targetPeerID, RpcName.Game.DiscoverLocationResponse, parameters: [pinName, (int)pinType, pos, showMap]);
+
+  public static void SavePlayerProfile(Peer peer)
+    => peer.ZNetPeer.m_rpc.Invoke(RpcName.ZNet.SavePlayerProfile.ToString());
 
   const string NameOfZdoRpc = $"{nameof(ServersideQoLZDO)}.{nameof(ServersideQoLZDO.RPC)}";
   const string NameOfZdoPlayerRpc = $"{NameOfZdoRpc}.{nameof(ServersideQoLZDO.RPC.Player)}";

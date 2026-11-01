@@ -5,21 +5,28 @@ using UnityEngine;
 
 namespace ServersideQoL.MultiplayerTweaks;
 
-[Processor("71988cd7-0b04-4603-8759-21ab8585ac05")]
+[Processor(Id)]
 [DependsOn<PlayerRegistryProcessor>]
 public sealed class Processor : Processor<Processor.PrefabInfo>
 {
+  public const string Id = "71988cd7-0b04-4603-8759-21ab8585ac05";
   public sealed record PrefabInfo(Ship? Ship, Smelter? Smelter, CookingStation? CookingStation, Character? Character) : ProcessorPrefabInfo;
 
-  bool _patched;
+  bool _forcePlayerPinsPatched;
+  bool _saveBeforeSleepingPatched;
   Timestamp _maxOwnerTimestamp;
 
   protected override void Initialize()
   {
-    if (!_patched && Config.Instance.ForcePlayerMapPin.Value)
+    if (!_forcePlayerPinsPatched && Config.Instance.ForcePlayerMapPin.Value)
     {
-      _patched = true;
+      _forcePlayerPinsPatched = true;
       MultiplayerTweaksPlugin.HarmonyInstance.PatchAll(typeof(ZNetServerSyncedPlayerDataPatch));
+    }
+    if (!_saveBeforeSleepingPatched && Config.Instance.PlayerSave.SaveBeforeSleep.Value)
+    {
+      _saveBeforeSleepingPatched = true;
+      MultiplayerTweaksPlugin.HarmonyInstance.PatchAll(typeof(GameUpdateSleepingPatch));
     }
   }
 
@@ -88,6 +95,23 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
         return;
       foreach (var peer in __instance.GetPeers())
         peer.m_publicRefPos = true;
+    }
+  }
+
+  [HarmonyPatch(typeof(Game), "UpdateSleeping")]
+  static class GameUpdateSleepingPatch
+  {
+    static bool __wasSleeping;
+
+    [HarmonyPostfix]
+    public static void Postfix(Game __instance)
+    {
+      if (__instance.m_sleeping && !__wasSleeping && Config.Instance.PlayerSave.SaveBeforeSleep.Value)
+      {
+        foreach (var peer in ZNet.instance.GetPeers())
+          RPC.SavePlayerProfile(peer.ServersideQoLPeer);
+      }
+      __wasSleeping = __instance.m_sleeping;
     }
   }
 }

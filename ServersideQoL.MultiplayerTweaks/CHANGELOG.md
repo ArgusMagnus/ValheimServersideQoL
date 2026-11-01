@@ -1,3 +1,6 @@
+### vNext
+- Added option `PlayerSave.SaveBeforeSleep` to instruct clients to save before sleeping
+
 ### v2.1.0
 - Fixed bug that caused ownership reassignment to happen too often [#287](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/287)
 

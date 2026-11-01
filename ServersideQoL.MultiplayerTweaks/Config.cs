@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using System.Runtime.CompilerServices;
 
 namespace ServersideQoL.MultiplayerTweaks;
 
@@ -27,6 +28,21 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     The maximum time (seconds) since the last ping from a player was received for that player to be considered as potential new owner.
     This is not the max ping. Even on a perfect connection this value can be up to one second, because vanilla clients only send pings once every second.
     """, new AcceptableValueRange<float>(1, 5));
+
+  public PlayerSaveConfig PlayerSave { get; } = new(cfg);
+  public sealed class PlayerSaveConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
+  {
+    public ConfigEntry<bool> SaveBeforeSleep { get; } = BindEx(cfg, section, false,
+      "True to instruct clients to save before sleeping");
+    //public ConfigEntry<bool> SaveNearPortals { get; } = BindEx(cfg, section, false, """
+    //  True to instruct clients to save when they are near portals.
+
+    //  """);
+      
+
+    //public ConfigEntry<float> MinSaveIntervalMinutes { get; } = BindEx(cfg, section, 1f,
+    //  "The minimum time in minutes between save instructions");
+  }
 
   //public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
 
