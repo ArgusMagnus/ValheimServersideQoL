@@ -1,7 +1,6 @@
 ﻿using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 using UnityEngine;
-using static ServersideQoL.ServersideQoLZDO.ZDORpc;
 
 namespace ServersideQoL.PortalProgression;
 

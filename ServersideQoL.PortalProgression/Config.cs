@@ -49,6 +49,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
         defaultValue = BossesByBiome[Heightmap.Biome.Mistlands].m_defeatSetGlobalKey;
       else if (Regex.IsMatch(item.name, @"flametal|CharredCogwheel", RegexOptions.IgnoreCase))
         defaultValue = BossesByBiome[Heightmap.Biome.AshLands].m_defeatSetGlobalKey;
+      else if (item.name.Contains("gold", StringComparison.OrdinalIgnoreCase))
+        defaultValue = BossesByBiome[Heightmap.Biome.DeepNorth].m_defeatSetGlobalKey;
 
       result.Add(new(itemDrop, cfg.Bind(Section, item.name, defaultValue, new ConfigDescription(
           $"Key of the boss that will allow '{(global::Localization.instance.Localize(itemDrop.m_itemData.m_shared.m_name))}' to be teleported when defeated",
