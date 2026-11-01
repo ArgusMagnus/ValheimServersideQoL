@@ -330,7 +330,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
       {
         var spawnListStr = spawnDataList is null ? "" : string.Join($"{Environment.NewLine}  ", spawnDataList.Select(static x =>
         $"{x.Data.m_prefab.name} ({x.Prefab}): {x.Data.m_biome}, day: {x.Data.m_spawnAtDay}, night: {x.Data.m_spawnAtNight}").Prepend(""));
-        Logger.LogWarning($"{GetPrefabInfo(zdo).PrefabName} ({zdo.ZDO.GetPrefab()}): Spawn source not found in {biome}, day: {EnvMan.IsDay()}, night: {EnvMan.IsNight()}{spawnListStr}");
+        Logger.LogDiagnosticInfo($"{GetPrefabInfo(zdo).PrefabName} ({zdo.ZDO.GetPrefab()}): Spawn source not found in {biome}, day: {EnvMan.IsDay()}, night: {EnvMan.IsNight()}{spawnListStr}");
         return result;
       }
 
@@ -386,18 +386,21 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
   {
     if (!_spawnDataByEvent.TryGetValue(currentEvent.m_name, out eventInfo))
     {
-      var biome = Biome.None;
-      foreach (var (boss, b) in BossesInOrder.Enumerate())
+      if (!Config.Instance.Advanced.Value.EventBiomeOverrides.TryGetValue(currentEvent.m_name, out var biome))
       {
-        if (biome is Biome.None)
+        biome = Biome.None;
+        foreach (var (boss, b) in BossesInOrder.Enumerate())
         {
-          if (currentEvent.m_requiredGlobalKeys.Contains(boss.m_defeatSetGlobalKey))
+          if (biome is Biome.None)
+          {
+            if (currentEvent.m_requiredGlobalKeys.Contains(boss.m_defeatSetGlobalKey))
+              biome = b;
+          }
+          else // one biome higher than the boss that enabled the event
+          {
             biome = b;
-        }
-        else // one biome higher than the boss that enabled the event
-        {
-          biome = b;
-          break;
+            break;
+          }
         }
       }
 

@@ -58,5 +58,16 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public string HigherLevelStarName(Character character, int level)
       => string.Format(HigherLevelStarNameFormat, character.m_name, string.Concat(Enumerable.Repeat(Star, level - 1)));
     public float SizeCheckDelaySeconds { get; init; } = 0.5f;
+
+    public Dictionary<string, Heightmap.Biome> EventBiomeOverrides
+    {
+      get => field ??= new()
+      {
+        ["hildirboss1"] = Heightmap.Biome.BlackForest,
+        ["hildirboss2"] = Heightmap.Biome.Mountain,
+        ["hildirboss3"] = Heightmap.Biome.Plains
+      };
+      init;
+    }
   }
 }

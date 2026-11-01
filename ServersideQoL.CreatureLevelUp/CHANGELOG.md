@@ -1,3 +1,6 @@
+### vNext
+- Added advanced config option `EventBiomeOverrides` to override the biome used as reference when leveling up creatures spawned by events
+
 ### v2.4.1
 - Fixed boss ordering which caused Fader to increase Deep North creature levels [#364](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/364)
 
