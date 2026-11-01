@@ -527,6 +527,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
     if (_reinitializationRequested.Count > 0)
     {
+      HashSet<Processor>? reinitProcessors = null;
       foreach (var obj in _reinitializationRequested.Keys)
       {
         switch (obj)
@@ -537,21 +538,35 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
             foreach (var processor in cfg.Plugin.Processors)
             {
-              if (processor.Attribute.ReinitializeOnConfigChanged)
+              if (processor.Attribute.ReinitializeOnConfigChanged && (reinitProcessors ??= []).Add(processor))
                 processor.Initialize();
             }
             break;
 
           case Processor processor:
-            processor.Initialize();
+            if ((reinitProcessors ??= []).Add(processor))
+              processor.Initialize();
             break;
         }
       }
 
-      foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
+      if (reinitProcessors is not null)
       {
-        zdo.ReregisterAll();
-        OnDataOrOwnerRevisionChanged(zdo);
+        foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
+        {
+          if (zdo.PrefabInfo?.AvailableProcessors is not { Count: > 0 } availableProcessors)
+            continue;
+
+          foreach (var processor in availableProcessors)
+          {
+            if (!reinitProcessors.Contains(processor))
+              continue;
+
+            zdo.ReregisterAll();
+            OnDataOrOwnerRevisionChanged(zdo);
+            break;
+          }
+        }
       }
     }
 

@@ -1,5 +1,5 @@
 ### v2.6.0
-- Compatibility patch
+- Reduced impact of config reloads
 
 ### v2.5.1
 - Compatibility patch
