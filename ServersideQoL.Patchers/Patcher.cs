@@ -112,13 +112,14 @@ static class Patcher
     using var ms = new MemoryStream();
     assembly.Write(ms);
 
-    // only patch copy copy
+    // only patch copy
     ms.Seek(0, SeekOrigin.Begin);
     assembly = AssemblyDefinition.ReadAssembly(ms);
 
     MakePublic(assembly, "Character", fields: ["s_encumbered", "s_inWater"]);
     MakePublic(assembly, "CharacterDrop", fields: ["m_character"]);
     MakePublic(assembly, "Container", methods: ["CheckForChanges"]);
+    MakePublic(assembly, "Game", fields: ["m_sleeping"]);
     MakePublic(assembly, "ItemDrop", fields: ["c_AutoDestroyTimeout"]);
     //MakePublic(assembly, "Localization", fields: ["m_translations"]);
     MakePublic(assembly, "Player", fields: ["s_crouching"]);
