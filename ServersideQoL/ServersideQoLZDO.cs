@@ -378,12 +378,22 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   public override int GetHashCode() => ZDO.GetHashCode();
 
   [Conditional("DEBUG")]
-  public void AssertIs<T>() where T : MonoBehaviour
-      => System.Diagnostics.Debug.Assert(PrefabInfo?.HasComponent<T>() is true);
+  public void AssertIs<T>()
+    where T : MonoBehaviour
+    => System.Diagnostics.Debug.Assert(PrefabInfo?.HasComponent<T>() is true);
 
   [Conditional("DEBUG")]
-  public void AssertIsAll<T1, T2>() where T1 : MonoBehaviour where T2 : MonoBehaviour
-      => System.Diagnostics.Debug.Assert(
-          PrefabInfo?.HasComponent<T1>() is true &&
-          PrefabInfo?.HasComponent<T2>() is true);
+  public void AssertIsAll<T1, T2>()
+    where T1 : MonoBehaviour
+    where T2 : MonoBehaviour
+    => System.Diagnostics.Debug.Assert(
+        PrefabInfo?.HasComponent<T1>() is true &&
+        PrefabInfo?.HasComponent<T2>() is true);
+
+  public ServersideQoLZDO AssertAndReturn<T>()
+    where T : MonoBehaviour
+  {
+    AssertIs<T>();
+    return this;
+  }
 }
