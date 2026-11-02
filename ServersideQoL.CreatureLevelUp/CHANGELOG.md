@@ -1,4 +1,5 @@
 ### vNext
+- Fixed creatures spawned by locations sometimes being levelel up using the wrong biome [#401](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/401)
 - Added advanced config option `EventBiomeOverrides` to override the biome used as reference when leveling up creatures spawned by events
 
 ### v2.4.1

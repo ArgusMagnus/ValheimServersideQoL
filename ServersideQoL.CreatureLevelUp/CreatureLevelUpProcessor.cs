@@ -10,12 +10,14 @@ namespace ServersideQoL.CreatureLevelUp;
 public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcessor.PrefabInfo>
 {
   public const string Id = "5ab42c92-d2fd-4efe-8904-720a46ac7f5b";
-  public sealed record PrefabInfo(Character? Character, CreatureSpawner? CreatureSpawner, SpawnArea? SpawnArea) : ProcessorPrefabInfo;
+  public sealed record PrefabInfo(Character? Character, CreatureSpawner? CreatureSpawner, SpawnArea? SpawnArea, LocationProxy? LocationProxy) : ProcessorPrefabInfo;
 
   readonly Dictionary<Biome, int> _levelIncreasePerBiome = [];
   readonly Dictionary<Vector2s, SectorState> _sectorStates = [];
   readonly Dictionary<(Biome, int Prefab), List<SpawnSystemData>> _spawnData = [];
   readonly Dictionary<string, EventInfo> _spawnDataByEvent = [];
+  readonly SectorDictionary<ServersideQoLZDO> _locations = new(ZoneSystem.c_ZoneSize);
+  readonly HashSet<ServersideQoLZDO> _creatureSpawners = [];
 
   record SpawnData(int Prefab, int MinLevel, int MaxLevel, float LevelUpChance);
 
@@ -27,6 +29,8 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
   {
     _sectorStates.Clear();
     _spawnData.Clear();
+    _locations.Clear();
+    _creatureSpawners.Clear();
 
     foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
     {
@@ -62,65 +66,75 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
 
     switch (prefabInfo)
     {
+      case { LocationProxy: not null }:
+        _locations.Add(zdo.ZDO.GetPosition(), zdo);
+        break;
       case { CreatureSpawner: not null }:
-        result |= LevelUpSpawner(zdo, prefabInfo.CreatureSpawner) | ProcessResult.ReregisterOnRecreated;
-        //if ((result & ProcessResult.RecreateZDO) is not 0)
-        {
-          var sector = zdo.ZDO.GetSector();
-          if (!_sectorStates.TryGetValue(sector, out var state))
-            _sectorStates.Add(sector, state = new());
-
-          var prefab = prefabInfo.CreatureSpawner.m_creaturePrefab.name.GetStableHashCode();
-          if (!state.CreatureSpawnersBySpawned.TryGetValue(prefab, out var set))
-            state.CreatureSpawnersBySpawned.Add(prefab, set = []);
-
-          if (!set.Contains(zdo))
+        if (!TryGetLocation(zdo.ZDO.GetPosition(), out var locZdo, out _) || _creatureSpawners.Add(zdo))
+          result = ScheduleReprocessing(Config.Instance.Advanced.Value.CreatureSpawnerProcessingDelaySeconds); // give time for locations to be processed
+        else if (_creatureSpawners.Remove(zdo))
+        {          
+          result |= LevelUpSpawner(zdo, prefabInfo.CreatureSpawner, locZdo?.ZDO.GetPosition()) | ProcessResult.ReregisterOnRecreated;
+          //if ((result & ProcessResult.RecreateZDO) is not 0)
           {
-            set.Add(zdo);
-            zdo.Destroyed += zdo => set.Remove(zdo);
+            var sector = zdo.ZDO.GetSector();
+            if (!_sectorStates.TryGetValue(sector, out var state))
+              _sectorStates.Add(sector, state = new());
+
+            var prefab = prefabInfo.CreatureSpawner.m_creaturePrefab.name.GetStableHashCode();
+            if (!state.CreatureSpawnersBySpawned.TryGetValue(prefab, out var set))
+              state.CreatureSpawnersBySpawned.Add(prefab, set = []);
+
+            if (!set.Contains(zdo))
+            {
+              set.Add(zdo);
+              zdo.Destroyed += zdo => set.Remove(zdo);
+            }
           }
         }
         break;
 
       case { SpawnArea: not null }:
-        var minZone = ZoneSystem.GetZone(zdo.ZDO.GetPosition() - new Vector3(prefabInfo.SpawnArea.m_spawnRadius, 0, prefabInfo.SpawnArea.m_spawnRadius));
-        var maxZone = ZoneSystem.GetZone(zdo.ZDO.GetPosition() + new Vector3(prefabInfo.SpawnArea.m_spawnRadius, 0, prefabInfo.SpawnArea.m_spawnRadius));
-        var biome = (Biome)zdo.Vars.GetLevel((int)Biome.None);
-        if (biome is 0)
         {
-          biome = GetBiome(zdo.ZDO.GetPosition());
-          if (RandEventSystem.instance.m_randomEvent is { } currentEvent &&
-              GetEventInfo(currentEvent, out var eventInfo) &&
-              eventInfo.SpawnAreas.Contains(zdo.ZDO.GetPrefab()))
+          var minZone = ZoneSystem.GetZone(zdo.ZDO.GetPosition() - new Vector3(prefabInfo.SpawnArea.m_spawnRadius, 0, prefabInfo.SpawnArea.m_spawnRadius));
+          var maxZone = ZoneSystem.GetZone(zdo.ZDO.GetPosition() + new Vector3(prefabInfo.SpawnArea.m_spawnRadius, 0, prefabInfo.SpawnArea.m_spawnRadius));
+          var biome = (Biome)zdo.Vars.GetLevel((int)Biome.None);
+          if (biome is 0)
           {
-            var minEventZone = ZoneSystem.GetZone(currentEvent.m_pos - new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) - new Vector2s(1, 1);
-            var maxEventZone = ZoneSystem.GetZone(currentEvent.m_pos + new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) + new Vector2s(1, 1);
-            var zone = zdo.ZDO.GetSector();
-            if (zone.x >= minEventZone.x && zone.x <= maxEventZone.x &&
-                zone.y >= minEventZone.y && zone.y <= maxEventZone.y)
+            biome = GetBiome(zdo.ZDO.GetPosition());
+            if (RandEventSystem.instance.m_randomEvent is { } currentEvent &&
+                GetEventInfo(currentEvent, out var eventInfo) &&
+                eventInfo.SpawnAreas.Contains(zdo.ZDO.GetPrefab()))
             {
-              biome = eventInfo.Biome;
-              zdo.Vars.SetLevel((int)biome);
-              //Logger.DevLog($"{GetPrefabInfo(zdo).PrefabName}: Event spawner: {biome}");
+              var minEventZone = ZoneSystem.GetZone(currentEvent.m_pos - new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) - new Vector2s(1, 1);
+              var maxEventZone = ZoneSystem.GetZone(currentEvent.m_pos + new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) + new Vector2s(1, 1);
+              var zone = zdo.ZDO.GetSector();
+              if (zone.x >= minEventZone.x && zone.x <= maxEventZone.x &&
+                  zone.y >= minEventZone.y && zone.y <= maxEventZone.y)
+              {
+                biome = eventInfo.Biome;
+                zdo.Vars.SetLevel((int)biome);
+                //Logger.DevLog($"{GetPrefabInfo(zdo).PrefabName}: Event spawner: {biome}");
+              }
             }
           }
-        }
 
-        for (var x = minZone.x; x <= maxZone.x; x++)
-        {
-          for (var y = minZone.y; y <= maxZone.y; y++)
+          for (var x = minZone.x; x <= maxZone.x; x++)
           {
-            var sector = new Vector2s(x, y);
-            if (!_sectorStates.TryGetValue(sector, out var state))
-              _sectorStates.Add(sector, state = new());
-
-            foreach (var data in prefabInfo.SpawnArea.m_prefabs)
+            for (var y = minZone.y; y <= maxZone.y; y++)
             {
-              var prefab = data.m_prefab.name.GetStableHashCode();
-              if (!state.SpawnAreasBySpawned.TryGetValue(prefab, out var list))
-                state.SpawnAreasBySpawned.Add(prefab, list = []);
-              list.Add(new(zdo.ZDO.m_uid, zdo.ZDO.GetPosition(), biome, prefabInfo.SpawnArea.m_spawnRadius, prefab, data.m_minLevel, data.m_maxLevel, prefabInfo.SpawnArea.m_levelupChance));
-              zdo.Destroyed += x => list.RemoveAll(y => y.ID == x.ZDO.m_uid);
+              var sector = new Vector2s(x, y);
+              if (!_sectorStates.TryGetValue(sector, out var state))
+                _sectorStates.Add(sector, state = new());
+
+              foreach (var data in prefabInfo.SpawnArea.m_prefabs)
+              {
+                var prefab = data.m_prefab.name.GetStableHashCode();
+                if (!state.SpawnAreasBySpawned.TryGetValue(prefab, out var list))
+                  state.SpawnAreasBySpawned.Add(prefab, list = []);
+                list.Add(new(zdo.ZDO.m_uid, zdo.ZDO.GetPosition(), biome, prefabInfo.SpawnArea.m_spawnRadius, prefab, data.m_minLevel, data.m_maxLevel, prefabInfo.SpawnArea.m_levelupChance));
+                zdo.Destroyed += x => list.RemoveAll(y => y.ID == x.ZDO.m_uid);
+              }
             }
           }
         }
@@ -177,11 +191,12 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
       list.Sort(static (a, b) => b.MaxLevel - a.MaxLevel);
   }
 
-  ProcessResult LevelUpSpawner(ServersideQoLZDO zdo, CreatureSpawner creatureSpawner)
+  ProcessResult LevelUpSpawner(ServersideQoLZDO zdo, CreatureSpawner creatureSpawner, Vector3? refPos)
   {
     var result = ProcessResult.Default;
-    Biome? biome = null;
     var fields = zdo.Fields<CreatureSpawner>();
+
+    Biome? biome = null;
 
     if (creatureSpawner.m_respawnTimeMinuts <= 0)
     {
@@ -192,7 +207,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
           respawnTime = 0;
         else if (Config.Instance.RespawnOneTimeSpawnsCondition.Value is RespawnOneTimeSpawnsConditions.AfterBossDefeated)
         {
-          biome ??= GetBiome(zdo.ZDO.GetPosition());
+          biome ??= GetBiome(refPos ?? zdo.ZDO.GetPosition());
           if (!BossesByBiome.TryGetValue(biome.Value, out var boss) || !ZoneSystem.instance.GetGlobalKey(boss.m_defeatSetGlobalKey))
             respawnTime = 0;
         }
@@ -208,7 +223,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     var increase = Config.Instance.MaxLevelIncrease.Value;
     if (Config.Instance.MaxLevelIncreasePerDefeatedBoss.Value > 0)
     {
-      biome ??= GetBiome(zdo.ZDO.GetPosition());
+      biome ??= GetBiome(refPos ?? zdo.ZDO.GetPosition());
       if (_levelIncreasePerBiome.TryGetValue(biome.Value, out var value))
         increase += value;
     }
@@ -422,6 +437,42 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
       }
     }
     return true;
+  }
+
+  bool TryGetLocation(Vector3 position, out ServersideQoLZDO? locationZdo, out Location? location)
+  {
+    location = null;
+    locationZdo = null;
+    var result = true;
+    /// <see cref="Location.GetLocation"/>
+    Vector2s? zone = null;
+    foreach (var locZdo in _locations.EnumerateAdjacent(position))
+    {
+      using var loc = ZoneSystem.instance.GetAndLoadLocationByHash(locZdo.Vars.GetLocation());
+      if (!loc.IsValid)
+        continue;
+      if (loc.Prefab is not { } prefab)
+      {
+        result = false;
+        continue;
+      }
+
+      locationZdo = locZdo;
+      location = loc.Prefab.GetComponent<Location>();
+      if (Character.InInterior(position))
+      {
+        zone ??= ZoneSystem.GetZone(position);
+        if (zone == ZoneSystem.GetZone(locZdo.ZDO.GetPosition()))
+          return true;
+      }
+      else
+      {
+        loc.Prefab.transform.SetLocalPositionAndRotation(locZdo.ZDO.GetPosition(), locZdo.ZDO.GetRotation());
+        if (location.IsInside(position, 0f))
+          return true;
+      }
+    }
+    return result;
   }
 
   sealed class SectorState
