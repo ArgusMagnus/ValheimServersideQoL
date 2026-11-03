@@ -59,6 +59,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       => string.Format(HigherLevelStarNameFormat, character.m_name, string.Concat(Enumerable.Repeat(Star, level - 1)));
     public float SizeCheckDelaySeconds { get; init; } = 0.5f;
     public float CreatureSpawnerProcessingDelaySeconds { get; init; } = 0.2f;
+    public float PersistentEventReprocessingDelaySeconds { get; init; } = 0.2f;
 
     public Dictionary<string, Heightmap.Biome> EventBiomeOverrides
     {

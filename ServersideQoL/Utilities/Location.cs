@@ -6,29 +6,29 @@ namespace ServersideQoL.Utilities;
 
 public readonly ref struct Location : IDisposable
 {
-  readonly ZoneSystem.ZoneLocation? _loc;
+  public ZoneSystem.ZoneLocation ZoneLocation { get; }
   readonly Vector3 _pos;
   readonly Quaternion _rot;
-  public bool IsValid => _loc is { m_prefab.IsValid: true };
+  public bool IsValid => ZoneLocation is { m_prefab.IsValid: true };
   public GameObject? Prefab { get; }
 
   public Location(ZoneSystem.ZoneLocation loc)
   {
-    _loc = loc;
-    if (!_loc.m_prefab.IsValid)
+    ZoneLocation = loc;
+    if (!ZoneLocation.m_prefab.IsValid)
     {
-      ServersideQoLPlugin.Logger.LogWarning($"Tried to load invalid location asset: {_loc.m_prefabName} / {_loc.m_prefab.m_assetID}");
+      ServersideQoLPlugin.Logger.LogWarning($"Tried to load invalid location asset: {ZoneLocation.m_prefabName} / {ZoneLocation.m_prefab.m_assetID}");
       return;
     }
 
-    if (!_loc.m_prefab.IsLoaded)
+    if (!ZoneLocation.m_prefab.IsLoaded)
     {
-      if (!_loc.m_prefab.IsLoading)
-        _loc.m_prefab.LoadAsync();
+      if (!ZoneLocation.m_prefab.IsLoading)
+        ZoneLocation.m_prefab.LoadAsync();
       return;
     }
 
-    Prefab = _loc.m_prefab.Asset;
+    Prefab = ZoneLocation.m_prefab.Asset;
     _pos = Prefab.gameObject.transform.position;
     _rot = Prefab.gameObject.transform.rotation;
     Prefab.gameObject.transform.position = Vector3.zero;

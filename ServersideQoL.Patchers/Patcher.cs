@@ -122,6 +122,7 @@ static class Patcher
     MakePublic(assembly, "Game", fields: ["m_sleeping"]);
     MakePublic(assembly, "ItemDrop", fields: ["c_AutoDestroyTimeout"]);
     //MakePublic(assembly, "Localization", fields: ["m_translations"]);
+    MakePublic(assembly, "TriggerPersistentEventOnDestroy", fields: ["_eventInternalName", "_stopEvent"]);
     MakePublic(assembly, "Player", fields: ["s_crouching"]);
     MakePublic(assembly, "RandEventSystem", fields: ["m_randomEvent"]);
     MakePublic(assembly, "ServerOptionsGUI", fields: ["m_presets", "m_modifiers"]);

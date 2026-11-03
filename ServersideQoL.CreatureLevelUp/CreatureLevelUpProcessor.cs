@@ -1,4 +1,5 @@
-﻿using ServersideQoL.Utilities;
+﻿using Microsoft.CodeAnalysis;
+using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using static Heightmap;
@@ -10,7 +11,20 @@ namespace ServersideQoL.CreatureLevelUp;
 public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcessor.PrefabInfo>
 {
   public const string Id = "5ab42c92-d2fd-4efe-8904-720a46ac7f5b";
-  public sealed record PrefabInfo(Character? Character, CreatureSpawner? CreatureSpawner, SpawnArea? SpawnArea, LocationProxy? LocationProxy) : ProcessorPrefabInfo;
+  public sealed record PrefabInfo(Character? Character, CreatureSpawner? CreatureSpawner, SpawnArea? SpawnArea, LocationProxy? LocationProxy) : ProcessorPrefabInfo
+  {
+    public TriggerPersistentEventOnDestroy? TriggerPersistentEventOnDestroy { get; private set; }
+
+    public override bool IsValid
+    {
+      get
+      {
+        if (SpawnArea is not null && PrefabInfo.GetComponent<TriggerPersistentEventOnDestroy>() is { _stopEvent: true } ev)
+          TriggerPersistentEventOnDestroy = ev;
+        return base.IsValid;
+      }
+    }
+  }
 
   readonly Dictionary<Biome, int> _levelIncreasePerBiome = [];
   readonly Dictionary<Vector2s, SectorState> _sectorStates = [];
@@ -18,6 +32,9 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
   readonly Dictionary<string, EventInfo> _spawnDataByEvent = [];
   readonly SectorDictionary<ServersideQoLZDO> _locations = new(ZoneSystem.c_ZoneSize);
   readonly HashSet<ServersideQoLZDO> _creatureSpawners = [];
+  readonly Dictionary<string, Biome> _persistentEventBiomes = [];
+  PersistentEventInfoSearcher? _persistentEventInfoSearcher;
+  bool _persistentEventSearchDone;
 
   record SpawnData(int Prefab, int MinLevel, int MaxLevel, float LevelUpChance);
 
@@ -96,29 +113,51 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
 
       case { SpawnArea: not null }:
         {
-          var minZone = ZoneSystem.GetZone(zdo.ZDO.GetPosition() - new Vector3(prefabInfo.SpawnArea.m_spawnRadius, 0, prefabInfo.SpawnArea.m_spawnRadius));
-          var maxZone = ZoneSystem.GetZone(zdo.ZDO.GetPosition() + new Vector3(prefabInfo.SpawnArea.m_spawnRadius, 0, prefabInfo.SpawnArea.m_spawnRadius));
           var biome = (Biome)zdo.Vars.GetLevel((int)Biome.None);
           if (biome is 0)
           {
-            biome = GetBiome(zdo.ZDO.GetPosition());
-            if (RandEventSystem.instance.m_randomEvent is { } currentEvent &&
-                GetEventInfo(currentEvent, out var eventInfo) &&
-                eventInfo.SpawnAreas.Contains(zdo.ZDO.GetPrefab()))
+            if (prefabInfo.TriggerPersistentEventOnDestroy is not null)
             {
-              var minEventZone = ZoneSystem.GetZone(currentEvent.m_pos - new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) - new Vector2s(1, 1);
-              var maxEventZone = ZoneSystem.GetZone(currentEvent.m_pos + new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) + new Vector2s(1, 1);
-              var zone = zdo.ZDO.GetSector();
-              if (zone.x >= minEventZone.x && zone.x <= maxEventZone.x &&
-                  zone.y >= minEventZone.y && zone.y <= maxEventZone.y)
-              {
-                biome = eventInfo.Biome;
+              if (_persistentEventBiomes.TryGetValue(prefabInfo.TriggerPersistentEventOnDestroy._eventInternalName, out biome))
                 zdo.Vars.SetLevel((int)biome);
-                //Logger.DevLog($"{GetPrefabInfo(zdo).PrefabName}: Event spawner: {biome}");
+              else
+              {
+                if (_persistentEventSearchDone)
+                  Logger.LogWarning($"Biome for persistent event {prefabInfo.TriggerPersistentEventOnDestroy._eventInternalName} not found");
+                else
+                {
+                  Logger.LogDiagnosticInfo($"Biome for persistent event {prefabInfo.TriggerPersistentEventOnDestroy._eventInternalName} not (yet) found");
+                  result = ScheduleReprocessing(Config.Instance.Advanced.Value.PersistentEventReprocessingDelaySeconds);
+                  _persistentEventInfoSearcher ??= new(_persistentEventBiomes, Logger);
+                  if (_persistentEventSearchDone = _persistentEventInfoSearcher.Search())
+                    _persistentEventInfoSearcher = null;
+                }
+                break;
+              }
+            }
+            else
+            {
+              biome = GetBiome(zdo.ZDO.GetPosition());
+              if (RandEventSystem.instance.m_randomEvent is { } currentEvent &&
+                  GetEventInfo(currentEvent, out var eventInfo) &&
+                  eventInfo.SpawnAreas.Contains(zdo.ZDO.GetPrefab()))
+              {
+                var minEventZone = ZoneSystem.GetZone(currentEvent.m_pos - new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) - new Vector2s(1, 1);
+                var maxEventZone = ZoneSystem.GetZone(currentEvent.m_pos + new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) + new Vector2s(1, 1);
+                var zone = zdo.ZDO.GetSector();
+                if (zone.x >= minEventZone.x && zone.x <= maxEventZone.x &&
+                    zone.y >= minEventZone.y && zone.y <= maxEventZone.y)
+                {
+                  biome = eventInfo.Biome;
+                  zdo.Vars.SetLevel((int)biome);
+                  //Logger.DevLog($"{GetPrefabInfo(zdo).PrefabName}: Event spawner: {biome}");
+                }
               }
             }
           }
 
+          var minZone = ZoneSystem.GetZone(zdo.ZDO.GetPosition() - new Vector3(prefabInfo.SpawnArea.m_spawnRadius, 0, prefabInfo.SpawnArea.m_spawnRadius));
+          var maxZone = ZoneSystem.GetZone(zdo.ZDO.GetPosition() + new Vector3(prefabInfo.SpawnArea.m_spawnRadius, 0, prefabInfo.SpawnArea.m_spawnRadius));
           for (var x = minZone.x; x <= maxZone.x; x++)
           {
             for (var y = minZone.y; y <= maxZone.y; y++)
@@ -488,5 +527,75 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
   {
     public Dictionary<int, SpawnSystemData> SpawnData { get; } = [];
     public HashSet<int> SpawnAreas { get; } = [];
+  }
+
+  sealed class PersistentEventInfoSearcher
+  {
+    readonly HashSet<string> _toLoad = [];
+    readonly HashSet<string> _events = [];
+    readonly Stack<ZoneSystem.ZoneLocation> _locations = new(ZoneSystem.instance.m_locations);
+    readonly Dictionary<string, Biome> _biomeByEventName;
+    readonly Logger _logger;
+
+    public PersistentEventInfoSearcher(Dictionary<string, Biome> biomeByEventName, Logger logger)
+    {
+      _biomeByEventName = biomeByEventName;
+      _logger = logger;
+      foreach (var prefab in ZNetScene.instance.m_prefabs)
+      {
+        if (prefab.GetComponent<TriggerPersistentEventOnDestroy>() is not { _stopEvent: false } trigger)
+          continue;
+        _toLoad.Add(prefab.name);
+        _events.Add(trigger._eventInternalName);
+      }
+    }
+
+    public bool Search()
+    {
+      while (_events.Count > 0 && _toLoad.Count > 0 && _locations.TryPop(out var loc))
+      {
+        using var location = new Utilities.Location(loc);
+        if (!location.IsValid)
+          continue;
+
+        if (location.Prefab is not { } prefab)
+        {
+          _locations.Push(loc);
+          return false;
+        }
+
+        if (Utils.GetEnabledComponentsInChildren<DungeonGenerator>(prefab).FirstOrDefault() is { } dungeonGenerator)
+        {
+          var rooms = dungeonGenerator.GetAvailableRoomPrefabs();
+          foreach (var room in rooms)
+          {
+            if (!room.IsValid)
+              continue;
+            room.Load();
+            if (room.Asset is not { } roomPrefab)
+              continue;
+            foreach (var trigger in roomPrefab.GetComponentsInChildren<TriggerPersistentEventOnDestroy>())
+            {
+              if (!_toLoad.Remove(trigger.gameObject.name) || !_events.Remove(trigger._eventInternalName))
+                continue;
+                _biomeByEventName.Add(trigger._eventInternalName, loc.m_biome);
+              _logger.LogDiagnosticInfo($"Found trigger for {trigger._eventInternalName} in {loc.m_biome} ({prefab.name})");
+            }
+          }
+        }
+        else
+        {
+          foreach (var trigger in prefab.GetComponentsInChildren<TriggerPersistentEventOnDestroy>())
+          {
+            if (!_toLoad.Remove(trigger.gameObject.name) || !_events.Remove(trigger._eventInternalName))
+              continue;
+            _biomeByEventName.Add(trigger._eventInternalName, loc.m_biome);
+            _logger.LogDiagnosticInfo($"Found trigger for {trigger._eventInternalName} in {loc.m_biome} ({prefab.name})");
+          }
+        }
+      }
+
+      return true;
+    }
   }
 }
