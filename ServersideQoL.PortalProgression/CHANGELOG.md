@@ -1,4 +1,4 @@
-### vNext
+### v2.6.0
 - Added default value for Deep North metals to config
 
 ### v2.4.1

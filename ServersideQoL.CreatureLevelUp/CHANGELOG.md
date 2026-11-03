@@ -1,4 +1,4 @@
-### vNext
+### v2.6.0
 - Fixed creatures spawned by locations sometimes being levelel up using the wrong biome [#401](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/401)
 - Fixed creatures spawned by persistent events (jotun invasions) being leveled up using the wrong biome [#381](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/381)
 - Added advanced config option `EventBiomeOverrides` to override the biome used as reference when leveling up creatures spawned by events

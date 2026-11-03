@@ -1,4 +1,4 @@
-### vNext
+### v2.6.0
 - Added option `PlayerSave.SaveBeforeSleep` to instruct clients to save before sleeping
 
 ### v2.1.0
