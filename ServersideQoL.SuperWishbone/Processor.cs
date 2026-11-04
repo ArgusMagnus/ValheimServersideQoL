@@ -61,7 +61,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
           var hash = go.name.GetStableHashCode();
           if (!_advancedConfigEntries.TryAdd(hash, entry))
             Logger.LogWarning($"Prefab '{go.name}' matches multiple entries. Only the first is used.");
-          Logger.LogDiagnosticInfo($"Placing beacons for {go.name}");
+          Logger.LogDiagnosticInfo($"Placing beacons for {go.name} (r={GetRange(entry.Range)})");
         }
       }
     }
@@ -110,7 +110,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
         return ProcessResult.UnregisterProcessor;
 
       beacon = PlaceObject(GetBeaconPos(zdo.ZDO.GetPosition(), false), BeaconPrefabHash, 0);
-      beacon.Fields<Beacon>().Set(static () => x => x.m_range, cfg.Range);
+      beacon.Fields<Beacon>().Set(static () => x => x.m_range, GetRange(cfg.Range));
       if (!canMove)
       {
         _zdosByBeacon.Add(beacon, zdo);
@@ -129,9 +129,6 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
     }
     else if (prefabInfo.LocationProxy is not null)
     {
-      if (Config.Instance.Range.Value <= 0)
-        return ProcessResult.UnregisterProcessor;
-
       if (Config.Instance is { FindDungeons.Value: false, FindVegvisir.Value: false })
         return ProcessResult.UnregisterProcessor;
 
@@ -175,7 +172,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
       foreach (var (pos, isLocation) in beaconPositions)
       {
         beacon = PlaceObject(GetBeaconPos(pos, isLocation), BeaconPrefabHash, 0);
-        beacon.Fields<Beacon>().Set(static () => x => x.m_range, Config.Instance.Range.Value);
+        beacon.Fields<Beacon>().Set(static () => x => x.m_range, GetRange(Config.Instance.Range.Value));
         _zdosByBeacon.Add(beacon, zdo);
       }
       return ProcessResult.UnregisterProcessor;
@@ -236,14 +233,16 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
     }
   }
 
+  static float GetRange(float range)
+  {
+    if (range > 0)
+      return range;
+    return ZNet.instance.GetSyncedSimulationDistance().NearSimulationDistance * ZoneSystem.c_ZoneSize;// * Mathf.Sqrt(2);
+  }
+
   void OnAdvancedConfigChanged(ConfigBase.YamlConfigEntry<Config.AdvancedConfig> cfg)
   {
-    if (!Config.Instance.Enabled.Value)
-    {
-      Config.Instance.Advanced.ValueChanged -= OnAdvancedConfigChanged;
-      return;
-    }
-
+    Config.Instance.Advanced.ValueChanged -= OnAdvancedConfigChanged;
     RequestReinitialization();
   }
 }

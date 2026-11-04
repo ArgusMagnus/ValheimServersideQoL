@@ -12,8 +12,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public ConfigEntry<bool> FindVegvisir { get; } = BindEx(cfg, true,
     "True to make the wishbone find vegvisirs");
   public ConfigEntry<float> Range { get; } = BindEx(cfg, Mathf.Max(Minimap.instance.m_exploreRadius, ZoneSystem.c_ZoneSize),
-      "Radius in which the wishbone will react to dungeons/locations",
-      new AcceptableValueRange<float>(0, Mathf.Floor(ZoneSystem.c_ZoneSize * 2 * Mathf.Sqrt(2))));
+      "Radius in which the wishbone will react to dungeons/locations");
 
   public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
 
