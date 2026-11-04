@@ -1,4 +1,5 @@
-﻿using ServersideQoL.Utilities;
+﻿using ServersideQoL.Processors;
+using ServersideQoL.Utilities;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -15,6 +16,9 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
     public bool IsBeacon { get; private set; }
     public ItemDrop? ItemDrop { get; private set; }
     public Character? Character { get; private set; }
+    public Container? Container { get; private set; }
+    public bool CanMove { get; private set; }
+
     public override bool IsValid
     {
       get
@@ -23,13 +27,16 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
         IsBeacon = PrefabInfo.PrefabHash == BeaconPrefabHash;
         ItemDrop = PrefabInfo.GetComponent<ItemDrop>();
         Character = PrefabInfo.GetComponent<Character>();
+        Container = PrefabInfo.GetComponent<Container>();
+        CanMove = PrefabInfo.GetComponent<ZSyncTransform>() is { m_syncPosition: true };
         return true;
       }
     }
   }
 
   static int BeaconPrefabHash => Prefabs.MountainRemainsBuried;
-  readonly Dictionary<int, Config.AdvancedConfig.Entry> _advancedConfigEntries = [];
+  readonly Dictionary<GameObject, Config.AdvancedConfig.Entry> _entryByItemPrefab = [];
+  readonly Dictionary<int, Config.AdvancedConfig.Entry> _entryByPrefabHash = [];
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _zdosByBeacon = [];
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _beaconsByZdo = [];
 
@@ -43,7 +50,8 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
       DestroyObject(zdo);
     _zdosByBeacon.Clear();
 
-    _advancedConfigEntries.Clear();
+    _entryByPrefabHash.Clear();
+    _entryByItemPrefab.Clear();
 
     if (Config.Instance.Advanced.Value.Entries is { } entries)
     {
@@ -53,15 +61,37 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
           continue;
 
         var pattern = ConvertToRegexPattern(entry.PrefabNamePattern);
-        foreach (var go in ZNetScene.instance.m_prefabs)
+
+        foreach (var go in ObjectDB.instance.m_items)
         {
-          if (!Regex.IsMatch(go.name, pattern))
+          if (go.GetComponent<ItemDrop>() is null || !Regex.IsMatch(go.name, pattern))
             continue;
 
+          if (!_entryByItemPrefab.TryAdd(go, entry) && entry != _entryByItemPrefab[go])
+            Logger.LogDiagnosticWarning($"Item '{go.name}' matches multiple entries. Only the first is used.");
+          Logger.LogDiagnosticInfo($"Placing beacons for item {go.name} (range: {GetRange(entry.Range)})");
+        }
+
+        foreach (var go in ZNetScene.instance.m_prefabs)
+        {
+          GameObject? item = null;
+          if (!Regex.IsMatch(go.name, pattern))
+          {
+            if (_entryByItemPrefab.Count is 0)
+              continue;
+
+            item =
+              go.GetComponentInChildren<CharacterDrop>()?.m_drops.FirstOrDefault(x => x.m_prefab is not null && _entryByItemPrefab.ContainsKey(x.m_prefab))?.m_prefab ??
+              go.GetComponentInChildren<DropOnDestroyed>()?.m_dropWhenDestroyed.m_drops.FirstOrDefault(x => x.m_item is not null && _entryByItemPrefab.ContainsKey(x.m_item)).m_item ??
+              (go.GetComponentInChildren<Pickable>()?.m_itemPrefab is { } x && _entryByItemPrefab.ContainsKey(x) ? x : null);
+            if (item is null)
+              continue;
+          }
+
           var hash = go.name.GetStableHashCode();
-          if (!_advancedConfigEntries.TryAdd(hash, entry))
-            Logger.LogWarning($"Prefab '{go.name}' matches multiple entries. Only the first is used.");
-          Logger.LogDiagnosticInfo($"Placing beacons for {go.name} (r={GetRange(entry.Range)})");
+          if (!_entryByPrefabHash.TryAdd(hash, entry) && entry != _entryByPrefabHash[hash])
+            Logger.LogDiagnosticWarning($"Prefab '{go.name}' matches multiple entries. Only the first is used.");
+          Logger.LogDiagnosticInfo($"Placing beacons for prefab {go.name} (range: {GetRange(entry.Range)}, item: {item?.name})");
         }
       }
     }
@@ -90,7 +120,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
       }
       return default;
     }
-    else if (_advancedConfigEntries.TryGetValue(zdo.ZDO.GetPrefab(), out var cfg))
+    else if (_entryByPrefabHash.TryGetValue(zdo.ZDO.GetPrefab(), out var cfg))
     {
       if (cfg.MinLevel > 1 && prefabInfo.Character is not null)
       {
@@ -105,27 +135,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
           return ProcessResult.UnregisterProcessor;
       }
 
-      var canMove = prefabInfo.PrefabInfo.GetComponent<ZSyncTransform>() is { m_syncPosition: true };
-      if (!canMove && __beaconFoundVar.Get(zdo))
-        return ProcessResult.UnregisterProcessor;
-
-      beacon = PlaceObject(GetBeaconPos(zdo.ZDO.GetPosition(), false), BeaconPrefabHash, 0);
-      beacon.Fields<Beacon>().Set(static () => x => x.m_range, GetRange(cfg.Range));
-      if (!canMove)
-      {
-        _zdosByBeacon.Add(beacon, zdo);
-        return ProcessResult.UnregisterProcessor;
-      }
-      else
-      {
-        _beaconsByZdo.Add(zdo, beacon);
-        zdo.Destroyed += zdo =>
-        {
-          if (_beaconsByZdo.Remove(zdo, out var beacon))
-            DestroyObject(beacon);
-        };
-        return default;
-      }
+      return PlaceBeacon(zdo, prefabInfo, cfg.Range);
     }
     else if (prefabInfo.LocationProxy is not null)
     {
@@ -177,18 +187,19 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
       }
       return ProcessResult.UnregisterProcessor;
     }
+    else if (prefabInfo.Container is not null && _entryByItemPrefab.Count is not 0)
+    {
+      var inventory = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container).GetInventory();
+      foreach (var item in inventory.Items)
+      {
+        if (_entryByItemPrefab.TryGetValue(item.m_dropPrefab, out cfg))
+          return PlaceBeacon(zdo, prefabInfo, cfg.Range);
+      }
+      return ProcessResult.UnregisterProcessor;
+    }
     else
     {
       return ProcessResult.UnregisterProcessor;
-    }
-
-    static Vector3 GetBeaconPos(Vector3 pos, bool isLocation)
-    {
-      if (isLocation || Character.InInterior(pos) || pos.y < ZoneSystem.c_WaterLevel - 2)
-        pos.y -= 4;
-      else
-        pos.y = GetHeight(pos) - 2;
-      return pos;
     }
 
     static void AddBeaconPosition(ref List<(Vector3, bool)>? positions, bool isLocation, Component? component, ref List<RandomSpawn>? activeRandomSpawns, GameObject location, ServersideQoLZDO zdo)
@@ -238,6 +249,39 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
     if (range > 0)
       return range;
     return ZNet.instance.GetSyncedSimulationDistance().NearSimulationDistance * ZoneSystem.c_ZoneSize;// * Mathf.Sqrt(2);
+  }
+
+  static Vector3 GetBeaconPos(Vector3 pos, bool isLocation)
+  {
+    if (isLocation || Character.InInterior(pos) || pos.y < ZoneSystem.c_WaterLevel - 2)
+      pos.y -= 4;
+    else
+      pos.y = GetHeight(pos) - 2;
+    return pos;
+  }
+
+  ProcessResult PlaceBeacon(ServersideQoLZDO zdo, PrefabInfo prefabInfo, float range)
+  {
+    if (!prefabInfo.CanMove && __beaconFoundVar.Get(zdo))
+      return ProcessResult.UnregisterProcessor;
+
+    var beacon = PlaceObject(GetBeaconPos(zdo.ZDO.GetPosition(), false), BeaconPrefabHash, 0);
+    beacon.Fields<Beacon>().Set(static () => x => x.m_range, GetRange(range));
+    if (!prefabInfo.CanMove)
+    {
+      _zdosByBeacon.Add(beacon, zdo);
+      return ProcessResult.UnregisterProcessor;
+    }
+    else
+    {
+      _beaconsByZdo.Add(zdo, beacon);
+      zdo.Destroyed += zdo =>
+      {
+        if (_beaconsByZdo.Remove(zdo, out var beacon))
+          DestroyObject(beacon);
+      };
+      return default;
+    }
   }
 
   void OnAdvancedConfigChanged(ConfigBase.YamlConfigEntry<Config.AdvancedConfig> cfg)
