@@ -526,10 +526,13 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       HashSet<Processor>? reinitProcessors = null;
       foreach (var obj in _reinitializationRequested.Keys)
       {
+        if (!_reinitializationRequested.TryRemove(obj, out _))
+          continue;
+
         switch (obj)
         {
           case IConfig cfg:
-            if (!_reinitializationRequested.TryRemove(cfg, out _) || !cfg.Enabled.Value)
+            if (!cfg.Enabled.Value)
               continue;
 
             foreach (var processor in cfg.Plugin.Processors)
