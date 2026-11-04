@@ -187,7 +187,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
       }
       return ProcessResult.UnregisterProcessor;
     }
-    else if (prefabInfo.Container is not null && _entryByItemPrefab.Count is not 0)
+    else if (prefabInfo.Container is { m_privacy: not Container.PrivacySetting.Private } && _entryByItemPrefab.Count is not 0)
     {
       var inventory = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container).GetInventory();
       foreach (var item in inventory.Items)
