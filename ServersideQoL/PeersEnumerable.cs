@@ -5,7 +5,7 @@ namespace ServersideQoL;
 
 public sealed class PeersEnumerable //: IEnumerable<Peer>
 {
-  public static PeersEnumerable Instance { get; private set; } = default!;
+  public static PeersEnumerable Instance { get => field ??= new(null); private set; }
   readonly ZNetPeer? _localPeer;
   List<ZNetPeer> _peers = [];
 
