@@ -1,3 +1,6 @@
+### v2.6.0
+- Fixed use of uninitialized peers, potentially leading to various issues [#402](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/402)
+
 ### v2.4.0
 - Added safety net for cases where players landed outside or fell through the portal hub [#359](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/359)
 

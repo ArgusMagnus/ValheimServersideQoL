@@ -108,8 +108,8 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
     {
       if (__instance.m_sleeping && !__wasSleeping && Config.Instance.PlayerSave.SaveBeforeSleep.Value)
       {
-        foreach (var peer in ZNet.instance.GetPeers())
-          RPC.SavePlayerProfile(peer.ServersideQoLPeer);
+        foreach (var peer in PeersEnumerable.Instance)
+          RPC.SavePlayerProfile(peer);
       }
       __wasSleeping = __instance.m_sleeping;
     }

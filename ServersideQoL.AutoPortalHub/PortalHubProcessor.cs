@@ -15,9 +15,10 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
   readonly Dictionary<ServersideQoLZDO, PlayerState> _playerStates = [];
   readonly IReadOnlyList<int> _torchPrefabs = [Prefabs.StandingIronTorch, Prefabs.StandingIronTorchBlue, Prefabs.StandingIronTorchGreen];
   bool _hubEnabled;
-  float _hubRadius = 0;
+  float _hubRadius;
+  float _hubChebyshevDistance;
   bool _updateHub;
-  int _lastHubWidth = 0;
+  int _lastHubWidth;
   Regex? _includeRegex;
   Regex? _excludeRegex;
 
@@ -73,12 +74,18 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
 
   protected override void PreProcess(PeersEnumerable peers)
   {
-    if (_updateHub && !peers.Any(x => Utils.DistanceXZ(x.RefPos, _offset) < _hubRadius))
+    if (!_updateHub)
+      return;
+
+    foreach (var peer in peers)
     {
-      _updateHub = false;
-      UpdatePortalHub();
-      Game.instance.ConnectPortals();
+      if (InHubArea(peer.RefPos))
+        return;
     }
+
+    _updateHub = false;
+    UpdatePortalHub();
+    Game.instance.ConnectPortals();
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
@@ -101,7 +108,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
         state.LastRoration = zdo.ZDO.GetRotation();
         state.SaveCounter = 0;
       }
-      else if (pos.y < _offset.y - 20 && Utils.ChebyshevDistance(_offset, pos) < Mathf.Max(ZoneSystem.c_ZoneSize, 2 * _lastHubWidth * 4) && _playerStates.TryGetValue(zdo, out var state))
+      else if (pos.y < _offset.y - 20 && InHubArea(pos) && _playerStates.TryGetValue(zdo, out var state))
       {
         if (++state.SaveCounter <= 3)
           zdo.RPC.Player.TeleportTo(_offset with { y = _offset.y + 2 }, zdo.ZDO.GetRotation(), false);
@@ -210,6 +217,9 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
 
     return _includeRegex?.IsMatch(tag) is not false && _excludeRegex?.IsMatch(tag) is not true;
   }
+
+  bool InHubArea(Vector3 pos) => Utils.ChebyshevDistance(_offset, pos) < _hubChebyshevDistance;
+
   void UpdatePortalHub()
   {
     IReadOnlyList<PortalState> states = [];
@@ -229,15 +239,17 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
         zdo.Destroy();
       PlacedObjects.Clear();
       _lastHubWidth = 0;
+      _hubChebyshevDistance = Mathf.Max(ZoneSystem.c_ZoneSize, 2 * _lastHubWidth * 4);
       return;
     }
 
     // 4*(width-1) = count -> width = count/4 + 1
-    var width = Math.Max(3, (int)Math.Ceiling(states.Count / 4f + 1));
+    var width = Math.Max(3, Mathf.CeilToInt(states.Count / 4f + 1));
     _hubRadius = (width + 1) * 4f * Mathf.Sqrt(2);
 
     var dontUpdateFloorAndWalls = width == _lastHubWidth;
     _lastHubWidth = width;
+    _hubChebyshevDistance = Mathf.Max(ZoneSystem.c_ZoneSize, 2 * _lastHubWidth * 4);
     if (dontUpdateFloorAndWalls)
     {
       var portals = PlacedObjects

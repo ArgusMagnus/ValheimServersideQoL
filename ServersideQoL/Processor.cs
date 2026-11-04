@@ -679,17 +679,24 @@ public abstract class Processor
 
     public static Heightmap CreateHeightmap(Vector3 refPos) => CreateHeightmap(ZoneSystem.GetZone(refPos));
 
-    static DateTimeOffset __nextCleanup;
+    static Timestamp __nextCleanup;
 
     public static void CleanUp(PeersEnumerable peers)
     {
-      if (__nextCleanup > DateTimeOffset.UtcNow)
+      var now = Timestamp.Now;
+      if (__nextCleanup > now)
         return;
 
       for (int i = _zoneRoots.Count - 1; i >= 0; i--)
       {
         var (zone, root) = _zoneRoots[i];
-        if (peers.Any(x => ZNetScene.InActiveArea(x.RefPos, zone)))
+        var found = false;
+        foreach (var peer in peers)
+        {
+          if (found = ZNetScene.InActiveArea(peer.RefPos, zone))
+            break;
+        }
+        if (found)
           continue;
 
         //Main.Instance.Logger.DevLog($"Destroying hmap for {zone}");
@@ -697,7 +704,7 @@ public abstract class Processor
         UnityEngine.Object.Destroy(root);
       }
 
-      __nextCleanup = DateTimeOffset.UtcNow.AddSeconds(2);
+      __nextCleanup = now.AddSeconds(Config.Instance.Advanced.Value.Cleanup.HeightmapsInterval);
     }
   }
 }

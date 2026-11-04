@@ -1,5 +1,6 @@
 ### v2.6.0
 - Reduced impact of config reloads
+- Fixed use of uninitialized peers, potentially leading to various issues [#402](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/402)
 
 ### v2.5.1
 - Compatibility patch

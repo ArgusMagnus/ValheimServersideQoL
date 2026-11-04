@@ -77,5 +77,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     {
       public float UpdateStaminaInterval { get; init; } = 0.2f;
     }
+
+    public CleanupConfig Cleanup { get; init; } = new();
+    public sealed class CleanupConfig
+    {
+      public float HeightmapsInterval { get; init; } = 2;
+    }
   }
 }

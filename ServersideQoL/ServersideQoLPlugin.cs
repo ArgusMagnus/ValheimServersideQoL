@@ -140,13 +140,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
         ZNetPeer? localPeer = null;
         if (!ZNet.instance.IsDedicated())
         {
-          while (Player.m_localPlayer is null)
-            yield return new WaitForSeconds(0.2f);
-
           localPeer = new(new DummySocket(), true)
           {
             m_uid = ZDOMan.GetSessionID(),
-            m_characterID = Player.m_localPlayer.GetZDOID(),
             m_server = true
           };
         }
@@ -303,10 +299,10 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       RPC.ShowMessage(ZRoutedRpc.Everybody, Config.Instance.CheckLogMessageType.Value, $"{logLevel} logged, check server log");
     else
     {
-      foreach (var peer in ZNet.instance.GetPeers())
+      foreach (var peer in PeersEnumerable.Instance)
       {
-        if (peer.m_server || ZNet.instance.IsAdmin(peer.m_socket.GetHostName()))
-          RPC.ShowMessage(peer.m_uid, Config.Instance.CheckLogMessageType.Value, $"{logLevel} logged, check server log");
+        if (peer.ZNetPeer.m_server || ZNet.instance.IsAdmin(peer.ZNetPeer.m_socket.GetHostName()))
+          RPC.ShowMessage(peer.ZNetPeer.m_uid, Config.Instance.CheckLogMessageType.Value, $"{logLevel} logged, check server log");
       }
     }
   }
@@ -1068,8 +1064,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       }
 
       // Resending individually, otherwise global key modifications are not applied
-      foreach (var p in ZNet.instance.GetPeers())
-        __instance.SendGlobalKeys(p.m_uid);
+      foreach (var p in PeersEnumerable.Instance)
+        __instance.SendGlobalKeys(p.ZNetPeer.m_uid);
       return false;
     }
 
