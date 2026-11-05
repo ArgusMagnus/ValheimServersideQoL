@@ -5,6 +5,7 @@ using MonoMod.Utils;
 using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using static ServersideQoL.ServersideQoLZDO.ZDOVars;
 
@@ -58,7 +59,13 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
       Instance<PlayerRegistryProcessor>().EmoteDetected += OnEmoteDetected;
 
       if (_hasMegingjordEffect is null && Instance(new(Player::ServersideQoL.Player.PlayerProcessor.Id)) is { } playerProcessor)
-        _hasMegingjordEffect = AccessTools.Method(playerProcessor.GetType(), nameof(Player::ServersideQoL.Player.PlayerProcessor.HasMegingjordEffect), parameters: [typeof(PlayerID)])?.CreateDelegate<Func<PlayerID, bool>>(playerProcessor);
+      {
+        _hasMegingjordEffect = GetDelegate(playerProcessor);
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        static Func<PlayerID, bool> GetDelegate(Processor playerProcessor)
+          => ((Player::ServersideQoL.Player.PlayerProcessor)playerProcessor).HasMegingjordEffect;
+      }
     }
 
     RPC.Intercept.UpdateInterception(RPC.RpcName.Player.OnDeath, RPC_OnDeath,
@@ -157,11 +164,11 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
         result = ProcessResult.UnregisterProcessor;
       else
       {
-        if (Instance<PlayerRegistryProcessor>().GetStateForPlayerID(zdo.Vars.GetCreator()) is { } playerState
+        if (Instance<PlayerRegistryProcessor>().GetStateForPlayerID(zdo.Vars.GetOwner()) is { } playerState
           && !playerState.ZDO.Vars.GetIsDead()
-          && Vector3.Distance(playerState.ZDO.ZDO.GetPosition(), zdo.ZDO.GetPosition()) < Config.Instance.Advanced.Value.BackpackOnDeathDropTombStone.AutoCollectDistance
-          && _backpacksByPlayer.TryGetValue(playerState.ZDO, out var state))
+          && Vector3.Distance(playerState.ZDO.ZDO.GetPosition(), zdo.ZDO.GetPosition()) < Config.Instance.Advanced.Value.BackpackOnDeathDropTombStone.AutoCollectDistance)
         {
+          var state = GetState(playerState);
           state.EnsureBackpackExists();
           var inventory = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container).GetInventory();
           var backpackInventory = Instance<ContainerRegistryProcessor>().GetState(state.BackpackContainer, state.Container).GetInventory();
@@ -175,13 +182,15 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
           RPC.ShowMessage(playerState.Owner, MessageHud.MessageType.Center, $"$piece_tombstone_recovered ({Config.Instance.Localization.Value.FormatBackpackName(_maxBackpackWeight)})");
           zdo.Destroy();
         }
-        result = ScheduleReprocessing(0.1f);
+        result = ScheduleReprocessing(Config.Instance.Advanced.Value.BackpackOnDeathDropTombStone.ReprocessingDelaySeconds);
       }
     }
     else if (prefabInfo.Player is not null)
     {
+      result = default;
       if (_backpacksByPlayer.TryGetValue(zdo, out var state) && state.BackpackContainer is not null)
       {
+        result = ScheduleReprocessing(Config.Instance.Advanced.Value.ReprocessingPlayerDelay);
         if (state.OpenBackpackAfter < Timestamp.Now)
         {
           state.OpenBackpackAfter = null;
@@ -194,7 +203,6 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
           state.BackpackContainer = RecreatePiece(state.BackpackContainer);
         }
       }
-      result = ScheduleReprocessing(0.1f);
     }
     else
     {

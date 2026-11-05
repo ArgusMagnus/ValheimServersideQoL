@@ -46,13 +46,23 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public sealed class AdvancedConfig
   {
     public float OpenBackpackDelay { get; init; } = 0.2f;
-    public sealed record BackpackOnDeathDropTombStoneConfig(float VerticalOffset, float AutoCollectDistance) { BackpackOnDeathDropTombStoneConfig() : this(default, default) { } }
-    public sealed record BackpackOnDeathDropItemsConfig(float ScatterRadius, float VerticalOffset, bool PreventAutoDestroy, bool PreventAutoPickup)
+    public float ReprocessingPlayerDelay { get; init; } = 0.1f;
+
+    public BackpackOnDeathDropTombStoneConfig BackpackOnDeathDropTombStone { get; init; } = new();
+    public sealed class BackpackOnDeathDropTombStoneConfig
     {
-      BackpackOnDeathDropItemsConfig() : this(default, default, default, default) { }
+      public float VerticalOffset { get; init; } = 2;
+      public float AutoCollectDistance { get; init; } = 2;
+      public float ReprocessingDelaySeconds { get; init; } = 0.1f;
     }
 
-    public BackpackOnDeathDropTombStoneConfig BackpackOnDeathDropTombStone { get; init; } = new(2, 2);
-    public BackpackOnDeathDropItemsConfig BackpackOnDeathDropItems { get; init; } = new(2, 1, true, false);
+    public BackpackOnDeathDropItemsConfig BackpackOnDeathDropItems { get; init; } = new();
+    public sealed class BackpackOnDeathDropItemsConfig
+    {
+      public float ScatterRadius { get; init; } = 2;
+      public float VerticalOffset { get; init; } = 1;
+      public bool PreventAutoDestroy { get; init; } = true;
+      public bool PreventAutoPickup { get; init; }
+    }
   }
 }

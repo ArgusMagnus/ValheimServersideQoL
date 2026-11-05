@@ -1,3 +1,6 @@
+### v2.6.0
+- Fixed backpack dropped on death is not picked up automatically [#403](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/403)
+
 ### v2.4.1
 - Minor fixes
 
