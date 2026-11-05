@@ -15,5 +15,3 @@
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
 |SaveBeforeSleep|false|True/False|True to instruct clients to save before sleeping|
-|SaveNearPortals|false|True/False|True to instruct clients to save when they are near portals. <br>|
-|MinSaveIntervalMinutes|1||The minimum time in minutes between save instructions|

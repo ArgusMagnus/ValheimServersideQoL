@@ -249,6 +249,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
         }
       }
       zdo.ZDO.DataRevision += 100;
+      ForceSend(zdo);
     }
 
     return result;
