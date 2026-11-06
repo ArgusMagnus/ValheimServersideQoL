@@ -239,7 +239,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
       text ??= zdo.Vars.GetText();
       newText ??= text;
       ContainerState? containerState = null;
-      if (_chestAutoStorePickupRangeRegex is not null && Config.Instance.AutoStorePickup && Config.Instance.AutoStorePickupMaxRange is { } autoPickupMaxRange)
+      if (_chestAutoStorePickupRangeRegex is not null && Config.Instance is { AutoStorePickup: true, AutoStorePickupMaxRange: { } autoPickupMaxRange, AutoStorePickupRangeSignPrefix.Value: { } autoPickupPrefix })
       {
         containerState ??= Instance<ContainerRegistryProcessor>().GetState(chest)!;
         containerState.AutoStorePickupRange = null;
@@ -250,13 +250,13 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
           if (range > autoPickupMaxRange)
           {
             range = autoPickupMaxRange;
-            result = Invariant($"{Config.Instance.AutoStorePickupRangeSignPrefix.Value}{range}");
+            result = Invariant($"{autoPickupPrefix}{range}");
           }
           containerState.AutoStorePickupRange = range;
           return result;
         });
       }
-      if (_chestAutoProcessFeedRangeRegex is not null && Config.Instance.AutoProcessFeedFromContainers && Config.Instance.AutoProcessFeedFromContainersMaxRange is { } feedMaxRange)
+      if (_chestAutoProcessFeedRangeRegex is not null && Config.Instance is { AutoProcessFeedFromContainers: true, AutoProcessFeedFromContainersMaxRange: { } autoProcessMaxRange, AutoProcessFeedFromContainersRangeSignPrefix.Value: { } autoProcessPrefix })
       {
         containerState ??= Instance<ContainerRegistryProcessor>().GetState(chest)!;
         containerState.AutoProcessFeedRange = null;
@@ -264,16 +264,16 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
         {
           var result = match.Value;
           var range = int.Parse(match.Groups["R"].Value);
-          if (range > feedMaxRange)
+          if (range > autoProcessMaxRange)
           {
-            range = feedMaxRange;
-            result = Invariant($"{Config.Instance.AutoProcessFeedFromContainersRangeSignPrefix.Value}{range}");
+            range = autoProcessMaxRange;
+            result = Invariant($"{autoProcessPrefix}{range}");
           }
           containerState.AutoProcessFeedRange = range;
           return result;
         });
       }
-      if (_chestTameAssistFeedRangeRegex is not null && Config.Instance.TameAssistFeedFromContainers && Config.Instance.TameAssistFeedFromContainersMaxRange is { } tamefeedMaxRange)
+      if (_chestTameAssistFeedRangeRegex is not null && Config.Instance is { TameAssistFeedFromContainers: true, TameAssistFeedFromContainersMaxRange: { } tameFeedMaxRange, TameAssistFeedFromContainersRangeSignPrefix.Value: { } tameFeedPrefix })
       {
         containerState ??= Instance<ContainerRegistryProcessor>().GetState(chest)!;
         containerState.TameAssistFeedRange = null;
@@ -281,10 +281,10 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
         {
           var result = match.Value;
           var range = int.Parse(match.Groups["R"].Value);
-          if (range > tamefeedMaxRange)
+          if (range > tameFeedMaxRange)
           {
-            range = tamefeedMaxRange;
-            result = Invariant($"{Config.Instance.TameAssistFeedFromContainersRangeSignPrefix.Value}{range}");
+            range = tameFeedMaxRange;
+            result = Invariant($"{tameFeedPrefix}{range}");
           }
           containerState.TameAssistFeedRange = range;
           return result;
