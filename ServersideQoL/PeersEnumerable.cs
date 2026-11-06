@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace ServersideQoL;
 
-public sealed class PeersEnumerable //: IEnumerable<Peer>
+public sealed class PeersEnumerable : IEnumerable<Peer>
 {
   public static PeersEnumerable Instance { get => field ??= new(null); private set; }
   readonly ZNetPeer? _localPeer;
@@ -30,14 +30,13 @@ public sealed class PeersEnumerable //: IEnumerable<Peer>
   [MethodImpl(MethodImplOptions.AggressiveInlining)]
   public Enumerator GetEnumerator() => new(this);
 
-  //IEnumerator<Peer> IEnumerable<Peer>.GetEnumerator() => GetEnumerator();
-  //IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+  IEnumerator<Peer> IEnumerable<Peer>.GetEnumerator() => GetEnumerator();
+  IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-  public ref struct Enumerator(PeersEnumerable enumerable) : IEnumerator<Peer>
+  public struct Enumerator(PeersEnumerable enumerable) : IEnumerator<Peer>
   {
     readonly PeersEnumerable _enumerable = enumerable;
     int _index = -2;
-
     Peer? _current;
     public readonly Peer Current => _current!;
     readonly object IEnumerator.Current => _current!;
