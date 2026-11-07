@@ -247,19 +247,16 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
     var width = Math.Max(3, Mathf.CeilToInt(states.Count / 4f + 1));
     _hubRadius = (width + 1) * 4f * Mathf.Sqrt(2);
 
-    var dontUpdateFloorAndWalls = width == _lastHubWidth;
+    var updatePortalsOnly = width == _lastHubWidth;
     _lastHubWidth = width;
     _hubChebyshevDistance = Mathf.Max(ZoneSystem.c_ZoneSize, 2 * _lastHubWidth * 4);
-    if (dontUpdateFloorAndWalls)
+    if (updatePortalsOnly)
     {
       var portals = PlacedObjects
-          .Where(static x => x.ZDO.GetPrefab() != Prefabs.GraustenFloor4x4 && x.ZDO.GetPrefab() != Prefabs.GraustenWall4x2 && x.ZDO.GetPrefab() != Prefabs.DvergerGuardstone)
+          .Where(x => x.ZDO.GetPrefab() == Prefabs.PortalWood || x.ZDO.GetPrefab() == Prefabs.Portal || x.ZDO.GetPrefab() == Prefabs.Sign || _torchPrefabs.Contains(x.ZDO.GetPrefab()))
           .ToList();
       foreach (var zdo in portals)
-      {
-        zdo.Destroy();
-        PlacedObjects.Remove(zdo);
-      }
+        DestroyObject(zdo);
     }
     else
     {
@@ -282,8 +279,15 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
           pos.z += z;
 
           PlacePiece(pos, Prefabs.GraustenFloor4x4, 0f);
-          pos.y += 4.5f;
+          pos.y += 6.5f;
           PlacePiece(pos, Prefabs.GraustenFloor4x4, 0f);
+          pos.y -= 2f;
+          if (i % 2 == k % 2 && i != 0 && i != width - 1 && k != 0 && k != width - 1)
+          {
+            PlacePiece(pos, Prefabs.HangingBrazier, 0f).Fields<Fireplace>()
+              .Set(static () => x => x.m_disableCoverCheck, true)
+              .Set(static () => x => x.m_infiniteFuel, true);
+          }
           pos.y -= 4.5f;
         }
       }
@@ -291,13 +295,13 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
 
     var statesEnumerator = states.GetEnumerator();
     for (int k = 0; k < width; k++)
-      PlacePortalAndWalls(0, k, width, dontUpdateFloorAndWalls, statesEnumerator, (_, k) => k < width - 1);
+      PlacePortalAndWalls(0, k, width, updatePortalsOnly, statesEnumerator, (_, k) => k < width - 1);
     for (int i = 0; i < width; i++)
-      PlacePortalAndWalls(i, width - 1, width, dontUpdateFloorAndWalls, statesEnumerator, (i, _) => i < width - 1);
+      PlacePortalAndWalls(i, width - 1, width, updatePortalsOnly, statesEnumerator, (i, _) => i < width - 1);
     for (int k = width - 1; k >= 0; k--)
-      PlacePortalAndWalls(width - 1, k, width, dontUpdateFloorAndWalls, statesEnumerator, (_, k) => k > 0);
+      PlacePortalAndWalls(width - 1, k, width, updatePortalsOnly, statesEnumerator, (_, k) => k > 0);
     for (int i = width - 1; i >= 0; i--)
-      PlacePortalAndWalls(i, 0, width, dontUpdateFloorAndWalls, statesEnumerator, (i, _) => i > 0);
+      PlacePortalAndWalls(i, 0, width, updatePortalsOnly, statesEnumerator, (i, _) => i > 0);
 
     if (statesEnumerator.MoveNext())
       throw new Exception("Algorithm failed to place all portals");
@@ -328,7 +332,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
     return torches;
   }
 
-  void PlacePortalAndWalls(int i, int k, int width, bool dontUpdateFloorAndWalls, IEnumerator<PortalState> statesEnumerator, Func<int, int, bool> placePortal)
+  void PlacePortalAndWalls(int i, int k, int width, bool updatePortalsOnly, IEnumerator<PortalState> statesEnumerator, Func<int, int, bool> placePortal)
   {
     var x = (i - width / 2f) * 4;
     var z = (k - width / 2f) * 4;
@@ -421,7 +425,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
       }
     }
 
-    if (dontUpdateFloorAndWalls)
+    if (updatePortalsOnly)
       return;
 
     if (iIsEdge)
@@ -435,12 +439,8 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
       PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
       pos.y += 2;
       PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
-
-      //rot -= 90;
-      //pos.x += i is 0 ? 0.25f : -0.25f;
-      //pos.y += 0.5f;
-      //PlacePiece(pos, Prefabs.Sconce, rot)
-      //    .Fields<Fireplace>().Set(static x => x.m_infiniteFuel, true).Set(static x => x.m_disableCoverCheck, true);
+      pos.y += 2;
+      PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
     }
     if (kIsEdge)
     {
@@ -453,12 +453,8 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
       PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
       pos.y += 2;
       PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
-
-      //rot -= 90;
-      //pos.z += k is 0 ? 0.25f : -0.25f;
-      //pos.y += 0.5f;
-      //PlacePiece(pos, Prefabs.Sconce, rot)
-      //    .Fields<Fireplace>().Set(static x => x.m_infiniteFuel, true).Set(static x => x.m_disableCoverCheck, true);
+      pos.y += 2;
+      PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
     }
   }
 

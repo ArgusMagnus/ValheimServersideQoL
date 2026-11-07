@@ -13,8 +13,8 @@ public static class PrefabNames
   public const string Wardrobe = "piece_chest_warderobe";
   public const string Barrel = "piece_chest_barrel";
   public const string Incinerator = "incinerator";
-  public const string GiantBrain = "giant_brain";
   public const string Hoe = "Hoe";
+  public const string HangingBrazier = "piece_brazierceiling01";
 }
 
 public static class Prefabs
@@ -42,8 +42,8 @@ public static class Prefabs
   public static int StandingIronTorch { get; } = "piece_groundtorch".GetStableHashCode();
   public static int StandingIronTorchGreen { get; } = "piece_groundtorch_green".GetStableHashCode();
   public static int StandingIronTorchBlue { get; } = "piece_groundtorch_blue".GetStableHashCode();
-  //public static IReadOnlyList<int> Banners { get; } = [.. Enumerable.Range(1, 10).Select(static x => $"piece_banner{x:D2}".GetStableHashCode())];
   public static int MountainRemainsBuried { get; } = "Pickable_MountainRemains01_buried".GetStableHashCode();
   public static int TombStone { get; } = "Player_tombstone".GetStableHashCode();
   public static int Megingjord { get; } = PrefabNames.Megingjord.GetStableHashCode();
+  public static int HangingBrazier { get; } = PrefabNames.HangingBrazier.GetStableHashCode();
 }

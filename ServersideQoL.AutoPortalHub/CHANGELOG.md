@@ -1,5 +1,6 @@
 ### v2.6.0
 - Fixed use of uninitialized peers, potentially leading to various issues [#402](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/402)
+- Added hanging braziers to portal hub [#406](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/406)
 
 ### v2.4.0
 - Added safety net for cases where players landed outside or fell through the portal hub [#359](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/359)
