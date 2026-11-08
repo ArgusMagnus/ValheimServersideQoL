@@ -257,9 +257,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   {
     if (ComponentFieldAccessors is not { } accessors || !accessors.TryGetValue(typeof(TComponent), out var accessorObj))
     {
-      if (PrefabInfo is null)
-        throw new InvalidOperationException($"{nameof(PrefabInfo)} is null");
-
+      PrefabInfo ??= ServersideQoLPlugin.Instance.GetPrefabInfo(ZDO.GetPrefab());
       accessorObj = ComponentFieldAccessor.Get(this, PrefabInfo.GetRequiredComponent<TComponent>());
 
       if (!__componentFieldAccessorCache.TryPop(out accessors))
