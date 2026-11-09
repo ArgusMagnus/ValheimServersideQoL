@@ -1,3 +1,6 @@
+### v2.6.1
+- Added compatibility with PlanBuild: ServersideQoL-only pieces (like container signs) are now excluded from blueprints (thanks Jules) [#348](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/348)
+
 ### v2.6.0
 - Reduced impact of config reloads
 - Fixed use of uninitialized peers, potentially leading to various issues [#402](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/402)

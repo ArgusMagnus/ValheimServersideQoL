@@ -1,4 +1,7 @@
-﻿using BepInEx.Configuration;
+﻿extern alias PlanBuild;
+
+using BepInEx.Bootstrap;
+using BepInEx.Configuration;
 using ServersideQoL.Utilities;
 using System.Diagnostics;
 using System.Reflection;
@@ -85,6 +88,8 @@ public abstract class Processor
 
   static bool __enableProcessingTimeMonitoring;
   Stopwatch? _processingTimeStopwatch;
+  static int _planBuildExludeVarHash;
+
   internal float ScheduleReprocessingDelay { get; private set; }
   internal bool HasPreProcessor { get; private set; } = true;
 
@@ -133,6 +138,9 @@ public abstract class Processor
     Config.Instance.DiagnosticLogs.SettingChanged += OnDiagnosticLogsConfigChanged;
 
     __dataZDO = null;
+
+    _planBuildExludeVarHash = Chainloader.PluginInfos.ContainsKey("marcopogo.PlanBuild") ?
+      PlanBuild::PlanBuild.ModCompat.ZDOVarsServersideQoL.ExcludeFromBlueprints.GetStableHashCode() : 0;
 
     foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
     {
@@ -419,6 +427,10 @@ public abstract class Processor
         .Set(static () => x => x.m_noRoofWear, false)
         .Set(static () => x => x.m_noSupportWear, false)
         .Set(static () => x => x.m_health, -1);
+
+    if (_planBuildExludeVarHash is not 0)
+      zdo.ZDO.Set(_planBuildExludeVarHash, true);
+
     return zdo;
   }
 

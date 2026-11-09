@@ -13,4 +13,8 @@
     <ProjectReference Include="..\ServersideQoL.Patchers\ServersideQoL.Patchers.csproj" PrivateAssets="all" OutputItemType="Analyzer" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="PlanBuild" HintPath="$(ValheimDir)BepInEx\plugins\MathiasDecrock-PlanBuild\PlanBuild\PlanBuild.dll" Aliases="PlanBuild" Private="False" PrivateAssets="all" OutputItemType="Analyzer" />
+  </ItemGroup>
+
 </Project>
