@@ -14,6 +14,7 @@ namespace ServersideQoL.Backpack;
 [Processor(Id)]
 [DependsOn<PlayerRegistryProcessor>]
 [DependsOn<ContainerRegistryProcessor>]
+[DependsOn<ShipRegistryProcessor>]
 sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
 {
   public const string Id = "fdd88a40-add7-413c-ac4b-894ac26c500d";
@@ -243,6 +244,9 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
   void OnEmoteDetected(PlayerState playerState, Emotes emote)
   {
     if (Config.Instance.OpenBackpackEmote.Value is not ConfigBase.AnyEmote && Config.Instance.OpenBackpackEmote.Value != emote)
+      return;
+
+    if (Instance<ShipRegistryProcessor>().IsInShipBounds(playerState.ZDO.ZDO.GetPosition()) && !playerState.ZDO.Vars.GetAnimationInWater())
       return;
 
     var state = GetState(playerState);

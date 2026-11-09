@@ -313,7 +313,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 #endif
     .Add<ContainerRegistryProcessor>()
     .Add<TameableRegistryProcessor>()
-    .Add<PlayerRegistryProcessor>();
+    .Add<PlayerRegistryProcessor>()
+    .Add<ShipRegistryProcessor>();
 
   internal IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => field ?? new Func<IReadOnlyDictionary<string, PieceTable>>(static () =>
   {

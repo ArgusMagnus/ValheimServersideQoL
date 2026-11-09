@@ -1,6 +1,5 @@
 ﻿using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
 
 namespace ServersideQoL.Processors;
 

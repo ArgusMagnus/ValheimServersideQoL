@@ -63,25 +63,14 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
 
   void OnPlayerItemUsed(PlayerState state, string animationTriggerName)
   {
-    static bool CheckStamina(string triggerName)
+    static bool CheckStamina(string triggerName) => triggerName switch
     {
-      switch (triggerName)
-      {
-        case "swing_pickaxe":
-          return Config.Instance.InfiniteMiningStamina.Value;
-        case "swing_hammer":
-          return Config.Instance.InfiniteBuildingStamina.Value;
-        case "swing_hoe":
-        case "scything":
-          return Config.Instance.InfiniteFarmingStamina.Value;
-        case "swing_axe0":
-        case "battleaxe_attack0":
-        case "dualaxes0":
-          return Config.Instance.InfiniteWoodCuttingStamina.Value;
-        default:
-          return false;
-      }
-    }
+      "swing_pickaxe" => Config.Instance.InfiniteMiningStamina.Value,
+      "swing_hammer" => Config.Instance.InfiniteBuildingStamina.Value,
+      "swing_hoe" or "scything" => Config.Instance.InfiniteFarmingStamina.Value,
+      "swing_axe0" or "battleaxe_attack0" or "dualaxes0" => Config.Instance.InfiniteWoodCuttingStamina.Value,
+      _ => false,
+    };
 
     if (state.LastUsedItem is not null && CheckStamina(animationTriggerName))
     {
