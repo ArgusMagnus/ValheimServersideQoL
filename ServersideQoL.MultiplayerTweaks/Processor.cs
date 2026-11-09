@@ -48,7 +48,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
       return default;
     }
 
-    if (ShouldAssignToClosestPlayer(zdo, prefabInfo))
+    if (GetMinDistanceDifference(zdo, prefabInfo) is { } minDistDiff)
     {
       var peerCount = peers.Count;
       var delay = Mathf.Max(0, zdo.OwnerTimestamp.Seconds - _maxOwnerTimestamp.Seconds);
@@ -56,11 +56,18 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
       {
         Peer? closest = null;
         var minDistSqr = float.MaxValue;
+        var ownerState = Instance<PlayerRegistryProcessor>().GetStateForPeerID(zdo.ZDO.GetOwner());
+        if (ownerState is not null)
+        {
+          minDistSqr = Mathf.Max(0, zdo.ZDO.GetPosition().DistanceTo(ownerState.ZDO.ZDO.GetPosition()) - minDistDiff);
+          minDistSqr *= minDistSqr;
+        }
+
         foreach (var peer in peers.Enumerate())
         {
-          if (peer.PlayerState is not { } playerState)
+          if (peer.PlayerState is not { } playerState || playerState == ownerState)
             continue;
-          var distSqr = Utils.DistanceSqr(zdo.ZDO.GetPosition(), playerState.ZDO.ZDO.GetPosition());
+          var distSqr = zdo.ZDO.GetPosition().SquaredDistanceTo(playerState.ZDO.ZDO.GetPosition());
           if (distSqr < minDistSqr)
           {
             minDistSqr = distSqr;
@@ -68,7 +75,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
           }
         }
 
-        if (closest?.ZNetPeer.m_rpc.GetTimeSinceLastPing() < Config.Instance.MaxTimeSinceLastPingSeconds.Value)
+        if (closest is not null)
         {
           delay = Config.Instance.MinOwnershipDurationSeconds.Value;
           zdo.ZDO.SetOwner(closest.ZNetPeer.m_uid);
@@ -81,9 +88,12 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
     return ProcessResult.UnregisterProcessor;
   }
 
-  bool ShouldAssignToClosestPlayer(ServersideQoLZDO zdo, PrefabInfo prefabInfo) =>
-      (Config.Instance.AssignInteractablesToClosestPlayer.Value && prefabInfo is not { Smelter: null, CookingStation: null }) ||
-      (Config.Instance.AssignMobsToClosestPlayer.Value && prefabInfo.Character is not null && !zdo.Vars.GetTamed());
+  float? GetMinDistanceDifference(ServersideQoLZDO zdo, PrefabInfo prefabInfo) => (Config: Config.Instance, PrefabInfo: prefabInfo) switch
+  {
+    { Config.AssignInteractablesToClosestPlayer.Value: true, PrefabInfo: not { Smelter: null, CookingStation: null } } => Config.Instance.AssignInteractablesToClosestPlayerMinDistanceDifference.Value,
+    { Config.AssignMobsToClosestPlayer.Value: true, PrefabInfo.Character: not null } => zdo.Vars.GetTamed() ? null : Config.Instance.AssignMobsToClosestPlayerMinDistanceDifference.Value,
+    _ => null
+  };
 
   [HarmonyPatch(typeof(ZNet), "RPC_ServerSyncedPlayerData")]
   static class ZNetServerSyncedPlayerDataPatch

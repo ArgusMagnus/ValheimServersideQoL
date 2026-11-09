@@ -1,3 +1,6 @@
+### v2.6.1
+- Added options for minimum distance difference of the owning and the closest player for ownership to be reassigned
+
 ### v2.6.0
 - Added option `PlayerSave.SaveBeforeSleep` to instruct clients to save before sleeping
 
