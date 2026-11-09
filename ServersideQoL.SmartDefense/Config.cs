@@ -37,8 +37,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public ConfigEntry<bool> DisableFriendlyFire { get; } = BindEx(cfg, section, true,
       "True to stop traps from damaging players and tames. Does not work reliably (yet).");
     public ConfigEntry<float> SelfDamageMultiplier { get; } = BindEx(cfg, section, 1f,
-      "Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage",
-      new AcceptableValueRange<float>(0, float.PositiveInfinity));
+      "Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage");
     public ConfigEntry<bool> AutoRearm { get; } = BindEx(cfg, section, true,
       "True to automatically rearm traps when they are triggered");
   }

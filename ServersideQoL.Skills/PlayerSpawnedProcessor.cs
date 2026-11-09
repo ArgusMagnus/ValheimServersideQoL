@@ -159,12 +159,20 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
 
     if (state.ChancesEvaluated)
       return result;
-    state.ChancesEvaluated = true;
-    if (state.Summoner is null)
-      return result;
 
+    if (state.Summoner is null)
+    {
+      state.ChancesEvaluated = true;
+      return result;
+    }
+
+    var seed = zdo.Vars.GetSeed();
+    if (seed is 0)
+      return ScheduleReprocessing();
+
+    state.ChancesEvaluated = true;
     var randomState = UnityEngine.Random.state;
-    UnityEngine.Random.InitState(zdo.Vars.GetSeed());
+    UnityEngine.Random.InitState(seed);
     try
     {
       float? skill = null;

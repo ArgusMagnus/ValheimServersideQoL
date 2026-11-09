@@ -10,7 +10,7 @@
 |------|-------------|-----------------|-----------|
 |DisableTriggeredByPlayers|true|True/False|True to stop traps from being triggered by players|
 |DisableFriendlyFire|true|True/False|True to stop traps from damaging players and tames. Does not work reliably (yet).|
-|SelfDamageMultiplier|1|From 0 to Infinity|Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage|
+|SelfDamageMultiplier|1||Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage|
 |AutoRearm|true|True/False|True to automatically rearm traps when they are triggered|
 </details>
 <details open><summary><b>Turrets</b></summary>

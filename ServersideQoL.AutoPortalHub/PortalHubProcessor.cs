@@ -218,7 +218,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
     return _includeRegex?.IsMatch(tag) is not false && _excludeRegex?.IsMatch(tag) is not true;
   }
 
-  bool InHubArea(Vector3 pos) => Utils.ChebyshevDistance(_offset, pos) < _hubChebyshevDistance;
+  bool InHubArea(Vector3 pos) => Utils.ChebyshevDistance(_offset with { y = 0 }, pos with { y = 0 }) < _hubChebyshevDistance;
 
   void UpdatePortalHub()
   {

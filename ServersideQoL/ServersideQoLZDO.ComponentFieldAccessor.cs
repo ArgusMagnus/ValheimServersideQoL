@@ -26,13 +26,6 @@ partial class ServersideQoLZDO
     void Return();
   }
 
-  static class ComponentFieldAccessor
-  {
-    public static ComponentFieldAccessor<TComponent> Get<TComponent>(ServersideQoLZDO zdo, TComponent component)
-      where TComponent : MonoBehaviour
-      => ComponentFieldAccessor<TComponent>.Get(zdo, component);
-  }
-
   public sealed class ComponentFieldAccessor<TComponent> : IComponentFieldAccessor
     where TComponent : MonoBehaviour
   {
@@ -41,26 +34,30 @@ partial class ServersideQoLZDO
 
     ServersideQoLZDO _zdo = default!;
     TComponent _component = default!;
+    IReadOnlyList<MonoBehaviour>? _componentList;
+
     bool? _hasComponentFields;
     int _hasComponentFieldsHash;
 
     private ComponentFieldAccessor() { }
 
-    public static ComponentFieldAccessor<TComponent> Get(ServersideQoLZDO zdo, TComponent component)
+    internal static ComponentFieldAccessor<TComponent> Get(ServersideQoLZDO zdo, IReadOnlyList<MonoBehaviour> componentList)
     {
       if (!__pool.TryPop(out var instance))
         instance = new();
-      instance.Init(zdo, component);
+      instance.Init(zdo, componentList);
       return instance;
     }
 
     [MemberNotNull(nameof(_zdo), nameof(_component))]
-    void Init(ServersideQoLZDO zdo, TComponent component)
+    void Init(ServersideQoLZDO zdo, IReadOnlyList<MonoBehaviour> componentList)
     {
       _zdo = zdo;
-      _component = component;
+      _component = (TComponent)componentList[0];
+      if (componentList.Count > 1)
+        _componentList = componentList;
       _hasComponentFields = null;
-      var type = component.GetType();
+      var type = _component.GetType();
       if (!__hasComponentFieldsHashes.TryGetValue(type, out _hasComponentFieldsHash))
         __hasComponentFieldsHashes.Add(type, _hasComponentFieldsHash = Invariant($"{ZNetView.CustomFieldsStr}{type.Name}").GetStableHashCode());
     }
@@ -70,6 +67,7 @@ partial class ServersideQoLZDO
       System.Diagnostics.Debug.Assert(_zdo is not null);
       _zdo = null!;
       _component = null!;
+      _componentList = null!;
       __pool.Push(this);
     }
 
@@ -97,7 +95,7 @@ partial class ServersideQoLZDO
 
     sealed class FieldReference<T> where T : notnull
     {
-      //readonly Expression<Func<TComponent, T>> _fieldExpression;
+      readonly FieldInfo _field;
       readonly int _hash;
       readonly Func<TComponent, T> _getFieldValue;
       static readonly Dictionary<(Type, string), FieldReference<T>> __cacheByFieldName = [];
@@ -173,6 +171,7 @@ partial class ServersideQoLZDO
         if (field.FieldType != typeof(T))
           throw new Exception($"Field type {typeof(T).Name} expected, actual field type is {field.FieldType.Name}");
 #endif
+        _field = field;
         _hash = Invariant($"{componentType.Name}.{field.Name}").GetStableHashCode();
 
         var par = Expression.Parameter(typeof(TComponent));
@@ -196,14 +195,29 @@ partial class ServersideQoLZDO
       public T GetValue(ComponentFieldAccessor<TComponent> componentFieldAccessor)
       {
         var defaultValue = _getFieldValue(componentFieldAccessor._component);
+        if (componentFieldAccessor._componentList is not null && !IsDefaultValue(componentFieldAccessor, defaultValue))
+          ServersideQoLPlugin.Logger.LogWarning($"{nameof(GetValue)} is unreliable because {componentFieldAccessor._zdo.PrefabInfo?.PrefabName} has multiple instances of {typeof(TComponent).Name} with different default values for {_field.Name}");
+
         if (!componentFieldAccessor.HasFields)
           return defaultValue;
         return Accessors.Getter(componentFieldAccessor._zdo.ZDO, _hash, defaultValue);
       }
 
+      bool IsDefaultValue(ComponentFieldAccessor<TComponent> componentFieldAccessor, T value)
+      {
+        if (componentFieldAccessor._componentList is null)
+          return Accessors.EqualityComparer.Equals(value, _getFieldValue(componentFieldAccessor._component));
+        foreach (var component in componentFieldAccessor._componentList.Enumerate())
+        {
+          if (!Accessors.EqualityComparer.Equals(value, _getFieldValue((TComponent)component)))
+            return false;
+        }
+        return true;
+      }
+
       public ComponentFieldAccessor<TComponent> SetValue(ComponentFieldAccessor<TComponent> componentFieldAccessor, T value)
       {
-        if (Accessors.EqualityComparer.Equals(value, _getFieldValue(componentFieldAccessor._component)))
+        if (IsDefaultValue(componentFieldAccessor, value))
           Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
         else
         {
@@ -218,15 +232,18 @@ partial class ServersideQoLZDO
       {
         var defaultValue = _getFieldValue(componentFieldAccessor._component);
         if (Accessors.EqualityComparer.Equals(value, Accessors.Getter(componentFieldAccessor._zdo.ZDO, _hash, defaultValue)))
-          return false;
+        {
+          if (componentFieldAccessor._componentList is null || IsDefaultValue(componentFieldAccessor, defaultValue)) // check if all components share the same default value
+            return false;
+        }
 
-        var isDefaultValue = Accessors.EqualityComparer.Equals(value, defaultValue);
+        var isDefaultValue = IsDefaultValue(componentFieldAccessor, value);
 
         if (isDefaultValue)
           Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
         else
         {
-          if (!componentFieldAccessor.HasFields && !isDefaultValue)
+          if (!componentFieldAccessor.HasFields)
             componentFieldAccessor.SetHasFields(true);
           Accessors.Setter(componentFieldAccessor._zdo.ZDO, _hash, value);
         }

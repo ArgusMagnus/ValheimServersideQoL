@@ -2,9 +2,13 @@
 
 namespace ServersideQoL.WorldOptions;
 
-[Processor("edd9c927-c22e-413d-b6d9-a67c0a3268b9")]
-public sealed class MisterProcessor : Processor<ProcessorPrefabInfo<Mister>>
+[Processor(Id)]
+public sealed class MisterProcessor : Processor<MisterProcessor.PrefabInfo>
 {
+  public const string Id = "edd9c927-c22e-413d-b6d9-a67c0a3268b9";
+
+  public sealed record PrefabInfo(IReadOnlyList<Mister> Misters) : ProcessorPrefabInfo;
+
   const string QueenDefeatedKey = "defeated_queen";
   bool _queenDefeated;
   readonly HashSet<ServersideQoLZDO> _misters = [];
@@ -19,7 +23,7 @@ public sealed class MisterProcessor : Processor<ProcessorPrefabInfo<Mister>>
       ServersideQoLPlugin.Instance.GlobalKeysChanged += OnGlobalKeysChanged;
   }
 
-  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo<Mister> prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
     switch (Config.Instance.RemoveMistlandsMist.Value)
     {
