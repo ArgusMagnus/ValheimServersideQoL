@@ -19,10 +19,7 @@ public sealed class ShipRegistryProcessor  : Processor<ShipRegistryProcessor.Pre
 
       var p = Quaternion.Inverse(ship.ZDO.GetRotation()) * (pos - ship.ZDO.GetPosition());
       if (bounds.Contains(p))
-      {
-        Logger.DevLog($"Point found inside ship");
         return true;
-      }
     }
     return false;
   }

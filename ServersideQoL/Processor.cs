@@ -856,7 +856,10 @@ public abstract class Processor<TPrefabInfo> : Processor
       throw new ArgumentException($"Cannot use {GetType().FullName} with {typeof(TPrefabInfo).FullName}: type must have exactly one constructor.");
     foreach (var par in _prefabInfoCtorParameters!)
     {
-      if (!par.ParameterType.IsSubclassOf(typeof(MonoBehaviour)))
+      var type = par.ParameterType;
+      if (par.ParameterType.IsGenericType && par.ParameterType.GetGenericArguments() is { Length: 1 } genericTypes && par.ParameterType.IsAssignableFrom(typeof(IReadOnlyList<>).MakeGenericType(genericTypes)))
+        type = genericTypes[0];
+      if (!type.IsSubclassOf(typeof(MonoBehaviour)))
         throw new ArgumentException($"Cannot use {GetType().FullName} with {typeof(TPrefabInfo).FullName}: constructor parameter '{par.Name}' is not a {nameof(MonoBehaviour)}.");
     }
   }
