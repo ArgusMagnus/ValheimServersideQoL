@@ -143,14 +143,14 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
         var keep = true;
         foreach (var remove in processors.Enumerate())
         {
-          if (ReferenceEquals(processor, remove))
+          if (processor == remove)
           {
             keep = false;
             break;
           }
         }
         if (keep)
-          hash = (hash, processor.GetType()).GetHashCode();
+          hash = (hash, processor).GetHashCode();
       }
 
       if (!__processors.TryGetValue(hash, out var newProcessors))
@@ -162,7 +162,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
           var keep = true;
           foreach (var remove in processors.Enumerate())
           {
-            if (ReferenceEquals(processor, remove))
+            if (processor == remove)
             {
               keep = false;
               break;
@@ -175,66 +175,91 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       return newProcessors;
     }
 
-    Processors = UnregisterCore(processors, Processors ?? []);
+    Processors = UnregisterCore(processors, Processors);
     HasProcessors = Processors.Count is not 0;
   }
-
-  //internal void Reregister(IReadOnlyList<Processor> processors)
-  //{
-  //    static IReadOnlyList<Processor> ReregisterCore(IReadOnlyList<Processor> processors, IReadOnlyList<Processor> zdoProcessors, IReadOnlyList<Processor> allProcessors)
-  //    {
-
-  //    }
-
-
-  //    // does this implementation make sense?
-  //    var extZdo = GetExtension<IServersideQoLZDO>();
-  //    var zdoProcessors = Processors ?? [];
-  //    var allProcessors = PrefabInfo?.EnabledProcessors ?? [];
-  //    var unregister = new List<Processor>(allProcessors.Count);
-  //    foreach (var processor in allProcessors.AsEnumerable())
-  //    {
-  //        var found = false;
-  //        foreach (var keep in processors.AsEnumerable())
-  //        {
-  //            if (ReferenceEquals(processor, keep))
-  //            {
-  //                found = true;
-  //                break;
-  //            }
-  //        }
-  //        if (found)
-  //            continue;
-
-  //        foreach (var keep in zdoProcessors.AsEnumerable())
-  //        {
-  //            if (ReferenceEquals(processor, keep))
-  //            {
-  //                found = true;
-  //                break;
-  //            }
-  //        }
-
-  //        if (!found)
-  //            unregister.Add(processor);
-  //    }
-  //    Ungregister(unregister);
-  //}
 
   public void UnregisterAllExcept(Processor keep)
   {
     static IReadOnlyList<Processor> UnregisterAllExceptCore(Processor keep, IReadOnlyList<Processor> zdoProcessors)
     {
-      if (!zdoProcessors.Contains(keep))
+      var found = false;
+      foreach (var processor in zdoProcessors.Enumerate())
+      {
+        if (processor == keep)
+        {
+          found = true;
+          break;
+        }
+      }
+      if (!found)
         return [];
-      var hash = (0, keep.GetType()).GetHashCode();
+      var hash = (0, keep).GetHashCode();
       if (!__processors.TryGetValue(hash, out var processors))
         __processors.Add(hash, processors = [keep]);
       return processors;
     }
 
-    Processors = UnregisterAllExceptCore(keep, Processors ?? []);
+    Processors = UnregisterAllExceptCore(keep, Processors);
     HasProcessors = Processors.Count is not 0;
+  }
+
+  public bool Reregister(Processor processor)
+  {
+    static IReadOnlyList<Processor> ReregisterCore(Processor reregister, IReadOnlyList<Processor> zdoProcessors, IReadOnlyList<Processor> allProcessors)
+    {
+      var hash = 0;
+      foreach (var processor in allProcessors.Enumerate())
+      {
+        var keep = processor == reregister;
+        if (!keep)
+        {
+          foreach (var toKeep in zdoProcessors.Enumerate())
+          {
+            if (toKeep == reregister)
+              return zdoProcessors;
+            if (processor == toKeep)
+            {
+              keep = true;
+              break;
+            }
+          }
+        }
+        if (keep)
+          hash = (hash, processor).GetHashCode();
+      }
+
+      if (!__processors.TryGetValue(hash, out var newProcessors))
+      {
+        var list = new List<Processor>();
+        __processors.Add(hash, newProcessors = list);
+        foreach (var processor in allProcessors.Enumerate())
+        {
+          var keep = processor == reregister;
+          if (!keep)
+          {
+            foreach (var toKeep in zdoProcessors.Enumerate())
+            {
+              if (processor == toKeep)
+              {
+                keep = true;
+                break;
+              }
+            }
+          }
+          if (keep)
+            list.Add(processor);
+        }
+      }
+      return newProcessors;
+    }
+
+    var processors = ReregisterCore(processor, Processors, PrefabInfo?.AvailableProcessors ?? []);
+    if (processors == Processors)
+      return false;
+    Processors = processors;
+    HasProcessors = Processors.Count is not 0;
+    return true;
   }
 
   public void UnregisterAll()

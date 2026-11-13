@@ -2,11 +2,12 @@
 using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
+using static ItemSets;
 
 namespace ServersideQoL.ObliteratorOfPotential;
 
 [Processor(Id)]
-[RunAfter<ContainerRegistryProcessor>]
+[RunBefore<IncineratorRegistryProcessor>]
 public sealed class IncineratorProcessor : Processor<IncineratorProcessor.PrefabInfo>
 {
   public const string Id = "2006ea3b-d05a-49bb-9d59-28b19a4bd7f7";
@@ -35,8 +36,6 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
   }
 
   readonly Dictionary<GameObject, HashSet<GameObject>> _itemsByUpgrader = [];
-  readonly HashSet<ItemDrop.ItemData> _used = [];
-  readonly Dictionary<ServersideQoLZDO, State> _states = [];
   ServersideQoLZDO? _obliteratorOfPotential;
 
   protected override void Initialize()
@@ -71,9 +70,6 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
         }
       }
     }
-
-    RPC.Intercept.UpdateInterception(RPC.RpcName.Incinerator.AnimateLever, RPC_AnimateLever, true);
-    RPC.Intercept.UpdateInterception(RPC.RpcName.Incinerator.AnimateLeverReturn, RPC_AnimateLeverReturn, true);
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
@@ -96,21 +92,17 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
       if (zdo != _obliteratorOfPotential && !Config.Instance.EveryObliteratorCanUpgrade.Value)
         return ProcessResult.UnregisterProcessor;
 
-      if (_states.TryGetValue(zdo, out var state) && !state.LeverReturned && (!state.LeverPulled || zdo.Vars.GetInUse()))
-        state.NewItems.Clear();
-
-      var containerState = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container);
-      var inventory = containerState.GetInventory();
-      foreach (var upgrader in inventory.Items)
+      foreach (var upgrader in Instance<IncineratorRegistryProcessor>().GetAvailableItems(zdo))
       {
         if (!_itemsByUpgrader.TryGetValue(upgrader.m_dropPrefab, out var set))
           continue;
 
+        int remainingUpgraderStack = upgrader.m_stack;
         for (int i = 0; i < upgrader.m_stack; i++)
         {
-          foreach (var sacrifice in inventory.Items)
+          foreach (var sacrifice in Instance<IncineratorRegistryProcessor>().GetAvailableItems(zdo))
           {
-            if (upgrader == sacrifice || !set.Contains(sacrifice.m_dropPrefab) || _used.Contains(sacrifice))
+            if (upgrader == sacrifice || !set.Contains(sacrifice.m_dropPrefab))
               continue;
 
             var isArmor = sacrifice.m_shared.m_itemType is ItemDrop.ItemData.ItemType.Chest or ItemDrop.ItemData.ItemType.Legs or ItemDrop.ItemData.ItemType.Helmet or ItemDrop.ItemData.ItemType.Shoulder;
@@ -120,7 +112,7 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
             if (sacrificeArmor <= 0 && sacrificeBaseBlockPower <= 0 && sacrificeTotalDamage <= 0)
               continue;
 
-            foreach (var item in inventory.Items)
+            foreach (var item in Instance<IncineratorRegistryProcessor>().GetAvailableItems(zdo))
             {
               if (item == upgrader || item == sacrifice || item.m_shared.m_itemType != sacrifice.m_shared.m_itemType || item.m_shared.m_skillType != sacrifice.m_shared.m_skillType)
                 continue;
@@ -139,8 +131,6 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
                 if (item.m_shared.m_damagesPerLevel.GetTotalDamage() > 0 && item.GetDamage().GetTotalDamage() >= sacrificeTotalDamage)
                   continue;
               }
-              if (_used.Contains(item))
-                continue;
 
               ItemDrop.ItemData? newItem = null;
               while (true)
@@ -165,99 +155,28 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
               if (newItem is null || newItem.m_quality == item.m_quality)
                 continue;
 
-              _used.Add(sacrifice);
-              _used.Add(item);
-
-              if (state is null)
-              {
-                _states.Add(zdo, state = new() { Revision = zdo.ZDO.DataRevision });
-                zdo.Destroyed += OnIncineratorDestroyed;
-              }
-              else if (state.Revision != zdo.ZDO.DataRevision)
-              {
-                state.Revision = zdo.ZDO.DataRevision;
-                state.NewItems.Clear();
-              }
-              state.NewItems.Add(newItem);
+              remainingUpgraderStack--;
+              Instance<IncineratorRegistryProcessor>().ReserveItem(upgrader);
+              Instance<IncineratorRegistryProcessor>().ReserveItem(sacrifice);
+              Instance<IncineratorRegistryProcessor>().ReserveItem(item);
+              Instance<IncineratorRegistryProcessor>().AddConversionResult(newItem);
             }
           }
         }
-      }
-
-      var result = ProcessResult.Default;
-      var done = false;
-      if (_used.Count is not 0)
-      {
-        if (state.Sign is null)
+        if (remainingUpgraderStack > 0 && remainingUpgraderStack != upgrader.m_stack)
         {
-          var pos = zdo.ZDO.GetPosition();
-          if (zdo == _obliteratorOfPotential)
-            pos.y += 1.25f;
-          state.Sign = PlacePiece(pos, Prefabs.Sign, zdo.ZDO.GetRotation());
-        }
-        var text = string.Join("<br>", state.NewItems.Select(static x => $"{Localization.instance.Localize(x.m_shared.m_name)} {x.m_quality}"));
-        state.Sign.Vars.SetText(zdo == _obliteratorOfPotential ? $"<color=white>{text}" : $"<mark=#000000><color=white>{text}<size=45><br><br>");
-      }
-      else if (state is { LeverReturned: true })
-      {
-        if (!zdo.IsOwnerOrUnassigned())
-          result = ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(containerState, default));
-        else
-        {
-          foreach (var item in state.NewItems)
-            inventory.Inventory.AddItem(item);
-          inventory.Save();
-          done = true;
+          var item = upgrader.Clone();
+          item.m_stack = remainingUpgraderStack;
+          Instance<IncineratorRegistryProcessor>().AddConversionResult(item);
         }
       }
-      else if (state?.NewItems.Count is 0)
-      {
-        done = true;
-      }
 
-      if (done)
-      {
-        zdo.Destroyed -= OnIncineratorDestroyed;
-        _states.Remove(zdo);
-        if (state!.Sign is not null)
-          DestroyObject(state.Sign);
-      }
-
-      _used.Clear();
-
-      return result;
+      return default;
     }
     else
     {
       Logger.DevLog($"Unexpected ZDO: {prefabInfo.PrefabInfo.PrefabName}");
       return ProcessResult.UnregisterProcessor;
     }
-  }
-
-  void OnIncineratorDestroyed(ServersideQoLZDO zdo)
-  {
-    if (_states.Remove(zdo, out var state) && state.Sign is not null)
-      DestroyObject(state.Sign);
-  }
-
-  void RPC_AnimateLever(ServersideQoLZDO zdo)
-  {
-    if (_states.TryGetValue(zdo, out var state))
-      state.LeverPulled = true;
-  }
-
-  void RPC_AnimateLeverReturn(ServersideQoLZDO zdo)
-  {
-    if (_states.TryGetValue(zdo, out var state))
-      state.LeverReturned = true;
-  }
-
-  sealed class State
-  {
-    public required uint Revision { get; set; }
-    public List<ItemDrop.ItemData> NewItems { get; } = [];
-    public bool LeverPulled { get; set; }
-    public bool LeverReturned { get; set; }
-    public ServersideQoLZDO? Sign { get; set; }
   }
 }
