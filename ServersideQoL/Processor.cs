@@ -88,7 +88,7 @@ public abstract class Processor
 
   static bool __enableProcessingTimeMonitoring;
   Stopwatch? _processingTimeStopwatch;
-  static int _planBuildExludeVarHash;
+  static int __planBuildExludeVarHash;
 
   internal float ScheduleReprocessingDelay { get; private set; }
   internal bool HasPreProcessor { get; private set; } = true;
@@ -139,8 +139,12 @@ public abstract class Processor
 
     __dataZDO = null;
 
-    _planBuildExludeVarHash = Chainloader.PluginInfos.ContainsKey("marcopogo.PlanBuild") ?
-      PlanBuild::PlanBuild.ModCompat.ZDOVarsServersideQoL.ExcludeFromBlueprints.GetStableHashCode() : 0;
+    __planBuildExludeVarHash = 0;
+    if (Chainloader.PluginInfos.TryGetValue("marcopogo.PlanBuild", out var pluginInfo))
+    {
+      __planBuildExludeVarHash = PlanBuild::PlanBuild.ModCompat.ZDOVarsServersideQoL.ExcludeFromBlueprints.GetStableHashCode();
+      ServersideQoLPlugin.Logger.LogDiagnosticInfo($"Using {pluginInfo.Metadata.Name} compatiblity mode");
+    }
 
     foreach (var zdo in ZDOMan.instance.m_objectsByID.Values.Select(static x => x.ServersideQoLZDO))
     {
@@ -428,8 +432,8 @@ public abstract class Processor
         .Set(static () => x => x.m_noSupportWear, false)
         .Set(static () => x => x.m_health, -1);
 
-    if (_planBuildExludeVarHash is not 0)
-      zdo.ZDO.Set(_planBuildExludeVarHash, true);
+    if (__planBuildExludeVarHash is not 0)
+      zdo.ZDO.Set(__planBuildExludeVarHash, true);
 
     return zdo;
   }
@@ -699,17 +703,14 @@ public abstract class Processor
       if (__nextCleanup > now)
         return;
 
-      for (int i = _zoneRoots.Count - 1; i >= 0; i--)
+    outer: for (int i = _zoneRoots.Count - 1; i >= 0; i--)
       {
         var (zone, root) = _zoneRoots[i];
-        var found = false;
         foreach (var peer in peers)
         {
-          if (found = ZNetScene.InActiveArea(peer.RefPos, zone))
-            break;
+          if (ZNetScene.InActiveArea(peer.RefPos, zone))
+            continue outer;
         }
-        if (found)
-          continue;
 
         //Main.Instance.Logger.DevLog($"Destroying hmap for {zone}");
         _zoneRoots.RemoveAt(i);
