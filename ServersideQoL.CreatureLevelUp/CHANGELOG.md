@@ -1,3 +1,6 @@
+### v2.6.1
+- Fixed creatures with increased size sometimes blink/are not interactable [#412](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/412)
+
 ### v2.6.0
 - Fixed creatures spawned by locations sometimes being levelel up using the wrong biome [#401](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/401)
 - Fixed creatures spawned by persistent events (jotun invasions) being leveled up using the wrong biome [#381](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/381)
