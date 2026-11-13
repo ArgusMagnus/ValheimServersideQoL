@@ -84,7 +84,7 @@ public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
     var now = Timestamp.Now;
     if (levelChanged || (state.NextAttempt is not null && state.LastProcessed < now.AddSeconds(-2)))
     {
-      Logger.DevLog($"{prefabInfo.PrefabInfo.PrefabName}: Reset");
+      //Logger.DevLog($"{prefabInfo.PrefabInfo.PrefabName}: Reset");
       state.ScaleConfirmed = false;
       if (state.ExpectedScale is 0)
         state.ExpectedScale = zdo.Vars.GetScale().x;
@@ -104,19 +104,18 @@ public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
     {
       state.ScaleConfirmed = true;
       state.NextAttempt = default(Timestamp);
-      Logger.DevLog($"{prefabInfo.PrefabInfo.PrefabName}: Scale confirmed: {actualScale}");
+      //Logger.DevLog($"{prefabInfo.PrefabInfo.PrefabName}: Scale confirmed: {actualScale}");
     }
     else if (state.NextAttempt is null)
       state.NextAttempt = now.AddSeconds(2f);
     else if (state.NextAttempt < now)
     {
-      Logger.DevLog($"{prefabInfo.PrefabInfo.PrefabName}: Actual={actualScale} Expected={state.ExpectedScale}");
+      //Logger.DevLog($"{prefabInfo.PrefabInfo.PrefabName}: Actual={actualScale} Expected={state.ExpectedScale}");
       //zdo.Vars.RemoveScale();
       zdo.Vars.SetScale(Vector3.zero);
       zdo.Vars.SetScaleScalar(state.ExpectedScale);
       zdo.ReleaseOwnership();
-      //zdo.ZDO.DataRevision += 100; // necessary?
-      //ForceSend(zdo); // necessary?
+      zdo.ZDO.DataRevision += 100;
       state.NextAttempt = null;
     }
 

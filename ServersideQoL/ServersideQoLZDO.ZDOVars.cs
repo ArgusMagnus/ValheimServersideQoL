@@ -89,6 +89,8 @@ partial class ServersideQoLZDO
     public string GetHealthString(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_health, defaultValue);
     public void SetHealth(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_health, value); }
     public void RemoveHealth([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveFloat(global::ZDOVars.s_health); }
+    public void SetMaxHealth(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_maxHealth, value); }
+    public void RemoveMaxHealth([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveFloat(global::ZDOVars.s_maxHealth); }
     public int GetPermitted(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_permitted, defaultValue);
     public void SetPermitted(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_permitted, value); }
     public int GetLevel(int defaultValue = 1) => _zdo.GetInt(global::ZDOVars.s_level, defaultValue);

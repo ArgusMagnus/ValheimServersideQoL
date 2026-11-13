@@ -420,6 +420,12 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
 
     //Logger.DevLog($"{GetPrefabInfo(zdo).PrefabName}: Set level {initialLevel} -> {level} (min: {minLevel}, max: {maxLevel} (+{increase} {biome}), chance: {chance:F2}%)");
     zdo.Vars.SetLevel(level);
+    //zdo.Vars.RemoveMaxHealth();
+    /// <see cref="Character.SetupMaxHealth"/>
+    var baseMaxHealth = zdo.Fields<Character>().GetFloat(static () => x => x.m_health);
+    if (Game.m_worldLevel > 0)
+      baseMaxHealth *= Game.m_worldLevel * Game.instance.m_worldLevelEnemyHPMultiplier;
+    zdo.Vars.SetMaxHealth(level * baseMaxHealth);
     return result | ProcessResult.RecreateZDO;
   }
 

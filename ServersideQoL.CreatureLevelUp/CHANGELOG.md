@@ -1,5 +1,6 @@
 ### v2.6.1
 - Fixed creatures with increased size sometimes blink/are not interactable [#412](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/412)
+- Fixed leveled up creatures sometimes having a too low max health
 
 ### v2.6.0
 - Fixed creatures spawned by locations sometimes being levelel up using the wrong biome [#401](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/401)
