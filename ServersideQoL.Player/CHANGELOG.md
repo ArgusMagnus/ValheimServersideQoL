@@ -1,3 +1,6 @@
+### v2.6.1
+- Improved compatiblity with [ObliteratorOfPotential](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_ObliteratorOfPotential)
+
 ### v2.4.3
 - Improved reliability when sacrificing items for their effects [#380](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/380)
 - Added a text above obliterators when a valid sacrifice is recognized, showing the item(s) to be sacrificed and the player who will receive the buffs

@@ -1,3 +1,6 @@
+### v2.6.1
+- Small fix when evaluating bloodmagic skill effects
+
 ### v2.5.1
 - Fixed area repair causing rpc feedback loop [#288](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/288)
 

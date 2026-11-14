@@ -1,3 +1,6 @@
+### v2.6.1
+- Minor fixes
+
 ### v2.6.0
 - Fixed use of uninitialized peers, potentially leading to various issues [#402](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/402)
 - Added hanging braziers to portal hub [#406](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/406)
