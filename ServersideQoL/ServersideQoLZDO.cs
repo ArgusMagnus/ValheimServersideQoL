@@ -208,6 +208,12 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   {
     static IReadOnlyList<Processor> ReregisterCore(Processor reregister, IReadOnlyList<Processor> zdoProcessors, IReadOnlyList<Processor> allProcessors)
     {
+      foreach (var toKeep in zdoProcessors.Enumerate())
+      {
+        if (toKeep == reregister)
+          return zdoProcessors;
+      }
+      
       var hash = 0;
       foreach (var processor in allProcessors.Enumerate())
       {
@@ -216,8 +222,6 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
         {
           foreach (var toKeep in zdoProcessors.Enumerate())
           {
-            if (toKeep == reregister)
-              return zdoProcessors;
             if (processor == toKeep)
             {
               keep = true;
@@ -254,7 +258,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       return newProcessors;
     }
 
-    var processors = ReregisterCore(processor, Processors, PrefabInfo?.AvailableProcessors ?? []);
+    var processors = ReregisterCore(processor, Processors, PrefabInfo?.EnabledProcessors ?? []);
     if (processors == Processors)
       return false;
     Processors = processors;

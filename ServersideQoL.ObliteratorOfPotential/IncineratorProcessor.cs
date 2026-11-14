@@ -2,7 +2,6 @@
 using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
-using static ItemSets;
 
 namespace ServersideQoL.ObliteratorOfPotential;
 
@@ -155,11 +154,12 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
               if (newItem is null || newItem.m_quality == item.m_quality)
                 continue;
 
-              remainingUpgraderStack--;
-              Instance<IncineratorRegistryProcessor>().ReserveItem(upgrader);
+              if (remainingUpgraderStack == upgrader.m_stack) // we can't properly handle stacks yet
+                Instance<IncineratorRegistryProcessor>().ReserveItem(upgrader);
               Instance<IncineratorRegistryProcessor>().ReserveItem(sacrifice);
               Instance<IncineratorRegistryProcessor>().ReserveItem(item);
               Instance<IncineratorRegistryProcessor>().AddConversionResult(newItem);
+              remainingUpgraderStack--;
             }
           }
         }

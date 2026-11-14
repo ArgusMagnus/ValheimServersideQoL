@@ -67,7 +67,8 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
           if (go.GetComponent<ItemDrop>() is null || !Regex.IsMatch(go.name, pattern))
             continue;
 
-          if (!_entryByItemPrefab.TryAdd(go, entry) && entry != _entryByItemPrefab[go])
+          var usedEntry = entry;
+          if (!_entryByItemPrefab.TryAdd(go, entry) && (usedEntry = _entryByItemPrefab[go]) != entry)
             Logger.LogDiagnosticWarning($"Item '{go.name}' matches multiple entries. Only the first is used.");
           Logger.LogDiagnosticInfo($"Placing beacons for item {go.name} (range: {GetRange(entry.Range)})");
         }
@@ -89,9 +90,10 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
           }
 
           var hash = go.name.GetStableHashCode();
-          if (!_entryByPrefabHash.TryAdd(hash, entry) && entry != _entryByPrefabHash[hash])
+          var usedEntry = entry;
+          if (!_entryByPrefabHash.TryAdd(hash, entry) && (usedEntry = _entryByPrefabHash[hash]) != entry)
             Logger.LogDiagnosticWarning($"Prefab '{go.name}' matches multiple entries. Only the first is used.");
-          Logger.LogDiagnosticInfo($"Placing beacons for prefab {go.name} (range: {GetRange(entry.Range)}, item: {item?.name})");
+          Logger.LogDiagnosticInfo($"Placing beacons for prefab {go.name} (range: {GetRange(usedEntry.Range)}, item: {item?.name})");
         }
       }
     }

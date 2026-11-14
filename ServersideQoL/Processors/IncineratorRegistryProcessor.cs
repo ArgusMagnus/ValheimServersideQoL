@@ -51,6 +51,7 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
     State? state = null;
+    var result = ProcessResult.Default;
     if (_used.Count > 0 || _results.Count > 0)
     {
       if (!_states.TryGetValue(zdo, out state))
@@ -58,21 +59,11 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
         _states.Add(zdo, state = new());
         zdo.Destroyed += RemoveState;
       }
+
       state.Results.Clear();
       foreach (var conversionResult in _results)
         state.Results.Add(conversionResult);
-    }
-    else if (state is not null || _states.TryGetValue(zdo, out state))
-    {
-      if (!state.LeverReturned && (!state.LeverPulled || zdo.Vars.GetInUse()))
-        state.Results.Clear();
-    }
-    else if (_containerState is null || _inventory is null)
-      return ProcessResult.UnregisterProcessor; /// No processor called <see cref="GetAvailableItems"/>
 
-    var result = ProcessResult.Default;
-    if (_used.Count is not 0)
-    {
       if (state.Sign is null)
       {
         var pos = zdo.ZDO.GetPosition();
@@ -83,31 +74,76 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
       var text = string.Join("<br>", state.Results.Select(static x => x.GetText()));
       state.Sign.Vars.SetText(ShowSign ? $"<color=white>{text}" : $"<mark=#000000><color=white>{text}<size=45><br><br>");
     }
-    else if (state is { LeverReturned: true })
+    else if (state is not null || _states.TryGetValue(zdo, out state))
     {
-      _containerState = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container);
-      _inventory = _containerState.GetInventory();
-      if (!zdo.IsOwnerOrUnassigned())
-        result = ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(_containerState, default));
-      else
+      if (state is { LeverReturned: true, Results.Count: not 0 })
       {
-        var save = false;
-        foreach (var conversionResult in state.Results)
+        _containerState ??= Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container);
+        if (!zdo.IsOwnerOrUnassigned())
+          result = ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(_containerState, default));
+        else
         {
-          if (conversionResult.GetItem() is not { } item)
-            continue;
-          _inventory.Inventory.AddItem(item);
-          save = true;
+          _inventory ??= _containerState.GetInventory();
+          var save = false;
+          foreach (var conversionResult in state.Results)
+          {
+            if (conversionResult.GetItem() is not { } item)
+              continue;
+            _inventory.Inventory.AddItem(item);
+            save = true;
+          }
+          if (save)
+            _inventory.Save();
+          RemoveState(zdo);
         }
-        if (save)
-          _inventory.Save();
-        RemoveState(zdo);
       }
+      else if (!state.LeverPulled || zdo.Vars.GetInUse())
+        state.Results.Clear();
+
+      if (state.Results.Count is 0)
+        RemoveState(zdo);
     }
-    else if (state?.Results.Count is 0)
-    {
-      RemoveState(zdo);
-    }
+    else if (_containerState is null || _inventory is null)
+      result = ProcessResult.UnregisterProcessor; /// No processor called <see cref="GetAvailableItems"/>
+
+    //var result = ProcessResult.Default;
+    //if (_used.Count > 0 || _results.Count > 0)
+    //{
+    //  if (state.Sign is null)
+    //  {
+    //    var pos = zdo.ZDO.GetPosition();
+    //    if (ShowSign)
+    //      pos.y += 1.25f;
+    //    state.Sign = PlacePiece(pos, Prefabs.Sign, zdo.ZDO.GetRotation());
+    //  }
+    //  var text = string.Join("<br>", state.Results.Select(static x => x.GetText()));
+    //  state.Sign.Vars.SetText(ShowSign ? $"<color=white>{text}" : $"<mark=#000000><color=white>{text}<size=45><br><br>");
+    //}
+    //else if (state is { LeverReturned: true })
+    //{
+    //  _containerState ??= Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container);
+    //  if (!zdo.IsOwnerOrUnassigned())
+    //    result = ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(_containerState, default));
+    //  else
+    //  {
+    //    _inventory ??= _containerState.GetInventory();
+    //    var save = false;
+    //    foreach (var conversionResult in state.Results)
+    //    {
+    //      if (conversionResult.GetItem() is not { } item)
+    //        continue;
+    //      _inventory.Inventory.AddItem(item);
+    //      save = true;
+    //    }
+    //    if (save)
+    //      _inventory.Save();
+    //    RemoveState(zdo);
+    //  }
+    //}
+    //else if (state?.Results.Count is 0)
+    //{
+    //  RemoveState(zdo);
+    //}
 
     _used.Clear();
     _results.Clear();
