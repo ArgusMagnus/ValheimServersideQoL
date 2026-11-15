@@ -1,4 +1,6 @@
-﻿using ServersideQoL.Processors;
+﻿extern alias Recycler;
+
+using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
@@ -7,6 +9,7 @@ namespace ServersideQoL.ObliteratorOfPotential;
 
 [Processor(Id)]
 [RunBefore<IncineratorRegistryProcessor>]
+[RunBefore(Recycler::ServersideQoL.Recycler.IncineratorProcessor.Id)]
 public sealed class IncineratorProcessor : Processor<IncineratorProcessor.PrefabInfo>
 {
   public const string Id = "2006ea3b-d05a-49bb-9d59-28b19a4bd7f7";

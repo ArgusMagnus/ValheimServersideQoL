@@ -1,4 +1,6 @@
-﻿using ServersideQoL.Processors;
+﻿extern alias Recycler;
+
+using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 
 namespace ServersideQoL.Player;
@@ -6,10 +8,10 @@ namespace ServersideQoL.Player;
 [Processor(Id)]
 [RunBefore<IncineratorRegistryProcessor>]
 [DependsOn<PlayerRegistryProcessor>]
-public sealed class IncineratorProcessor : Processor<IncineratorProcessor.PrefabInfo>
+[RunBefore(Recycler::ServersideQoL.Recycler.IncineratorProcessor.Id)]
+public sealed class IncineratorProcessor : Processor<IncineratorRegistryProcessor.PrefabInfo>
 {
   public const string Id = "30cb1ca8-ae2d-4982-af60-f47e0207d603";
-  public sealed record PrefabInfo(Incinerator Incinerator, Container Container, Piece Piece, PieceTable PieceTable) : ProcessorPrefabInfo;
 
   readonly Dictionary<string, SacrificeInfo> _sacrifices = [];
   bool _enabled;
@@ -33,7 +35,7 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
       _sacrifices.Add(PrefabNames.TornSpirit, new(static x => PlayerProcessor.SetSacrifiedTornSpirit(x, true), StatusEffects.Demister, Config.Instance.Localization.Value.SacrificedTornSpirit));
   }
 
-  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, IncineratorRegistryProcessor.PrefabInfo prefabInfo)
   {
     if (!_enabled)
       return ProcessResult.UnregisterProcessor;

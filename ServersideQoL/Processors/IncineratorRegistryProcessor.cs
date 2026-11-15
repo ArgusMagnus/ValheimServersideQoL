@@ -1,4 +1,5 @@
 ﻿using ServersideQoL.Utilities;
+using UnityEngine;
 
 namespace ServersideQoL.Processors;
 
@@ -78,7 +79,7 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
       {
         if (state.Sign is null)
         {
-          var pos = zdo.ZDO.GetPosition();
+          var pos = zdo.ZDO.GetPosition() + zdo.ZDO.GetRotation() * Vector3.forward * 0.1f;
           if (ShowSign)
             pos.y += 1.25f;
           state.Sign = PlacePiece(pos, Prefabs.Sign, zdo.ZDO.GetRotation());
@@ -101,7 +102,23 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
           {
             if (conversionResult.GetItem() is not { } item)
               continue;
-            _inventory.Inventory.AddItem(item);
+
+            var stack = item.m_stack;
+            while (true)
+            {
+              item.m_stack = Mathf.Min(stack, item.m_shared.m_maxStackSize);
+              if (!_inventory.Inventory.AddItem(item))
+              {
+                var pos = zdo.ZDO.GetPosition();
+                pos.y += UnityEngine.Random.Range(1.5f, 2.5f);
+                ItemDrop.DropItem(item, 0, pos, UnityEngine.Random.rotation);
+              }
+              stack -= item.m_stack;
+              if (stack is 0)
+                break;
+              item = item.Clone();
+            }
+
             save = true;
           }
           if (save)

@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Turns obliterators into recyclers which return a (configurable) percentage of the original crafting ingredients</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" Private="False" />
+  </ItemGroup>
+
+</Project>
