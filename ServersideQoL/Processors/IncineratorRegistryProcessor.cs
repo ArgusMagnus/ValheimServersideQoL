@@ -15,7 +15,8 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
 
   public IReadOnlyCollection<ItemDrop.ItemData> ReservedItems => _used;
   public bool ReserveItem(ItemDrop.ItemData item) => _used.Add(item);
-  public void AddConversionResult(ConversionResult result) => _results.Add(result);
+  public void AddConversionResult(ItemDrop.ItemData item, bool showOnSign = true) => _results.Add(new ItemResult(item, showOnSign));
+  public void AddConversionResult(DynamicResult result) => _results.Add(result);
 
   public ItemEnumerable GetAvailableItems(ServersideQoLZDO zdo)
   {
@@ -64,15 +65,26 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
       foreach (var conversionResult in _results)
         state.Results.Add(conversionResult);
 
-      if (state.Sign is null)
+      var text = string.Join("<br>", state.Results.Select(static x => x.GetText()).Where(static x => !string.IsNullOrEmpty(x)));
+      if (string.IsNullOrEmpty(text))
       {
-        var pos = zdo.ZDO.GetPosition();
-        if (ShowSign)
-          pos.y += 1.25f;
-        state.Sign = PlacePiece(pos, Prefabs.Sign, zdo.ZDO.GetRotation());
+        if (state.Sign is not null)
+        {
+          DestroyObject(state.Sign);
+          state.Sign = null;
+        }
       }
-      var text = string.Join("<br>", state.Results.Select(static x => x.GetText()));
-      state.Sign.Vars.SetText(ShowSign ? $"<color=white>{text}" : $"<mark=#000000><color=white>{text}<size=45><br><br>");
+      else
+      {
+        if (state.Sign is null)
+        {
+          var pos = zdo.ZDO.GetPosition();
+          if (ShowSign)
+            pos.y += 1.25f;
+          state.Sign = PlacePiece(pos, Prefabs.Sign, zdo.ZDO.GetRotation());
+        }
+        state.Sign.Vars.SetText(ShowSign ? $"<color=white>{text}" : $"<mark=#000000><color=white>{text}<size=45><br><br>");
+      }
     }
     else if (state is not null || _states.TryGetValue(zdo, out state))
     {
@@ -105,45 +117,6 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
     }
     else if (_containerState is null || _inventory is null)
       result = ProcessResult.UnregisterProcessor; /// No processor called <see cref="GetAvailableItems"/>
-
-    //var result = ProcessResult.Default;
-    //if (_used.Count > 0 || _results.Count > 0)
-    //{
-    //  if (state.Sign is null)
-    //  {
-    //    var pos = zdo.ZDO.GetPosition();
-    //    if (ShowSign)
-    //      pos.y += 1.25f;
-    //    state.Sign = PlacePiece(pos, Prefabs.Sign, zdo.ZDO.GetRotation());
-    //  }
-    //  var text = string.Join("<br>", state.Results.Select(static x => x.GetText()));
-    //  state.Sign.Vars.SetText(ShowSign ? $"<color=white>{text}" : $"<mark=#000000><color=white>{text}<size=45><br><br>");
-    //}
-    //else if (state is { LeverReturned: true })
-    //{
-    //  _containerState ??= Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container);
-    //  if (!zdo.IsOwnerOrUnassigned())
-    //    result = ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(_containerState, default));
-    //  else
-    //  {
-    //    _inventory ??= _containerState.GetInventory();
-    //    var save = false;
-    //    foreach (var conversionResult in state.Results)
-    //    {
-    //      if (conversionResult.GetItem() is not { } item)
-    //        continue;
-    //      _inventory.Inventory.AddItem(item);
-    //      save = true;
-    //    }
-    //    if (save)
-    //      _inventory.Save();
-    //    RemoveState(zdo);
-    //  }
-    //}
-    //else if (state?.Results.Count is 0)
-    //{
-    //  RemoveState(zdo);
-    //}
 
     _used.Clear();
     _results.Clear();
@@ -196,18 +169,20 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
     public ServersideQoLZDO? Sign { get; set; }
   }
 
-  public readonly record struct DynamicResult(Func<string> GetText, Func<ItemDrop.ItemData?> GetResult);
-  public readonly union ConversionResult(ItemDrop.ItemData, DynamicResult)
+  sealed record ItemResult(ItemDrop.ItemData Item, bool ShowOnSign);
+  public sealed record DynamicResult(Func<string?> GetText, Func<ItemDrop.ItemData?> GetResult);
+
+  readonly union ConversionResult(ItemResult, DynamicResult)
   {
-    public string GetText() => this switch
+    public string? GetText() => this switch
     {
-      ItemDrop.ItemData item => $"{Localization.instance.Localize(item.m_shared.m_name)}{(item.m_quality > 1 ? $" [{item.m_quality}]" : "")}{(item.m_stack > 1 ? $" x{item.m_stack}" : "")}",
+      ItemResult x => x.ShowOnSign ? $"{Localization.instance.Localize(x.Item.m_shared.m_name)}{(x.Item.m_quality > 1 ? $" [{x.Item.m_quality}]" : "")}{(x.Item.m_stack > 1 ? $" x{x.Item.m_stack}" : "")}" : null,
       DynamicResult x => x.GetText()
     };
 
     public ItemDrop.ItemData? GetItem() => this switch
     {
-      ItemDrop.ItemData item => item,
+      ItemResult x => x.Item,
       DynamicResult x => x.GetResult()
     };
   }
