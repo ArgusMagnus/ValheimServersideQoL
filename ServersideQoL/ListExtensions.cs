@@ -4,14 +4,27 @@ namespace ServersideQoL;
 
 public static class ListExtensions
 {
-  public static ListEnumerable<T> Enumerate<T>(this IReadOnlyList<T> list) => new(list);
-
   public static void InsertSorted<T>(this List<T> list, T item) where T : IComparable<T>
   {
     var index = list.BinarySearch(item);
     if (index < 0)
       index = ~index; // bitwise complement = insertion point
     list.Insert(index, item);
+  }
+
+  extension<T>(IReadOnlyList<T> list)
+  {
+    public ListEnumerable<T> Enumerate() => new(list);
+
+    public bool Contains(T item)
+    {
+      foreach (var other in list.Enumerate())
+      {
+        if (EqualityComparer<T>.Default.Equals(item, other))
+          return true;
+      }
+      return false;
+    }
   }
 
   public readonly struct ListEnumerable<T>(IReadOnlyList<T> list)

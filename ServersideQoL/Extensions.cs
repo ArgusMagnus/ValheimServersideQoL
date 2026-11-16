@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ServersideQoL.Utilities;
+using UnityEngine;
 
 namespace ServersideQoL;
 
@@ -30,9 +31,43 @@ public static class Extensions
     public bool IsItem => sharedData.m_icons is { Length: > 0 };
   }
 
+  const string IngredientDataKey = "SQoL:Ingredients";
+
   extension(ItemDrop.ItemData itemData)
   {
     public bool IsItem => itemData.m_shared.IsItem;
+
+    public void SaveIngredients(params ReadOnlySpan<ItemDrop.ItemData> items)
+    {
+      var zpkg = SingletonCache<ZPackage>.Instance;
+      zpkg.Clear();
+      zpkg.Write((int)Version.c_ItemDataVersion);
+      zpkg.WriteNumItems(items.Length);
+      foreach (var item in items)
+        item.Save(zpkg);
+      itemData.m_customData[IngredientDataKey] = Convert.ToBase64String(zpkg.GetCompressed());
+    }
+
+    public IReadOnlyList<ItemDrop.ItemData>? GetIngredients()
+    {
+      if (!itemData.m_customData.TryGetValue(IngredientDataKey, out var str))
+        return null;
+
+      var zpkg = SingletonCache<ZPackage>.Instance;
+      zpkg.Load(Convert.FromBase64String(str));
+      zpkg.Decompress();
+      var version = (Version.Item)zpkg.ReadInt();
+      var count = zpkg.ReadNumItems();
+      var result = new ItemDrop.ItemData[count];
+      for (int i = 0; i < count; i++)
+      {
+        var (prefab, item) = ItemDrop.ItemData.Load(zpkg, version);
+        item.m_dropPrefab = ZNetScene.instance.GetPrefab(prefab);
+        result[i] = item;
+      }
+
+      return result;
+    }
   }
 
   extension(ItemDrop itemDrop)

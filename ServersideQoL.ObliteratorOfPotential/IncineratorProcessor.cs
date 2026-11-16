@@ -4,6 +4,7 @@ using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
+using static Version;
 
 namespace ServersideQoL.ObliteratorOfPotential;
 
@@ -36,6 +37,8 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
       }
     }
   }
+
+  const string CraftedFromItemDataKey = "SQoL:CraftedFrom";
 
   readonly Dictionary<GameObject, HashSet<GameObject>> _itemsByUpgrader = [];
   ServersideQoLZDO? _obliteratorOfPotential;
@@ -156,6 +159,8 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
 
               if (newItem is null || newItem.m_quality == item.m_quality)
                 continue;
+
+              newItem.SaveIngredients(upgrader, sacrifice, item);
 
               if (remainingUpgraderStack == upgrader.m_stack) // we can't properly handle stacks yet
                 Instance<IncineratorRegistryProcessor>().ReserveItem(upgrader);
