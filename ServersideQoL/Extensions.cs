@@ -63,6 +63,7 @@ public static class Extensions
       {
         var (prefab, item) = ItemDrop.ItemData.Load(zpkg, version);
         item.m_dropPrefab = ZNetScene.instance.GetPrefab(prefab);
+        item.m_shared = item.m_dropPrefab.GetComponent<ItemDrop>().m_itemData.m_shared;
         result[i] = item;
       }
 

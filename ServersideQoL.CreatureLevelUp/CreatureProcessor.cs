@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ServersideQoL.CreatureLevelUp;
 
-[Processor("0d2b80d6-03bc-49d7-87e0-6b97bd10925e")]
+[Processor(Id)]
 [RunAfter<CreatureLevelUpProcessor>]
 public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
 {

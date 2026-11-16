@@ -16,7 +16,13 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
 
   public IReadOnlyCollection<ItemDrop.ItemData> ReservedItems => _used;
   public bool ReserveItem(ItemDrop.ItemData item) => _used.Add(item);
-  public void AddConversionResult(ItemDrop.ItemData item, bool showOnSign = true) => _results.Add(new ItemResult(item, showOnSign));
+  
+  public void AddConversionResult(ItemDrop.ItemData item, bool showOnSign = true)
+  {
+    System.Diagnostics.Debug.Assert(item.m_dropPrefab is not null && item.m_shared is not null);
+    _results.Add(new ItemResult(item, showOnSign));
+  }
+
   public void AddConversionResult(DynamicResult result) => _results.Add(result);
 
   public ItemEnumerable GetAvailableItems(ServersideQoLZDO zdo)

@@ -10,7 +10,10 @@ namespace ServersideQoL.MultiplayerTweaks;
 public sealed class Processor : Processor<Processor.PrefabInfo>
 {
   public const string Id = "71988cd7-0b04-4603-8759-21ab8585ac05";
-  public sealed record PrefabInfo(Ship? Ship, Smelter? Smelter, CookingStation? CookingStation, Character? Character) : ProcessorPrefabInfo;
+  public sealed record PrefabInfo(Ship? Ship, Smelter? Smelter, CookingStation? CookingStation, Character? Character) : ProcessorPrefabInfo
+  {
+    public override bool IsValid => PrefabInfo.GetRequiredComponent<ZNetView>().m_persistent;
+  }
 
   bool _forcePlayerPinsPatched;
   bool _saveBeforeSleepingPatched;
@@ -37,9 +40,6 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    if (!zdo.ZDO.Persistent)
-      return ProcessResult.UnregisterProcessor;
-
     if (prefabInfo.Ship is not null && Config.Instance.AssignShipsToCaptain.Value)
     {
       var userPlayerID = zdo.Vars.GetUser();
