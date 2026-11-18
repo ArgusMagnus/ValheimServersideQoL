@@ -11,6 +11,8 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
   readonly Dictionary<ServersideQoLZDO, State> _states = [];
   readonly HashSet<ItemDrop.ItemData> _used = [];
   readonly List<ConversionResult> _results = [];
+  readonly Inventory _tmpInvenotry = new(false);
+  readonly List<ItemDrop> _tmpConversionResults = [];
   ContainerState? _containerState;
   ContainerState.IInventory? _inventory;
 
@@ -72,6 +74,10 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
       foreach (var conversionResult in _results)
         state.Results.Add(conversionResult);
 
+      _tmpInvenotry.m_inventory.Clear();
+      foreach (var item in _used)
+        _tmpInvenotry.m_inventory.Add(item);
+
       var text = string.Join("<br>", state.Results.Select(static x => x.GetText()).Where(static x => !string.IsNullOrEmpty(x)));
       if (string.IsNullOrEmpty(text))
       {
@@ -104,6 +110,22 @@ public sealed class IncineratorRegistryProcessor : Processor<IncineratorRegistry
         {
           _inventory ??= _containerState.GetInventory();
           var save = false;
+
+          /// <see cref="Incinerator.Incinerate"/>
+          _tmpConversionResults.Clear();
+          foreach (var conversion in prefabInfo.Incinerator.m_conversions)
+            conversion.AttemptCraft(_tmpInvenotry, _tmpConversionResults);
+
+          if (prefabInfo.Incinerator is {m_defaultResult: not null, m_defaultCost: > 0 })
+          {
+            var count = _tmpInvenotry.NrOfItemsIncludingStacks() / prefabInfo.Incinerator.m_defaultCost;
+            for (int i = 0; i < count; i++)
+              _tmpConversionResults.Add(prefabInfo.Incinerator.m_defaultResult);
+          }
+
+          foreach (var toRemove in _tmpConversionResults)
+            _inventory.Inventory.RemoveItem(toRemove.m_itemData.m_shared.m_name, toRemove.m_itemData.m_stack);
+
           foreach (var conversionResult in state.Results)
           {
             if (conversionResult.GetItem() is not { } item)

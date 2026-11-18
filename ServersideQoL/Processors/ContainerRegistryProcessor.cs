@@ -224,7 +224,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       }
 
       if (data is not { Length: > 0 })
-        ((IInventory)this).Items.Clear();
+        _inventory.m_inventory.Clear();
       else
       {
         SingletonCache<ZPackage>.Instance.Load(data);
@@ -238,17 +238,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
     Inventory IInventory.Inventory => _inventory!;
 
-    List <ItemDrop.ItemData> IInventory.Items
-    {
-      get
-      {
-        if (_items is null)
-          _items = _inventory!.GetAllItems();
-        else if (!ReferenceEquals(_items, _inventory!.GetAllItems()))
-          throw new Exception("Assumption violated");
-        return _items;
-      }
-    }
+    List<ItemDrop.ItemData> IInventory.Items => _inventory!.m_inventory;
 
     void IInventory.Save()
     {
