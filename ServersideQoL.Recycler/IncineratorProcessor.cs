@@ -1,4 +1,5 @@
 ﻿using ServersideQoL.Processors;
+using UnityEngine;
 
 namespace ServersideQoL.Recycler;
 
@@ -38,13 +39,13 @@ public sealed class IncineratorProcessor : Processor<IncineratorRegistryProcesso
 
     return default;
 
-    static bool AddIngredients(Dictionary<ItemDrop, ItemDrop.ItemData> ingredients, ItemDrop.ItemData item)
+    static bool AddIngredients(Dictionary<ItemDrop, ItemDrop.ItemData> ingredients, ItemDrop.ItemData item, bool dismantleNonCraftable = true)
     {
       if (item.GetIngredients() is { } subItems)
       {
         foreach (var ingredient in subItems.Enumerate())
         {
-          if (!AddIngredients(ingredients, ingredient))
+          if (!AddIngredients(ingredients, ingredient, false))
           {
             var itemDrop = ingredient.m_dropPrefab.GetComponent<ItemDrop>();
             if (ingredients.TryGetValue(itemDrop, out var ingr))
@@ -60,7 +61,11 @@ public sealed class IncineratorProcessor : Processor<IncineratorRegistryProcesso
         if (ObjectDB.instance.GetRecipe(item) is not { m_requireOnlyOneIngredient: false } recipe)
           return false;
 
+        if (!dismantleNonCraftable && !recipe.m_enabled)
+          return false;
+
         var found = false;
+        var factor = item.m_stack / (float)recipe.m_amount;
         for (int quality = 1; quality <= item.m_quality; quality++)
         {
           for (int i = 0; i < recipe.m_resources.Length; i++)
@@ -75,7 +80,7 @@ public sealed class IncineratorProcessor : Processor<IncineratorRegistryProcesso
               ingredient.m_dropPrefab = res.m_resItem.gameObject;
               ingredient.m_stack = 0;
             }
-            ingredient.m_stack += res.GetAmount(quality);
+            ingredient.m_stack += Mathf.FloorToInt(res.GetAmount(quality) * factor);
             found = true;
           }
         }
