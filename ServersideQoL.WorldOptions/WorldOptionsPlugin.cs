@@ -10,5 +10,6 @@ partial class WorldOptionsPlugin : ServersideQoLPluginBase<WorldOptionsPlugin, C
     .Add<MisterProcessor>()
     .Add<TraderProcessor>()
     .Add<MapTableProcessor>()
-    .Add<CraftingStationProcessor>();
+    .Add<CraftingStationProcessor>()
+    .Add<PieceProcessor>();
 }

@@ -36,3 +36,4 @@
 |RemoveMistlandsMist|AfterQueenKilled|Never, Always, AfterQueenKilled|Condition to remove the mist from the mistlands. <br>Beware that there are a few cases of mist (namely mist around POIs like ancient bones/skulls) <br>that cannot be removed by this mod and will remain regardless of this setting.|
 |MapTableMapViewDistance|0||Max distance to a map table at which players can view their map. <br>Has no effect unless the NoMap global key is set. <br>0 to disable this feature.|
 |CraftingStationsShareBuildRadius|false|True/False|True to make crafting stations share their build radius. <br>For example, a workbench and a stone cutter with overlapping build radius will enable players to build <br>with stone also in the workbench's build range and vice versa.|
+|BuildPiecesReturnAllResourcesWhenDestroyed|false|True/False|True to make build pieces return all their resources when destroyed|

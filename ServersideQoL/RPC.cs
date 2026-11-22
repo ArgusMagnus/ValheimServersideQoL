@@ -359,48 +359,30 @@ public static class RPC
 
     static Action<ZRoutedRpc, long, ZDOID, string, object[], long> GetDelegate()
     {
-      var senderPeerIDField = GetField(static (RoutedRPCData x) => x.m_senderPeerID);
-      var idField = typeof(ZRoutedRpc).GetField("m_id", BindingFlags.NonPublic | BindingFlags.Instance);
-
-      var original = new Action<long, ZDOID, string, object[]>(ZRoutedRpc.instance.InvokeRoutedRPC).Method;
-      var method = new DynamicMethodDefinition(original);
-
-      // https://github.com/ArgusMagnus/ValheimServersideQoL/issues/326
-      [MethodImpl(MethodImplOptions.NoInlining)]
-      static void SetName(DynamicMethodDefinition method, string name) => method.Name = name;
-      try { SetName(method, "InvokeRoutedRPC_InjectSender"); }
-      catch (MissingFieldException) { }
-
-      var originalMethodProperty = typeof(DynamicMethodDefinition).GetProperty(nameof(DynamicMethodDefinition.OriginalMethod));
-      if (originalMethodProperty.CanWrite)
-        originalMethodProperty.SetValue(method, null);
-      else if (typeof(DynamicMethodDefinition).GetField($"<{originalMethodProperty.Name}>k__BackingField", BindingFlags.Instance | BindingFlags.NonPublic) is { } originalMethodField)
-        originalMethodField.SetValue(method, null); // https://github.com/ArgusMagnus/ValheimServersideQoL/issues/326
-      else
-        throw new Exception($"Property {nameof(DynamicMethodDefinition.OriginalMethod)} could not be set");
-      method.Definition.Parameters.Add(new("senderPeerID", Mono.Cecil.ParameterAttributes.None, method.Module.ImportReference(typeof(long))));
-      var instructions = method.Definition.Body.Instructions;
-
-      var success = false;
-      for (var i = 2; i < instructions.Count; i++)
+      var copyBuilder = new MethodCopyBuilder(
+        new Action<long, ZDOID, string, object[]>(ZRoutedRpc.instance.InvokeRoutedRPC),
+        "InvokeRoutedRPC_InjectSender");
+      copyBuilder.AddParameter<long>("senderPeerID");
+      copyBuilder.Transpile(static (copyBuilder, instructions) =>
       {
-        if (instructions[i].MatchStfld(senderPeerIDField) && instructions[i - 1].MatchLdfld(idField) && instructions[i - 2].OpCode == OpCodes.Ldarg_0)
+        var senderPeerIDField = GetField(static (RoutedRPCData x) => x.m_senderPeerID);
+        var idField = typeof(ZRoutedRpc).GetField("m_id", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+        var success = false;
+        for (var i = 2; i < instructions.Count; i++)
         {
-          instructions[i - 1] = method.GetILProcessor().Create(OpCodes.Ldarg, method.Definition.Parameters.Count - 1);
-          instructions.RemoveAt(i - 2);
-          success = true;
-          break;
+          if (instructions[i].MatchStfld(senderPeerIDField) && instructions[i - 1].MatchLdfld(idField) && instructions[i - 2].OpCode == OpCodes.Ldarg_0)
+          {
+            instructions[i - 1] = copyBuilder.GetILProcessor().Create(OpCodes.Ldarg, copyBuilder.Parameters.Count - 1);
+            instructions.RemoveAt(i - 2);
+            success = true;
+            break;
+          }
         }
-      }
 
-      if (!success)
-        throw new Exception("Failed");
-
-      //foreach (var instruction in method.Definition.Body.Instructions)
-      //    Main.Instance.Logger.DevLog($"{instruction.OpCode.Name}: {instruction.Operand}", LogLevel.Warning);
-
-      var mi = method.Generate();
-      return mi.CreateDelegate<Action<ZRoutedRpc, long, ZDOID, string, object[], long>>();
+        if (!success)
+          throw new Exception("Failed");
+      });
+      return copyBuilder.Build<Action<ZRoutedRpc, long, ZDOID, string, object[], long>>();
 
       static FieldInfo GetField<T, TField>(Expression<Func<T, TField>> expression)
       {

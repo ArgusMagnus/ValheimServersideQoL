@@ -167,10 +167,9 @@ partial class ServersideQoLZDO
 
       FieldReference(Type componentType, FieldInfo field)
       {
-#if DEBUG
-        if (field.FieldType != typeof(T))
-          throw new Exception($"Field type {typeof(T).Name} expected, actual field type is {field.FieldType.Name}");
-#endif
+        System.Diagnostics.Debug.Assert(field.FieldType == typeof(T));
+        System.Diagnostics.Debug.Assert(field.IsPublic);
+
         _field = field;
         _hash = Invariant($"{componentType.Name}.{field.Name}").GetStableHashCode();
 
