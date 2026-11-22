@@ -1,4 +1,5 @@
-﻿using ServersideQoL.Utilities;
+﻿using Mono.Cecil.Cil;
+using ServersideQoL.Utilities;
 using UnityEngine;
 
 namespace ServersideQoL;
@@ -74,5 +75,14 @@ public static class Extensions
   extension(ItemDrop itemDrop)
   {
     public bool IsItem => itemDrop.m_itemData.IsItem;
+  }
+
+  extension(Instruction instruction)
+  {
+    public void MakeNoOp()
+    {
+      instruction.OpCode = OpCodes.Nop;
+      instruction.Operand = null;
+    }
   }
 }

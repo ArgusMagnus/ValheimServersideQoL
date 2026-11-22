@@ -10,12 +10,9 @@ public sealed class MethodCopyBuilder
 {
   readonly DynamicMethodDefinition _method;
   public ModuleDefinition Module => _method.Module;
-  public Mono.Collections.Generic.Collection<ParameterDefinition> Parameters => _method.Definition.Parameters;
 
   public MethodCopyBuilder(Delegate original, string newName)
     : this(original.Method, newName) { }
-
-  public ILProcessor GetILProcessor() => _method.GetILProcessor();
 
   public MethodCopyBuilder(MethodInfo original, string newName)
   {
@@ -43,8 +40,11 @@ public sealed class MethodCopyBuilder
     return parameter;
   }
 
-  public void Transpile(Action<MethodCopyBuilder, Mono.Collections.Generic.Collection<Instruction>> transpiler)
-    => transpiler(this, _method.Definition.Body.Instructions);
+  public MethodCopyBuilder Transpile(Action<MethodCopyBuilder, Mono.Collections.Generic.Collection<Instruction>> transpiler)
+  {
+    transpiler(this, _method.Definition.Body.Instructions);
+    return this;
+  }
 
   public T Build<T>()
     where T : Delegate

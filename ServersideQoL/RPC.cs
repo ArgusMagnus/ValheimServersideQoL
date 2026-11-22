@@ -354,43 +354,40 @@ public static class RPC
     if (Drop())
       return;
 
-    __invokeRouteRPCAsSender ??= GetDelegate();
-    __invokeRouteRPCAsSender(ZRoutedRpc.instance, targetPeerID, targetZDO, methodNameStr, parameters, senderPeerId);
-
-    static Action<ZRoutedRpc, long, ZDOID, string, object[], long> GetDelegate()
-    {
-      var copyBuilder = new MethodCopyBuilder(
+    __invokeRouteRPCAsSender ??= SQoLUtils.CreateCopy<Action<ZRoutedRpc, long, ZDOID, string, object[], long>>(
         new Action<long, ZDOID, string, object[]>(ZRoutedRpc.instance.InvokeRoutedRPC),
-        "InvokeRoutedRPC_InjectSender");
-      copyBuilder.AddParameter<long>("senderPeerID");
-      copyBuilder.Transpile(static (copyBuilder, instructions) =>
-      {
-        var senderPeerIDField = GetField(static (RoutedRPCData x) => x.m_senderPeerID);
-        var idField = typeof(ZRoutedRpc).GetField("m_id", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-        var success = false;
-        for (var i = 2; i < instructions.Count; i++)
+        "InvokeRoutedRPC_InjectSender",
+        static (copyBuilder, instructions) =>
         {
-          if (instructions[i].MatchStfld(senderPeerIDField) && instructions[i - 1].MatchLdfld(idField) && instructions[i - 2].OpCode == OpCodes.Ldarg_0)
+          var senderPeerIDParameter = copyBuilder.AddParameter<long>("senderPeerID");
+          var senderPeerIDField = GetField(static (RoutedRPCData x) => x.m_senderPeerID);
+          var idField = typeof(ZRoutedRpc).GetField("m_id", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+          var success = false;
+          for (var i = 2; i < instructions.Count; i++)
           {
-            instructions[i - 1] = copyBuilder.GetILProcessor().Create(OpCodes.Ldarg, copyBuilder.Parameters.Count - 1);
-            instructions.RemoveAt(i - 2);
-            success = true;
-            break;
+            if (instructions[i - 2].OpCode == OpCodes.Ldarg_0 &&
+                instructions[i - 1].MatchLdfld(idField) &&
+                instructions[i].MatchStfld(senderPeerIDField))
+            {
+              instructions[i - 2].MakeNoOp();
+              instructions[i - 1] = Instruction.Create(OpCodes.Ldarg, senderPeerIDParameter);
+              success = true;
+              break;
+            }
           }
-        }
 
-        if (!success)
-          throw new Exception("Failed");
-      });
-      return copyBuilder.Build<Action<ZRoutedRpc, long, ZDOID, string, object[], long>>();
+          if (!success)
+            throw new Exception("Failed");
 
-      static FieldInfo GetField<T, TField>(Expression<Func<T, TField>> expression)
-      {
-        if (expression.Body is MemberExpression member)
-          return (FieldInfo)member.Member;
-        throw new ArgumentException();
-      }
-    }
+          static FieldInfo GetField<T, TField>(Expression<Func<T, TField>> expression)
+          {
+            if (expression.Body is MemberExpression member)
+              return (FieldInfo)member.Member;
+            throw new ArgumentException();
+          }
+        });
+
+    __invokeRouteRPCAsSender(ZRoutedRpc.instance, targetPeerID, targetZDO, methodNameStr, parameters, senderPeerId);
   }
 
   public static class Intercept

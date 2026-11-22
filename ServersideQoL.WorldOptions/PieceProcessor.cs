@@ -37,10 +37,8 @@ public sealed class PieceProcessor : Processor<PieceProcessor.PrefabInfo>
     if (GetProcessorPrefabInfo(zdo) is not { } prefabInfo)
       return;
 
-    if (_dropResources is null)
-    {
-      var copyBuilder = new MethodCopyBuilder(prefabInfo.Piece.DropResources, "DropNonRecoverableResources");
-      copyBuilder.Transpile(static (copyBuilder, instructions) =>
+    _dropResources ??= SQoLUtils.CreateCopy<Action<Piece, HitData?, ZDO>>(
+      prefabInfo.Piece.DropResources, "DropNonRecoverableResources", static (copyBuilder, instructions) =>
       {
         var zdoParameter = copyBuilder.AddParameter<ZDO>("zdo");
         var recoverField = typeof(Piece.Requirement).GetField(nameof(Piece.Requirement.m_recover), BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
@@ -50,8 +48,6 @@ public sealed class PieceProcessor : Processor<PieceProcessor.PrefabInfo>
         var getTransformMethod = typeof(Component).GetProperty(nameof(Component.transform)).GetMethod;
         var getTransformPositionMethod = typeof(Transform).GetProperty(nameof(Transform.position)).GetMethod;
         var getZDOPositionMethod = typeof(ZDO).GetMethod(nameof(ZDO.GetPosition));
-        
-        //var ilProcessor = copyBuilder.GetILProcessor();
 
         for (int i = 2; i < instructions.Count; i++)
         {
@@ -63,35 +59,27 @@ public sealed class PieceProcessor : Processor<PieceProcessor.PrefabInfo>
           else if (instructions[i - 1].MatchLdarg(0) &&
                    instructions[i].MatchCall(isPlacedByPlayerMethod))
           {
-            MakeNoOp(instructions[i - 1]);
+            instructions[i - 1].MakeNoOp();
             instructions[i] = Instruction.Create(OpCodes.Ldc_I4_1);
           }
           else if (instructions[i - 2].MatchLdarg(0) &&
                    instructions[i - 1].MatchLdfld(nviewField) &&
                    instructions[i].MatchCallOrCallvirt(getZDOMethod))
           {
-            MakeNoOp(instructions[i - 2]);
-            MakeNoOp(instructions[i - 1]);
+            instructions[i - 2].MakeNoOp();
+            instructions[i - 1].MakeNoOp();
             instructions[i] = Instruction.Create(OpCodes.Ldarg, zdoParameter);
           }
           else if (instructions[i - 2].MatchLdarg(0) &&
                    instructions[i - 1].MatchCall(getTransformMethod) &&
                    instructions[i].MatchCallOrCallvirt(getTransformPositionMethod))
           {
-            MakeNoOp(instructions[i - 2]);
+            instructions[i - 2].MakeNoOp();
             instructions[i - 1] = Instruction.Create(OpCodes.Ldarg, zdoParameter);
             instructions[i] = Instruction.Create(OpCodes.Callvirt, copyBuilder.Module.ImportReference(getZDOPositionMethod));
           }
         }
-
-        static void MakeNoOp(Instruction instruction)
-        {
-          instruction.OpCode = OpCodes.Nop;
-          instruction.Operand = null;
-        }
       });
-      _dropResources = copyBuilder.Build<Action<Piece, HitData?, ZDO>>();
-    }
 
     _dropResources(prefabInfo.Piece, null, zdo.ZDO);
   }
