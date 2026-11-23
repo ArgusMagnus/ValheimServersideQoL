@@ -1,3 +1,6 @@
+### v2.6.2
+- Added option `BuildPiecesDropAllResourcesWhenDestroyed` which will cause pieces like sharp stakes or fires to drop all their resources when destroyed
+
 ### v2.4.2
 - Fixed exception that was logged when a workbench was built too close to the Forge of Potential
 

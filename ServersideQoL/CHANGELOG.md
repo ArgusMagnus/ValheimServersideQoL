@@ -1,3 +1,6 @@
+### v2.6.2
+- Compatibility patch
+
 ### v2.6.1
 - Added compatibility with PlanBuild: ServersideQoL-only pieces (like container signs) are now excluded from blueprints (thanks Jules) [#348](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/348)
 - Central API for custom conversions in obliterators

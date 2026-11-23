@@ -28,8 +28,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     with stone also in the workbench's build range and vice versa.
     """);
 
-  public ConfigEntry<bool> BuildPiecesReturnAllResourcesWhenDestroyed { get; } = BindEx(cfg, false,
-    "True to make build pieces return all their resources when destroyed");
+  public ConfigEntry<bool> BuildPiecesDropAllResourcesWhenDestroyed { get; } = BindEx(cfg, false, """
+    True to make build pieces drop all their resources when destroyed.
+    This will have an effect on build pieces like sharp stakes or fires.
+    """);
+    
 
   public IReadOnlyDictionary<Trader, IReadOnlyList<ConfigEntry<string>>> TaderProgressRequirements { get; } = GetTaderProgressRequirements(cfg);
 

@@ -20,7 +20,7 @@ public sealed class PieceProcessor : Processor<PieceProcessor.PrefabInfo>
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    if (!Config.Instance.BuildPiecesReturnAllResourcesWhenDestroyed.Value)
+    if (!Config.Instance.BuildPiecesDropAllResourcesWhenDestroyed.Value)
       return ProcessResult.UnregisterProcessor;
 
     var creator = zdo.Vars.GetCreator();
