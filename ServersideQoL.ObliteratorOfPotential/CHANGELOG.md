@@ -1,3 +1,6 @@
+### v2.6.3
+- Fixed upgrading of axes (ignore chop damage)
+
 ### v2.6.1
 - Fixed some weapons not being recognized as upgradeable
 - Improved compatibility with [Player](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_Player)

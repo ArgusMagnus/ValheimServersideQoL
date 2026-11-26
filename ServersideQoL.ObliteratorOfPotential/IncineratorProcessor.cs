@@ -113,8 +113,9 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
             var isArmor = sacrifice.m_shared.m_itemType is ItemDrop.ItemData.ItemType.Chest or ItemDrop.ItemData.ItemType.Legs or ItemDrop.ItemData.ItemType.Helmet or ItemDrop.ItemData.ItemType.Shoulder;
             var sacrificeArmor = isArmor ? sacrifice.GetArmor() : 0;
             var sacrificeBaseBlockPower = isArmor ? 0 : sacrifice.GetBaseBlockPower();
-            var sacrificeTotalDamage = isArmor ? 0 : sacrifice.GetDamage().GetTotalDamage();
-            if (sacrificeArmor <= 0 && sacrificeBaseBlockPower <= 0 && sacrificeTotalDamage <= 0)
+            var sacrificeChopDamage = isArmor ? 0 : sacrifice.GetDamage().m_chop;
+            var sacrificeTotalDamage = isArmor ? 0 : sacrifice.GetDamage().GetTotalDamage() - sacrificeChopDamage;
+            if (sacrificeArmor <= 0 && sacrificeBaseBlockPower <= 0 && sacrificeTotalDamage <= 0 && sacrificeChopDamage <= 0)
               continue;
 
             foreach (var item in Instance<IncineratorRegistryProcessor>().GetAvailableItems(zdo))
@@ -122,35 +123,39 @@ public sealed class IncineratorProcessor : Processor<IncineratorProcessor.Prefab
               if (item == upgrader || item == sacrifice || item.m_shared.m_itemType != sacrifice.m_shared.m_itemType || item.m_shared.m_skillType != sacrifice.m_shared.m_skillType)
                 continue;
 
-              if (isArmor)
-              {
-                if (item.m_shared.m_armorPerLevel <= 0 || item.GetArmor() >= sacrificeArmor)
-                  continue;
-              }
-              else
-              {
-                if (item.m_shared.m_blockPowerPerLevel <= 0 && item.m_shared.m_damagesPerLevel.GetTotalDamage() <= 0)
-                  continue;
-                if (item.m_shared.m_blockPowerPerLevel > 0 && item.GetBaseBlockPower() >= sacrificeBaseBlockPower)
-                  continue;
-                if (item.m_shared.m_damagesPerLevel.GetTotalDamage() > 0 && item.GetDamage().GetTotalDamage() >= sacrificeTotalDamage)
-                  continue;
-              }
-
               ItemDrop.ItemData? newItem = null;
               while (true)
               {
                 if (isArmor)
                 {
-                  if (item.m_shared.m_armorPerLevel > 0 && (newItem ??= item.Clone()).GetArmor() >= sacrificeArmor)
-                    break;
+                  if (item.m_shared.m_armorPerLevel > 0)
+                  {
+                    if ((newItem ?? item).GetArmor() >= sacrificeArmor)
+                      break;
+                    newItem ??= item.Clone();
+                  }
                 }
                 else
                 {
-                  if (item.m_shared.m_blockPowerPerLevel > 0 && (newItem ??= item.Clone()).GetBaseBlockPower() >= sacrificeBaseBlockPower)
-                    break;
-                  if (item.m_shared.m_damagesPerLevel.GetTotalDamage() > 0 && (newItem ??= item.Clone()).GetDamage().GetTotalDamage() >= sacrificeTotalDamage)
-                    break;
+                  if (item.m_shared.m_blockPowerPerLevel > 0)
+                  {
+                    if ((newItem ?? item).GetBaseBlockPower() >= sacrificeBaseBlockPower)
+                      break;
+                    newItem ??= item.Clone();
+                  }
+                  if (item.m_shared.m_damagesPerLevel.GetTotalDamage() > item.m_shared.m_damagesPerLevel.m_chop)
+                  {
+                    var dmg = (newItem ?? item).GetDamage();
+                    if (dmg.GetTotalDamage() - dmg.m_chop >= sacrificeTotalDamage)
+                      break;
+                    newItem ??= item.Clone();
+                  }
+                  else if (item.m_shared.m_damagesPerLevel.m_chop > 0)
+                  {
+                    if ((newItem ?? item).GetDamage().m_chop >= sacrificeChopDamage)
+                      break;
+                    newItem ??= item.Clone();
+                  }
                 }
                 if (newItem is null)
                   break;
